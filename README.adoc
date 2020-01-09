@@ -1,0 +1,12 @@
+= Setup
+
+    pip install -r requirements.txt
+    rvm alias create default <your-ruby-version>
+    rvm gemset create metanorma
+    rvm --ruby-version use default@metanorma
+    gem install bundler
+    bundle install
+
+= Usage
+
+    make all
