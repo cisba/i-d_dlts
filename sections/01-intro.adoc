@@ -30,7 +30,7 @@ have to reach consensus, and it is not yet a legal standard.
 
 The advantage of a DLT timestamp relies on the properties of a blockchain
 being resilient as a distributed system,
-aimed to survive perpetually,
+aiming to survive perpetually,
 quantum resistant by design.
 In the case of a permissioned DLT, security could be enhanced by the network of trust.
 In the case of a permissionless DLT
