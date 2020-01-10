@@ -2,10 +2,47 @@
 [#introduction]
 == Introduction
 
-AsciiRFC <<I-D.ribose-asciirfc>> is an extremely simple way to
-author Internet-Drafts and RFCs without needing to manually
-craft RFC XML conforming to <<RFC7991>>.
+Attesting that a file existed prior to a specific point in time can be useful to:
+* prove when an agreement was signed, if it is disputed
+* validate a signature after a revocation occurred
+* prove the ownership for copyright
+* grant record Integrity
 
-This is a template specifically made for authors to easily
-start with creating an Internet-Draft conforming to <<RFC7991>>
-and submittable to the IETF datatracker.
+A classical timestamp provided by a TSA [RFC3161]
+can be based on an accurate time source linked to Coordinated Universal Time,
+it can be very precise - it can proves the existence also at the second or less -,
+it replies synchronously and is a consolidated technical and legal standard [].
+//// TODO:@cisba link to ETSI and eIDAS
+
+However it can be validated for a limited time - usually no more than 20 years -,
+for technical reasons (i.e.: certificates expiration)
+and for economic reasons (i.e.: the cost of the service).
+//// TODO: @cisba citazioni
+
+Attempts has been made to mitigate the issue and extend the validity of TSA timestamps.
+//// TODO: @riba @cisba citare norme ETSI/eIDAS per la validazione a lungo termine
+
+On the other hand a Distributed Ledger Technology attestation in some cases
+could be less precise - it proves the existence at that hour or day -,
+usually requires time to be confirmed asynchronously because the distributed nodes 
+have to reach consensus, and it is not yet a legal standard.
+//// TODO: @cisba many citations needed to support this
+
+The advantage of a DLT timestamp relies on the properties of a blockchain
+being resilient as a distributed system,
+aimed to survive perpetually,
+quantum resistant by design.
+In the case of a permissioned DLT, security could be enhanced by the network of trust.
+In the case of a permissionless DLT
+security is granted by the economic incentive of miners,
+mesured by the thermodynamic expense done - more than 50 TWh per year 
+for the Bitcoin blockchain.
+//// TODO: @cisba many citations needed to support this
+
+The aim of this specification is to define an extension of the TST (Time Stamp Token)
+for DLT attestations.
+
+The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT",
+"SHALL", "RECOMMENDED", "MAY", and "OPTIONAL" in this document (in
+uppercase, as shown) are to be interpreted as described in [RFC2119].
+
