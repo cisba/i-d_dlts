@@ -141,6 +141,7 @@ nto a single Merkle Tree. Then the digest at the root of that tree is timestampe
 on a Distributed Ledger.</t>
     <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of timestamps promises and proofs.</t>
     <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of timestamps.</t>
+    <t hangText="OpenTimestamps"><vspace blankLines="0"/>A Scalable, Trust-Minimized, Distributed Timestamping on the Bitcoin Distributed Ledger <xref target="OTS"/>.</t>
   </list>
 </t></section>
 <section anchor="symbols" title="Symbols And Abbreviations">
@@ -384,6 +385,16 @@ Time stamping profile</title>
     <author fullname="Satoshi Nakamoto" role="editor">
     </author>
     <date day="31" month="October" year="2008"/>
+  </front>
+</reference>
+  <reference anchor="OTS" target="https://petertodd.org/2016/opentimestamps-announcement">
+  <front>
+    <title>
+        OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin
+    </title>
+    <author fullname="Peter Todd" role="editor">
+    </author>
+    <date day="15" month="September" year="2016"/>
   </front>
 </reference>
   <reference anchor="UK-GCSA" target="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/492972/gs-16-1-distributed-ledger-technology.pdf">

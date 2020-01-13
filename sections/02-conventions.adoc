@@ -50,3 +50,6 @@ A calendar is simply a collection of timestamps promises and proofs.
 
 Calendar Server::
 A server providing remote access to a collection of timestamps.
+
+OpenTimestamps::
+A Scalable, Trust-Minimized, Distributed Timestamping on the Bitcoin Distributed Ledger <<OTS>>.

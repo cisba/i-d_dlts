@@ -215,9 +215,9 @@ Internet-Draft                    DLTS                      January 2020
    Calendar Server
       A server providing remote access to a collection of timestamps.
 
-
-
-
+   OpenTimestamps
+      A Scalable, Trust-Minimized, Distributed Timestamping on the
+      Bitcoin Distributed Ledger [OTS].
 
 
 
@@ -455,6 +455,10 @@ Internet-Draft                    DLTS                      January 2020
               Cash System", October 2008,
               <https://bitcoin.org/bitcoin.pdf>.
 
+   [OTS]      Todd, P., Ed., "OpenTimestamps: Scalable, Trust-Minimized,
+              Distributed Timestamping with Bitcoin", September 2016,
+              <https://petertodd.org/2016/opentimestamps-announcement>.
+
    [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
               X.509 Public Key Infrastructure Certificate and
               Certificate Revocation List (CRL) Profile", RFC 3280,
@@ -492,10 +496,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: e.cisbani@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
 
 
 
