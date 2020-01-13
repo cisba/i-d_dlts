@@ -138,12 +138,12 @@ definitions:</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="Main content"><section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
+<section anchor="main" title="Calendar Servers"><section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
 tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
 all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
 <t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
 con i software di verifica attualmente disponibili.</t>
-<t>L&#8217;estensione deve rispettare le indicazioni riportate in <xref target="RFC3161"/> e <xref target="RFC3280">4.2.1 Standard Extensions</xref>.</t>
+<t>L&#8217;estensione deve rispettare le indicazioni riportate in <xref target="RFC3161"/> e Section 4.2.1 of <xref target="RFC3280"/>.</t>
 <t>Gli OID delle nuove estensioni avranno la seguente radice:</t>
 <figure>
   <artwork><![CDATA[
@@ -365,15 +365,12 @@ Time stamping profile</title>
   <reference anchor="eIDAS" target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN">
   <front>
     <title>
-        REGULATION (EU) No 910/2014
-        OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
-        of 23 July 2014
-        on electronic identification and trust services
-        for electronic transactions in the internal market
-        and repealing Directive 1999/93/EC
+        Regulation (EU) No 910/2014
     </title>
     <author>
-      <organization> THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION </organization>
+      <organization>
+        The European Parliament And The Council Of The European Union
+      </organization>
       <address>
         <postal>
           <street>60 rue Wiertz / Wiertzstraat 60</street>

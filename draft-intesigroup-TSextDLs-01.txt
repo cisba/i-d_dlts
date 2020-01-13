@@ -63,7 +63,7 @@ Table of Contents
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   4
-   4.  Main content  . . . . . . . . . . . . . . . . . . . . . . . .   5
+   4.  Calendar Servers  . . . . . . . . . . . . . . . . . . . . . .   5
      4.1.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . .   5
      4.2.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   5
        4.2.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   5
@@ -73,7 +73,7 @@ Table of Contents
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
      7.2.  Informative References  . . . . . . . . . . . . . . . . .   7
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
 
@@ -226,7 +226,7 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 4]
 Internet-Draft            TST Extension for DLT             January 2020
 
 
-4.  Main content
+4.  Calendar Servers
 
 4.1.  OpenTimestamps
 
@@ -239,7 +239,7 @@ Internet-Draft            TST Extension for DLT             January 2020
    retro-compatibile con i software di verifica attualmente disponibili.
 
    L'estensione deve rispettare le indicazioni riportate in [RFC3161] e
-   4.2.1 Standard Extensions [RFC3280].
+   Section 4.2.1 of [RFC3280].
 
    Gli OID delle nuove estensioni avranno la seguente radice:
 
@@ -349,13 +349,9 @@ Internet-Draft            TST Extension for DLT             January 2020
               Time Stamp Management And Security", 2005,
               <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
 
-   [eIDAS]    THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN
-              UNION, "REGULATION (EU) No 910/2014 OF THE EUROPEAN
-              PARLIAMENT AND OF THE COUNCIL of 23 July 2014 on
-              electronic identification and trust services for
-              electronic transactions in the internal market and
-              repealing Directive 1999/93/EC", July 2014, <https://eur-
-              lex.europa.eu/legal-content/EN/TXT/
+   [eIDAS]    The European Parliament And The Council Of The European
+              Union, "Regulation (EU) No 910/2014", July 2014,
+              <https://eur-lex.europa.eu/legal-content/EN/TXT/
               HTML/?uri=CELEX:32014R0910=EN>.
 
    [ETSI.EN.319.422]
@@ -383,6 +379,10 @@ Internet-Draft            TST Extension for DLT             January 2020
               etsi_ts/102700_102799/10277804/01.01.02_60/
               ts_10277804v010102p.pdf>.
 
+   [Haber-Stornetta]
+              Haber, S., Ed. and W. S. Stornetta, Ed., "How to Time-
+              Stamp a Digital Document", 1991,
+              <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
 
 
@@ -393,11 +393,6 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 7]
 
 Internet-Draft            TST Extension for DLT             January 2020
 
-
-   [Haber-Stornetta]
-              Haber, S., Ed. and W. S. Stornetta, Ed., "How to Time-
-              Stamp a Digital Document", 1991,
-              <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
@@ -441,6 +436,11 @@ Internet-Draft            TST Extension for DLT             January 2020
               ystem/uploads/attachment_data/file/492972/gs-16-1-
               distributed-ledger-technology.pdf>.
 
+Authors' Addresses
+
+
+
+
 
 
 
@@ -449,8 +449,6 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 8]
 
 Internet-Draft            TST Extension for DLT             January 2020
 
-
-Authors' Addresses
 
    Emanuele Cisbani
    Intesi Group
@@ -483,6 +481,8 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: dribaudo@intesigroup.com
    URI:   https://www.intesigroup.com
+
+
 
 
 

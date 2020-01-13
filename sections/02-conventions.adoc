@@ -13,19 +13,19 @@ This document also refers to the following terms and
 definitions:
 
 Public Key Infrastructure::
-as defined in <<RFC3280>>
+As defined in <<RFC3280>>
 
 Trusted Tirth Party::
-as defined in <<RFC3161>>
+As defined in <<RFC3161>>
 
 Time-Stamp Authority::
-as defined in <<RFC3161>>
+As defined in <<RFC3161>>
 
 Time-Stamp Token::
-as defined in <<RFC3161>>
+As defined in <<RFC3161>>
 
 Distributed Ledger::
-as definded by UK Government Chief Scientific Adviser <<UK-GCSA>>
+As defined by UK Government Chief Scientific Adviser <<UK-GCSA>>
 [quote,attribution="UK Government Chief Scientific Adviser, 2016"]
     __A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
@@ -36,3 +36,16 @@ of the assets stored in the ledger are maintained cryptographically through the
 use of ‘keys’ and signatures to control who can do what within the shared ledger.
 Entries can also be updated by one, some or all of the participants, according to
 rules agreed by the network.__ 
+
+Merkle Trees::
+As defined in <<RFC6962,2.1 of>>
+
+Aggregation Server::
+Where a client can submit a digest to be timestamped.
+Digests are submitted for aggregation, they’re added to a list of pending digests.
+Periodically that list is combined into a single merkle tree, and then the tip
+of that tree is timestamped.
+
+Calendar Server::
+A calendar is simply a collection of timestamps;
+a calendar server provides remote access to a calendar.

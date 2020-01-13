@@ -1,6 +1,6 @@
 
 [#main]
-== Main content
+== Calendar Servers
 
 === OpenTimestamps
 
@@ -11,7 +11,7 @@ all’interno di un timestamp che segue lo standard <<RFC3161>>.
 L’aggiunta dell’estensione non critica rende il timestamp finale retro-compatibile
 con i software di verifica attualmente disponibili.
 
-L’estensione deve rispettare le indicazioni riportate in <<RFC3161>> e <<RFC3280,4.2.1 Standard Extensions>>.
+L’estensione deve rispettare le indicazioni riportate in <<RFC3161>> e <<RFC3280,4.2.1 of>>.
 
 Gli OID delle nuove estensioni avranno la seguente radice:
 
