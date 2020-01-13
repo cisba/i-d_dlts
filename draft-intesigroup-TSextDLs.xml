@@ -7,6 +7,7 @@
 <!ENTITY RFC3280 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3280.xml">
 <!ENTITY RFC3552 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3552.xml">
 <!ENTITY RFC5378 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5378.xml">
+<!ENTITY RFC6962 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6962.xml">
 ]>
 <?rfc strict="yes"?>
 <?rfc compact="yes"?>
@@ -119,14 +120,29 @@ all capitals, as shown here.</t>
 definitions:</t>
 <t>
   <list style="hanging">
-    <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>as defined in <xref target="RFC3280"/></t>
-    <t hangText="Trusted Tirth Party"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
-    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
-    <t hangText="Time-Stamp Token"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
-    <t hangText="Distributed Ledger"><vspace blankLines="0"/>as definded by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/></t>
+    <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>As defined in <xref target="RFC3280"/></t>
+    <t hangText="Trusted Tirth Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
+    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
+    <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
+    <t hangText="Distributed Ledger"><vspace blankLines="0"/>As defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/>
+"A distributed ledger is essentially an asset database that can be shared across
+a network of multiple sites, geographies or institutions. All participants within
+a network can have their own identical copy of the ledger. Any changes to the
+ledger are reflected in all copies in minutes, or in some cases, seconds. The
+assets can be financial, legal, physical or electronic. The security and accuracy
+of the assets stored in the ledger are maintained cryptographically through the
+use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.
+Entries can also be updated by one, some or all of the participants, according to
+rules agreed by the network".</t>
+    <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in Section 2.1 of <xref target="RFC6962"/></t>
+    <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merke Tree of digests to be timestamped.
+Digests submitted for aggregation are added to a list periodically combined
+nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
+on a Distributed Ledger.</t>
+    <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of timestamps promises and proofs.</t>
+    <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of timestamps.</t>
   </list>
-</t>
-<t>    <spanx style="emph">A distributed ledger is essentially an asset database that can be shared acrossa network of multiple sites, geographies or institutions. All participants withina network can have their own identical copy of the ledger. Any changes to theledger are reflected in all copies in minutes, or in some cases, seconds. Theassets can be financial, legal, physical or electronic. The security and accuracyof the assets stored in the ledger are maintained cryptographically through theuse of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.Entries can also be updated by one, some or all of the participants, according torules agreed by the network.</spanx></t><t>-- UK Government Chief Scientific Adviser, 2016</t></section>
+</t></section>
 <section anchor="symbols" title="Symbols And Abbreviations">
   <t>
   <list style="hanging">
@@ -138,7 +154,10 @@ definitions:</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="Calendar Servers"><section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
+<section anchor="main" title="DL Time-Stamp"><section anchor="_blocks_and_transactions" title="Blocks and Transactions"/>
+<section anchor="_merkle_trees_and_aggregation" title="Merkle Trees and Aggregation"/>
+<section anchor="_calendar_servers" title="Calendar Servers"/></section>
+<section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
 tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
 all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
 <t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
@@ -150,25 +169,43 @@ con i software di verifica attualmente disponibili.</t>
 id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 ]]></artwork>
 </figure>
-<t>dove id-ce identifica la radice delle estensioni standard vedi <xref target="RFC3280"/>.</t></section>
+<t>dove id-ce identifica la radice delle estensioni standard vedi <xref target="RFC3280"/>.</t>
 <section anchor="_opentimestamps_promise" title="OpenTimestamps Promise"><t>Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 1 }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
 Promise ::= SEQUENCE {
-      version          [0] INTEGER,
-      otsPromise       [1] OtsPromise }
+    version          [0] INTEGER,
+    otsPromise       [1] OtsPromise }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
 OtsPromise ::= OCTET STRING
 ]]></artwork>
 </figure>
 <section anchor="_opentimestamps_proof" title="OpenTimestamps Proof"><t>Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 2 }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
 Proof ::= SEQUENCE {
       version        [0] INTEGER,
       otsProof       [1] OtsProof,
       blockchain     [2] UTF8String }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
 OtsProof ::= OCTET STRING
 ]]></artwork>
 </figure></section></section>
@@ -386,6 +423,7 @@ Time stamping profile</title>
   &RFC3280;
   &RFC3552;
   &RFC5378;
+  &RFC6962;
 </references>
 </back>
 </rfc>

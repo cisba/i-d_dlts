@@ -62,18 +62,21 @@ Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
    2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
-   3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   4
-   4.  Calendar Servers  . . . . . . . . . . . . . . . . . . . . . .   5
-     4.1.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . .   5
-     4.2.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   5
-       4.2.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   5
-     4.3.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   6
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .   7
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
+   3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
+   4.  DL Time-Stamp . . . . . . . . . . . . . . . . . . . . . . . .   5
+     4.1.  Blocks and Transactions . . . . . . . . . . . . . . . . .   5
+     4.2.  Merkle Trees and Aggregation  . . . . . . . . . . . . . .   5
+     4.3.  Calendar Servers  . . . . . . . . . . . . . . . . . . . .   5
+   5.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . . . .   5
+     5.1.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   6
+       5.1.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   6
+     5.2.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   6
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .   7
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
 
 1.  Introduction
 
@@ -102,9 +105,6 @@ Table of Contents
    desirables with respect to security against alteration of a time
    stamp.
 
-   The integrity of the timestamping process that is inevitably bound to
-   the integrity of the TSA gave rise anyway to other proposals like
-   [ANSI.X9.95] and [ISO.IEC.18014-4].
 
 
 
@@ -113,6 +113,10 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 2]
 
 Internet-Draft            TST Extension for DLT             January 2020
 
+
+   The integrity of the timestamping process that is inevitably bound to
+   the integrity of the TSA gave rise anyway to other proposals like
+   [ANSI.X9.95] and [ISO.IEC.18014-4].
 
    Furthermore a TSA TST can be validated for a limited time - usually
    no more than 20 years - for technical reasons - like the TSA
@@ -159,10 +163,6 @@ Internet-Draft            TST Extension for DLT             January 2020
    interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
    when, they appear in all capitals, as shown here.
 
-   This document also refers to the following terms and definitions:
-
-   Public Key Infrastructure
-
 
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 3]
@@ -170,33 +170,61 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 3]
 Internet-Draft            TST Extension for DLT             January 2020
 
 
-      as defined in [RFC3280]
+   This document also refers to the following terms and definitions:
+
+   Public Key Infrastructure
+      As defined in [RFC3280]
 
    Trusted Tirth Party
-      as defined in [RFC3161]
+      As defined in [RFC3161]
 
    Time-Stamp Authority
-      as defined in [RFC3161]
+      As defined in [RFC3161]
 
    Time-Stamp Token
-      as defined in [RFC3161]
+      As defined in [RFC3161]
 
    Distributed Ledger
-      as definded by UK Government Chief Scientific Adviser [UK-GCSA]
+      As defined by UK Government Chief Scientific Adviser [UK-GCSA] "A
+      distributed ledger is essentially an asset database that can be
+      shared across a network of multiple sites, geographies or
+      institutions.  All participants within a network can have their
+      own identical copy of the ledger.  Any changes to the ledger are
+      reflected in all copies in minutes, or in some cases, seconds.
+      The assets can be financial, legal, physical or electronic.  The
+      security and accuracy of the assets stored in the ledger are
+      maintained cryptographically through the use of 'keys' and
+      signatures to control who can do what within the shared ledger.
+      Entries can also be updated by one, some or all of the
+      participants, according to rules agreed by the network".
 
-   _A distributed ledger is essentially an asset database that can be
-   shared acrossa network of multiple sites, geographies or
-   institutions.  All participants withina network can have their own
-   identical copy of the ledger.  Any changes to theledger are reflected
-   in all copies in minutes, or in some cases, seconds.  Theassets can
-   be financial, legal, physical or electronic.  The security and
-   accuracyof the assets stored in the ledger are maintained
-   cryptographically through theuse of 'keys' and signatures to control
-   who can do what within the shared ledger.Entries can also be updated
-   by one, some or all of the participants, according torules agreed by
-   the network._
+   Merkle Tree
+      As defined in Section 2.1 of [RFC6962]
 
-   -- UK Government Chief Scientific Adviser, 2016
+   Aggregation Server
+      A server providing the aggregation in a Merke Tree of digests to
+      be timestamped.  Digests submitted for aggregation are added to a
+      list periodically combined nto a single Merkle Tree.  Then the
+      digest at the root of that tree is timestamped on a Distributed
+      Ledger.
+
+   Calendar
+      A calendar is simply a collection of timestamps promises and
+      proofs.
+
+   Calendar Server
+      A server providing remote access to a collection of timestamps.
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 4]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
 
 3.  Symbols And Abbreviations
 
@@ -215,20 +243,15 @@ Internet-Draft            TST Extension for DLT             January 2020
    DL
       Distributed Ledger
 
+4.  DL Time-Stamp
 
+4.1.  Blocks and Transactions
 
+4.2.  Merkle Trees and Aggregation
 
+4.3.  Calendar Servers
 
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 4]
-
-Internet-Draft            TST Extension for DLT             January 2020
-
-
-4.  Calendar Servers
-
-4.1.  OpenTimestamps
+5.  OpenTimestamps
 
    Il timestamp di tipo opentimestamps (basato su blockchain) dovra
    essere generato tramite l'utilizzo di un calendar server e inserito
@@ -248,30 +271,7 @@ Internet-Draft            TST Extension for DLT             January 2020
    dove id-ce identifica la radice delle estensioni standard vedi
    [RFC3280].
 
-4.2.  OpenTimestamps Promise
 
-   Questa estensione rappresenta la "promessa" restituita dal calendar
-   server in risposta alla richiesta di marcatura di un hash.  Di
-   seguito e riportata la struttura ASN.1:
-
-id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
-Promise ::= SEQUENCE {
-      version          [0] INTEGER,
-      otsPromise       [1] OtsPromise }
-OtsPromise ::= OCTET STRING
-
-4.2.1.  OpenTimestamps Proof
-
-   Questa estensione rappresenta la "prova" restituita dal calendar
-   server in risposta alla richiesta di upgrade di una promessa
-   precedentemente ricevuta.  Di seguito e riportata la struttura ASN.1:
-
-id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
-Proof ::= SEQUENCE {
-      version        [0] INTEGER,
-      otsProof       [1] OtsProof,
-      blockchain     [2] UTF8String }
-OtsProof ::= OCTET STRING
 
 
 
@@ -282,13 +282,44 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 Internet-Draft            TST Extension for DLT             January 2020
 
 
-4.3.  Code snippets
+5.1.  OpenTimestamps Promise
+
+   Questa estensione rappresenta la "promessa" restituita dal calendar
+   server in risposta alla richiesta di marcatura di un hash.  Di
+   seguito e riportata la struttura ASN.1:
+
+   id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+       id-ce-opentimestamps 1 }
+
+   Promise ::= SEQUENCE {
+       version          [0] INTEGER,
+       otsPromise       [1] OtsPromise }
+
+   OtsPromise ::= OCTET STRING
+
+5.1.1.  OpenTimestamps Proof
+
+   Questa estensione rappresenta la "prova" restituita dal calendar
+   server in risposta alla richiesta di upgrade di una promessa
+   precedentemente ricevuta.  Di seguito e riportata la struttura ASN.1:
+
+   id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+       id-ce-opentimestamps 2 }
+
+   Proof ::= SEQUENCE {
+         version        [0] INTEGER,
+         otsProof       [1] OtsProof,
+         blockchain     [2] UTF8String }
+
+   OtsProof ::= OCTET STRING
+
+5.2.  Code snippets
 
    Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
    ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
    [IETF.TLP] (Section 4) specified in [RFC5378].
 
-5.  Security Considerations
+6.  Security Considerations
 
    Any security considerations should be placed here.
 
@@ -299,6 +330,14 @@ Internet-Draft            TST Extension for DLT             January 2020
    Running of these local tools *MAY* produce unintended side effects
    that impact security.  For example
 
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 6]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
              +-----------------+----------------------------+
              | Security issue  | Discussed in               |
              +-----------------+----------------------------+
@@ -307,16 +346,16 @@ Internet-Draft            TST Extension for DLT             January 2020
              | Non-Repudiation | Section 2.2 of [RFC3552]   |
              +-----------------+----------------------------+
 
-6.  IANA Considerations
+7.  IANA Considerations
 
    This document does not require any action by IANA.
 
    But if it does, such as proposing changes to IANA registries, please
    include them here.
 
-7.  References
+8.  References
 
-7.1.  Normative References
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -328,21 +367,11 @@ Internet-Draft            TST Extension for DLT             January 2020
               Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
               2001, <https://www.rfc-editor.org/info/rfc3161>.
 
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 6]
-
-Internet-Draft            TST Extension for DLT             January 2020
-
-
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-7.2.  Informative References
+8.2.  Informative References
 
    [ANSI.X9.95]
               American National Standards Institute (ANSI), "Trusted
@@ -353,6 +382,17 @@ Internet-Draft            TST Extension for DLT             January 2020
               Union, "Regulation (EU) No 910/2014", July 2014,
               <https://eur-lex.europa.eu/legal-content/EN/TXT/
               HTML/?uri=CELEX:32014R0910=EN>.
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
 
    [ETSI.EN.319.422]
               European Telecommunications Standards Institute,
@@ -384,16 +424,6 @@ Internet-Draft            TST Extension for DLT             January 2020
               Stamp a Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 7]
-
-Internet-Draft            TST Extension for DLT             January 2020
-
-
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
               <https://trustee.ietf.org/trust-legal-provisions.html>.
@@ -408,6 +438,17 @@ Internet-Draft            TST Extension for DLT             January 2020
               "Information technology - Security techniques - Time-
               stamping services - Part 4: Traceability of time sources",
               April 2015, <https://www.iso.org/standard/59934.html>.
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
 
    [Nakamoto]
               Nakamoto, S., Ed., "Bitcoin: A Peer-to-Peer Electronic
@@ -430,6 +471,10 @@ Internet-Draft            TST Extension for DLT             January 2020
               DOI 10.17487/RFC5378, November 2008,
               <https://www.rfc-editor.org/info/rfc5378>.
 
+   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
+              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
+              <https://www.rfc-editor.org/info/rfc6962>.
+
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
               ps://assets.publishing.service.gov.uk/government/uploads/s
@@ -437,18 +482,6 @@ Internet-Draft            TST Extension for DLT             January 2020
               distributed-ledger-technology.pdf>.
 
 Authors' Addresses
-
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 8]
-
-Internet-Draft            TST Extension for DLT             January 2020
-
 
    Emanuele Cisbani
    Intesi Group
@@ -459,6 +492,18 @@ Internet-Draft            TST Extension for DLT             January 2020
    Phone: +39 026 760 641
    Email: e.cisbani@intesigroup.com
    URI:   https://www.intesigroup.com
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+Internet-Draft            TST Extension for DLT             January 2020
 
 
    Daniele Ribaudo
@@ -501,4 +546,15 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 
 
-Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]

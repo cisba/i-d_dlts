@@ -377,16 +377,19 @@
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
-<link href="#rfc.section.4" rel="Chapter" title="4 Calendar Servers">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 OpenTimestamps">
-<link href="#rfc.section.4.2" rel="Chapter" title="4.2 OpenTimestamps Promise">
-<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 OpenTimestamps Proof">
-<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Code snippets">
-<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
-<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations">
-<link href="#rfc.references" rel="Chapter" title="7 References">
-<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References">
-<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References">
+<link href="#rfc.section.4" rel="Chapter" title="4 DL Time-Stamp">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Blocks and Transactions">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Merkle Trees and Aggregation">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Calendar Servers">
+<link href="#rfc.section.5" rel="Chapter" title="5 OpenTimestamps">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 OpenTimestamps Promise">
+<link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 OpenTimestamps Proof">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Code snippets">
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
+<link href="#rfc.references" rel="Chapter" title="8 References">
+<link href="#rfc.references.1" rel="Chapter" title="8.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="8.2 Informative References">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -456,25 +459,31 @@
 </li>
 <li>3.   <a href="#rfc.section.3">Symbols And Abbreviations</a>
 </li>
-<li>4.   <a href="#rfc.section.4">Calendar Servers</a>
+<li>4.   <a href="#rfc.section.4">DL Time-Stamp</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">OpenTimestamps</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Blocks and Transactions</a>
 </li>
-<li>4.2.   <a href="#rfc.section.4.2">OpenTimestamps Promise</a>
+<li>4.2.   <a href="#rfc.section.4.2">Merkle Trees and Aggregation</a>
 </li>
-<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">OpenTimestamps Proof</a>
+<li>4.3.   <a href="#rfc.section.4.3">Calendar Servers</a>
 </li>
-</ul><li>4.3.   <a href="#rfc.section.4.3">Code snippets</a>
+</ul><li>5.   <a href="#rfc.section.5">OpenTimestamps</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">Security Considerations</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">OpenTimestamps Promise</a>
 </li>
-<li>6.   <a href="#rfc.section.6">IANA Considerations</a>
+<ul><li>5.1.1.   <a href="#rfc.section.5.1.1">OpenTimestamps Proof</a>
 </li>
-<li>7.   <a href="#rfc.references">References</a>
+</ul><li>5.2.   <a href="#rfc.section.5.2">Code snippets</a>
 </li>
-<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a>
+</ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
-<li>7.2.   <a href="#rfc.references.2">Informative References</a>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a>
+</li>
+<li>8.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>8.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>8.2.   <a href="#rfc.references.2">Informative References</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -517,29 +526,39 @@
 <dl>
 <dt>Public Key Infrastructure</dt>
 <dd style="margin-left: 8">
-<br>as defined in <a href="#RFC3280" class="xref">[RFC3280]</a>
+<br>As defined in <a href="#RFC3280" class="xref">[RFC3280]</a>
 </dd>
 <dt>Trusted Tirth Party</dt>
 <dd style="margin-left: 8">
-<br>as defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
+<br>As defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
 </dd>
 <dt>Time-Stamp Authority</dt>
 <dd style="margin-left: 8">
-<br>as defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
+<br>As defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
 </dd>
 <dt>Time-Stamp Token</dt>
 <dd style="margin-left: 8">
-<br>as defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
+<br>As defined in <a href="#RFC3161" class="xref">[RFC3161]</a>
 </dd>
 <dt>Distributed Ledger</dt>
 <dd style="margin-left: 8">
-<br>as definded by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a>
+<br>As defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
+<dt>Merkle Tree</dt>
+<dd style="margin-left: 8">
+<br>As defined in Section 2.1 of <a href="#RFC6962" class="xref">[RFC6962]</a>
 </dd>
+<dt>Aggregation Server</dt>
+<dd style="margin-left: 8">
+<br>A server providing the aggregation in a Merke Tree of digests to be timestamped.  Digests submitted for aggregation are added to a list periodically combined nto a single Merkle Tree. Then the digest at the root of that tree is timestamped on a Distributed Ledger.</dd>
+<dt>Calendar</dt>
+<dd style="margin-left: 8">
+<br>A calendar is simply a collection of timestamps promises and proofs.</dd>
+<dt>Calendar Server</dt>
+<dd style="margin-left: 8">
+<br>A server providing remote access to a collection of timestamps.</dd>
 </dl>
 
 <p> </p>
-<p><em>A distributed ledger is essentially an asset database that can be shared acrossa network of multiple sites, geographies or institutions. All participants withina network can have their own identical copy of the ledger. Any changes to theledger are reflected in all copies in minutes, or in some cases, seconds. Theassets can be financial, legal, physical or electronic. The security and accuracyof the assets stored in the ledger are maintained cryptographically through theuse of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.Entries can also be updated by one, some or all of the participants, according torules agreed by the network.</em></p>
-<p id="rfc.section.2.p.5">-- UK Government Chief Scientific Adviser, 2016</p>
 <h1 id="rfc.section.3">
 <a href="#rfc.section.3">3.</a> <a href="#symbols" id="symbols">Symbols And Abbreviations</a>
 </h1>
@@ -565,52 +584,71 @@
 
 <p> </p>
 <h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#main" id="main">Calendar Servers</a>
+<a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Time-Stamp</a>
 </h1>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#_blocks_and_transactions" id="_blocks_and_transactions">Blocks and Transactions</a>
 </h1>
-<p id="rfc.section.4.1.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
-<p id="rfc.section.4.1.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
-<p id="rfc.section.4.1.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<p id="rfc.section.4.1.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#_merkle_trees_and_aggregation" id="_merkle_trees_and_aggregation">Merkle Trees and Aggregation</a>
+</h1>
+<h1 id="rfc.section.4.3">
+<a href="#rfc.section.4.3">4.3.</a> <a href="#_calendar_servers" id="_calendar_servers">Calendar Servers</a>
+</h1>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
+</h1>
+<p id="rfc.section.5.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
+<p id="rfc.section.5.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<p id="rfc.section.5.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
 <pre>
 id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 </pre>
-<p id="rfc.section.4.1.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<h1 id="rfc.section.4.2">
-<a href="#rfc.section.4.2">4.2.</a> <a href="#_opentimestamps_promise" id="_opentimestamps_promise">OpenTimestamps Promise</a>
+<p id="rfc.section.5.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#_opentimestamps_promise" id="_opentimestamps_promise">OpenTimestamps Promise</a>
 </h1>
-<p id="rfc.section.4.2.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.1.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
-id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 1 }
+</pre>
+<pre>
 Promise ::= SEQUENCE {
-      version          [0] INTEGER,
-      otsPromise       [1] OtsPromise }
+    version          [0] INTEGER,
+    otsPromise       [1] OtsPromise }
+</pre>
+<pre>
 OtsPromise ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.4.2.1">
-<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#_opentimestamps_proof" id="_opentimestamps_proof">OpenTimestamps Proof</a>
+<h1 id="rfc.section.5.1.1">
+<a href="#rfc.section.5.1.1">5.1.1.</a> <a href="#_opentimestamps_proof" id="_opentimestamps_proof">OpenTimestamps Proof</a>
 </h1>
-<p id="rfc.section.4.2.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.1.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
-id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 2 }
+</pre>
+<pre>
 Proof ::= SEQUENCE {
       version        [0] INTEGER,
       otsProof       [1] OtsProof,
       blockchain     [2] UTF8String }
+</pre>
+<pre>
 OtsProof ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.4.3">
-<a href="#rfc.section.4.3">4.3.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
 </h1>
-<p id="rfc.section.4.3.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
-<h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#security" id="security">Security Considerations</a>
+<p id="rfc.section.5.2.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
-<p id="rfc.section.5.p.1">Any security considerations should be placed here.</p>
-<p id="rfc.section.5.p.2">As described in <a href="#main" class="xref">Section 4</a> (here&#8217;s how you refer a local anchor), local tools have to be installed before the document template can be built.</p>
-<p id="rfc.section.5.p.3">Running of these local tools <strong>MAY</strong> produce unintended side effects that impact security. For example</p>
+<p id="rfc.section.6.p.1">Any security considerations should be placed here.</p>
+<p id="rfc.section.6.p.2">As described in <a href="#main" class="xref">Section 4</a> (here&#8217;s how you refer a local anchor), local tools have to be installed before the document template can be built.</p>
+<p id="rfc.section.6.p.3">Running of these local tools <strong>MAY</strong> produce unintended side effects that impact security. For example</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="left">Security issue</th>
@@ -634,15 +672,15 @@ OtsProof ::= OCTET STRING
 </tr>
 </tbody>
 </table>
-<h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#iana" id="iana">IANA Considerations</a>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> <a href="#iana" id="iana">IANA Considerations</a>
 </h1>
-<p id="rfc.section.6.p.1">This document does not require any action by IANA.</p>
-<p id="rfc.section.6.p.2">But if it does, such as proposing changes to IANA registries, please include them here.</p>
+<p id="rfc.section.7.p.1">This document does not require any action by IANA.</p>
+<p id="rfc.section.7.p.2">But if it does, such as proposing changes to IANA registries, please include them here.</p>
 <h1 id="rfc.references">
-<a href="#rfc.references">7.</a> References</h1>
+<a href="#rfc.references">8.</a> References</h1>
 <h1 id="rfc.references.1">
-<a href="#rfc.references.1">7.1.</a> Normative References</h1>
+<a href="#rfc.references.1">8.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
@@ -661,7 +699,7 @@ OtsProof ::= OCTET STRING
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
-<a href="#rfc.references.2">7.2.</a> Informative References</h1>
+<a href="#rfc.references.2">8.2.</a> Informative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="ANSI.X9.95">[ANSI.X9.95]</b></td>
@@ -727,6 +765,11 @@ OtsProof ::= OCTET STRING
 <td class="reference"><b id="RFC5378">[RFC5378]</b></td>
 <td class="top">
 <a>Bradner, S.</a> and <a>J. Contreras</a>, "<a href="https://tools.ietf.org/html/rfc5378">Rights Contributors Provide to the IETF Trust</a>", BCP 78, RFC 5378, DOI 10.17487/RFC5378, November 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC6962">[RFC6962]</b></td>
+<td class="top">
+<a>Laurie, B.</a>, <a>Langley, A.</a> and <a>E. Kasper</a>, "<a href="https://tools.ietf.org/html/rfc6962">Certificate Transparency</a>", RFC 6962, DOI 10.17487/RFC6962, June 2013.</td>
 </tr>
 <tr>
 <td class="reference"><b id="UK-GCSA">[UK-GCSA]</b></td>

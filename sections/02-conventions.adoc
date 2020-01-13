@@ -26,8 +26,7 @@ As defined in <<RFC3161>>
 
 Distributed Ledger::
 As defined by UK Government Chief Scientific Adviser <<UK-GCSA>>
-[quote,attribution="UK Government Chief Scientific Adviser, 2016"]
-    __A distributed ledger is essentially an asset database that can be shared across
+"A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
 a network can have their own identical copy of the ledger. Any changes to the
 ledger are reflected in all copies in minutes, or in some cases, seconds. The
@@ -35,17 +34,19 @@ assets can be financial, legal, physical or electronic. The security and accurac
 of the assets stored in the ledger are maintained cryptographically through the
 use of ‘keys’ and signatures to control who can do what within the shared ledger.
 Entries can also be updated by one, some or all of the participants, according to
-rules agreed by the network.__ 
+rules agreed by the network".
 
-Merkle Trees::
+Merkle Tree::
 As defined in <<RFC6962,2.1 of>>
 
 Aggregation Server::
-Where a client can submit a digest to be timestamped.
-Digests are submitted for aggregation, they’re added to a list of pending digests.
-Periodically that list is combined into a single merkle tree, and then the tip
-of that tree is timestamped.
+A server providing the aggregation in a Merke Tree of digests to be timestamped.
+Digests submitted for aggregation are added to a list periodically combined
+nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
+on a Distributed Ledger.
+
+Calendar::
+A calendar is simply a collection of timestamps promises and proofs.
 
 Calendar Server::
-A calendar is simply a collection of timestamps;
-a calendar server provides remote access to a calendar.
+A server providing remote access to a collection of timestamps.
