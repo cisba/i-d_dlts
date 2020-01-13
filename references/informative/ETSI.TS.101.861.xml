@@ -1,0 +1,18 @@
+<reference anchor='ETSI.TS.101.861' target='https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.01_60/ts_101861v010401p.pdf'>
+  <front>
+    <title>Electronic Signatures and Infrastructures (ESI);
+Time stamping profile</title>
+    <author>
+      <organization> European Telecommunications Standards Institute </organization>
+      <address>
+        <postal>
+          <street>650 Route des Lucioles</street>
+          <city>Sophia Antipolis Cedex</city>
+          <country>France</country>
+        </postal>
+        <uri>https://www.etsi.org</uri>
+      </address>
+    </author>
+    <date month='July' year='2011'/>
+  </front>
+</reference>

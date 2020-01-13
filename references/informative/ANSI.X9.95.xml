@@ -1,0 +1,23 @@
+<reference anchor='ANSI.X9.95' target='https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005'>
+  <front>
+    <title>
+        Trusted Time Stamp Management And Security
+    </title>
+    <author>
+      <organization>
+      American National Standards Institute (ANSI)
+      </organization>
+      <address>
+        <postal>
+          <street>
+            1899 L Street, NW
+          </street>
+          <city>Washington</city>
+          <country>USA</country>
+        </postal>
+        <uri>https://ansi.org</uri>
+      </address>
+    </author>
+    <date year='2005'/>
+  </front>
+</reference>

@@ -2,6 +2,18 @@
 [#symbols]
 == Symbols And Abbreviations
 
-ADRFC::
-  abbreviated form of _AsciiRFC_
+PKI::
+    Public Key Infrastructure
+
+TTP::
+    Trusted Tirth Party
+
+TSA::
+    Time-Stamp Authority
+
+TST::
+    Time-Stamp Token
+
+DL::
+    Distributed Ledger
 

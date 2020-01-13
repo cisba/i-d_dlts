@@ -1,0 +1,13 @@
+<reference anchor='UK-GCSA' target='https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/492972/gs-16-1-distributed-ledger-technology.pdf'>
+  <front>
+    <title>
+        Distributed Ledger Technology: beyond block chain
+    </title>
+    <author>
+    <organization>
+    UK Government Chief Scientific Adviser
+    </organization>
+    </author>
+    <date month='January' year='2016'></date>
+  </front>
+</reference>

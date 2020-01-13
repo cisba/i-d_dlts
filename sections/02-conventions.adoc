@@ -12,6 +12,27 @@ all capitals, as shown here.
 This document also refers to the following terms and
 definitions:
 
-AsciiRFC::
-  an AsciiDoc-derived syntax used for authoring RFCs and
-  Internet-Drafts, as defined in <<I-D.ribose-asciirfc>>.
+Public Key Infrastructure::
+as defined in <<RFC3280>>
+
+Trusted Tirth Party::
+as defined in <<RFC3161>>
+
+Time-Stamp Authority::
+as defined in <<RFC3161>>
+
+Time-Stamp Token::
+as defined in <<RFC3161>>
+
+Distributed Ledger::
+as definded by UK Government Chief Scientific Adviser <<UK-GCSA>>
+[quote,attribution="UK Government Chief Scientific Adviser, 2016"]
+    __A distributed ledger is essentially an asset database that can be shared across
+a network of multiple sites, geographies or institutions. All participants within
+a network can have their own identical copy of the ledger. Any changes to the
+ledger are reflected in all copies in minutes, or in some cases, seconds. The
+assets can be financial, legal, physical or electronic. The security and accuracy
+of the assets stored in the ledger are maintained cryptographically through the
+use of ‘keys’ and signatures to control who can do what within the shared ledger.
+Entries can also be updated by one, some or all of the participants, according to
+rules agreed by the network.__ 

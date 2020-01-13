@@ -1,7 +1,4 @@
 [abstract]
 
-This document provides a template on how to author (or migrate!)
-a new Internet-Draft / RFC in the AsciiRFC format.
-
-NOTE: This template requires usage of the Metanorma toolchain and the
-  `metanorma-ietf` Ruby gem.
+This document provides a standard to extend Time-Stamp Tokens
+with attestations obtained from calendars writing on Distributed Ledgers

@@ -3,46 +3,51 @@
 == Introduction
 
 Attesting that a file existed prior to a specific point in time can be useful to:
+
 * prove when an agreement was signed, if it is disputed
 * validate a signature after a revocation occurred
 * prove the ownership for copyright
 * grant record Integrity
 
-A classical timestamp provided by a TSA [RFC3161]
+A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161>>
 can be based on an accurate time source linked to Coordinated Universal Time,
-it can be very precise - it can proves the existence also at the second or less -,
-it replies synchronously and is a consolidated technical and legal standard [].
-//// TODO:@cisba link to ETSI and eIDAS
+and can be very precise - it can proves the existence also at the second or less.
+It is a so consolidated standard that - for example - the European Union 
+enforced his usage with legal effect by <<eIDAS>> Regulation,
+<<ETSI.EN.319.422>> European Standard and <<ETSI.TS.101.861>> Technical Specification.
 
-However it can be validated for a limited time - usually no more than 20 years -,
-for technical reasons (i.e.: certificates expiration)
-and for economic reasons (i.e.: the cost of the service).
-//// TODO: @cisba citazioni
+In a deep comparation of Time Stamping Schemes conducted in 2001 by Masashi Une <<IMES>>,
+PKI TSA has been evaluated one of the the most desirables with respect to security against
+alteration of a time stamp.
 
-Attempts has been made to mitigate the issue and extend the validity of TSA timestamps.
-//// TODO: @riba @cisba citare norme ETSI/eIDAS per la validazione a lungo termine
+The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
+gave rise anyway to other proposals like <<ANSI.X9.95>> and <<ISO.IEC.18014-4>>.
 
-On the other hand a Distributed Ledger Technology attestation in some cases
-could be less precise - it proves the existence at that hour or day -,
-usually requires time to be confirmed asynchronously because the distributed nodes 
-have to reach consensus, and it is not yet a legal standard.
-//// TODO: @cisba many citations needed to support this
+Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years -
+for technical reasons - like the TSA certificates expiration -
+and for economic reasons - like the cost of providing the validation service by TSA.
 
-The advantage of a DLT timestamp relies on the properties of a blockchain
-being resilient as a distributed system,
-aiming to survive perpetually,
-quantum resistant by design.
-In the case of a permissioned DLT, security could be enhanced by the network of trust.
-In the case of a permissionless DLT
-security is granted by the economic incentive of miners,
-mesured by the thermodynamic expense done - more than 50 TWh per year 
-for the Bitcoin blockchain.
-//// TODO: @cisba many citations needed to support this
+This situation gave rise also to some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
+the issue by extending the validity of TSA timestamps.
 
-The aim of this specification is to define an extension of the TST (Time Stamp Token)
-for DLT attestations.
+Distributed Ledgers <<UK-GCSA>> security is based on hashes of data timestamped and widely published.
+Each timestamp includes the previous timestamp in its hash, forming a chain,
+with each additional timestamp reinforcing the ones before it.
 
-The key words "MUST", "MUST NOT", "REQUIRED", "SHOULD", "SHOULD NOT",
-"SHALL", "RECOMMENDED", "MAY", and "OPTIONAL" in this document (in
-uppercase, as shown) are to be interpreted as described in [RFC2119].
+The advantage of a DL Time-Stamp attestation relies on the resilience
+of the distributed system and the overall design aiming to survive perpetually.
 
+Based on a distributed trust scheme, a Distributed Ledger significantly increase
+security as already noted by Haber and Stornetta in 1991 <<Haber-Stornetta>>.
+
+In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
+While in the case of a permissionless DL security is granted by the economic incentive of nodes
+<<Nakamoto>>.
+
+On the other hand a DL attestation, is not yet a standard. Furthermore a DL attestation
+is as less precise - it proves the existence at a specific hour or day - as bigger and
+secure is the network: because distributed nodes need time to reach consensus.
+
+Since a DL timestamp result as a complementary element to provide a long-term
+validity to TST - the aim of this specification is to provide an extension
+of the Time-Stamp Token for Distributed Ledger attestations.

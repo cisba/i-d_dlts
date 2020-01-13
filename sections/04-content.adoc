@@ -2,47 +2,44 @@
 [#main]
 == Main content
 
-This is where you place the main content, and the following
-serves as a placeholder for your text.
+=== OpenTimestamps
 
-Subsections are used here for demonstration purposes.
+Il timestamp di tipo opentimestamps (basato su blockchain) dovrà essere generato
+tramite l’utilizzo di un calendar server e inserito come estensione non critica
+all’interno di un timestamp che segue lo standard <<RFC3161>>.
 
-=== Getting started
+L’aggiunta dell’estensione non critica rende il timestamp finale retro-compatibile
+con i software di verifica attualmente disponibili.
 
-The Metanorma and RFC toolchains *MUST* be available locally to
-build this document template.
+L’estensione deve rispettare le indicazioni riportate in <<RFC3161>> e <<RFC3280,4.2.1 Standard Extensions>>.
 
+Gli OID delle nuove estensioni avranno la seguente radice:
 
-==== Metanorma toolchain
+    id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 
-You will need to have:
+dove id-ce identifica la radice delle estensioni standard vedi <<RFC3280>>.
 
-. Ruby: for running Metanorma
+=== OpenTimestamps Promise
 
-[loweralpha]
-.. `metanorma-cli` gem: for the Metanorma command-line interface
+Questa estensione rappresenta la “promessa” restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito è riportata la struttura ASN.1:
 
-.. `metanorma-ietf` gem: for converting AsciiRFC into XML RFC
-  (v2 or v3)
-
-
-==== XML RFC toolchain
-
-You will need to have:
-
-. Python: for running `xml2rfc`
-[loweralpha]
-.. `xml2rfc`: for converting RFC XML (v2 or v3) into TXT
-.. `idnits`: for submission preflight
+    id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
+    Promise ::= SEQUENCE {
+          version          [0] INTEGER,
+          otsPromise       [1] OtsPromise }
+    OtsPromise ::= OCTET STRING
 
 
-=== Referencing external content
+==== OpenTimestamps Proof
 
-* This is a published RFC <<RFC7253>>
+Questa estensione rappresenta la “prova” restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito è riportata la struttura ASN.1:
 
-* This is an Internet-Draft <<I-D.ribose-asciirfc>>
-
-* This is an external reference <<RNP>>
+    id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
+    Proof ::= SEQUENCE {
+          version        [0] INTEGER,
+          otsProof       [1] OtsProof,
+          blockchain     [2] UTF8String }
+    OtsProof ::= OCTET STRING
 
 
 [#code-snippets]

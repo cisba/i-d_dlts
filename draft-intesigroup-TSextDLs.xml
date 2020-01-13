@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<?xml-stylesheet type="text/xsl" href="rfc2629.xslt"?>
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+<!ENTITY RFC2119 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
+<!ENTITY RFC3161 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3161.xml">
+<!ENTITY RFC8174 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
+<!ENTITY RFC3280 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3280.xml">
+<!ENTITY RFC3552 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3552.xml">
+<!ENTITY RFC5378 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5378.xml">
+]>
+<?rfc strict="yes"?>
+<?rfc compact="yes"?>
+<?rfc subcompact="no"?>
+<?rfc toc="yes"?>
+<?rfc tocdepth="4"?>
+<?rfc symrefs="yes"?>
+<?rfc sortrefs="yes"?>
+<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-TSextDLs-01">
+<front>
+  <title abbrev="TST Extension for DLT">Time-Stamp Extension for Distributed Ledgers</title>
+  <author fullname="Emanuele Cisbani" surname="Cisbani" initials="E.">
+    <organization>Intesi Group</organization>
+    <address>
+      <postal>
+        <street>Via Torino 48</street>
+        <city>Milano</city>
+        <code>20123</code>
+        <country>Italy</country>
+      </postal>
+      <phone>+39 026 760 641</phone>
+      <email>e.cisbani@intesigroup.com</email>
+      <uri>https://www.intesigroup.com</uri>
+    </address>
+  </author>
+  <author fullname="Daniele Ribaudo" surname="Ribaudo" initials="D.">
+    <organization>Intesi Group</organization>
+    <address>
+      <postal>
+        <street>Via Torino 48</street>
+        <city>Milano</city>
+        <code>20123</code>
+        <country>Italy</country>
+      </postal>
+      <phone>+39 026 760 641</phone>
+      <email>dribaudo@intesigroup.com</email>
+      <uri>https://www.intesigroup.com</uri>
+    </address>
+  </author>
+  <author fullname="Giuseppe Damiano" surname="Damiano" initials="G.">
+    <organization>Intesi Group</organization>
+    <address>
+      <postal>
+        <street>Via Torino 48</street>
+        <city>Milano</city>
+        <code>20123</code>
+        <country>Italy</country>
+      </postal>
+      <phone>+39 026 760 641</phone>
+      <email>dribaudo@intesigroup.com</email>
+      <uri>https://www.intesigroup.com</uri>
+    </address>
+  </author>
+  <date day="13" month="January" year="2020"/>
+  <area>Internet</area>
+
+<abstract>
+  <t>This document provides a standard to extend Time-Stamp Tokens
+with attestations obtained from calendars writing on Distributed Ledgers</t>
+</abstract>
+</front><middle>
+<section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful to:</t>
+<t>
+  <list style="symbols">
+    <t>prove when an agreement was signed, if it is disputed</t>
+    <t>validate a signature after a revocation occurred</t>
+    <t>prove the ownership for copyright</t>
+    <t>grant record Integrity</t>
+  </list>
+</t>
+<t>A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161"/>
+can be based on an accurate time source linked to Coordinated Universal Time,
+and can be very precise - it can proves the existence also at the second or less.
+It is a so consolidated standard that - for example - the European Union
+enforced his usage with legal effect by <xref target="eIDAS"/> Regulation,
+<xref target="ETSI.EN.319.422"/> European Standard and <xref target="ETSI.TS.101.861"/> Technical Specification.</t>
+<t>In a deep comparation of Time Stamping Schemes conducted in 2001 by Masashi Une <xref target="IMES"/>,
+PKI TSA has been evaluated one of the the most desirables with respect to security against
+alteration of a time stamp.</t>
+<t>The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
+gave rise anyway to other proposals like <xref target="ANSI.X9.95"/> and <xref target="ISO.IEC.18014-4"/>.</t>
+<t>Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years -
+for technical reasons - like the TSA certificates expiration -
+and for economic reasons - like the cost of providing the validation service by TSA.</t>
+<t>This situation gave rise also to some solutions <xref target="ETSI.TS.102.778-4"/> aimed at mitigating
+the issue by extending the validity of TSA timestamps.</t>
+<t>Distributed Ledgers <xref target="UK-GCSA"/> security is based on hashes of data timestamped and widely published.
+Each timestamp includes the previous timestamp in its hash, forming a chain,
+with each additional timestamp reinforcing the ones before it.</t>
+<t>The advantage of a DL Time-Stamp attestation relies on the resilience
+of the distributed system and the overall design aiming to survive perpetually.</t>
+<t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
+security as already noted by Haber and Stornetta in 1991 <xref target="Haber-Stornetta"/>.</t>
+<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
+While in the case of a permissionless DL security is granted by the economic incentive of nodes
+<xref target="Nakamoto"/>.</t>
+<t>On the other hand a DL attestation, is not yet a standard. Furthermore a DL attestation
+is as less precise - it proves the existence at a specific hour or day - as bigger and
+secure is the network: because distributed nodes need time to reach consensus.</t>
+<t>Since a DL timestamp result as a complementary element to provide a long-term
+validity to TST - the aim of this specification is to provide an extension
+of the Time-Stamp Token for Distributed Ledger attestations.</t></section>
+<section anchor="conventions" title="Terms and Definitions"><t>The key words "<spanx style="strong">MUST</spanx>", "<spanx style="strong">MUST NOT</spanx>", "<spanx style="strong">REQUIRED</spanx>", "<spanx style="strong">SHALL</spanx>",
+"<spanx style="strong">SHALL NOT</spanx>", "<spanx style="strong">SHOULD</spanx>", "<spanx style="strong">SHOULD NOT</spanx>", "<spanx style="strong">RECOMMENDED</spanx>",
+"<spanx style="strong">NOT RECOMMENDED</spanx>", "<spanx style="strong">MAY</spanx>", and "<spanx style="strong">OPTIONAL</spanx>" in this
+document are to be interpreted as described in BCP 14
+<xref target="RFC2119"/> <xref target="RFC8174"/> when, and only when, they appear in
+all capitals, as shown here.</t>
+<t>This document also refers to the following terms and
+definitions:</t>
+<t>
+  <list style="hanging">
+    <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>as defined in <xref target="RFC3280"/></t>
+    <t hangText="Trusted Tirth Party"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
+    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
+    <t hangText="Time-Stamp Token"><vspace blankLines="0"/>as defined in <xref target="RFC3161"/></t>
+    <t hangText="Distributed Ledger"><vspace blankLines="0"/>as definded by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/></t>
+  </list>
+</t>
+<t>    <spanx style="emph">A distributed ledger is essentially an asset database that can be shared acrossa network of multiple sites, geographies or institutions. All participants withina network can have their own identical copy of the ledger. Any changes to theledger are reflected in all copies in minutes, or in some cases, seconds. Theassets can be financial, legal, physical or electronic. The security and accuracyof the assets stored in the ledger are maintained cryptographically through theuse of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.Entries can also be updated by one, some or all of the participants, according torules agreed by the network.</spanx></t><t>-- UK Government Chief Scientific Adviser, 2016</t></section>
+<section anchor="symbols" title="Symbols And Abbreviations">
+  <t>
+  <list style="hanging">
+    <t hangText="PKI"><vspace blankLines="0"/>Public Key Infrastructure</t>
+    <t hangText="TTP"><vspace blankLines="0"/>Trusted Tirth Party</t>
+    <t hangText="TSA"><vspace blankLines="0"/>Time-Stamp Authority</t>
+    <t hangText="TST"><vspace blankLines="0"/>Time-Stamp Token</t>
+    <t hangText="DL"><vspace blankLines="0"/>Distributed Ledger</t>
+  </list>
+</t>
+</section>
+<section anchor="main" title="Main content"><section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
+tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
+all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
+<t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
+con i software di verifica attualmente disponibili.</t>
+<t>L&#8217;estensione deve rispettare le indicazioni riportate in <xref target="RFC3161"/> e <xref target="RFC3280">4.2.1 Standard Extensions</xref>.</t>
+<t>Gli OID delle nuove estensioni avranno la seguente radice:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
+]]></artwork>
+</figure>
+<t>dove id-ce identifica la radice delle estensioni standard vedi <xref target="RFC3280"/>.</t></section>
+<section anchor="_opentimestamps_promise" title="OpenTimestamps Promise"><t>Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
+Promise ::= SEQUENCE {
+      version          [0] INTEGER,
+      otsPromise       [1] OtsPromise }
+OtsPromise ::= OCTET STRING
+]]></artwork>
+</figure>
+<section anchor="_opentimestamps_proof" title="OpenTimestamps Proof"><t>Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
+Proof ::= SEQUENCE {
+      version        [0] INTEGER,
+      otsProof       [1] OtsProof,
+      blockchain     [2] UTF8String }
+OtsProof ::= OCTET STRING
+]]></artwork>
+</figure></section></section>
+<section anchor="code-snippets" title="Code snippets">
+  <t>Code snippets should be wrapped with <spanx style="verb">&lt;CODE BEGINS&gt;</spanx> and
+<spanx style="verb">&lt;CODE ENDS&gt;</spanx> blocks, as required by the IETF Trust Legal
+Provisions (TLP) <xref target="IETF.TLP"/> (Section 4) specified in <xref target="RFC5378"/>.</t>
+</section></section>
+<section anchor="security" title="Security Considerations"><t>Any security considerations should be placed here.</t>
+<t>As described in <xref target="main"/> (here&#8217;s how you refer a local anchor),
+local tools have to be installed before the document template
+can be built.</t>
+<t>Running of these local tools <spanx style="strong">MAY</spanx> produce unintended side
+effects that impact security. For example</t>
+<texttable suppress-title="false" style="full">
+  <ttcol align="left">Security issue</ttcol>
+  <ttcol align="left">Discussed in</ttcol>
+  <c>Confidentiality</c>
+  <c>Section 2.1.1 of <xref target="RFC3552"/></c>
+  <c>Data Integrity</c>
+  <c>Section 2.1.2 of <xref target="RFC3552"/></c>
+  <c>Non-Repudiation</c>
+  <c>Section 2.2 of <xref target="RFC3552"/></c>
+</texttable></section>
+<section anchor="iana" title="IANA Considerations"><t>This document does not require any action by IANA.</t>
+<t>But if it does, such as proposing changes to IANA registries,
+please include them here.</t></section>
+</middle><back>
+<references title="Normative References">
+  &RFC2119;
+  &RFC3161;
+  &RFC8174;
+</references>
+<references title="Informative References">
+  <reference anchor="ANSI.X9.95" target="https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005">
+  <front>
+    <title>
+        Trusted Time Stamp Management And Security
+    </title>
+    <author>
+      <organization>
+      American National Standards Institute (ANSI)
+      </organization>
+      <address>
+        <postal>
+          <street>
+            1899 L Street, NW
+          </street>
+          <city>Washington</city>
+          <country>USA</country>
+        </postal>
+        <uri>https://ansi.org</uri>
+      </address>
+    </author>
+    <date year="2005"/>
+  </front>
+</reference>
+  <reference anchor="ETSI.EN.319.422" target="https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf">
+  <front>
+    <title>
+    Electronic Signatures and Infrastructures (ESI);
+    Time-stamping protocol and time-stamp token profiles
+    </title>
+    <author>
+      <organization> European Telecommunications Standards Institute </organization>
+      <address>
+        <postal>
+          <street>650 Route des Lucioles</street>
+          <city>Sophia Antipolis Cedex</city>
+          <country>France</country>
+        </postal>
+        <uri>https://www.etsi.org</uri>
+      </address>
+    </author>
+    <date month="March" year="2016"/>
+  </front>
+</reference>
+  <reference anchor="ETSI.TS.101.861" target="https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.01_60/ts_101861v010401p.pdf">
+  <front>
+    <title>Electronic Signatures and Infrastructures (ESI);
+Time stamping profile</title>
+    <author>
+      <organization> European Telecommunications Standards Institute </organization>
+      <address>
+        <postal>
+          <street>650 Route des Lucioles</street>
+          <city>Sophia Antipolis Cedex</city>
+          <country>France</country>
+        </postal>
+        <uri>https://www.etsi.org</uri>
+      </address>
+    </author>
+    <date month="July" year="2011"/>
+  </front>
+</reference>
+  <reference anchor="ETSI.TS.102.778-4" target="https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.02_60/ts_10277804v010102p.pdf">
+  <front>
+    <title>
+        Electronic Signatures and Infrastructures (ESI);
+        PDF Advanced Electronic Signature Profiles;
+        Part 4: PAdES Long Term - PAdES-LTV Profile
+    </title>
+    <author>
+      <organization> European Telecommunications Standards Institute </organization>
+      <address>
+        <postal>
+          <street>650 Route des Lucioles</street>
+          <city>Sophia Antipolis Cedex</city>
+          <country>France</country>
+        </postal>
+        <uri>https://www.etsi.org</uri>
+      </address>
+    </author>
+    <date month="December" year="2009"/>
+  </front>
+</reference>
+  <reference anchor="Haber-Stornetta" target="https://www.anf.es/pdf/Haber_Stornetta.pdf">
+  <front>
+    <title>
+        How to Time-Stamp a Digital Document
+    </title>
+    <author fullname="Stuart Haber" role="editor">
+    </author>
+    <author fullname="W. Scott Stornetta" role="editor">
+    </author>
+    <date year="1991"/>
+  </front>
+</reference>
+  <reference anchor="IETF.TLP" target="https://trustee.ietf.org/trust-legal-provisions.html">
+  <front>
+  <title>IETF Trust Legal Provisions (TLP)</title>
+  <author>
+    <organization>IETF</organization>
+  </author>
+  <date month="April" day="12" year="2018"/>
+  </front>
+</reference>
+  <reference anchor="IMES" target="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486">
+  <front>
+    <title>
+        The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)
+    </title>
+    <author fullname="Masashi Une" role="editor">
+    <organization>
+    INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN
+    </organization>
+    </author>
+    <date year="2001"/>
+  </front>
+</reference>
+  <reference anchor="ISO.IEC.18014-4" target="https://www.iso.org/standard/59934.html">
+  <front>
+    <title>
+    Information technology - Security techniques -
+    Time-stamping services - Part 4: Traceability of time sources
+    </title>
+    <author>
+      <organization> International Organization for Standardization </organization>
+      <address>
+        <postal>
+          <street>Chemin de Blandonnet 8</street>
+          <city>Vernier, Geneva</city>
+          <country>Switzerland</country>
+        </postal>
+        <uri>https://www.iso.org</uri>
+      </address>
+    </author>
+    <date month="April" year="2015"/>
+  </front>
+</reference>
+  <reference anchor="Nakamoto" target="https://bitcoin.org/bitcoin.pdf">
+  <front>
+    <title>
+        Bitcoin: A Peer-to-Peer Electronic Cash System
+    </title>
+    <author fullname="Satoshi Nakamoto" role="editor">
+    </author>
+    <date day="31" month="October" year="2008"/>
+  </front>
+</reference>
+  <reference anchor="UK-GCSA" target="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/492972/gs-16-1-distributed-ledger-technology.pdf">
+  <front>
+    <title>
+        Distributed Ledger Technology: beyond block chain
+    </title>
+    <author>
+    <organization>
+    UK Government Chief Scientific Adviser
+    </organization>
+    </author>
+    <date month="January" year="2016"/>
+  </front>
+</reference>
+  <reference anchor="eIDAS" target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN">
+  <front>
+    <title>
+        REGULATION (EU) No 910/2014
+        OF THE EUROPEAN PARLIAMENT AND OF THE COUNCIL
+        of 23 July 2014
+        on electronic identification and trust services
+        for electronic transactions in the internal market
+        and repealing Directive 1999/93/EC
+    </title>
+    <author>
+      <organization> THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN UNION </organization>
+      <address>
+        <postal>
+          <street>60 rue Wiertz / Wiertzstraat 60</street>
+          <city> Bruxelles</city>
+          <country>Belgium</country>
+        </postal>
+        <uri>https://europarl.europa.eu</uri>
+      </address>
+    </author>
+    <date day="23" month="July" year="2014"/>
+  </front>
+</reference>
+  &RFC3280;
+  &RFC3552;
+  &RFC5378;
+</references>
+</back>
+</rfc>

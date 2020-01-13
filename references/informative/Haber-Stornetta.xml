@@ -1,0 +1,12 @@
+<reference anchor='Haber-Stornetta' target='https://www.anf.es/pdf/Haber_Stornetta.pdf'>
+  <front>
+    <title>
+        How to Time-Stamp a Digital Document
+    </title>
+    <author fullname="Stuart Haber" role="editor" >
+    </author>
+    <author fullname="W. Scott Stornetta" role="editor" >
+    </author>
+    <date year='1991'/>
+  </front>
+</reference>

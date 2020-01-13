@@ -1,0 +1,20 @@
+<reference anchor='ETSI.EN.319.422' target='https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf'>
+  <front>
+    <title>
+    Electronic Signatures and Infrastructures (ESI);
+    Time-stamping protocol and time-stamp token profiles
+    </title>
+    <author>
+      <organization> European Telecommunications Standards Institute </organization>
+      <address>
+        <postal>
+          <street>650 Route des Lucioles</street>
+          <city>Sophia Antipolis Cedex</city>
+          <country>France</country>
+        </postal>
+        <uri>https://www.etsi.org</uri>
+      </address>
+    </author>
+    <date month='March' year='2016'/>
+  </front>
+</reference>

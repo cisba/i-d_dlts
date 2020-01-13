@@ -1,0 +1,10 @@
+<reference anchor='Nakamoto' target='https://bitcoin.org/bitcoin.pdf'>
+  <front>
+    <title>
+        Bitcoin: A Peer-to-Peer Electronic Cash System
+    </title>
+    <author fullname="Satoshi Nakamoto" role="editor" >
+    </author>
+    <date day='31' month='October' year='2008'></date>
+  </front>
+</reference>

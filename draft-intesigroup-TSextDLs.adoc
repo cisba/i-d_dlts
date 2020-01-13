@@ -1,0 +1,59 @@
+= Time-Stamp Extension for Distributed Ledgers
+:doctype: internet-draft
+:name: draft-intesigroup-TSextDLs-01
+:abbrev: TST Extension for DLT
+:updates: 3161
+:status: std
+:ipr: trust200902
+:submissionType: individual
+:area: Internet
+:intended-series: full-standard
+:revdate: 2020-01-13T00:00:00Z
+:fullname: Emanuele Cisbani
+:lastname: Cisbani
+:forename_initials: E.
+:organization: Intesi Group
+:phone: +39 026 760 641
+:street: Via Torino 48
+:city: Milano
+:code: 20123
+:country: Italy
+:uri: https://www.intesigroup.com
+:email: e.cisbani@intesigroup.com
+:fullname_2: Daniele Ribaudo
+:lastname_2: Ribaudo
+:forename_initials_2: D.
+:organization_2: Intesi Group
+:phone_2: +39 026 760 641
+:street_2: Via Torino 48
+:city_2: Milano
+:code_2: 20123
+:country_2: Italy
+:uri_2: https://www.intesigroup.com
+:email_2: dribaudo@intesigroup.com
+:fullname_3: Giuseppe Damiano
+:lastname_3: Damiano
+:forename_initials_3: G.
+:organization_3: Intesi Group
+:phone_3: +39 026 760 641
+:street_3: Via Torino 48
+:city_3: Milano
+:code_3: 20123
+:country_3: Italy
+:uri_3: https://www.intesigroup.com
+:email_3: dribaudo@intesigroup.com
+:docfile: draft-intesigroup-TSextDLs.adoc
+:mn-document-class: ietf
+:mn-output-extensions: xmlrfc2,txt,html,nits
+
+include::sections/00-abstract.adoc[]
+include::sections/01-intro.adoc[]
+include::sections/02-conventions.adoc[]
+include::sections/03-symbols.adoc[]
+include::sections/04-content.adoc[]
+include::sections/10-security.adoc[]
+include::sections/11-iana.adoc[]
+
+// References must be given before appendixes
+include::sections/98-references.adoc[]
+//include::sections/97-examples.adoc[]

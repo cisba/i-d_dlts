@@ -1,0 +1,504 @@
+
+
+
+
+Network Working Group                                         E. Cisbani
+Internet-Draft                                                D. Ribaudo
+Updates: 3161 (if approved)                                   G. Damiano
+Intended status: Standards Track                            Intesi Group
+Expires: July 16, 2020                                  January 13, 2020
+
+
+              Time-Stamp Extension for Distributed Ledgers
+                     draft-intesigroup-TSextDLs-01
+
+Abstract
+
+   This document provides a standard to extend Time-Stamp Tokens with
+   attestations obtained from calendars writing on Distributed Ledgers
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on July 16, 2020.
+
+Copyright Notice
+
+   Copyright (c) 2020 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 1]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+   2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
+   3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   4
+   4.  Main content  . . . . . . . . . . . . . . . . . . . . . . . .   5
+     4.1.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . .   5
+     4.2.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   5
+       4.2.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   5
+     4.3.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   6
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   6
+   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
+   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .   7
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
+
+1.  Introduction
+
+   Attesting that a file existed prior to a specific point in time can
+   be useful to:
+
+   o  prove when an agreement was signed, if it is disputed
+
+   o  validate a signature after a revocation occurred
+
+   o  prove the ownership for copyright
+
+   o  grant record Integrity
+
+   A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA)
+   compliant with [RFC3161] can be based on an accurate time source
+   linked to Coordinated Universal Time, and can be very precise - it
+   can proves the existence also at the second or less.  It is a so
+   consolidated standard that - for example - the European Union
+   enforced his usage with legal effect by [eIDAS] Regulation,
+   [ETSI.EN.319.422] European Standard and [ETSI.TS.101.861] Technical
+   Specification.
+
+   In a deep comparation of Time Stamping Schemes conducted in 2001 by
+   Masashi Une [IMES], PKI TSA has been evaluated one of the the most
+   desirables with respect to security against alteration of a time
+   stamp.
+
+   The integrity of the timestamping process that is inevitably bound to
+   the integrity of the TSA gave rise anyway to other proposals like
+   [ANSI.X9.95] and [ISO.IEC.18014-4].
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 2]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+   Furthermore a TSA TST can be validated for a limited time - usually
+   no more than 20 years - for technical reasons - like the TSA
+   certificates expiration - and for economic reasons - like the cost of
+   providing the validation service by TSA.
+
+   This situation gave rise also to some solutions [ETSI.TS.102.778-4]
+   aimed at mitigating the issue by extending the validity of TSA
+   timestamps.
+
+   Distributed Ledgers [UK-GCSA] security is based on hashes of data
+   timestamped and widely published.  Each timestamp includes the
+   previous timestamp in its hash, forming a chain, with each additional
+   timestamp reinforcing the ones before it.
+
+   The advantage of a DL Time-Stamp attestation relies on the resilience
+   of the distributed system and the overall design aiming to survive
+   perpetually.
+
+   Based on a distributed trust scheme, a Distributed Ledger
+   significantly increase security as already noted by Haber and
+   Stornetta in 1991 [Haber-Stornetta].
+
+   In the case of a permissioned DL, security could be enhanced by an
+   authoritative network of trust.  While in the case of a
+   permissionless DL security is granted by the economic incentive of
+   nodes [Nakamoto].
+
+   On the other hand a DL attestation, is not yet a standard.
+   Furthermore a DL attestation is as less precise - it proves the
+   existence at a specific hour or day - as bigger and secure is the
+   network: because distributed nodes need time to reach consensus.
+
+   Since a DL timestamp result as a complementary element to provide a
+   long-term validity to TST - the aim of this specification is to
+   provide an extension of the Time-Stamp Token for Distributed Ledger
+   attestations.
+
+2.  Terms and Definitions
+
+   The key words "*MUST*", "*MUST NOT*", "*REQUIRED*", "*SHALL*",
+   "*SHALL NOT*", "*SHOULD*", "*SHOULD NOT*", "*RECOMMENDED*", "*NOT
+   RECOMMENDED*", "*MAY*", and "*OPTIONAL*" in this document are to be
+   interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
+   when, they appear in all capitals, as shown here.
+
+   This document also refers to the following terms and definitions:
+
+   Public Key Infrastructure
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 3]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+      as defined in [RFC3280]
+
+   Trusted Tirth Party
+      as defined in [RFC3161]
+
+   Time-Stamp Authority
+      as defined in [RFC3161]
+
+   Time-Stamp Token
+      as defined in [RFC3161]
+
+   Distributed Ledger
+      as definded by UK Government Chief Scientific Adviser [UK-GCSA]
+
+   _A distributed ledger is essentially an asset database that can be
+   shared acrossa network of multiple sites, geographies or
+   institutions.  All participants withina network can have their own
+   identical copy of the ledger.  Any changes to theledger are reflected
+   in all copies in minutes, or in some cases, seconds.  Theassets can
+   be financial, legal, physical or electronic.  The security and
+   accuracyof the assets stored in the ledger are maintained
+   cryptographically through theuse of 'keys' and signatures to control
+   who can do what within the shared ledger.Entries can also be updated
+   by one, some or all of the participants, according torules agreed by
+   the network._
+
+   -- UK Government Chief Scientific Adviser, 2016
+
+3.  Symbols And Abbreviations
+
+   PKI
+      Public Key Infrastructure
+
+   TTP
+      Trusted Tirth Party
+
+   TSA
+      Time-Stamp Authority
+
+   TST
+      Time-Stamp Token
+
+   DL
+      Distributed Ledger
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 4]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+4.  Main content
+
+4.1.  OpenTimestamps
+
+   Il timestamp di tipo opentimestamps (basato su blockchain) dovra
+   essere generato tramite l'utilizzo di un calendar server e inserito
+   come estensione non critica all'interno di un timestamp che segue lo
+   standard [RFC3161].
+
+   L'aggiunta dell'estensione non critica rende il timestamp finale
+   retro-compatibile con i software di verifica attualmente disponibili.
+
+   L'estensione deve rispettare le indicazioni riportate in [RFC3161] e
+   4.2.1 Standard Extensions [RFC3280].
+
+   Gli OID delle nuove estensioni avranno la seguente radice:
+
+   id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
+
+   dove id-ce identifica la radice delle estensioni standard vedi
+   [RFC3280].
+
+4.2.  OpenTimestamps Promise
+
+   Questa estensione rappresenta la "promessa" restituita dal calendar
+   server in risposta alla richiesta di marcatura di un hash.  Di
+   seguito e riportata la struttura ASN.1:
+
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= { id-ce-opentimestamps 1 }
+Promise ::= SEQUENCE {
+      version          [0] INTEGER,
+      otsPromise       [1] OtsPromise }
+OtsPromise ::= OCTET STRING
+
+4.2.1.  OpenTimestamps Proof
+
+   Questa estensione rappresenta la "prova" restituita dal calendar
+   server in risposta alla richiesta di upgrade di una promessa
+   precedentemente ricevuta.  Di seguito e riportata la struttura ASN.1:
+
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= { id-ce-opentimestamps 2 }
+Proof ::= SEQUENCE {
+      version        [0] INTEGER,
+      otsProof       [1] OtsProof,
+      blockchain     [2] UTF8String }
+OtsProof ::= OCTET STRING
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 5]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+4.3.  Code snippets
+
+   Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
+   ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
+   [IETF.TLP] (Section 4) specified in [RFC5378].
+
+5.  Security Considerations
+
+   Any security considerations should be placed here.
+
+   As described in Section 4 (here's how you refer a local anchor),
+   local tools have to be installed before the document template can be
+   built.
+
+   Running of these local tools *MAY* produce unintended side effects
+   that impact security.  For example
+
+             +-----------------+----------------------------+
+             | Security issue  | Discussed in               |
+             +-----------------+----------------------------+
+             | Confidentiality | Section 2.1.1 of [RFC3552] |
+             | Data Integrity  | Section 2.1.2 of [RFC3552] |
+             | Non-Repudiation | Section 2.2 of [RFC3552]   |
+             +-----------------+----------------------------+
+
+6.  IANA Considerations
+
+   This document does not require any action by IANA.
+
+   But if it does, such as proposing changes to IANA registries, please
+   include them here.
+
+7.  References
+
+7.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+   [RFC3161]  Adams, C., Cain, P., Pinkas, D., and R. Zuccherato,
+              "Internet X.509 Public Key Infrastructure Time-Stamp
+              Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
+              2001, <https://www.rfc-editor.org/info/rfc3161>.
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 6]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+7.2.  Informative References
+
+   [ANSI.X9.95]
+              American National Standards Institute (ANSI), "Trusted
+              Time Stamp Management And Security", 2005,
+              <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
+
+   [eIDAS]    THE EUROPEAN PARLIAMENT AND THE COUNCIL OF THE EUROPEAN
+              UNION, "REGULATION (EU) No 910/2014 OF THE EUROPEAN
+              PARLIAMENT AND OF THE COUNCIL of 23 July 2014 on
+              electronic identification and trust services for
+              electronic transactions in the internal market and
+              repealing Directive 1999/93/EC", July 2014, <https://eur-
+              lex.europa.eu/legal-content/EN/TXT/
+              HTML/?uri=CELEX:32014R0910=EN>.
+
+   [ETSI.EN.319.422]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); Time-
+              stamping protocol and time-stamp token profiles", March
+              2016, <https://www.etsi.org/deliver/
+              etsi_en/319400_319499/319422/01.01.01_60/
+              en_319422v010101p.pdf>.
+
+   [ETSI.TS.101.861]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); Time
+              stamping profile", July 2011,
+              <https://www.etsi.org/deliver/
+              etsi_ts/101800_101899/101861/01.04.01_60/
+              ts_101861v010401p.pdf>.
+
+   [ETSI.TS.102.778-4]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); PDF
+              Advanced Electronic Signature Profiles; Part 4: PAdES Long
+              Term - PAdES-LTV Profile", December 2009,
+              <https://www.etsi.org/deliver/
+              etsi_ts/102700_102799/10277804/01.01.02_60/
+              ts_10277804v010102p.pdf>.
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+   [Haber-Stornetta]
+              Haber, S., Ed. and W. S. Stornetta, Ed., "How to Time-
+              Stamp a Digital Document", 1991,
+              <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
+
+   [IETF.TLP]
+              IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
+              <https://trustee.ietf.org/trust-legal-provisions.html>.
+
+   [IMES]     Une, M., Ed., "The Security Evaluation of Time Stamping
+              Schemes: The Present Situation and Studies (2001)", 2001,
+              <http://citeseerx.ist.psu.edu/viewdoc/
+              summary?doi=10.1.1.23.7486>.
+
+   [ISO.IEC.18014-4]
+              International Organization for Standardization,
+              "Information technology - Security techniques - Time-
+              stamping services - Part 4: Traceability of time sources",
+              April 2015, <https://www.iso.org/standard/59934.html>.
+
+   [Nakamoto]
+              Nakamoto, S., Ed., "Bitcoin: A Peer-to-Peer Electronic
+              Cash System", October 2008,
+              <https://bitcoin.org/bitcoin.pdf>.
+
+   [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
+              X.509 Public Key Infrastructure Certificate and
+              Certificate Revocation List (CRL) Profile", RFC 3280,
+              DOI 10.17487/RFC3280, April 2002,
+              <https://www.rfc-editor.org/info/rfc3280>.
+
+   [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
+              Text on Security Considerations", BCP 72, RFC 3552,
+              DOI 10.17487/RFC3552, July 2003,
+              <https://www.rfc-editor.org/info/rfc3552>.
+
+   [RFC5378]  Bradner, S., Ed. and J. Contreras, Ed., "Rights
+              Contributors Provide to the IETF Trust", BCP 78, RFC 5378,
+              DOI 10.17487/RFC5378, November 2008,
+              <https://www.rfc-editor.org/info/rfc5378>.
+
+   [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
+              Ledger Technology: beyond block chain", January 2016, <htt
+              ps://assets.publishing.service.gov.uk/government/uploads/s
+              ystem/uploads/attachment_data/file/492972/gs-16-1-
+              distributed-ledger-technology.pdf>.
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft            TST Extension for DLT             January 2020
+
+
+Authors' Addresses
+
+   Emanuele Cisbani
+   Intesi Group
+   Via Torino 48
+   Milano  20123
+   Italy
+
+   Phone: +39 026 760 641
+   Email: e.cisbani@intesigroup.com
+   URI:   https://www.intesigroup.com
+
+
+   Daniele Ribaudo
+   Intesi Group
+   Via Torino 48
+   Milano  20123
+   Italy
+
+   Phone: +39 026 760 641
+   Email: dribaudo@intesigroup.com
+   URI:   https://www.intesigroup.com
+
+
+   Giuseppe Damiano
+   Intesi Group
+   Via Torino 48
+   Milano  20123
+   Italy
+
+   Phone: +39 026 760 641
+   Email: dribaudo@intesigroup.com
+   URI:   https://www.intesigroup.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
