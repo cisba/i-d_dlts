@@ -9,8 +9,8 @@ Intended status: Standards Track                            Intesi Group
 Expires: July 16, 2020                                  January 13, 2020
 
 
-              Time-Stamp Extension for Distributed Ledgers
-                     draft-intesigroup-TSextDLs-01
+                     Distributed Ledger Time-Stamp
+                       draft-intesigroup-DLTS-01
 
 Abstract
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 1]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
 Table of Contents
@@ -111,7 +111,7 @@ Table of Contents
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 2]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
    The integrity of the timestamping process that is inevitably bound to
@@ -167,7 +167,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 3]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
    This document also refers to the following terms and definitions:
@@ -223,7 +223,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 4]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
 3.  Symbols And Abbreviations
@@ -279,7 +279,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
 5.1.  OpenTimestamps Promise
@@ -335,7 +335,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
              +-----------------+----------------------------+
@@ -391,7 +391,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 7]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
    [ETSI.EN.319.422]
@@ -447,7 +447,7 @@ Internet-Draft            TST Extension for DLT             January 2020
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 8]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
    [Nakamoto]
@@ -503,7 +503,7 @@ Authors' Addresses
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 9]
 
-Internet-Draft            TST Extension for DLT             January 2020
+Internet-Draft                    DLTS                      January 2020
 
 
    Daniele Ribaudo

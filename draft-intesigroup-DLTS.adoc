@@ -1,7 +1,7 @@
-= Time-Stamp Extension for Distributed Ledgers
+= Distributed Ledger Time-Stamp
 :doctype: internet-draft
-:name: draft-intesigroup-TSextDLs-01
-:abbrev: TST Extension for DLT
+:name: draft-intesigroup-DLTS-01
+:abbrev: DLTS
 :updates: 3161
 :status: std
 :ipr: trust200902
@@ -42,7 +42,7 @@
 :country_3: Italy
 :uri_3: https://www.intesigroup.com
 :email_3: dribaudo@intesigroup.com
-:docfile: draft-intesigroup-TSextDLs.adoc
+:docfile: draft-intesigroup-DLTS.adoc
 :mn-document-class: ietf
 :mn-output-extensions: xmlrfc2,txt,html,nits
 

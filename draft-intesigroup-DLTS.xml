@@ -16,9 +16,9 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-TSextDLs-01">
+<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-DLTS-01">
 <front>
-  <title abbrev="TST Extension for DLT">Time-Stamp Extension for Distributed Ledgers</title>
+  <title abbrev="DLTS">Distributed Ledger Time-Stamp</title>
   <author fullname="Emanuele Cisbani" surname="Cisbani" initials="E.">
     <organization>Intesi Group</organization>
     <address>
