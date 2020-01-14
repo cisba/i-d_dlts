@@ -42,14 +42,19 @@ As defined in <<Merkle>>, <<CrosbyWallach>> and<<RFC6962,2.1 of>>
 Aggregation Server::
 A server providing the aggregation in a Merke Tree of digests to be timestamped.
 Digests submitted for aggregation are added to a list periodically combined
-nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
+into a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.
 
+Distributed Ledger Attestation::
+A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping
+in a precise Distributed Ledger.
+
 Calendar::
-A calendar is simply a collection of timestamps promises and proofs.
+A calendar is simply a collection of Distributed Ledger Attestations.
 
 Calendar Server::
-A server providing remote access to a collection of timestamps.
+A server providing remote access to a collection of Distributed Ledger Attestation.
 
 OpenTimestamps::
-A Scalable, Trust-Minimized, Distributed Timestamping on the Bitcoin Distributed Ledger <<OTS>>.
+An open source software acting as aggregation and calendar server to timestamp
+on the Bitcoin Distributed Ledger <<OTS>>.

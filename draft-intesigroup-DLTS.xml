@@ -29,7 +29,7 @@
         <country>Italy</country>
       </postal>
       <phone>+39 026 760 641</phone>
-      <email>e.cisbani@intesigroup.com</email>
+      <email>ecisbani@intesigroup.com</email>
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
@@ -66,7 +66,7 @@
 
 <abstract>
   <t>This document provides a standard to extend Time-Stamp Tokens
-with attestations obtained from calendars writing on Distributed Ledgers</t>
+with Time Attestations recorded on Distributed Ledgers</t>
 </abstract>
 </front><middle>
 <section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful to:</t>
@@ -97,19 +97,19 @@ the issue by extending the validity of TSA timestamps.</t>
 <t>Distributed Ledgers <xref target="UK-GCSA"/> security is based on hashes of data timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.</t>
-<t>The advantage of a DL Time-Stamp attestation relies on the resilience
+<t>The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.</t>
 <t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta"/>.</t>
 <t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
 While in the case of a permissionless DL security is granted by the economic incentive of nodes
 <xref target="Nakamoto"/>.</t>
-<t>On the other hand a DL attestation, is not yet a standard. Furthermore a DL attestation
+<t>On the other hand a DLA is not yet a standard. Furthermore a DLA
 is as less precise - it proves the existence at a specific hour or day - as bigger and
 secure is the network: because distributed nodes need time to reach consensus.</t>
-<t>Since a DL timestamp result as a complementary element to provide a long-term
+<t>Since a DLA result as a complementary element to provide a long-term
 validity to TST - the aim of this specification is to provide an extension
-of the Time-Stamp Token for Distributed Ledger attestations.</t></section>
+of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</t></section>
 <section anchor="conventions" title="Terms and Definitions"><t>The key words "<spanx style="strong">MUST</spanx>", "<spanx style="strong">MUST NOT</spanx>", "<spanx style="strong">REQUIRED</spanx>", "<spanx style="strong">SHALL</spanx>",
 "<spanx style="strong">SHALL NOT</spanx>", "<spanx style="strong">SHOULD</spanx>", "<spanx style="strong">SHOULD NOT</spanx>", "<spanx style="strong">RECOMMENDED</spanx>",
 "<spanx style="strong">NOT RECOMMENDED</spanx>", "<spanx style="strong">MAY</spanx>", and "<spanx style="strong">OPTIONAL</spanx>" in this
@@ -139,8 +139,9 @@ rules agreed by the network".</t>
 Digests submitted for aggregation are added to a list periodically combined
 nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.</t>
-    <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of timestamps promises and proofs.</t>
-    <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of timestamps.</t>
+    <t hangText="Distributed Ledger Attestation"><vspace blankLines="0"/>A proof or a promise of timestamping in a precise Distributed Ledger.</t>
+    <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of Distributed Ledger Attestations.</t>
+    <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of Distributed Ledger Attestation.</t>
     <t hangText="OpenTimestamps"><vspace blankLines="0"/>A Scalable, Trust-Minimized, Distributed Timestamping on the Bitcoin Distributed Ledger <xref target="OTS"/>.</t>
   </list>
 </t></section>
@@ -148,72 +149,18 @@ on a Distributed Ledger.</t>
   <t>
   <list style="hanging">
     <t hangText="PKI"><vspace blankLines="0"/>Public Key Infrastructure</t>
-    <t hangText="TTP"><vspace blankLines="0"/>Trusted Tirth Party</t>
+    <t hangText="TTP"><vspace blankLines="0"/>Trusted Third Party</t>
     <t hangText="TSA"><vspace blankLines="0"/>Time-Stamp Authority</t>
     <t hangText="TST"><vspace blankLines="0"/>Time-Stamp Token</t>
     <t hangText="DL"><vspace blankLines="0"/>Distributed Ledger</t>
+    <t hangText="DLA"><vspace blankLines="0"/>Distributed Ledger Attestation</t>
   </list>
 </t>
 </section>
 <section anchor="main" title="DL Attestation"><section anchor="_aggregation_server" title="Aggregation Server"/>
 <section anchor="_calendar_server" title="Calendar Server"/>
-<section anchor="_opentimestamps" title="OpenTimeStamps"/></section>
-<section anchor="_dl_extension_of_tst" title="DL Extension of TST"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
-tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
-all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
-<t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
-con i software di verifica attualmente disponibili.</t>
-<t>L&#8217;estensione deve rispettare le indicazioni riportate in <xref target="RFC3161"/> e Section 4.2.1 of <xref target="RFC3280"/>.</t>
-<t>Gli OID delle nuove estensioni avranno la seguente radice:</t>
-<figure>
-  <artwork><![CDATA[
-id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
-]]></artwork>
-</figure>
-<t>dove id-ce identifica la radice delle estensioni standard vedi <xref target="RFC3280"/>.</t>
-<section anchor="_opentimestamps_promise" title="OpenTimestamps Promise"><t>Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</t>
-<figure>
-  <artwork><![CDATA[
-id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
-    id-ce-opentimestamps 1 }
-]]></artwork>
-</figure>
-<figure>
-  <artwork><![CDATA[
-Promise ::= SEQUENCE {
-    version          [0] INTEGER,
-    otsPromise       [1] OtsPromise }
-]]></artwork>
-</figure>
-<figure>
-  <artwork><![CDATA[
-OtsPromise ::= OCTET STRING
-]]></artwork>
-</figure>
-<section anchor="_opentimestamps_proof" title="OpenTimestamps Proof"><t>Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</t>
-<figure>
-  <artwork><![CDATA[
-id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
-    id-ce-opentimestamps 2 }
-]]></artwork>
-</figure>
-<figure>
-  <artwork><![CDATA[
-Proof ::= SEQUENCE {
-      version        [0] INTEGER,
-      otsProof       [1] OtsProof,
-      blockchain     [2] UTF8String }
-]]></artwork>
-</figure>
-<figure>
-  <artwork><![CDATA[
-OtsProof ::= OCTET STRING
-]]></artwork>
-</figure></section></section>
-<section anchor="code-snippets" title="Code snippets">
-  <t>Code snippets should be wrapped with <spanx style="verb">&lt;CODE BEGINS&gt;</spanx> and
-<spanx style="verb">&lt;CODE ENDS&gt;</spanx> blocks, as required by the IETF Trust Legal
-Provisions (TLP) <xref target="IETF.TLP"/> (Section 4) specified in <xref target="RFC5378"/>.</t>
+<section anchor="_opentimestamps" title="OpenTimeStamps">
+  <t>Unresolved directive in draft-intesigroup-DLTS.adoc - include::sections/04-dl_extension.adoc[]</t>
 </section></section>
 <section anchor="security" title="Security Considerations"><t>Any security considerations should be placed here.</t>
 <t>As described in <xref target="main"/> (here&#8217;s how you refer a local anchor),

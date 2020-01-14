@@ -34,7 +34,7 @@ Distributed Ledgers <<UK-GCSA>> security is based on hashes of data timestamped 
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
 
-The advantage of a DL Time-Stamp attestation relies on the resilience
+The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.
 
 Based on a distributed trust scheme, a Distributed Ledger significantly increase
@@ -44,10 +44,10 @@ In the case of a permissioned DL, security could be enhanced by an authoritative
 While in the case of a permissionless DL security is granted by the economic incentive of nodes
 <<Nakamoto>>.
 
-On the other hand a DL attestation, is not yet a standard. Furthermore a DL attestation
+On the other hand a DLA is not yet a standard. Furthermore a DLA
 is as less precise - it proves the existence at a specific hour or day - as bigger and
 secure is the network: because distributed nodes need time to reach consensus.
 
-Since a DL timestamp result as a complementary element to provide a long-term
+Since a DLA result as a complementary element to provide a long-term
 validity to TST - the aim of this specification is to provide an extension
-of the Time-Stamp Token for Distributed Ledger attestations.
+of the Time-Stamp Token for Distributed Ledger Attestations (DLA).
