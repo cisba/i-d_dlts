@@ -155,9 +155,7 @@ on a Distributed Ledger.</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="DL Attestation"><section anchor="_blocks" title="Blocks"/>
-<section anchor="_merkle_trees" title="Merkle Trees"/>
-<section anchor="_aggregation_server" title="Aggregation Server"/>
+<section anchor="main" title="DL Attestation"><section anchor="_aggregation_server" title="Aggregation Server"/>
 <section anchor="_calendar_server" title="Calendar Server"/>
 <section anchor="_opentimestamps" title="OpenTimeStamps"/></section>
 <section anchor="_dl_extension_of_tst" title="DL Extension of TST"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato

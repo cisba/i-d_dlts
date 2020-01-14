@@ -64,11 +64,9 @@ Table of Contents
    2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
    4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   5
-     4.1.  Blocks  . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     4.2.  Merkle Trees  . . . . . . . . . . . . . . . . . . . . . .   5
-     4.3.  Aggregation Server  . . . . . . . . . . . . . . . . . . .   5
-     4.4.  Calendar Server . . . . . . . . . . . . . . . . . . . . .   5
-     4.5.  OpenTimeStamps  . . . . . . . . . . . . . . . . . . . . .   5
+     4.1.  Aggregation Server  . . . . . . . . . . . . . . . . . . .   5
+     4.2.  Calendar Server . . . . . . . . . . . . . . . . . . . . .   5
+     4.3.  OpenTimeStamps  . . . . . . . . . . . . . . . . . . . . .   5
    5.  DL Extension of TST . . . . . . . . . . . . . . . . . . . . .   5
      5.1.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   6
        5.1.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   6
@@ -106,6 +104,8 @@ Table of Contents
    Masashi Une [IMES], PKI TSA has been evaluated one of the the most
    desirables with respect to security against alteration of a time
    stamp.
+
+
 
 
 
@@ -248,15 +248,11 @@ Internet-Draft                    DLTS                      January 2020
 
 4.  DL Attestation
 
-4.1.  Blocks
+4.1.  Aggregation Server
 
-4.2.  Merkle Trees
+4.2.  Calendar Server
 
-4.3.  Aggregation Server
-
-4.4.  Calendar Server
-
-4.5.  OpenTimeStamps
+4.3.  OpenTimeStamps
 
 5.  DL Extension of TST
 
@@ -275,15 +271,16 @@ Internet-Draft                    DLTS                      January 2020
 
    id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 
+   dove id-ce identifica la radice delle estensioni standard vedi
+   [RFC3280].
+
+
 
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 
 Internet-Draft                    DLTS                      January 2020
 
-
-   dove id-ce identifica la radice delle estensioni standard vedi
-   [RFC3280].
 
 5.1.  OpenTimestamps Promise
 
@@ -330,6 +327,9 @@ Internet-Draft                    DLTS                      January 2020
    local tools have to be installed before the document template can be
    built.
 
+   Running of these local tools *MAY* produce unintended side effects
+   that impact security.  For example
+
 
 
 
@@ -337,9 +337,6 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 
 Internet-Draft                    DLTS                      January 2020
 
-
-   Running of these local tools *MAY* produce unintended side effects
-   that impact security.  For example
 
              +-----------------+----------------------------+
              | Security issue  | Discussed in               |
@@ -381,9 +378,12 @@ Internet-Draft                    DLTS                      January 2020
               Time Stamp Management And Security", 2005,
               <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
 
-
-
-
+   [CrosbyWallach]
+              Crosby, S. and D. Wallach, "Efficient Data Structures for
+              Tamper-Evident Logging", Proceedings of the 18th USENIX
+              Security Symposium, Montreal, August 2009,
+              <http://static.usenix.org/event/sec09/tech/full_papers/
+              crosby.pdf>.
 
 
 
@@ -393,13 +393,6 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 7]
 
 Internet-Draft                    DLTS                      January 2020
 
-
-   [CrosbyWallach]
-              Crosby, S. and D. Wallach, "Efficient Data Structures for
-              Tamper-Evident Logging", Proceedings of the 18th USENIX
-              Security Symposium, Montreal, August 2009,
-              <http://static.usenix.org/event/sec09/tech/full_papers/
-              crosby.pdf>.
 
    [eIDAS]    The European Parliament And The Council Of The European
               Union, "Regulation (EU) No 910/2014", July 2014,
@@ -440,6 +433,13 @@ Internet-Draft                    DLTS                      January 2020
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
               <https://trustee.ietf.org/trust-legal-provisions.html>.
 
+   [IMES]     Une, M., "The Security Evaluation of Time Stamping
+              Schemes: The Present Situation and Studies (2001)", 2001,
+              <http://citeseerx.ist.psu.edu/viewdoc/
+              summary?doi=10.1.1.23.7486>.
+
+
+
 
 
 
@@ -449,11 +449,6 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 8]
 
 Internet-Draft                    DLTS                      January 2020
 
-
-   [IMES]     Une, M., "The Security Evaluation of Time Stamping
-              Schemes: The Present Situation and Studies (2001)", 2001,
-              <http://citeseerx.ist.psu.edu/viewdoc/
-              summary?doi=10.1.1.23.7486>.
 
    [ISO.IEC.18014-4]
               International Organization for Standardization,
@@ -498,6 +493,11 @@ Internet-Draft                    DLTS                      January 2020
               ps://assets.publishing.service.gov.uk/government/uploads/s
               ystem/uploads/attachment_data/file/492972/gs-16-1-
               distributed-ledger-technology.pdf>.
+
+
+
+
+
 
 
 
