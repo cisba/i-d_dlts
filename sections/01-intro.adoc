@@ -38,7 +38,7 @@ The advantage of a DL Time-Stamp attestation relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.
 
 Based on a distributed trust scheme, a Distributed Ledger significantly increase
-security as already noted by Haber and Stornetta in 1991 <<Haber-Stornetta>>.
+security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
 In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
 While in the case of a permissionless DL security is granted by the economic incentive of nodes

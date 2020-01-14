@@ -37,7 +37,7 @@ Entries can also be updated by one, some or all of the participants, according t
 rules agreed by the network".
 
 Merkle Tree::
-As defined in <<RFC6962,2.1 of>>
+As defined in <<Merkle>>, <<CrosbyWallach>> and<<RFC6962,2.1 of>>
 
 Aggregation Server::
 A server providing the aggregation in a Merke Tree of digests to be timestamped.

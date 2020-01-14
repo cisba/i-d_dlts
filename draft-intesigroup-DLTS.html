@@ -377,11 +377,13 @@
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
-<link href="#rfc.section.4" rel="Chapter" title="4 DL Time-Stamp">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Blocks and Transactions">
-<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Merkle Trees and Aggregation">
-<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Calendar Servers">
-<link href="#rfc.section.5" rel="Chapter" title="5 OpenTimestamps">
+<link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Blocks">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Merkle Trees">
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Aggregation Server">
+<link href="#rfc.section.4.4" rel="Chapter" title="4.4 Calendar Server">
+<link href="#rfc.section.4.5" rel="Chapter" title="4.5 OpenTimeStamps">
+<link href="#rfc.section.5" rel="Chapter" title="5 DL Extension of TST">
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 OpenTimestamps Promise">
 <link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 OpenTimestamps Proof">
 <link href="#rfc.section.5.2" rel="Chapter" title="5.2 Code snippets">
@@ -459,15 +461,19 @@
 </li>
 <li>3.   <a href="#rfc.section.3">Symbols And Abbreviations</a>
 </li>
-<li>4.   <a href="#rfc.section.4">DL Time-Stamp</a>
+<li>4.   <a href="#rfc.section.4">DL Attestation</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">Blocks and Transactions</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Blocks</a>
 </li>
-<li>4.2.   <a href="#rfc.section.4.2">Merkle Trees and Aggregation</a>
+<li>4.2.   <a href="#rfc.section.4.2">Merkle Trees</a>
 </li>
-<li>4.3.   <a href="#rfc.section.4.3">Calendar Servers</a>
+<li>4.3.   <a href="#rfc.section.4.3">Aggregation Server</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">OpenTimestamps</a>
+<li>4.4.   <a href="#rfc.section.4.4">Calendar Server</a>
+</li>
+<li>4.5.   <a href="#rfc.section.4.5">OpenTimeStamps</a>
+</li>
+</ul><li>5.   <a href="#rfc.section.5">DL Extension of TST</a>
 </li>
 <ul><li>5.1.   <a href="#rfc.section.5.1">OpenTimestamps Promise</a>
 </li>
@@ -512,7 +518,7 @@
 <p id="rfc.section.1.p.7">This situation gave rise also to some solutions <a href="#ETSI.TS.102.778-4" class="xref">[ETSI.TS.102.778-4]</a> aimed at mitigating the issue by extending the validity of TSA timestamps.</p>
 <p id="rfc.section.1.p.8">Distributed Ledgers <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> security is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
 <p id="rfc.section.1.p.9">The advantage of a DL Time-Stamp attestation relies on the resilience of the distributed system and the overall design aiming to survive perpetually.</p>
-<p id="rfc.section.1.p.10">Based on a distributed trust scheme, a Distributed Ledger significantly increase security as already noted by Haber and Stornetta in 1991 <a href="#Haber-Stornetta" class="xref">[Haber-Stornetta]</a>.</p>
+<p id="rfc.section.1.p.10">Based on a distributed trust scheme, a Distributed Ledger significantly increase security as already noted by Haber and Stornetta in 1991 <a href="#HaberStornetta" class="xref">[HaberStornetta]</a>.</p>
 <p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.  While in the case of a permissionless DL security is granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
 <p id="rfc.section.1.p.12">On the other hand a DL attestation, is not yet a standard. Furthermore a DL attestation is as less precise - it proves the existence at a specific hour or day - as bigger and secure is the network: because distributed nodes need time to reach consensus.</p>
 <p id="rfc.section.1.p.13">Since a DL timestamp result as a complementary element to provide a long-term validity to TST - the aim of this specification is to provide an extension of the Time-Stamp Token for Distributed Ledger attestations.</p>
@@ -545,7 +551,7 @@
 <br>As defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
 <dt>Merkle Tree</dt>
 <dd style="margin-left: 8">
-<br>As defined in Section 2.1 of <a href="#RFC6962" class="xref">[RFC6962]</a>
+<br>As defined in <a href="#Merkle" class="xref">[Merkle]</a>, <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a> andSection 2.1 of <a href="#RFC6962" class="xref">[RFC6962]</a>
 </dd>
 <dt>Aggregation Server</dt>
 <dd style="margin-left: 8">
@@ -587,19 +593,25 @@
 
 <p> </p>
 <h1 id="rfc.section.4">
-<a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Time-Stamp</a>
+<a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Attestation</a>
 </h1>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_blocks_and_transactions" id="_blocks_and_transactions">Blocks and Transactions</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#_blocks" id="_blocks">Blocks</a>
 </h1>
 <h1 id="rfc.section.4.2">
-<a href="#rfc.section.4.2">4.2.</a> <a href="#_merkle_trees_and_aggregation" id="_merkle_trees_and_aggregation">Merkle Trees and Aggregation</a>
+<a href="#rfc.section.4.2">4.2.</a> <a href="#_merkle_trees" id="_merkle_trees">Merkle Trees</a>
 </h1>
 <h1 id="rfc.section.4.3">
-<a href="#rfc.section.4.3">4.3.</a> <a href="#_calendar_servers" id="_calendar_servers">Calendar Servers</a>
+<a href="#rfc.section.4.3">4.3.</a> <a href="#_aggregation_server" id="_aggregation_server">Aggregation Server</a>
+</h1>
+<h1 id="rfc.section.4.4">
+<a href="#rfc.section.4.4">4.4.</a> <a href="#_calendar_server" id="_calendar_server">Calendar Server</a>
+</h1>
+<h1 id="rfc.section.4.5">
+<a href="#rfc.section.4.5">4.5.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimeStamps</a>
 </h1>
 <h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
+<a href="#rfc.section.5">5.</a> <a href="#_dl_extension_of_tst" id="_dl_extension_of_tst">DL Extension of TST</a>
 </h1>
 <p id="rfc.section.5.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
 <p id="rfc.section.5.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
@@ -710,6 +722,11 @@ OtsProof ::= OCTET STRING
 <a>American National Standards Institute (ANSI)</a>, "<a href="https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005">Trusted Time Stamp Management And Security</a>", 2005.</td>
 </tr>
 <tr>
+<td class="reference"><b id="CrosbyWallach">[CrosbyWallach]</b></td>
+<td class="top">
+<a>Crosby, S.</a> and <a>D. Wallach</a>, "<a href="http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf">Efficient Data Structures for Tamper-Evident Logging</a>", Proceedings of the 18th USENIX Security Symposium, Montreal, August 2009.</td>
+</tr>
+<tr>
 <td class="reference"><b id="eIDAS">[eIDAS]</b></td>
 <td class="top">
 <a>The European Parliament And The Council Of The European Union</a>, "<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN">Regulation (EU) No 910/2014</a>", July 2014.</td>
@@ -730,7 +747,7 @@ OtsProof ::= OCTET STRING
 <a>European Telecommunications Standards Institute</a>, "<a href="https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.02_60/ts_10277804v010102p.pdf">Electronic Signatures and Infrastructures (ESI); PDF Advanced Electronic Signature Profiles; Part 4: PAdES Long Term - PAdES-LTV Profile</a>", December 2009.</td>
 </tr>
 <tr>
-<td class="reference"><b id="Haber-Stornetta">[Haber-Stornetta]</b></td>
+<td class="reference"><b id="HaberStornetta">[HaberStornetta]</b></td>
 <td class="top">
 <a>Haber, S.</a> and <a>W. S. Stornetta</a>, "<a href="https://www.anf.es/pdf/Haber_Stornetta.pdf">How to Time-Stamp a Digital Document</a>", 1991.</td>
 </tr>
@@ -748,6 +765,11 @@ OtsProof ::= OCTET STRING
 <td class="reference"><b id="ISO.IEC.18014-4">[ISO.IEC.18014-4]</b></td>
 <td class="top">
 <a>International Organization for Standardization</a>, "<a href="https://www.iso.org/standard/59934.html">Information technology - Security techniques - Time-stamping services - Part 4: Traceability of time sources</a>", April 2015.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Merkle">[Merkle]</b></td>
+<td class="top">
+<a title="Stanford Electronics Laboratories, Department of Electrical Engeneering, Stanford University, Stanford. CA 94305">Merkle, R. C.</a>, "<a href="http://www.merkle.com/papers/Thesis1979.pdf">Secrecy, authentication, and public-key systems - Technical Report No. 1979-1</a>", June 1979.</td>
 </tr>
 <tr>
 <td class="reference"><b id="Nakamoto">[Nakamoto]</b></td>

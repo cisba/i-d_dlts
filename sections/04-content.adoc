@@ -1,12 +1,16 @@
 
 [#main]
-== DL Time-Stamp
+== DL Attestation
 
-=== Blocks and Transactions
-=== Merkle Trees and Aggregation
-=== Calendar Servers
+=== Blocks
+=== Merkle Trees
+=== Aggregation Server
+=== Calendar Server
+=== OpenTimeStamps
 
-== OpenTimestamps
+
+
+== DL Extension of TST
 
 Il timestamp di tipo opentimestamps (basato su blockchain) dovrà essere generato
 tramite l’utilizzo di un calendar server e inserito come estensione non critica

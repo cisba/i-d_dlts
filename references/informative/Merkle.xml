@@ -1,0 +1,13 @@
+<reference anchor='Merkle' target='http://www.merkle.com/papers/Thesis1979.pdf'>
+  <front>
+    <title>
+        Secrecy, authentication, and public-key systems - Technical Report No. 1979-1
+    </title>
+    <author fullname="Ralph Charles Merkle">
+    <organization>
+    Stanford Electronics Laboratories, Department of Electrical Engeneering, Stanford University, Stanford. CA 94305
+    </organization>
+    </author>
+    <date month='June' year='1979'></date>
+  </front>
+</reference>

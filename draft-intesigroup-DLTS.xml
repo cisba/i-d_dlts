@@ -100,7 +100,7 @@ with each additional timestamp reinforcing the ones before it.</t>
 <t>The advantage of a DL Time-Stamp attestation relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.</t>
 <t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
-security as already noted by Haber and Stornetta in 1991 <xref target="Haber-Stornetta"/>.</t>
+security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta"/>.</t>
 <t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
 While in the case of a permissionless DL security is granted by the economic incentive of nodes
 <xref target="Nakamoto"/>.</t>
@@ -134,7 +134,7 @@ of the assets stored in the ledger are maintained cryptographically through the
 use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.
 Entries can also be updated by one, some or all of the participants, according to
 rules agreed by the network".</t>
-    <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in Section 2.1 of <xref target="RFC6962"/></t>
+    <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in <xref target="Merkle"/>, <xref target="CrosbyWallach"/> andSection 2.1 of <xref target="RFC6962"/></t>
     <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merke Tree of digests to be timestamped.
 Digests submitted for aggregation are added to a list periodically combined
 nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
@@ -155,10 +155,12 @@ on a Distributed Ledger.</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="DL Time-Stamp"><section anchor="_blocks_and_transactions" title="Blocks and Transactions"/>
-<section anchor="_merkle_trees_and_aggregation" title="Merkle Trees and Aggregation"/>
-<section anchor="_calendar_servers" title="Calendar Servers"/></section>
-<section anchor="_opentimestamps" title="OpenTimestamps"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
+<section anchor="main" title="DL Attestation"><section anchor="_blocks" title="Blocks"/>
+<section anchor="_merkle_trees" title="Merkle Trees"/>
+<section anchor="_aggregation_server" title="Aggregation Server"/>
+<section anchor="_calendar_server" title="Calendar Server"/>
+<section anchor="_opentimestamps" title="OpenTimeStamps"/></section>
+<section anchor="_dl_extension_of_tst" title="DL Extension of TST"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
 tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
 all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
 <t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
@@ -264,6 +266,19 @@ please include them here.</t></section>
     <date year="2005"/>
   </front>
 </reference>
+  <reference anchor="CrosbyWallach" target="http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf">
+  <front>
+    <title>Efficient Data Structures for Tamper-Evident Logging</title>
+    <author initials="S." surname="Crosby" fullname="Scott A. Crosby">
+      <organization/>
+    </author>
+    <author initials="D." surname="Wallach" fullname="Dan S. Wallach">
+      <organization/>
+    </author>
+    <date year="2009" month="August"/>
+  </front>
+  <seriesInfo name="Proceedings of the 18th USENIX Security Symposium," value="Montreal"/>
+</reference>
   <reference anchor="ETSI.EN.319.422" target="https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf">
   <front>
     <title>
@@ -323,14 +338,14 @@ Time stamping profile</title>
     <date month="December" year="2009"/>
   </front>
 </reference>
-  <reference anchor="Haber-Stornetta" target="https://www.anf.es/pdf/Haber_Stornetta.pdf">
+  <reference anchor="HaberStornetta" target="https://www.anf.es/pdf/Haber_Stornetta.pdf">
   <front>
     <title>
         How to Time-Stamp a Digital Document
     </title>
-    <author fullname="Stuart Haber" role="editor">
+    <author fullname="Stuart Haber">
     </author>
-    <author fullname="W. Scott Stornetta" role="editor">
+    <author fullname="W. Scott Stornetta">
     </author>
     <date year="1991"/>
   </front>
@@ -349,7 +364,7 @@ Time stamping profile</title>
     <title>
         The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)
     </title>
-    <author fullname="Masashi Une" role="editor">
+    <author fullname="Masashi Une">
     <organization>
     INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN
     </organization>
@@ -377,12 +392,25 @@ Time stamping profile</title>
     <date month="April" year="2015"/>
   </front>
 </reference>
+  <reference anchor="Merkle" target="http://www.merkle.com/papers/Thesis1979.pdf">
+  <front>
+    <title>
+        Secrecy, authentication, and public-key systems - Technical Report No. 1979-1
+    </title>
+    <author fullname="Ralph Charles Merkle">
+    <organization>
+    Stanford Electronics Laboratories, Department of Electrical Engeneering, Stanford University, Stanford. CA 94305
+    </organization>
+    </author>
+    <date month="June" year="1979"/>
+  </front>
+</reference>
   <reference anchor="Nakamoto" target="https://bitcoin.org/bitcoin.pdf">
   <front>
     <title>
         Bitcoin: A Peer-to-Peer Electronic Cash System
     </title>
-    <author fullname="Satoshi Nakamoto" role="editor">
+    <author fullname="Satoshi Nakamoto">
     </author>
     <date day="31" month="October" year="2008"/>
   </front>
@@ -392,7 +420,7 @@ Time stamping profile</title>
     <title>
         OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin
     </title>
-    <author fullname="Peter Todd" role="editor">
+    <author fullname="Peter Todd">
     </author>
     <date day="15" month="September" year="2016"/>
   </front>

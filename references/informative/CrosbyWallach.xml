@@ -1,0 +1,13 @@
+<reference anchor="CrosbyWallach" target="http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf">
+  <front>
+    <title>Efficient Data Structures for Tamper-Evident Logging</title>
+    <author initials="S." surname="Crosby" fullname="Scott A. Crosby">
+      <organization></organization>
+    </author>
+    <author initials="D." surname="Wallach" fullname="Dan S. Wallach">
+      <organization></organization>
+    </author>
+    <date year="2009" month="August"/>
+  </front>
+  <seriesInfo name="Proceedings of the 18th USENIX Security Symposium," value="Montreal"/>
+</reference>
