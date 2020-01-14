@@ -19,7 +19,7 @@
 :code: 20123
 :country: Italy
 :uri: https://www.intesigroup.com
-:email: e.cisbani@intesigroup.com
+:email: ecisbani@intesigroup.com
 :fullname_2: Daniele Ribaudo
 :lastname_2: Ribaudo
 :forename_initials_2: D.

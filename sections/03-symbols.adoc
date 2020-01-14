@@ -6,7 +6,7 @@ PKI::
     Public Key Infrastructure
 
 TTP::
-    Trusted Tirth Party
+    Trusted Third Party
 
 TSA::
     Time-Stamp Authority
