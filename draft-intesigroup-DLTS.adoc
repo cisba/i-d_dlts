@@ -51,7 +51,7 @@ include::sections/01-intro.adoc[]
 include::sections/02-conventions.adoc[]
 include::sections/03-symbols.adoc[]
 include::sections/04-dl_attestation.adoc[]
-include::sections/04-dl_extension.adoc[]
+include::sections/05-dl_extension.adoc[]
 include::sections/10-security.adoc[]
 include::sections/11-iana.adoc[]
 

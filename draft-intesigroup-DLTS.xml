@@ -160,10 +160,89 @@ on the Bitcoin Distributed Ledger <xref target="OTS"/>.</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="DL Attestation"><section anchor="_aggregation_server" title="Aggregation Server"/>
-<section anchor="_calendar_server" title="Calendar Server"/>
-<section anchor="_opentimestamps" title="OpenTimeStamps">
-  <t>Unresolved directive in draft-intesigroup-DLTS.adoc - include::sections/04-dl_extension.adoc[]</t>
+<section anchor="main" title="DL Attestation"><t>A Digital Ledger can be viewed as an untrusted logger, serving a number of
+clients who wish to store their events in the log, and
+kept honest by a number of auditors who will challenge
+the logger to prove its correct behavior <xref target="CrosbyWallach"/>.</t>
+<t>A Merkle Tree data structure allow to accomplish this very efficently aggregating
+many requests and submitting to the log periodically just the root digest of the tree.
+This log is built as an hash chain (aka blockchain) of small blocks of data.
+With this conditions the entire chian can be shared and mantained
+by a large number of nodes, becoming a distributed system.</t>
+<t>In a permissioned DL the number of nodes can be small enought to permit a quick
+syncronuzation to reach the consensus about the state of the chain.</t>
+<t>Instead in a permissionless DL the large number of nodes introduce a relevant delay
+to reach the consensus. In the case of Bitcoin the consensus is reached statistically.
+Usually in an elapsed mean time of one hour
+6 new blocks has been added to the chain.
+A block of data that has been added before the last 6 blocks
+is considered practically immutable.
+This is motivated by the high computational power that would be required to rewrite the chain.</t>
+<t>As a result of this scenario the time elapsed - from the request of aggregation of a digest
+to the proof consolidated inside the DL - could amount to more than one hour.</t>
+<t>This is the motivation to distinguish from a <spanx style="strong">promise</spanx> of attestation and a <spanx style="strong">proof</spanx> of attestation.
+An Aggregation Server can provide only a promise to timestamping the digest of the client
+in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been
+recorded in a block of the chain, the promise is still not yet comnfirmed,</t>
+<t>Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
+the attestation could be consideed a proof, stored and provided by a Calendar Server.</t>
+<section anchor="_opentimestamps" title="OpenTimeStamps"/></section>
+<section anchor="_dl_extension_of_tst" title="DL Extension of TST"><t>Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato
+tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica
+all&#8217;interno di un timestamp che segue lo standard <xref target="RFC3161"/>.</t>
+<t>L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile
+con i software di verifica attualmente disponibili.</t>
+<t>L&#8217;estensione deve rispettare le indicazioni riportate in <xref target="RFC3161"/> e Section 4.2.1 of <xref target="RFC3280"/>.</t>
+<t>Gli OID delle nuove estensioni avranno la seguente radice:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
+]]></artwork>
+</figure>
+<t>dove id-ce identifica la radice delle estensioni standard vedi <xref target="RFC3280"/>.</t>
+<section anchor="_opentimestamps_promise" title="OpenTimestamps Promise"><t>Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 1 }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
+Promise ::= SEQUENCE {
+    version          [0] INTEGER,
+    otsPromise       [1] OtsPromise }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
+OtsPromise ::= OCTET STRING
+]]></artwork>
+</figure>
+<section anchor="_opentimestamps_proof" title="OpenTimestamps Proof"><t>Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</t>
+<figure>
+  <artwork><![CDATA[
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 2 }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
+Proof ::= SEQUENCE {
+      version        [0] INTEGER,
+      otsProof       [1] OtsProof,
+      blockchain     [2] UTF8String }
+]]></artwork>
+</figure>
+<figure>
+  <artwork><![CDATA[
+OtsProof ::= OCTET STRING
+]]></artwork>
+</figure></section></section>
+<section anchor="code-snippets" title="Code snippets">
+  <t>Code snippets should be wrapped with <spanx style="verb">&lt;CODE BEGINS&gt;</spanx> and
+<spanx style="verb">&lt;CODE ENDS&gt;</spanx> blocks, as required by the IETF Trust Legal
+Provisions (TLP) <xref target="IETF.TLP"/> (Section 4) specified in <xref target="RFC5378"/>.</t>
 </section></section>
 <section anchor="security" title="Security Considerations"><t>Any security considerations should be placed here.</t>
 <t>As described in <xref target="main"/> (here&#8217;s how you refer a local anchor),

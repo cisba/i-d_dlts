@@ -378,14 +378,16 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
 <link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Aggregation Server">
-<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Calendar Server">
-<link href="#rfc.section.4.3" rel="Chapter" title="4.3 OpenTimeStamps">
-<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
-<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations">
-<link href="#rfc.references" rel="Chapter" title="7 References">
-<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References">
-<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 OpenTimeStamps">
+<link href="#rfc.section.5" rel="Chapter" title="5 DL Extension of TST">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 OpenTimestamps Promise">
+<link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 OpenTimestamps Proof">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Code snippets">
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
+<link href="#rfc.references" rel="Chapter" title="8 References">
+<link href="#rfc.references.1" rel="Chapter" title="8.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="8.2 Informative References">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -457,21 +459,25 @@
 </li>
 <li>4.   <a href="#rfc.section.4">DL Attestation</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">Aggregation Server</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">OpenTimeStamps</a>
 </li>
-<li>4.2.   <a href="#rfc.section.4.2">Calendar Server</a>
+</ul><li>5.   <a href="#rfc.section.5">DL Extension of TST</a>
 </li>
-<li>4.3.   <a href="#rfc.section.4.3">OpenTimeStamps</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">OpenTimestamps Promise</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">Security Considerations</a>
+<ul><li>5.1.1.   <a href="#rfc.section.5.1.1">OpenTimestamps Proof</a>
 </li>
-<li>6.   <a href="#rfc.section.6">IANA Considerations</a>
+</ul><li>5.2.   <a href="#rfc.section.5.2">Code snippets</a>
 </li>
-<li>7.   <a href="#rfc.references">References</a>
+</ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
-<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a>
 </li>
-<li>7.2.   <a href="#rfc.references.2">Informative References</a>
+<li>8.   <a href="#rfc.references">References</a>
+</li>
+<ul><li>8.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>8.2.   <a href="#rfc.references.2">Informative References</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -586,22 +592,70 @@
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Attestation</a>
 </h1>
+<p id="rfc.section.4.p.1">A Digital Ledger can be viewed as an untrusted logger, serving a number of clients who wish to store their events in the log, and kept honest by a number of auditors who will challenge the logger to prove its correct behavior <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a>.</p>
+<p id="rfc.section.4.p.2">A Merkle Tree data structure allow to accomplish this very efficently aggregating many requests and submitting to the log periodically just the root digest of the tree.  This log is built as an hash chain (aka blockchain) of small blocks of data.  With this conditions the entire chian can be shared and mantained by a large number of nodes, becoming a distributed system.</p>
+<p id="rfc.section.4.p.3">In a permissioned DL the number of nodes can be small enought to permit a quick syncronuzation to reach the consensus about the state of the chain.</p>
+<p id="rfc.section.4.p.4">Instead in a permissionless DL the large number of nodes introduce a relevant delay to reach the consensus. In the case of Bitcoin the consensus is reached statistically.  Usually in an elapsed mean time of one hour 6 new blocks has been added to the chain.  A block of data that has been added before the last 6 blocks is considered practically immutable.  This is motivated by the high computational power that would be required to rewrite the chain.</p>
+<p id="rfc.section.4.p.5">As a result of this scenario the time elapsed - from the request of aggregation of a digest to the proof consolidated inside the DL - could amount to more than one hour.</p>
+<p id="rfc.section.4.p.6">This is the motivation to distinguish from a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.  An Aggregation Server can provide only a promise to timestamping the digest of the client in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been recorded in a block of the chain, the promise is still not yet comnfirmed,</p>
+<p id="rfc.section.4.p.7">Only when the consensus on that block is reached - statistically, in the Bitcoin case - then the attestation could be consideed a proof, stored and provided by a Calendar Server.</p>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_aggregation_server" id="_aggregation_server">Aggregation Server</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimeStamps</a>
 </h1>
-<h1 id="rfc.section.4.2">
-<a href="#rfc.section.4.2">4.2.</a> <a href="#_calendar_server" id="_calendar_server">Calendar Server</a>
-</h1>
-<h1 id="rfc.section.4.3">
-<a href="#rfc.section.4.3">4.3.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimeStamps</a>
-</h1>
-<p id="rfc.section.4.3.p.1">Unresolved directive in draft-intesigroup-DLTS.adoc - include::sections/04-dl_extension.adoc[]</p>
 <h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#security" id="security">Security Considerations</a>
+<a href="#rfc.section.5">5.</a> <a href="#_dl_extension_of_tst" id="_dl_extension_of_tst">DL Extension of TST</a>
 </h1>
-<p id="rfc.section.5.p.1">Any security considerations should be placed here.</p>
-<p id="rfc.section.5.p.2">As described in <a href="#main" class="xref">Section 4</a> (here&#8217;s how you refer a local anchor), local tools have to be installed before the document template can be built.</p>
-<p id="rfc.section.5.p.3">Running of these local tools <strong>MAY</strong> produce unintended side effects that impact security. For example</p>
+<p id="rfc.section.5.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
+<p id="rfc.section.5.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<p id="rfc.section.5.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
+<pre>
+id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
+</pre>
+<p id="rfc.section.5.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#_opentimestamps_promise" id="_opentimestamps_promise">OpenTimestamps Promise</a>
+</h1>
+<p id="rfc.section.5.1.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
+<pre>
+id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 1 }
+</pre>
+<pre>
+Promise ::= SEQUENCE {
+    version          [0] INTEGER,
+    otsPromise       [1] OtsPromise }
+</pre>
+<pre>
+OtsPromise ::= OCTET STRING
+</pre>
+<h1 id="rfc.section.5.1.1">
+<a href="#rfc.section.5.1.1">5.1.1.</a> <a href="#_opentimestamps_proof" id="_opentimestamps_proof">OpenTimestamps Proof</a>
+</h1>
+<p id="rfc.section.5.1.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
+<pre>
+id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+    id-ce-opentimestamps 2 }
+</pre>
+<pre>
+Proof ::= SEQUENCE {
+      version        [0] INTEGER,
+      otsProof       [1] OtsProof,
+      blockchain     [2] UTF8String }
+</pre>
+<pre>
+OtsProof ::= OCTET STRING
+</pre>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
+</h1>
+<p id="rfc.section.5.2.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
+<h1 id="rfc.section.6">
+<a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
+</h1>
+<p id="rfc.section.6.p.1">Any security considerations should be placed here.</p>
+<p id="rfc.section.6.p.2">As described in <a href="#main" class="xref">Section 4</a> (here&#8217;s how you refer a local anchor), local tools have to be installed before the document template can be built.</p>
+<p id="rfc.section.6.p.3">Running of these local tools <strong>MAY</strong> produce unintended side effects that impact security. For example</p>
 <table cellpadding="3" cellspacing="0" class="tt full center">
 <thead><tr>
 <th class="left">Security issue</th>
@@ -625,15 +679,15 @@
 </tr>
 </tbody>
 </table>
-<h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#iana" id="iana">IANA Considerations</a>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> <a href="#iana" id="iana">IANA Considerations</a>
 </h1>
-<p id="rfc.section.6.p.1">This document does not require any action by IANA.</p>
-<p id="rfc.section.6.p.2">But if it does, such as proposing changes to IANA registries, please include them here.</p>
+<p id="rfc.section.7.p.1">This document does not require any action by IANA.</p>
+<p id="rfc.section.7.p.2">But if it does, such as proposing changes to IANA registries, please include them here.</p>
 <h1 id="rfc.references">
-<a href="#rfc.references">7.</a> References</h1>
+<a href="#rfc.references">8.</a> References</h1>
 <h1 id="rfc.references.1">
-<a href="#rfc.references.1">7.1.</a> Normative References</h1>
+<a href="#rfc.references.1">8.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
@@ -652,7 +706,7 @@
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
-<a href="#rfc.references.2">7.2.</a> Informative References</h1>
+<a href="#rfc.references.2">8.2.</a> Informative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="ANSI.X9.95">[ANSI.X9.95]</b></td>

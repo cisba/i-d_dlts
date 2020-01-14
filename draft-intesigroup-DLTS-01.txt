@@ -64,15 +64,17 @@ Table of Contents
    2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
    4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   5
-     4.1.  Aggregation Server  . . . . . . . . . . . . . . . . . . .   5
-     4.2.  Calendar Server . . . . . . . . . . . . . . . . . . . . .   5
-     4.3.  OpenTimeStamps  . . . . . . . . . . . . . . . . . . . . .   5
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   5
-   6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   6
-   7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
-     7.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .   6
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   9
+     4.1.  OpenTimeStamps  . . . . . . . . . . . . . . . . . . . . .   6
+   5.  DL Extension of TST . . . . . . . . . . . . . . . . . . . . .   6
+     5.1.  OpenTimestamps Promise  . . . . . . . . . . . . . . . . .   6
+       5.1.1.  OpenTimestamps Proof  . . . . . . . . . . . . . . . .   7
+     5.2.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   7
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
 
@@ -104,8 +106,6 @@ Table of Contents
    The integrity of the timestamping process that is inevitably bound to
    the integrity of the TSA gave rise anyway to other proposals like
    [ANSI.X9.95] and [ISO.IEC.18014-4].
-
-
 
 
 
@@ -256,24 +256,24 @@ Internet-Draft                    DLTS                      January 2020
 
 4.  DL Attestation
 
-4.1.  Aggregation Server
+   A Digital Ledger can be viewed as an untrusted logger, serving a
+   number of clients who wish to store their events in the log, and kept
+   honest by a number of auditors who will challenge the logger to prove
+   its correct behavior [CrosbyWallach].
 
-4.2.  Calendar Server
+   A Merkle Tree data structure allow to accomplish this very efficently
+   aggregating many requests and submitting to the log periodically just
+   the root digest of the tree.  This log is built as an hash chain (aka
+   blockchain) of small blocks of data.  With this conditions the entire
+   chian can be shared and mantained by a large number of nodes,
+   becoming a distributed system.
 
-4.3.  OpenTimeStamps
+   In a permissioned DL the number of nodes can be small enought to
+   permit a quick syncronuzation to reach the consensus about the state
+   of the chain.
 
-   Unresolved directive in draft-intesigroup-DLTS.adoc -
-   include::sections/04-dl_extension.adoc[]
-
-5.  Security Considerations
-
-   Any security considerations should be placed here.
-
-   As described in Section 4 (here's how you refer a local anchor),
-   local tools have to be installed before the document template can be
-   built.
-
-
+   Instead in a permissionless DL the large number of nodes introduce a
+   relevant delay to reach the consensus.  In the case of Bitcoin the
 
 
 
@@ -282,8 +282,117 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 Internet-Draft                    DLTS                      January 2020
 
 
+   consensus is reached statistically.  Usually in an elapsed mean time
+   of one hour 6 new blocks has been added to the chain.  A block of
+   data that has been added before the last 6 blocks is considered
+   practically immutable.  This is motivated by the high computational
+   power that would be required to rewrite the chain.
+
+   As a result of this scenario the time elapsed - from the request of
+   aggregation of a digest to the proof consolidated inside the DL -
+   could amount to more than one hour.
+
+   This is the motivation to distinguish from a *promise* of attestation
+   and a *proof* of attestation.  An Aggregation Server can provide only
+   a promise to timestamping the digest of the client in the DL.  After
+   the aggregation is completed and the root hash of the Merkle Tree has
+   been recorded in a block of the chain, the promise is still not yet
+   comnfirmed,
+
+   Only when the consensus on that block is reached - statistically, in
+   the Bitcoin case - then the attestation could be consideed a proof,
+   stored and provided by a Calendar Server.
+
+4.1.  OpenTimeStamps
+
+5.  DL Extension of TST
+
+   Il timestamp di tipo opentimestamps (basato su blockchain) dovra
+   essere generato tramite l'utilizzo di un calendar server e inserito
+   come estensione non critica all'interno di un timestamp che segue lo
+   standard [RFC3161].
+
+   L'aggiunta dell'estensione non critica rende il timestamp finale
+   retro-compatibile con i software di verifica attualmente disponibili.
+
+   L'estensione deve rispettare le indicazioni riportate in [RFC3161] e
+   Section 4.2.1 of [RFC3280].
+
+   Gli OID delle nuove estensioni avranno la seguente radice:
+
+   id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
+
+   dove id-ce identifica la radice delle estensioni standard vedi
+   [RFC3280].
+
+5.1.  OpenTimestamps Promise
+
+   Questa estensione rappresenta la "promessa" restituita dal calendar
+   server in risposta alla richiesta di marcatura di un hash.  Di
+   seguito e riportata la struttura ASN.1:
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 6]
+
+Internet-Draft                    DLTS                      January 2020
+
+
+   id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
+       id-ce-opentimestamps 1 }
+
+   Promise ::= SEQUENCE {
+       version          [0] INTEGER,
+       otsPromise       [1] OtsPromise }
+
+   OtsPromise ::= OCTET STRING
+
+5.1.1.  OpenTimestamps Proof
+
+   Questa estensione rappresenta la "prova" restituita dal calendar
+   server in risposta alla richiesta di upgrade di una promessa
+   precedentemente ricevuta.  Di seguito e riportata la struttura ASN.1:
+
+   id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
+       id-ce-opentimestamps 2 }
+
+   Proof ::= SEQUENCE {
+         version        [0] INTEGER,
+         otsProof       [1] OtsProof,
+         blockchain     [2] UTF8String }
+
+   OtsProof ::= OCTET STRING
+
+5.2.  Code snippets
+
+   Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
+   ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
+   [IETF.TLP] (Section 4) specified in [RFC5378].
+
+6.  Security Considerations
+
+   Any security considerations should be placed here.
+
+   As described in Section 4 (here's how you refer a local anchor),
+   local tools have to be installed before the document template can be
+   built.
+
    Running of these local tools *MAY* produce unintended side effects
    that impact security.  For example
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft                    DLTS                      January 2020
+
 
              +-----------------+----------------------------+
              | Security issue  | Discussed in               |
@@ -293,16 +402,16 @@ Internet-Draft                    DLTS                      January 2020
              | Non-Repudiation | Section 2.2 of [RFC3552]   |
              +-----------------+----------------------------+
 
-6.  IANA Considerations
+7.  IANA Considerations
 
    This document does not require any action by IANA.
 
    But if it does, such as proposing changes to IANA registries, please
    include them here.
 
-7.  References
+8.  References
 
-7.1.  Normative References
+8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -318,25 +427,12 @@ Internet-Draft                    DLTS                      January 2020
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-7.2.  Informative References
+8.2.  Informative References
 
    [ANSI.X9.95]
               American National Standards Institute (ANSI), "Trusted
               Time Stamp Management And Security", 2005,
               <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
-
-
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 6]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    [CrosbyWallach]
               Crosby, S. and D. Wallach, "Efficient Data Structures for
@@ -344,6 +440,15 @@ Internet-Draft                    DLTS                      January 2020
               Security Symposium, Montreal, August 2009,
               <http://static.usenix.org/event/sec09/tech/full_papers/
               crosby.pdf>.
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft                    DLTS                      January 2020
+
 
    [eIDAS]    The European Parliament And The Council Of The European
               Union, "Regulation (EU) No 910/2014", July 2014,
@@ -384,20 +489,22 @@ Internet-Draft                    DLTS                      January 2020
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
               <https://trustee.ietf.org/trust-legal-provisions.html>.
 
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 7]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    [IMES]     Une, M., "The Security Evaluation of Time Stamping
               Schemes: The Present Situation and Studies (2001)", 2001,
               <http://citeseerx.ist.psu.edu/viewdoc/
               summary?doi=10.1.1.23.7486>.
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+Internet-Draft                    DLTS                      January 2020
+
 
    [ISO.IEC.18014-4]
               International Organization for Standardization,
@@ -445,7 +552,12 @@ Internet-Draft                    DLTS                      January 2020
 
 
 
-Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]
 
 Internet-Draft                    DLTS                      January 2020
 
@@ -501,4 +613,4 @@ Authors' Addresses
 
 
 
-Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+Cisbani, et al.           Expires July 16, 2020                [Page 11]

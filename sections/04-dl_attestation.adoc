@@ -2,42 +2,53 @@
 [#main]
 == DL Attestation
 
-////
-@cisba TODO: spiegare come nasce un DL
-
-Many real-world applications wish to collect tamperevident logs for forensic purposes. This paper considers
-the case of an untrusted logger, serving a number of
+A Digital Ledger can be viewed as an untrusted logger, serving a number of
 clients who wish to store their events in the log, and
 kept honest by a number of auditors who will challenge
-the logger to prove its correct behavior. We propose
-semantics of tamper-evident logs in terms of this auditing
-process. The logger must be able to prove that individual
-logged events are still present, and that the log, as seen
-now, is consistent with how it was seen in the past. To
-accomplish this efficiently, we describe a tree-based data
-structure that can generate such proofs with logarithmic
-size and space, improving over previous linear constructions. Where a classic hash chain might require an
-800 MB trace to prove that a randomly chosen event is in
-a log with 80 million events, our prototype returns a 3 KB
-proof with the same semantics. We also present a flexible
-mechanism for the log server to present authenticated
-and tamper-evident search results for all events matching
-a predicate. This can allow large-scale log servers to
-selectively delete old events, in an agreed-upon fashion,
-while generating efficient proofs that no inappropriate
-events were deleted. We describe a prototype implementation and measure its performance on an 80 million
-event syslog trace at 1,750 events per second using a
-single CPU core. Performance improves to 10,500 events
-per second if cryptographic signatures are offloaded,
-corresponding to 1.1 TB of logging throughput per week.
+the logger to prove its correct behavior <<CrosbyWallach>>.
 
-////
+A Merkle Tree data structure allow to accomplish this very efficently aggregating
+many requests and submitting to the log periodically just the root digest of the tree.
+This log is built as an hash chain (aka blockchain) of small blocks of data.
+With this conditions the entire chian can be shared and mantained
+by a large number of nodes, becoming a distributed system.
 
-=== Aggregation Server
+In a permissioned DL the number of nodes can be small enought to permit a quick
+syncronuzation to reach the consensus about the state of the chain.
+
+Instead in a permissionless DL the large number of nodes introduce a relevant delay
+to reach the consensus. In the case of Bitcoin the consensus is reached statistically.
+Usually in an elapsed mean time of one hour
+6 new blocks has been added to the chain.
+A block of data that has been added before the last 6 blocks
+is considered practically immutable.
+This is motivated by the high computational power that would be required to rewrite the chain.
+
+As a result of this scenario the time elapsed - from the request of aggregation of a digest
+to the proof consolidated inside the DL - could amount to more than one hour.
+
+This is the motivation to distinguish from a *promise* of attestation and a *proof* of attestation.
+An Aggregation Server can provide only a promise to timestamping the digest of the client
+in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been
+recorded in a block of the chain, the promise is still not yet comnfirmed,
+
+Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
+the attestation could be consideed a proof, stored and provided by a Calendar Server.
+
 
 // @cisba TODO: policies della promessa
 
-=== Calendar Server
 === OpenTimeStamps
 
+////
+@cisba TODO:
 
+Perché Opentimestamps su Bitcoin
+Bitcoin è un DL già funzionante da 11 anni
+È un caso di DL più complesso o sfavorevole perché permissionless, per cui uno standard che lo supporta può più facilmente supportare anche DL permissioned (solo proof senza promise)
+OpenTimestamps è foss,
+si è dimostrata già una implementazione sufficientemente solida,
+è DL-agnostic per cui può fungere da modello per eventuali enhancement o punto di partenza per modifiche evolutive
+
+
+////
