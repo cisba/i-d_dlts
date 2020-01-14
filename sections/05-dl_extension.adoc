@@ -1,7 +1,5 @@
 
-== DL Extension of TST
-
-// @cisba TODO: fare riferimento alla retrocompatibilità
+=== OTS Extension
 
 Il timestamp di tipo opentimestamps (basato su blockchain) dovrà essere generato
 tramite l’utilizzo di un calendar server e inserito come estensione non critica
@@ -18,7 +16,7 @@ Gli OID delle nuove estensioni avranno la seguente radice:
 
 dove id-ce identifica la radice delle estensioni standard vedi <<RFC3280>>.
 
-=== OpenTimestamps Promise
+=== OTS Promise
 
 Questa estensione rappresenta la “promessa” restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito è riportata la struttura ASN.1:
 
@@ -32,7 +30,7 @@ Questa estensione rappresenta la “promessa” restituita dal calendar server i
     OtsPromise ::= OCTET STRING
 
 
-==== OpenTimestamps Proof
+==== OTS Proof
 
 Questa estensione rappresenta la “prova” restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito è riportata la struttura ASN.1:
 

@@ -10,17 +10,17 @@ the logger to prove its correct behavior <<CrosbyWallach>>.
 A Merkle Tree data structure allow to accomplish this very efficently aggregating
 many requests and submitting to the log periodically just the root digest of the tree.
 This log is built as an hash chain (aka blockchain) of small blocks of data.
-With this conditions the entire chian can be shared and mantained
+With this conditions the entire chain can be shared and mantained
 by a large number of nodes, becoming a distributed system.
 
 In a permissioned DL the number of nodes can be small enought to permit a quick
-syncronuzation to reach the consensus about the state of the chain.
+syncronization to reach the consensus about the state of the chain.
+Instead in a permissionless DL the large number of nodes introduces a relevant delay
+to reach the consensus.
 
-Instead in a permissionless DL the large number of nodes introduce a relevant delay
-to reach the consensus. In the case of Bitcoin the consensus is reached statistically.
-Usually in an elapsed mean time of one hour
-6 new blocks has been added to the chain.
-A block of data that has been added before the last 6 blocks
+In the case of Bitcoin the consensus is reached statistically.
+Usually in an elapsed mean time of one hour six new blocks are added to the chain.
+A block of data that has been added before the last six blocks
 is considered practically immutable.
 This is motivated by the high computational power that would be required to rewrite the chain.
 
@@ -28,27 +28,68 @@ As a result of this scenario the time elapsed - from the request of aggregation 
 to the proof consolidated inside the DL - could amount to more than one hour.
 
 This is the motivation to distinguish from a *promise* of attestation and a *proof* of attestation.
-An Aggregation Server can provide only a promise to timestamping the digest of the client
+An Aggregation Server generally can provide only a promise to timestamping the digest of the client
 in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been
 recorded in a block of the chain, the promise is still not yet comnfirmed,
 
 Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
 the attestation could be consideed a proof, stored and provided by a Calendar Server.
 
+For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.
 
-// @cisba TODO: policies della promessa
+The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.
 
-=== OpenTimeStamps
+=== DL Extension
 
-////
-@cisba TODO:
+A DL Extension is a data structure included in a TST
+using the extensions field defined in <<RFC3161,2.4.1 of>>.
 
-Perché Opentimestamps su Bitcoin
-Bitcoin è un DL già funzionante da 11 anni
-È un caso di DL più complesso o sfavorevole perché permissionless, per cui uno standard che lo supporta può più facilmente supportare anche DL permissioned (solo proof senza promise)
-OpenTimestamps è foss,
-si è dimostrata già una implementazione sufficientemente solida,
-è DL-agnostic per cui può fungere da modello per eventuali enhancement o punto di partenza per modifiche evolutive
+A DL Extension SHALL contain:
 
+- an OID registered at IANA that uniquely identify the Calendar protocol used
+- at least one Calendar Token
 
-////
+A DL Extensionn MAY contain also a secondary TST previously obtained.
+// @riba TODO: come si distingue??? non conviene avere due OID diversi???
+
+If there is no a secondary TST, the digest of the DLA is
+the same data that will be signed by the TSA without the Calendar Tokenitself.
+
+If there is a secondary TST it is also the digest of the Calendar Token.
+
+A Calendar Token SHALL contain:
+
+- the version of the DLA
+// FIXME: non serve a distinguere ANCHE tra singola e doppia marca
+- at least one DLA, that is a timestamping promise OR a timestamp proof
+- a string that uniquely identify the DL used by the Calendar Server
+// da dove viene? lo dichiara il Calendar?
+
+A Calendar Token MAY contain for each DLA that is a promise
+the URI to a document defining the promise policies.
+
+// @cisba TODO: definire meglio le policies della promessa?
+
+== OpenTimestamps
+
+It has to be expressly clarified that this specification does not intend to be restricted
+to the Bitcoin and OpenTimestamps implementations of DL and Calendar general solutions.
+It will just be taken as the starting point for future enhancements and evolutive proposal.
+
+We simply considered that:
+
+* Bitcoin is the first DL implementation and it is still working since January 2009
+* Bitcoin is a permissionless DL, with a significant delay necessary to reach a consensus,
+so a standard made to fit for it will be more general and easly usable also for others DL,
+also permissioned, eventually providing the proof syncronously, and so not requiring a promise
+* the OpenTimestamps software is licensed with the GNU LGPL Version 3, the server is written in python
+and clients are available in python, java, javascript and rust
+* OpenTimestamps is a proven working solution timestamping on the Bitcoin DL
+// @cisba TODO: since...
+* OpenTimestamps is potentially DL-agnostic, in fact an experimental version stamping
+on the Ethereum DL has been arount for a while
+* OpenTimestamps Calendars are currently available for free to the public thanks to donors
+
+For all this reasons the choice of Bitcoin as DL and OpenTimestamps as Calendar seem
+the favourite example do define an open standard of DL Attestation extending TST validity.
+

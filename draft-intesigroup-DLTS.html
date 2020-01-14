@@ -378,11 +378,12 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
 <link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 OpenTimeStamps">
-<link href="#rfc.section.5" rel="Chapter" title="5 DL Extension of TST">
-<link href="#rfc.section.5.1" rel="Chapter" title="5.1 OpenTimestamps Promise">
-<link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 OpenTimestamps Proof">
-<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Code snippets">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 DL Extension">
+<link href="#rfc.section.5" rel="Chapter" title="5 OpenTimestamps">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 OTS Extension">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 OTS Promise">
+<link href="#rfc.section.5.2.1" rel="Chapter" title="5.2.1 OTS Proof">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Code snippets">
 <link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
 <link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
 <link href="#rfc.references" rel="Chapter" title="8 References">
@@ -459,15 +460,17 @@
 </li>
 <li>4.   <a href="#rfc.section.4">DL Attestation</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">OpenTimeStamps</a>
+<ul><li>4.1.   <a href="#rfc.section.4.1">DL Extension</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">DL Extension of TST</a>
+</ul><li>5.   <a href="#rfc.section.5">OpenTimestamps</a>
 </li>
-<ul><li>5.1.   <a href="#rfc.section.5.1">OpenTimestamps Promise</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">OTS Extension</a>
 </li>
-<ul><li>5.1.1.   <a href="#rfc.section.5.1.1">OpenTimestamps Proof</a>
+<li>5.2.   <a href="#rfc.section.5.2">OTS Promise</a>
 </li>
-</ul><li>5.2.   <a href="#rfc.section.5.2">Code snippets</a>
+<ul><li>5.2.1.   <a href="#rfc.section.5.2.1">OTS Proof</a>
+</li>
+</ul><li>5.3.   <a href="#rfc.section.5.3">Code snippets</a>
 </li>
 </ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
@@ -593,30 +596,74 @@
 <a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Attestation</a>
 </h1>
 <p id="rfc.section.4.p.1">A Digital Ledger can be viewed as an untrusted logger, serving a number of clients who wish to store their events in the log, and kept honest by a number of auditors who will challenge the logger to prove its correct behavior <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a>.</p>
-<p id="rfc.section.4.p.2">A Merkle Tree data structure allow to accomplish this very efficently aggregating many requests and submitting to the log periodically just the root digest of the tree.  This log is built as an hash chain (aka blockchain) of small blocks of data.  With this conditions the entire chian can be shared and mantained by a large number of nodes, becoming a distributed system.</p>
-<p id="rfc.section.4.p.3">In a permissioned DL the number of nodes can be small enought to permit a quick syncronuzation to reach the consensus about the state of the chain.</p>
-<p id="rfc.section.4.p.4">Instead in a permissionless DL the large number of nodes introduce a relevant delay to reach the consensus. In the case of Bitcoin the consensus is reached statistically.  Usually in an elapsed mean time of one hour 6 new blocks has been added to the chain.  A block of data that has been added before the last 6 blocks is considered practically immutable.  This is motivated by the high computational power that would be required to rewrite the chain.</p>
+<p id="rfc.section.4.p.2">A Merkle Tree data structure allow to accomplish this very efficently aggregating many requests and submitting to the log periodically just the root digest of the tree.  This log is built as an hash chain (aka blockchain) of small blocks of data.  With this conditions the entire chain can be shared and mantained by a large number of nodes, becoming a distributed system.</p>
+<p id="rfc.section.4.p.3">In a permissioned DL the number of nodes can be small enought to permit a quick syncronization to reach the consensus about the state of the chain.  Instead in a permissionless DL the large number of nodes introduces a relevant delay to reach the consensus.</p>
+<p id="rfc.section.4.p.4">In the case of Bitcoin the consensus is reached statistically.  Usually in an elapsed mean time of one hour six new blocks are added to the chain.  A block of data that has been added before the last six blocks is considered practically immutable.  This is motivated by the high computational power that would be required to rewrite the chain.</p>
 <p id="rfc.section.4.p.5">As a result of this scenario the time elapsed - from the request of aggregation of a digest to the proof consolidated inside the DL - could amount to more than one hour.</p>
-<p id="rfc.section.4.p.6">This is the motivation to distinguish from a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.  An Aggregation Server can provide only a promise to timestamping the digest of the client in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been recorded in a block of the chain, the promise is still not yet comnfirmed,</p>
+<p id="rfc.section.4.p.6">This is the motivation to distinguish from a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.  An Aggregation Server generally can provide only a promise to timestamping the digest of the client in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been recorded in a block of the chain, the promise is still not yet comnfirmed,</p>
 <p id="rfc.section.4.p.7">Only when the consensus on that block is reached - statistically, in the Bitcoin case - then the attestation could be consideed a proof, stored and provided by a Calendar Server.</p>
+<p id="rfc.section.4.p.8">For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.</p>
+<p id="rfc.section.4.p.9">The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</p>
 <h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimeStamps</a>
+<a href="#rfc.section.4.1">4.1.</a> <a href="#_dl_extension" id="_dl_extension">DL Extension</a>
 </h1>
+<p id="rfc.section.4.1.p.1">A DL Extension is a data structure included in a TST using the extensions field defined in Section 2.4.1 of <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.4.1.p.2">A DL Extension SHALL contain:</p>
+<p></p>
+
+<ul>
+<li>an OID registered at IANA that uniquely identify the Calendar protocol used</li>
+<li>at least one Calendar Token</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.p.4">A DL Extensionn MAY contain also a secondary TST previously obtained.</p>
+<p id="rfc.section.4.1.p.5">If there is no a secondary TST, the digest of the DLA is the same data that will be signed by the TSA without the Calendar Tokenitself.</p>
+<p id="rfc.section.4.1.p.6">If there is a secondary TST it is also the digest of the Calendar Token.</p>
+<p id="rfc.section.4.1.p.7">A Calendar Token SHALL contain:</p>
+<p></p>
+
+<ul>
+<li>the version of the DLA</li>
+<li>at least one DLA, that is a timestamping promise OR a timestamp proof</li>
+<li>a string that uniquely identify the DL used by the Calendar Server</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.p.9">A Calendar Token MAY contain for each DLA that is a promise the URI to a document defining the promise policies.</p>
 <h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#_dl_extension_of_tst" id="_dl_extension_of_tst">DL Extension of TST</a>
+<a href="#rfc.section.5">5.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
 </h1>
-<p id="rfc.section.5.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
-<p id="rfc.section.5.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
-<p id="rfc.section.5.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<p id="rfc.section.5.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
+<p id="rfc.section.5.p.1">It has to be expressly clarified that this specification does not intend to be restricted to the Bitcoin and OpenTimestamps implementations of DL and Calendar general solutions.  It will just be taken as the starting point for future enhancements and evolutive proposal.</p>
+<p id="rfc.section.5.p.2">We simply considered that:</p>
+<p></p>
+
+<ul>
+<li>Bitcoin is the first DL implementation and it is still working since January 2009</li>
+<li>Bitcoin is a permissionless DL, with a significant delay necessary to reach a consensus, so a standard made to fit for it will be more general and easly usable also for others DL, also permissioned, eventually providing the proof syncronously, and so not requiring a promise</li>
+<li>the OpenTimestamps software is licensed with the GNU LGPL Version 3, the server is written in python and clients are available in python, java, javascript and rust</li>
+<li>OpenTimestamps is a proven working solution timestamping on the Bitcoin DL</li>
+<li>OpenTimestamps is potentially DL-agnostic, in fact an experimental version stamping on the Ethereum DL has been arount for a while</li>
+<li>OpenTimestamps Calendars are currently available for free to the public thanks to donors</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.5.p.4">For all this reasons the choice of Bitcoin as DL and OpenTimestamps as Calendar seem the favourite example do define an open standard of DL Attestation extending TST validity.</p>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#_ots_extension" id="_ots_extension">OTS Extension</a>
+</h1>
+<p id="rfc.section.5.1.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.1.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
+<p id="rfc.section.5.1.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<p id="rfc.section.5.1.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
 <pre>
 id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 </pre>
-<p id="rfc.section.5.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<h1 id="rfc.section.5.1">
-<a href="#rfc.section.5.1">5.1.</a> <a href="#_opentimestamps_promise" id="_opentimestamps_promise">OpenTimestamps Promise</a>
+<p id="rfc.section.5.1.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#_ots_promise" id="_ots_promise">OTS Promise</a>
 </h1>
-<p id="rfc.section.5.1.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.2.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
 id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
     id-ce-opentimestamps 1 }
@@ -629,10 +676,10 @@ Promise ::= SEQUENCE {
 <pre>
 OtsPromise ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.5.1.1">
-<a href="#rfc.section.5.1.1">5.1.1.</a> <a href="#_opentimestamps_proof" id="_opentimestamps_proof">OpenTimestamps Proof</a>
+<h1 id="rfc.section.5.2.1">
+<a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#_ots_proof" id="_ots_proof">OTS Proof</a>
 </h1>
-<p id="rfc.section.5.1.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.2.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
 id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
     id-ce-opentimestamps 2 }
@@ -646,10 +693,10 @@ Proof ::= SEQUENCE {
 <pre>
 OtsProof ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.5.2">
-<a href="#rfc.section.5.2">5.2.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
+<h1 id="rfc.section.5.3">
+<a href="#rfc.section.5.3">5.3.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
 </h1>
-<p id="rfc.section.5.2.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
+<p id="rfc.section.5.3.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
