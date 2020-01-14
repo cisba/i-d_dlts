@@ -202,13 +202,13 @@ Internet-Draft                    DLTS                      January 2020
    Aggregation Server
       A server providing the aggregation in a Merke Tree of digests to
       be timestamped.  Digests submitted for aggregation are added to a
-      list periodically combined nto a single Merkle Tree.  Then the
+      list periodically combined into a single Merkle Tree.  Then the
       digest at the root of that tree is timestamped on a Distributed
       Ledger.
 
    Distributed Ledger Attestation
-      A proof or a promise of timestamping in a precise Distributed
-      Ledger.
+      A Distributed Ledger (Timestamping) Attestation is a proof or a
+      promise of timestamping in a precise Distributed Ledger.
 
    Calendar
       A calendar is simply a collection of Distributed Ledger
@@ -227,8 +227,8 @@ Internet-Draft                    DLTS                      January 2020
 
 
    OpenTimestamps
-      A Scalable, Trust-Minimized, Distributed Timestamping on the
-      Bitcoin Distributed Ledger [OTS].
+      An open source software acting as aggregation and calendar server
+      to timestamp on the Bitcoin Distributed Ledger [OTS].
 
 3.  Symbols And Abbreviations
 
@@ -250,6 +250,10 @@ Internet-Draft                    DLTS                      January 2020
    DLA
       Distributed Ledger Attestation
 
+   OTS
+      A Digital Ledger Attestation provided by an OpenTimestamps
+      Calendar Server
+
 4.  DL Attestation
 
 4.1.  Aggregation Server
@@ -269,10 +273,6 @@ Internet-Draft                    DLTS                      January 2020
    local tools have to be installed before the document template can be
    built.
 
-   Running of these local tools *MAY* produce unintended side effects
-   that impact security.  For example
-
-
 
 
 
@@ -281,6 +281,9 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   Running of these local tools *MAY* produce unintended side effects
+   that impact security.  For example
 
              +-----------------+----------------------------+
              | Security issue  | Discussed in               |
@@ -322,12 +325,9 @@ Internet-Draft                    DLTS                      January 2020
               Time Stamp Management And Security", 2005,
               <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
 
-   [CrosbyWallach]
-              Crosby, S. and D. Wallach, "Efficient Data Structures for
-              Tamper-Evident Logging", Proceedings of the 18th USENIX
-              Security Symposium, Montreal, August 2009,
-              <http://static.usenix.org/event/sec09/tech/full_papers/
-              crosby.pdf>.
+
+
+
 
 
 
@@ -337,6 +337,13 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [CrosbyWallach]
+              Crosby, S. and D. Wallach, "Efficient Data Structures for
+              Tamper-Evident Logging", Proceedings of the 18th USENIX
+              Security Symposium, Montreal, August 2009,
+              <http://static.usenix.org/event/sec09/tech/full_papers/
+              crosby.pdf>.
 
    [eIDAS]    The European Parliament And The Council Of The European
               Union, "Regulation (EU) No 910/2014", July 2014,
@@ -377,13 +384,6 @@ Internet-Draft                    DLTS                      January 2020
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
               <https://trustee.ietf.org/trust-legal-provisions.html>.
 
-   [IMES]     Une, M., "The Security Evaluation of Time Stamping
-              Schemes: The Present Situation and Studies (2001)", 2001,
-              <http://citeseerx.ist.psu.edu/viewdoc/
-              summary?doi=10.1.1.23.7486>.
-
-
-
 
 
 
@@ -393,6 +393,11 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 7]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [IMES]     Une, M., "The Security Evaluation of Time Stamping
+              Schemes: The Present Situation and Studies (2001)", 2001,
+              <http://citeseerx.ist.psu.edu/viewdoc/
+              summary?doi=10.1.1.23.7486>.
 
    [ISO.IEC.18014-4]
               International Organization for Standardization,
@@ -437,11 +442,6 @@ Internet-Draft                    DLTS                      January 2020
               ps://assets.publishing.service.gov.uk/government/uploads/s
               ystem/uploads/attachment_data/file/492972/gs-16-1-
               distributed-ledger-technology.pdf>.
-
-
-
-
-
 
 
 

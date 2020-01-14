@@ -137,12 +137,14 @@ rules agreed by the network".</t>
     <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in <xref target="Merkle"/>, <xref target="CrosbyWallach"/> andSection 2.1 of <xref target="RFC6962"/></t>
     <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merke Tree of digests to be timestamped.
 Digests submitted for aggregation are added to a list periodically combined
-nto a single Merkle Tree. Then the digest at the root of that tree is timestamped
+into a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.</t>
-    <t hangText="Distributed Ledger Attestation"><vspace blankLines="0"/>A proof or a promise of timestamping in a precise Distributed Ledger.</t>
+    <t hangText="Distributed Ledger Attestation"><vspace blankLines="0"/>A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping
+in a precise Distributed Ledger.</t>
     <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of Distributed Ledger Attestations.</t>
     <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of Distributed Ledger Attestation.</t>
-    <t hangText="OpenTimestamps"><vspace blankLines="0"/>A Scalable, Trust-Minimized, Distributed Timestamping on the Bitcoin Distributed Ledger <xref target="OTS"/>.</t>
+    <t hangText="OpenTimestamps"><vspace blankLines="0"/>An open source software acting as aggregation and calendar server to timestamp
+on the Bitcoin Distributed Ledger <xref target="OTS"/>.</t>
   </list>
 </t></section>
 <section anchor="symbols" title="Symbols And Abbreviations">
@@ -154,6 +156,7 @@ on a Distributed Ledger.</t>
     <t hangText="TST"><vspace blankLines="0"/>Time-Stamp Token</t>
     <t hangText="DL"><vspace blankLines="0"/>Distributed Ledger</t>
     <t hangText="DLA"><vspace blankLines="0"/>Distributed Ledger Attestation</t>
+    <t hangText="OTS"><vspace blankLines="0"/>A Digital Ledger Attestation provided by an OpenTimestamps Calendar Server</t>
   </list>
 </t>
 </section>
