@@ -72,7 +72,7 @@ Table of Contents
      5.5.  OTS Extension . . . . . . . . . . . . . . . . . . . . . .   8
      5.6.  OTS Promise . . . . . . . . . . . . . . . . . . . . . . .   9
      5.7.  OTS Proof . . . . . . . . . . . . . . . . . . . . . . . .   9
-     5.8.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   9
+     5.8.  Code snippets . . . . . . . . . . . . . . . . . . . . . .  10
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
@@ -308,7 +308,8 @@ Internet-Draft                    DLTS                      January 2020
    stored and provided by a Calendar Server.
 
    For simplicity of implementation, the Aggregation and the Calendar
-   Server can be a uniq instance.
+   Server can be a uniq instance.  So in this document we will refer
+   generically to a Calendar Server indicating both services.
 
    The DLA data structure is out of scope of this specification.  Any
    Calendar Server can define his application protocol and data
@@ -332,7 +333,6 @@ Internet-Draft                    DLTS                      January 2020
 
 
 
-
 Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 
 Internet-Draft                    DLTS                      January 2020
@@ -345,12 +345,12 @@ Internet-Draft                    DLTS                      January 2020
    itself.
 
    In this scheme the DLA provide a timestamp of the same data
-   timestamped by outer TST, that can be useful to proof their
+   timestamped by outer TST.  This can be useful to proof their
    existence, but cannot proof the existence of the TST itself prior to
    a specific point in time.
 
-   This limit is due to the fact that also the TST Extension has to be
-   be signed by the TSA.
+   This limit is due to the fact that TST Extensions are included in the
+   digest that has to be be signed by the TSA.
 
 5.2.  Serial Scheme
 
@@ -359,20 +359,23 @@ Internet-Draft                    DLTS                      January 2020
    In this scheme the DLA provide a proof of the existence of the inner
    TST prior to a specific point in time.
 
-   The Serial Scheme is recommended to protect in the long-term also the
+   The Serial Scheme is recommended to protect in the long-term the
    validity of a TST, not just to proof the existence of the data
    timestamped with a TST.
 
-   The TSA generates the inner TST, commit to the Calendar Server the
-   request to timestamp on the DL the digest of the inner TST, then
-   generate the outer TST including in the DL Extension the Calendar
-   Token and the inner TST.
+   The TSA generates the inner TST, then commit to the Calendar Server
+   the request to timestamp on the DL the digest of the inner TST,
+   finally the TSA generate the outer TST, including in the DL Extension
+   the Calendar Token and the inner TST.
 
    In this scenario it is also possible to upgrade later the TST.  When
-   the TSA receive a request containing a DL Extension, it can check the
-   Calendar Token contained and, if there is a pending promise inside,
-   it can request the Calendar Server to get the proof to include it in
-   the new TST.
+   the TSA receive a request containing a Serial DL Extension, it can
+   check the Calendar Token contained and, if there is a pending promise
+   inside, it can request the Calendar Server to get the proof to
+   include it in the new TST.
+
+   In the new outer TST the previous inner TST will remain unchanged and
+   accompained by the DL proof of existence.
 
 5.3.  Calendar Token
 
@@ -383,9 +386,6 @@ Internet-Draft                    DLTS                      January 2020
    o  at least one DLA, that is a timestamping promise OR a timestamp
       proof
 
-   o  a string that uniquely identify the DL used by the Calendar Server
-
-
 
 
 
@@ -393,6 +393,8 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 7]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   o  a string that uniquely identify the DL used by the Calendar Server
 
    A Calendar Token MAY contain for each DLA that is a promise the URI
    to a document defining the promise policies.
@@ -440,8 +442,6 @@ Internet-Draft                    DLTS                      January 2020
    come estensione non critica all'interno di un timestamp che segue lo
    standard [RFC3161].
 
-   L'aggiunta dell'estensione non critica rende il timestamp finale
-   retro-compatibile con i software di verifica attualmente disponibili.
 
 
 
@@ -449,6 +449,9 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 8]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   L'aggiunta dell'estensione non critica rende il timestamp finale
+   retro-compatibile con i software di verifica attualmente disponibili.
 
    L'estensione deve rispettare le indicazioni riportate in [RFC3161] e
    Section 4.2.1 of [RFC3280].
@@ -491,11 +494,8 @@ Internet-Draft                    DLTS                      January 2020
 
    OtsProof ::= OCTET STRING
 
-5.8.  Code snippets
 
-   Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
-   ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
-   [IETF.TLP] (Section 4) specified in [RFC5378].
+
 
 
 
@@ -505,6 +505,12 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 9]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+5.8.  Code snippets
+
+   Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
+   ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
+   [IETF.TLP] (Section 4) specified in [RFC5378].
 
 6.  Security Considerations
 
@@ -546,12 +552,6 @@ Internet-Draft                    DLTS                      January 2020
               Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
               2001, <https://www.rfc-editor.org/info/rfc3161>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-
-
 
 
 
@@ -561,6 +561,10 @@ Cisbani, et al.           Expires July 16, 2020                [Page 10]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 8.2.  Informative References
 
@@ -606,10 +610,6 @@ Internet-Draft                    DLTS                      January 2020
               etsi_ts/102700_102799/10277804/01.01.02_60/
               ts_10277804v010102p.pdf>.
 
-   [HaberStornetta]
-              Haber, S. and W. S. Stornetta, "How to Time-Stamp a
-              Digital Document", 1991,
-              <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
 
 
@@ -617,6 +617,11 @@ Cisbani, et al.           Expires July 16, 2020                [Page 11]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [HaberStornetta]
+              Haber, S. and W. S. Stornetta, "How to Time-Stamp a
+              Digital Document", 1991,
+              <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
@@ -661,11 +666,6 @@ Internet-Draft                    DLTS                      January 2020
               DOI 10.17487/RFC5378, November 2008,
               <https://www.rfc-editor.org/info/rfc5378>.
 
-   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
-              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
-              <https://www.rfc-editor.org/info/rfc6962>.
-
-
 
 
 
@@ -673,6 +673,10 @@ Cisbani, et al.           Expires July 16, 2020                [Page 12]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
+              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
+              <https://www.rfc-editor.org/info/rfc6962>.
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
@@ -713,10 +717,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: dribaudo@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
 
 
 

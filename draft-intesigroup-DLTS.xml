@@ -185,7 +185,8 @@ in the DL. After the aggregation is completed and the root hash of the Merkle Tr
 recorded in a block of the chain, the promise is still not yet comnfirmed,</t>
 <t>Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
 the attestation could be consideed a proof, stored and provided by a Calendar Server.</t>
-<t>For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.</t>
+<t>For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.
+So in this document we will refer generically to a Calendar Server indicating both services.</t>
 <t>The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
 <section anchor="_dl_extension" title="DL Extension"><t>A DL Extension is a data structure included in a TST
 using the extensions field defined in Section 2.4.1 of <xref target="RFC3161"/>.</t>
@@ -199,22 +200,25 @@ using the extensions field defined in Section 2.4.1 of <xref target="RFC3161"/>.
 <t>A DL Extensionn MAY contain also an inner TST previously obtained.</t>
 <section anchor="_parallel_scheme" title="Parallel Scheme"><t>If there is no an inner TST, the data timestamped by the DLA is
 the same data that will be signed by the TSA without the Calendar Token itself.</t>
-<t>In this scheme the DLA provide a timestamp of the same data timestamped by outer TST,
-that can be useful to proof their existence, but cannot proof the existence
+<t>In this scheme the DLA provide a timestamp of the same data timestamped by outer TST.
+This can be useful to proof their existence, but cannot proof the existence
 of the TST itself prior to a specific point in time.</t>
-<t>This limit is due to the fact that also the TST Extension has to be be signed by the TSA.</t></section>
+<t>This limit is due to the fact that TST Extensions are included in the digest that
+has to be be signed by the TSA.</t></section>
 <section anchor="_serial_scheme" title="Serial Scheme"><t>The inner TST, if present, is the data timestamped by the DLA.</t>
 <t>In this scheme the DLA provide a proof of the existence of the inner TST
 prior to a specific point in time.</t>
-<t>The Serial Scheme is recommended to protect in the long-term also the validity of a TST,
+<t>The Serial Scheme is recommended to protect in the long-term the validity of a TST,
 not just to proof the existence of the data timestamped with a TST.</t>
-<t>The TSA generates the inner TST, commit to the Calendar Server the request to timestamp
-on the DL the digest of the inner TST, then generate the outer TST including
+<t>The TSA generates the inner TST, then commit to the Calendar Server the request to timestamp
+on the DL the digest of the inner TST, finally the TSA generate the outer TST, including
 in the DL Extension the Calendar Token and the inner TST.</t>
 <t>In this scenario it is also possible to upgrade later the TST. When the TSA receive
-a request containing a DL Extension, it can check the Calendar Token contained and,
+a request containing a Serial DL Extension, it can check the Calendar Token contained and,
 if there is a pending promise inside, it can request the Calendar Server to get the
-proof to include it in the new TST.</t></section>
+proof to include it in the new TST.</t>
+<t>In the new outer TST the previous inner TST will remain unchanged and accompained
+by the DL proof of existence.</t></section>
 <section anchor="_calendar_token" title="Calendar Token"><t>A Calendar Token SHALL contain:</t>
 <t>
   <list style="symbols">
