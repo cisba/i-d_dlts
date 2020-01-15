@@ -30,7 +30,7 @@ Questa estensione rappresenta la “promessa” restituita dal calendar server i
     OtsPromise ::= OCTET STRING
 
 
-==== OTS Proof
+=== OTS Proof
 
 Questa estensione rappresenta la “prova” restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito è riportata la struttura ASN.1:
 

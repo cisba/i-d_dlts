@@ -30,7 +30,7 @@ and for economic reasons - like the cost of providing the validation service by 
 This situation gave rise also to some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
 the issue by extending the validity of TSA timestamps.
 
-Distributed Ledgers <<UK-GCSA>> security is based on hashes of data timestamped and widely published.
+Distributed Ledgers security is based on hashes of data timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
 
@@ -41,13 +41,12 @@ Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
 In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
-While in the case of a permissionless DL security is granted by the economic incentive of nodes
-<<Nakamoto>>.
+While in the case of a permissionless DL security could be granted by the economic incentive
+of nodes <<Nakamoto>>.
 
-On the other hand a DLA is not yet a standard. Furthermore a DLA
-is as less precise - it proves the existence at a specific hour or day - as bigger and
-secure is the network: because distributed nodes need time to reach consensus.
+On the other hand a DLA is not yet a standard solution. Furthermore a DLA
+is as less precise as bigger is the network, because distributed nodes need time to reach consensus.
 
-Since a DLA result as a complementary element to provide a long-term
+Since a DLA results as a complementary element to provide a long-term
 validity to TST - the aim of this specification is to provide an extension
 of the Time-Stamp Token for Distributed Ledger Attestations (DLA).

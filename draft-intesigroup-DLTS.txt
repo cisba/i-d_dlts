@@ -64,18 +64,21 @@ Table of Contents
    2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
    4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   5
-     4.1.  DL Extension  . . . . . . . . . . . . . . . . . . . . . .   6
-   5.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . . . .   7
-     5.1.  OTS Extension . . . . . . . . . . . . . . . . . . . . . .   8
-     5.2.  OTS Promise . . . . . . . . . . . . . . . . . . . . . . .   8
-       5.2.1.  OTS Proof . . . . . . . . . . . . . . . . . . . . . .   8
-     5.3.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   9
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   9
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+   5.  DL Extension  . . . . . . . . . . . . . . . . . . . . . . . .   6
+     5.1.  Parallel Scheme . . . . . . . . . . . . . . . . . . . . .   7
+     5.2.  Serial Scheme . . . . . . . . . . . . . . . . . . . . . .   7
+     5.3.  Calendar Token  . . . . . . . . . . . . . . . . . . . . .   7
+     5.4.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . .   8
+     5.5.  OTS Extension . . . . . . . . . . . . . . . . . . . . . .   8
+     5.6.  OTS Promise . . . . . . . . . . . . . . . . . . . . . . .   9
+     5.7.  OTS Proof . . . . . . . . . . . . . . . . . . . . . . . .   9
+     5.8.  Code snippets . . . . . . . . . . . . . . . . . . . . . .   9
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  10
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  11
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
 
 1.  Introduction
 
@@ -106,9 +109,6 @@ Table of Contents
 
 
 
-
-
-
 Cisbani, et al.           Expires July 16, 2020                 [Page 2]
 
 Internet-Draft                    DLTS                      January 2020
@@ -127,10 +127,10 @@ Internet-Draft                    DLTS                      January 2020
    aimed at mitigating the issue by extending the validity of TSA
    timestamps.
 
-   Distributed Ledgers [UK-GCSA] security is based on hashes of data
-   timestamped and widely published.  Each timestamp includes the
-   previous timestamp in its hash, forming a chain, with each additional
-   timestamp reinforcing the ones before it.
+   Distributed Ledgers security is based on hashes of data timestamped
+   and widely published.  Each timestamp includes the previous timestamp
+   in its hash, forming a chain, with each additional timestamp
+   reinforcing the ones before it.
 
    The advantage of a Distributed Ledger Attestation (DLA) relies on the
    resilience of the distributed system and the overall design aiming to
@@ -142,15 +142,14 @@ Internet-Draft                    DLTS                      January 2020
 
    In the case of a permissioned DL, security could be enhanced by an
    authoritative network of trust.  While in the case of a
-   permissionless DL security is granted by the economic incentive of
-   nodes [Nakamoto].
+   permissionless DL security could be granted by the economic incentive
+   of nodes [Nakamoto].
 
-   On the other hand a DLA is not yet a standard.  Furthermore a DLA is
-   as less precise - it proves the existence at a specific hour or day -
-   as bigger and secure is the network: because distributed nodes need
-   time to reach consensus.
+   On the other hand a DLA is not yet a standard solution.  Furthermore
+   a DLA is as less precise as bigger is the network, because
+   distributed nodes need time to reach consensus.
 
-   Since a DLA result as a complementary element to provide a long-term
+   Since a DLA results as a complementary element to provide a long-term
    validity to TST - the aim of this specification is to provide an
    extension of the Time-Stamp Token for Distributed Ledger Attestations
    (DLA).
@@ -162,6 +161,7 @@ Internet-Draft                    DLTS                      January 2020
    RECOMMENDED*", "*MAY*", and "*OPTIONAL*" in this document are to be
    interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
    when, they appear in all capitals, as shown here.
+
 
 
 
@@ -315,7 +315,7 @@ Internet-Draft                    DLTS                      January 2020
    structure.  For this specification the DLA is considered as pure
    data.
 
-4.1.  DL Extension
+5.  DL Extension
 
    A DL Extension is a data structure included in a TST using the
    extensions field defined in Section 2.4.1 of [RFC3161].
@@ -327,7 +327,7 @@ Internet-Draft                    DLTS                      January 2020
 
    o  at least one Calendar Token
 
-   A DL Extensionn MAY contain also a secondary TST previously obtained.
+   A DL Extensionn MAY contain also an inner TST previously obtained.
 
 
 
@@ -338,11 +338,43 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 Internet-Draft                    DLTS                      January 2020
 
 
-   If there is no a secondary TST, the digest of the DLA is the same
-   data that will be signed by the TSA without the Calendar Tokenitself.
+5.1.  Parallel Scheme
 
-   If there is a secondary TST it is also the digest of the Calendar
-   Token.
+   If there is no an inner TST, the data timestamped by the DLA is the
+   same data that will be signed by the TSA without the Calendar Token
+   itself.
+
+   In this scheme the DLA provide a timestamp of the same data
+   timestamped by outer TST, that can be useful to proof their
+   existence, but cannot proof the existence of the TST itself prior to
+   a specific point in time.
+
+   This limit is due to the fact that also the TST Extension has to be
+   be signed by the TSA.
+
+5.2.  Serial Scheme
+
+   The inner TST, if present, is the data timestamped by the DLA.
+
+   In this scheme the DLA provide a proof of the existence of the inner
+   TST prior to a specific point in time.
+
+   The Serial Scheme is recommended to protect in the long-term also the
+   validity of a TST, not just to proof the existence of the data
+   timestamped with a TST.
+
+   The TSA generates the inner TST, commit to the Calendar Server the
+   request to timestamp on the DL the digest of the inner TST, then
+   generate the outer TST including in the DL Extension the Calendar
+   Token and the inner TST.
+
+   In this scenario it is also possible to upgrade later the TST.  When
+   the TSA receive a request containing a DL Extension, it can check the
+   Calendar Token contained and, if there is a pending promise inside,
+   it can request the Calendar Server to get the proof to include it in
+   the new TST.
+
+5.3.  Calendar Token
 
    A Calendar Token SHALL contain:
 
@@ -353,10 +385,19 @@ Internet-Draft                    DLTS                      January 2020
 
    o  a string that uniquely identify the DL used by the Calendar Server
 
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    A Calendar Token MAY contain for each DLA that is a promise the URI
    to a document defining the promise policies.
 
-5.  OpenTimestamps
+5.4.  OpenTimestamps
 
    It has to be expressly clarified that this specification does not
    intend to be restricted to the Bitcoin and OpenTimestamps
@@ -385,15 +426,6 @@ Internet-Draft                    DLTS                      January 2020
    o  OpenTimestamps is potentially DL-agnostic, in fact an experimental
       version stamping on the Ethereum DL has been arount for a while
 
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 7]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    o  OpenTimestamps Calendars are currently available for free to the
       public thanks to donors
 
@@ -401,7 +433,7 @@ Internet-Draft                    DLTS                      January 2020
    as Calendar seem the favourite example do define an open standard of
    DL Attestation extending TST validity.
 
-5.1.  OTS Extension
+5.5.  OTS Extension
 
    Il timestamp di tipo opentimestamps (basato su blockchain) dovra
    essere generato tramite l'utilizzo di un calendar server e inserito
@@ -410,6 +442,13 @@ Internet-Draft                    DLTS                      January 2020
 
    L'aggiunta dell'estensione non critica rende il timestamp finale
    retro-compatibile con i software di verifica attualmente disponibili.
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft                    DLTS                      January 2020
+
 
    L'estensione deve rispettare le indicazioni riportate in [RFC3161] e
    Section 4.2.1 of [RFC3280].
@@ -421,7 +460,7 @@ Internet-Draft                    DLTS                      January 2020
    dove id-ce identifica la radice delle estensioni standard vedi
    [RFC3280].
 
-5.2.  OTS Promise
+5.6.  OTS Promise
 
    Questa estensione rappresenta la "promessa" restituita dal calendar
    server in risposta alla richiesta di marcatura di un hash.  Di
@@ -436,19 +475,11 @@ Internet-Draft                    DLTS                      January 2020
 
    OtsPromise ::= OCTET STRING
 
-5.2.1.  OTS Proof
+5.7.  OTS Proof
 
    Questa estensione rappresenta la "prova" restituita dal calendar
    server in risposta alla richiesta di upgrade di una promessa
    precedentemente ricevuta.  Di seguito e riportata la struttura ASN.1:
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 8]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
        id-ce-opentimestamps 2 }
@@ -460,11 +491,20 @@ Internet-Draft                    DLTS                      January 2020
 
    OtsProof ::= OCTET STRING
 
-5.3.  Code snippets
+5.8.  Code snippets
 
    Code snippets should be wrapped with "<CODE BEGINS>" and "<CODE
    ENDS>" blocks, as required by the IETF Trust Legal Provisions (TLP)
    [IETF.TLP] (Section 4) specified in [RFC5378].
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+Internet-Draft                    DLTS                      January 2020
+
 
 6.  Security Considerations
 
@@ -494,18 +534,6 @@ Internet-Draft                    DLTS                      January 2020
 
 8.  References
 
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 9]
-
-Internet-Draft                    DLTS                      January 2020
-
-
 8.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -521,6 +549,18 @@ Internet-Draft                    DLTS                      January 2020
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]
+
+Internet-Draft                    DLTS                      January 2020
+
 
 8.2.  Informative References
 
@@ -549,19 +589,6 @@ Internet-Draft                    DLTS                      January 2020
               etsi_en/319400_319499/319422/01.01.01_60/
               en_319422v010101p.pdf>.
 
-
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                [Page 10]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    [ETSI.TS.101.861]
               European Telecommunications Standards Institute,
               "Electronic Signatures and Infrastructures (ESI); Time
@@ -583,6 +610,13 @@ Internet-Draft                    DLTS                      January 2020
               Haber, S. and W. S. Stornetta, "How to Time-Stamp a
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 11]
+
+Internet-Draft                    DLTS                      January 2020
+
 
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
@@ -611,13 +645,6 @@ Internet-Draft                    DLTS                      January 2020
               Distributed Timestamping with Bitcoin", September 2016,
               <https://petertodd.org/2016/opentimestamps-announcement>.
 
-
-
-Cisbani, et al.           Expires July 16, 2020                [Page 11]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
               X.509 Public Key Infrastructure Certificate and
               Certificate Revocation List (CRL) Profile", RFC 3280,
@@ -637,6 +664,15 @@ Internet-Draft                    DLTS                      January 2020
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 12]
+
+Internet-Draft                    DLTS                      January 2020
+
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
@@ -668,12 +704,6 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
-
-Cisbani, et al.           Expires July 16, 2020                [Page 12]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
@@ -683,36 +713,6 @@ Internet-Draft                    DLTS                      January 2020
    Phone: +39 026 760 641
    Email: dribaudo@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

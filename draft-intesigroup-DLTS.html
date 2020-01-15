@@ -378,12 +378,15 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
 <link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 DL Extension">
-<link href="#rfc.section.5" rel="Chapter" title="5 OpenTimestamps">
-<link href="#rfc.section.5.1" rel="Chapter" title="5.1 OTS Extension">
-<link href="#rfc.section.5.2" rel="Chapter" title="5.2 OTS Promise">
-<link href="#rfc.section.5.2.1" rel="Chapter" title="5.2.1 OTS Proof">
-<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Code snippets">
+<link href="#rfc.section.5" rel="Chapter" title="5 DL Extension">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Parallel Scheme">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 Serial Scheme">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Calendar Token">
+<link href="#rfc.section.5.4" rel="Chapter" title="5.4 OpenTimestamps">
+<link href="#rfc.section.5.5" rel="Chapter" title="5.5 OTS Extension">
+<link href="#rfc.section.5.6" rel="Chapter" title="5.6 OTS Promise">
+<link href="#rfc.section.5.7" rel="Chapter" title="5.7 OTS Proof">
+<link href="#rfc.section.5.8" rel="Chapter" title="5.8 Code snippets">
 <link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
 <link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
 <link href="#rfc.references" rel="Chapter" title="8 References">
@@ -460,17 +463,23 @@
 </li>
 <li>4.   <a href="#rfc.section.4">DL Attestation</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">DL Extension</a>
+<li>5.   <a href="#rfc.section.5">DL Extension</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">OpenTimestamps</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">Parallel Scheme</a>
 </li>
-<ul><li>5.1.   <a href="#rfc.section.5.1">OTS Extension</a>
+<li>5.2.   <a href="#rfc.section.5.2">Serial Scheme</a>
 </li>
-<li>5.2.   <a href="#rfc.section.5.2">OTS Promise</a>
+<li>5.3.   <a href="#rfc.section.5.3">Calendar Token</a>
 </li>
-<ul><li>5.2.1.   <a href="#rfc.section.5.2.1">OTS Proof</a>
+<li>5.4.   <a href="#rfc.section.5.4">OpenTimestamps</a>
 </li>
-</ul><li>5.3.   <a href="#rfc.section.5.3">Code snippets</a>
+<li>5.5.   <a href="#rfc.section.5.5">OTS Extension</a>
+</li>
+<li>5.6.   <a href="#rfc.section.5.6">OTS Promise</a>
+</li>
+<li>5.7.   <a href="#rfc.section.5.7">OTS Proof</a>
+</li>
+<li>5.8.   <a href="#rfc.section.5.8">Code snippets</a>
 </li>
 </ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
@@ -507,12 +516,12 @@
 <p id="rfc.section.1.p.5">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA gave rise anyway to other proposals like <a href="#ANSI.X9.95" class="xref">[ANSI.X9.95]</a> and <a href="#ISO.IEC.18014-4" class="xref">[ISO.IEC.18014-4]</a>.</p>
 <p id="rfc.section.1.p.6">Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years - for technical reasons - like the TSA certificates expiration - and for economic reasons - like the cost of providing the validation service by TSA.</p>
 <p id="rfc.section.1.p.7">This situation gave rise also to some solutions <a href="#ETSI.TS.102.778-4" class="xref">[ETSI.TS.102.778-4]</a> aimed at mitigating the issue by extending the validity of TSA timestamps.</p>
-<p id="rfc.section.1.p.8">Distributed Ledgers <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> security is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
+<p id="rfc.section.1.p.8">Distributed Ledgers security is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
 <p id="rfc.section.1.p.9">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience of the distributed system and the overall design aiming to survive perpetually.</p>
 <p id="rfc.section.1.p.10">Based on a distributed trust scheme, a Distributed Ledger significantly increase security as already noted by Haber and Stornetta in 1991 <a href="#HaberStornetta" class="xref">[HaberStornetta]</a>.</p>
-<p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.  While in the case of a permissionless DL security is granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
-<p id="rfc.section.1.p.12">On the other hand a DLA is not yet a standard. Furthermore a DLA is as less precise - it proves the existence at a specific hour or day - as bigger and secure is the network: because distributed nodes need time to reach consensus.</p>
-<p id="rfc.section.1.p.13">Since a DLA result as a complementary element to provide a long-term validity to TST - the aim of this specification is to provide an extension of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</p>
+<p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.  While in the case of a permissionless DL security could be granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
+<p id="rfc.section.1.p.12">On the other hand a DLA is not yet a standard solution. Furthermore a DLA is as less precise as bigger is the network, because distributed nodes need time to reach consensus.</p>
+<p id="rfc.section.1.p.13">Since a DLA results as a complementary element to provide a long-term validity to TST - the aim of this specification is to provide an extension of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#conventions" id="conventions">Terms and Definitions</a>
 </h1>
@@ -604,11 +613,11 @@
 <p id="rfc.section.4.p.7">Only when the consensus on that block is reached - statistically, in the Bitcoin case - then the attestation could be consideed a proof, stored and provided by a Calendar Server.</p>
 <p id="rfc.section.4.p.8">For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.</p>
 <p id="rfc.section.4.p.9">The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</p>
-<h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_dl_extension" id="_dl_extension">DL Extension</a>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#_dl_extension" id="_dl_extension">DL Extension</a>
 </h1>
-<p id="rfc.section.4.1.p.1">A DL Extension is a data structure included in a TST using the extensions field defined in Section 2.4.1 of <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
-<p id="rfc.section.4.1.p.2">A DL Extension SHALL contain:</p>
+<p id="rfc.section.5.p.1">A DL Extension is a data structure included in a TST using the extensions field defined in Section 2.4.1 of <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.p.2">A DL Extension SHALL contain:</p>
 <p></p>
 
 <ul>
@@ -617,10 +626,25 @@
 </ul>
 
 <p> </p>
-<p id="rfc.section.4.1.p.4">A DL Extensionn MAY contain also a secondary TST previously obtained.</p>
-<p id="rfc.section.4.1.p.5">If there is no a secondary TST, the digest of the DLA is the same data that will be signed by the TSA without the Calendar Tokenitself.</p>
-<p id="rfc.section.4.1.p.6">If there is a secondary TST it is also the digest of the Calendar Token.</p>
-<p id="rfc.section.4.1.p.7">A Calendar Token SHALL contain:</p>
+<p id="rfc.section.5.p.4">A DL Extensionn MAY contain also an inner TST previously obtained.</p>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#_parallel_scheme" id="_parallel_scheme">Parallel Scheme</a>
+</h1>
+<p id="rfc.section.5.1.p.1">If there is no an inner TST, the data timestamped by the DLA is the same data that will be signed by the TSA without the Calendar Token itself.</p>
+<p id="rfc.section.5.1.p.2">In this scheme the DLA provide a timestamp of the same data timestamped by outer TST, that can be useful to proof their existence, but cannot proof the existence of the TST itself prior to a specific point in time.</p>
+<p id="rfc.section.5.1.p.3">This limit is due to the fact that also the TST Extension has to be be signed by the TSA.</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#_serial_scheme" id="_serial_scheme">Serial Scheme</a>
+</h1>
+<p id="rfc.section.5.2.p.1">The inner TST, if present, is the data timestamped by the DLA.</p>
+<p id="rfc.section.5.2.p.2">In this scheme the DLA provide a proof of the existence of the inner TST prior to a specific point in time.</p>
+<p id="rfc.section.5.2.p.3">The Serial Scheme is recommended to protect in the long-term also the validity of a TST, not just to proof the existence of the data timestamped with a TST.</p>
+<p id="rfc.section.5.2.p.4">The TSA generates the inner TST, commit to the Calendar Server the request to timestamp on the DL the digest of the inner TST, then generate the outer TST including in the DL Extension the Calendar Token and the inner TST.</p>
+<p id="rfc.section.5.2.p.5">In this scenario it is also possible to upgrade later the TST. When the TSA receive a request containing a DL Extension, it can check the Calendar Token contained and, if there is a pending promise inside, it can request the Calendar Server to get the proof to include it in the new TST.</p>
+<h1 id="rfc.section.5.3">
+<a href="#rfc.section.5.3">5.3.</a> <a href="#_calendar_token" id="_calendar_token">Calendar Token</a>
+</h1>
+<p id="rfc.section.5.3.p.1">A Calendar Token SHALL contain:</p>
 <p></p>
 
 <ul>
@@ -630,12 +654,12 @@
 </ul>
 
 <p> </p>
-<p id="rfc.section.4.1.p.9">A Calendar Token MAY contain for each DLA that is a promise the URI to a document defining the promise policies.</p>
-<h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
+<p id="rfc.section.5.3.p.3">A Calendar Token MAY contain for each DLA that is a promise the URI to a document defining the promise policies.</p>
+<h1 id="rfc.section.5.4">
+<a href="#rfc.section.5.4">5.4.</a> <a href="#_opentimestamps" id="_opentimestamps">OpenTimestamps</a>
 </h1>
-<p id="rfc.section.5.p.1">It has to be expressly clarified that this specification does not intend to be restricted to the Bitcoin and OpenTimestamps implementations of DL and Calendar general solutions.  It will just be taken as the starting point for future enhancements and evolutive proposal.</p>
-<p id="rfc.section.5.p.2">We simply considered that:</p>
+<p id="rfc.section.5.4.p.1">It has to be expressly clarified that this specification does not intend to be restricted to the Bitcoin and OpenTimestamps implementations of DL and Calendar general solutions.  It will just be taken as the starting point for future enhancements and evolutive proposal.</p>
+<p id="rfc.section.5.4.p.2">We simply considered that:</p>
 <p></p>
 
 <ul>
@@ -648,22 +672,22 @@
 </ul>
 
 <p> </p>
-<p id="rfc.section.5.p.4">For all this reasons the choice of Bitcoin as DL and OpenTimestamps as Calendar seem the favourite example do define an open standard of DL Attestation extending TST validity.</p>
-<h1 id="rfc.section.5.1">
-<a href="#rfc.section.5.1">5.1.</a> <a href="#_ots_extension" id="_ots_extension">OTS Extension</a>
+<p id="rfc.section.5.4.p.4">For all this reasons the choice of Bitcoin as DL and OpenTimestamps as Calendar seem the favourite example do define an open standard of DL Attestation extending TST validity.</p>
+<h1 id="rfc.section.5.5">
+<a href="#rfc.section.5.5">5.5.</a> <a href="#_ots_extension" id="_ots_extension">OTS Extension</a>
 </h1>
-<p id="rfc.section.5.1.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
-<p id="rfc.section.5.1.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
-<p id="rfc.section.5.1.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<p id="rfc.section.5.1.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
+<p id="rfc.section.5.5.p.1">Il timestamp di tipo opentimestamps (basato su blockchain) dovr&#224; essere generato tramite l&#8217;utilizzo di un calendar server e inserito come estensione non critica all&#8217;interno di un timestamp che segue lo standard <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.5.p.2">L&#8217;aggiunta dell&#8217;estensione non critica rende il timestamp finale retro-compatibile con i software di verifica attualmente disponibili.</p>
+<p id="rfc.section.5.5.p.3">L&#8217;estensione deve rispettare le indicazioni riportate in <a href="#RFC3161" class="xref">[RFC3161]</a> e Section 4.2.1 of <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<p id="rfc.section.5.5.p.4">Gli OID delle nuove estensioni avranno la seguente radice:</p>
 <pre>
 id-ce-opentimestamps   OBJECT IDENTIFIER ::= { id-ce 99 }
 </pre>
-<p id="rfc.section.5.1.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
-<h1 id="rfc.section.5.2">
-<a href="#rfc.section.5.2">5.2.</a> <a href="#_ots_promise" id="_ots_promise">OTS Promise</a>
+<p id="rfc.section.5.5.p.5">dove id-ce identifica la radice delle estensioni standard vedi <a href="#RFC3280" class="xref">[RFC3280]</a>.</p>
+<h1 id="rfc.section.5.6">
+<a href="#rfc.section.5.6">5.6.</a> <a href="#_ots_promise" id="_ots_promise">OTS Promise</a>
 </h1>
-<p id="rfc.section.5.2.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.6.p.1">Questa estensione rappresenta la &#8220;promessa&#8221; restituita dal calendar server in risposta alla richiesta di marcatura di un hash. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
 id-ce-opentimestamps-promise OBJECT IDENTIFIER ::= {
     id-ce-opentimestamps 1 }
@@ -676,10 +700,10 @@ Promise ::= SEQUENCE {
 <pre>
 OtsPromise ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.5.2.1">
-<a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#_ots_proof" id="_ots_proof">OTS Proof</a>
+<h1 id="rfc.section.5.7">
+<a href="#rfc.section.5.7">5.7.</a> <a href="#_ots_proof" id="_ots_proof">OTS Proof</a>
 </h1>
-<p id="rfc.section.5.2.1.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
+<p id="rfc.section.5.7.p.1">Questa estensione rappresenta la &#8220;prova&#8221; restituita dal calendar server in risposta alla richiesta di upgrade di una promessa precedentemente ricevuta. Di seguito &#232; riportata la struttura ASN.1:</p>
 <pre>
 id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
     id-ce-opentimestamps 2 }
@@ -693,10 +717,10 @@ Proof ::= SEQUENCE {
 <pre>
 OtsProof ::= OCTET STRING
 </pre>
-<h1 id="rfc.section.5.3">
-<a href="#rfc.section.5.3">5.3.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
+<h1 id="rfc.section.5.8">
+<a href="#rfc.section.5.8">5.8.</a> <a href="#code-snippets" id="code-snippets">Code snippets</a>
 </h1>
-<p id="rfc.section.5.3.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
+<p id="rfc.section.5.8.p.1">Code snippets should be wrapped with <samp>&lt;CODE BEGINS&gt;</samp> and <samp>&lt;CODE ENDS&gt;</samp> blocks, as required by the IETF Trust Legal Provisions (TLP) <a href="#IETF.TLP" class="xref">[IETF.TLP]</a> (Section 4) specified in <a href="#RFC5378" class="xref">[RFC5378]</a>.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
