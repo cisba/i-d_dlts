@@ -67,9 +67,9 @@ Table of Contents
    5.  DL Extension  . . . . . . . . . . . . . . . . . . . . . . . .   6
      5.1.  Parallel Scheme . . . . . . . . . . . . . . . . . . . . .   7
      5.2.  Serial Scheme . . . . . . . . . . . . . . . . . . . . . .   7
-     5.3.  Calendar Token  . . . . . . . . . . . . . . . . . . . . .   7
+     5.3.  Calendar Token  . . . . . . . . . . . . . . . . . . . . .   8
      5.4.  OpenTimestamps  . . . . . . . . . . . . . . . . . . . . .   8
-     5.5.  OTS Extension . . . . . . . . . . . . . . . . . . . . . .   8
+     5.5.  OTS Extension . . . . . . . . . . . . . . . . . . . . . .   9
      5.6.  OTS Promise . . . . . . . . . . . . . . . . . . . . . . .   9
      5.7.  OTS Proof . . . . . . . . . . . . . . . . . . . . . . . .   9
      5.8.  Code snippets . . . . . . . . . . . . . . . . . . . . . .  10
@@ -127,10 +127,10 @@ Internet-Draft                    DLTS                      January 2020
    aimed at mitigating the issue by extending the validity of TSA
    timestamps.
 
-   Distributed Ledgers security is based on hashes of data timestamped
-   and widely published.  Each timestamp includes the previous timestamp
-   in its hash, forming a chain, with each additional timestamp
-   reinforcing the ones before it.
+   Security of a Distributed Ledger (def. in Section 2) is based on
+   hashes of data timestamped and widely published.  Each timestamp
+   includes the previous timestamp in its hash, forming a chain, with
+   each additional timestamp reinforcing the ones before it.
 
    The advantage of a Distributed Ledger Attestation (DLA) relies on the
    resilience of the distributed system and the overall design aiming to
@@ -185,7 +185,11 @@ Internet-Draft                    DLTS                      January 2020
       As defined in [RFC3161]
 
    Distributed Ledger
-      As defined by UK Government Chief Scientific Adviser [UK-GCSA] "A
+      Various definitions of blockchain and distributed ledger
+      technology exist, and some of these stress different technical
+      features.  Given the nature and scope of this document and the
+      lack of definitional consensus we chosed to use the term as
+      defined by UK Government Chief Scientific Adviser [UK-GCSA] "A
       distributed ledger is essentially an asset database that can be
       shared across a network of multiple sites, geographies or
       institutions.  All participants within a network can have their
@@ -214,10 +218,6 @@ Internet-Draft                    DLTS                      January 2020
       promise of timestamping in a precise Distributed Ledger.
 
    Calendar
-      A calendar is simply a collection of Distributed Ledger
-      Attestations.
-
-   Calendar Server
 
 
 
@@ -226,6 +226,10 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 4]
 Internet-Draft                    DLTS                      January 2020
 
 
+      A calendar is simply a collection of Distributed Ledger
+      Attestations.
+
+   Calendar Server
       A server providing remote access to a collection of Distributed
       Ledger Attestation.
 
@@ -271,10 +275,6 @@ Internet-Draft                    DLTS                      January 2020
    chain can be shared and mantained by a large number of nodes,
    becoming a distributed system.
 
-   In a permissioned DL the number of nodes can be small enought to
-   permit a quick syncronization to reach the consensus about the state
-
-
 
 
 Cisbani, et al.           Expires July 16, 2020                 [Page 5]
@@ -282,6 +282,8 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 5]
 Internet-Draft                    DLTS                      January 2020
 
 
+   In a permissioned DL the number of nodes can be small enought to
+   permit a quick syncronization to reach the consensus about the state
    of the chain.  Instead in a permissionless DL the large number of
    nodes introduces a relevant delay to reach the consensus.
 
@@ -328,8 +330,6 @@ Internet-Draft                    DLTS                      January 2020
 
    o  at least one Calendar Token
 
-   A DL Extensionn MAY contain also an inner TST previously obtained.
-
 
 
 
@@ -337,6 +337,8 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 6]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   A DL Extensionn MAY contain also an inner TST previously obtained.
 
 5.1.  Parallel Scheme
 
@@ -351,6 +353,13 @@ Internet-Draft                    DLTS                      January 2020
 
    This limit is due to the fact that TST Extensions are included in the
    digest that has to be be signed by the TSA.
+
+   The upgrade from a promise to a proof can be done requesting a new
+   TST, including the previous DL Extension containing the Calendar
+   Token.  When the TSA receive a request containing a Serial DL
+   Extension, it can check the Calendar Token contained and, if there is
+   a pending promise inside, it can request the Calendar Server to get
+   the proof to include it in the new TST.
 
 5.2.  Serial Scheme
 
@@ -368,14 +377,22 @@ Internet-Draft                    DLTS                      January 2020
    finally the TSA generate the outer TST, including in the DL Extension
    the Calendar Token and the inner TST.
 
-   In this scenario it is also possible to upgrade later the TST.  When
-   the TSA receive a request containing a Serial DL Extension, it can
-   check the Calendar Token contained and, if there is a pending promise
-   inside, it can request the Calendar Server to get the proof to
-   include it in the new TST.
+   In this scenario the upgrade of a DL Extension will produce a new
+   outer TST that will contain the previous inner TST unchanged and
+   accompained by the new DL proof of existence instead of the old
+   promise related to it.
 
-   In the new outer TST the previous inner TST will remain unchanged and
-   accompained by the DL proof of existence.
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft                    DLTS                      January 2020
+
 
 5.3.  Calendar Token
 
@@ -385,14 +402,6 @@ Internet-Draft                    DLTS                      January 2020
 
    o  at least one DLA, that is a timestamping promise OR a timestamp
       proof
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 7]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    o  a string that uniquely identify the DL used by the Calendar Server
 
@@ -431,6 +440,16 @@ Internet-Draft                    DLTS                      January 2020
    o  OpenTimestamps Calendars are currently available for free to the
       public thanks to donors
 
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    For all this reasons the choice of Bitcoin as DL and OpenTimestamps
    as Calendar seem the favourite example do define an open standard of
    DL Attestation extending TST validity.
@@ -441,14 +460,6 @@ Internet-Draft                    DLTS                      January 2020
    essere generato tramite l'utilizzo di un calendar server e inserito
    come estensione non critica all'interno di un timestamp che segue lo
    standard [RFC3161].
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 8]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    L'aggiunta dell'estensione non critica rende il timestamp finale
    retro-compatibile con i software di verifica attualmente disponibili.
@@ -487,17 +498,6 @@ Internet-Draft                    DLTS                      January 2020
    id-ce-opentimestamps-proof OBJECT IDENTIFIER ::= {
        id-ce-opentimestamps 2 }
 
-   Proof ::= SEQUENCE {
-         version        [0] INTEGER,
-         otsProof       [1] OtsProof,
-         blockchain     [2] UTF8String }
-
-   OtsProof ::= OCTET STRING
-
-
-
-
-
 
 
 
@@ -505,6 +505,13 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 9]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   Proof ::= SEQUENCE {
+         version        [0] INTEGER,
+         otsProof       [1] OtsProof,
+         blockchain     [2] UTF8String }
+
+   OtsProof ::= OCTET STRING
 
 5.8.  Code snippets
 
@@ -547,13 +554,6 @@ Internet-Draft                    DLTS                      January 2020
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
-   [RFC3161]  Adams, C., Cain, P., Pinkas, D., and R. Zuccherato,
-              "Internet X.509 Public Key Infrastructure Time-Stamp
-              Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
-              2001, <https://www.rfc-editor.org/info/rfc3161>.
-
-
-
 
 
 
@@ -561,6 +561,11 @@ Cisbani, et al.           Expires July 16, 2020                [Page 10]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [RFC3161]  Adams, C., Cain, P., Pinkas, D., and R. Zuccherato,
+              "Internet X.509 Public Key Infrastructure Time-Stamp
+              Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
+              2001, <https://www.rfc-editor.org/info/rfc3161>.
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -601,14 +606,9 @@ Internet-Draft                    DLTS                      January 2020
               etsi_ts/101800_101899/101861/01.04.01_60/
               ts_101861v010401p.pdf>.
 
-   [ETSI.TS.102.778-4]
-              European Telecommunications Standards Institute,
-              "Electronic Signatures and Infrastructures (ESI); PDF
-              Advanced Electronic Signature Profiles; Part 4: PAdES Long
-              Term - PAdES-LTV Profile", December 2009,
-              <https://www.etsi.org/deliver/
-              etsi_ts/102700_102799/10277804/01.01.02_60/
-              ts_10277804v010102p.pdf>.
+
+
+
 
 
 
@@ -617,6 +617,15 @@ Cisbani, et al.           Expires July 16, 2020                [Page 11]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [ETSI.TS.102.778-4]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); PDF
+              Advanced Electronic Signature Profiles; Part 4: PAdES Long
+              Term - PAdES-LTV Profile", December 2009,
+              <https://www.etsi.org/deliver/
+              etsi_ts/102700_102799/10277804/01.01.02_60/
+              ts_10277804v010102p.pdf>.
 
    [HaberStornetta]
               Haber, S. and W. S. Stornetta, "How to Time-Stamp a
@@ -656,6 +665,15 @@ Internet-Draft                    DLTS                      January 2020
               DOI 10.17487/RFC3280, April 2002,
               <https://www.rfc-editor.org/info/rfc3280>.
 
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 12]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
               Text on Security Considerations", BCP 72, RFC 3552,
               DOI 10.17487/RFC3552, July 2003,
@@ -665,14 +683,6 @@ Internet-Draft                    DLTS                      January 2020
               Contributors Provide to the IETF Trust", BCP 78, RFC 5378,
               DOI 10.17487/RFC5378, November 2008,
               <https://www.rfc-editor.org/info/rfc5378>.
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                [Page 12]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
@@ -708,6 +718,18 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 13]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
@@ -725,4 +747,38 @@ Authors' Addresses
 
 
 
-Cisbani, et al.           Expires July 16, 2020                [Page 13]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 14]

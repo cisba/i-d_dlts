@@ -30,7 +30,8 @@ and for economic reasons - like the cost of providing the validation service by 
 This situation gave rise also to some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
 the issue by extending the validity of TSA timestamps.
 
-Distributed Ledgers security is based on hashes of data timestamped and widely published.
+Security of a Distributed Ledger (def. in <<conventions>>) is based on hashes of data
+timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
 // @cisba mettere link alla definizione di DL

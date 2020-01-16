@@ -516,7 +516,7 @@
 <p id="rfc.section.1.p.5">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA gave rise anyway to other proposals like <a href="#ANSI.X9.95" class="xref">[ANSI.X9.95]</a> and <a href="#ISO.IEC.18014-4" class="xref">[ISO.IEC.18014-4]</a>.</p>
 <p id="rfc.section.1.p.6">Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years - for technical reasons - like the TSA certificates expiration - and for economic reasons - like the cost of providing the validation service by TSA.</p>
 <p id="rfc.section.1.p.7">This situation gave rise also to some solutions <a href="#ETSI.TS.102.778-4" class="xref">[ETSI.TS.102.778-4]</a> aimed at mitigating the issue by extending the validity of TSA timestamps.</p>
-<p id="rfc.section.1.p.8">Distributed Ledgers security is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
+<p id="rfc.section.1.p.8">Security of a Distributed Ledger (def. in <a href="#conventions" class="xref">Section 2</a>) is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
 <p id="rfc.section.1.p.9">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience of the distributed system and the overall design aiming to survive perpetually.</p>
 <p id="rfc.section.1.p.10">Based on a distributed trust scheme, a Distributed Ledger significantly increase security as already noted by Haber and Stornetta in 1991 <a href="#HaberStornetta" class="xref">[HaberStornetta]</a>.</p>
 <p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.  While in the case of a permissionless DL security could be granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
@@ -548,7 +548,7 @@
 </dd>
 <dt>Distributed Ledger</dt>
 <dd style="margin-left: 8">
-<br>As defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
+<br>Various definitions of blockchain and distributed ledger technology exist, and some of these stress different technical features.  Given the nature and scope of this document and the lack of definitional consensus we chosed to use the term as defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
 <dt>Merkle Tree</dt>
 <dd style="margin-left: 8">
 <br>As defined in <a href="#Merkle" class="xref">[Merkle]</a>, <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a> andSection 2.1 of <a href="#RFC6962" class="xref">[RFC6962]</a>
@@ -633,6 +633,7 @@
 <p id="rfc.section.5.1.p.1">If there is no an inner TST, the data timestamped by the DLA is the same data that will be signed by the TSA without the Calendar Token itself.</p>
 <p id="rfc.section.5.1.p.2">In this scheme the DLA provide a timestamp of the same data timestamped by outer TST.  This can be useful to proof their existence, but cannot proof the existence of the TST itself prior to a specific point in time.</p>
 <p id="rfc.section.5.1.p.3">This limit is due to the fact that TST Extensions are included in the digest that has to be be signed by the TSA.</p>
+<p id="rfc.section.5.1.p.4">The upgrade from a promise to a proof can be done requesting a new TST, including the previous DL Extension containing the Calendar Token.  When the TSA receive a request containing a Serial DL Extension, it can check the Calendar Token contained and, if there is a pending promise inside, it can request the Calendar Server to get the proof to include it in the new TST.</p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#_serial_scheme" id="_serial_scheme">Serial Scheme</a>
 </h1>
@@ -640,8 +641,7 @@
 <p id="rfc.section.5.2.p.2">In this scheme the DLA provide a proof of the existence of the inner TST prior to a specific point in time.</p>
 <p id="rfc.section.5.2.p.3">The Serial Scheme is recommended to protect in the long-term the validity of a TST, not just to proof the existence of the data timestamped with a TST.</p>
 <p id="rfc.section.5.2.p.4">The TSA generates the inner TST, then commit to the Calendar Server the request to timestamp on the DL the digest of the inner TST, finally the TSA generate the outer TST, including in the DL Extension the Calendar Token and the inner TST.</p>
-<p id="rfc.section.5.2.p.5">In this scenario it is also possible to upgrade later the TST. When the TSA receive a request containing a Serial DL Extension, it can check the Calendar Token contained and, if there is a pending promise inside, it can request the Calendar Server to get the proof to include it in the new TST.</p>
-<p id="rfc.section.5.2.p.6">In the new outer TST the previous inner TST will remain unchanged and accompained by the DL proof of existence.</p>
+<p id="rfc.section.5.2.p.5">In this scenario the upgrade of a DL Extension will produce a new outer TST that will contain the previous inner TST unchanged and accompained by the new DL proof of existence instead of the old promise related to it.</p>
 <h1 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#_calendar_token" id="_calendar_token">Calendar Token</a>
 </h1>

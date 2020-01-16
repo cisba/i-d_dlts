@@ -94,7 +94,8 @@ for technical reasons - like the TSA certificates expiration -
 and for economic reasons - like the cost of providing the validation service by TSA.</t>
 <t>This situation gave rise also to some solutions <xref target="ETSI.TS.102.778-4"/> aimed at mitigating
 the issue by extending the validity of TSA timestamps.</t>
-<t>Distributed Ledgers security is based on hashes of data timestamped and widely published.
+<t>Security of a Distributed Ledger (def. in <xref target="conventions"/>) is based on hashes of data
+timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.</t>
 <t>The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
@@ -123,7 +124,11 @@ definitions:</t>
     <t hangText="Trusted Tirth Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
     <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
     <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
-    <t hangText="Distributed Ledger"><vspace blankLines="0"/>As defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/>
+    <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
+and some of these stress different technical features.
+Given the nature and scope of this document and the lack of definitional
+consensus we chosed to use the term
+as defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/>
 "A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
 a network can have their own identical copy of the ledger. Any changes to the
@@ -204,7 +209,13 @@ the same data that will be signed by the TSA without the Calendar Token itself.<
 This can be useful to proof their existence, but cannot proof the existence
 of the TST itself prior to a specific point in time.</t>
 <t>This limit is due to the fact that TST Extensions are included in the digest that
-has to be be signed by the TSA.</t></section>
+has to be be signed by the TSA.</t>
+<t>The upgrade from a promise to a proof can be done requesting a new TST, including
+the previous DL Extension containing the Calendar Token.
+When the TSA receive
+a request containing a Serial DL Extension, it can check the Calendar Token contained and,
+if there is a pending promise inside, it can request the Calendar Server to get the
+proof to include it in the new TST.</t></section>
 <section anchor="_serial_scheme" title="Serial Scheme"><t>The inner TST, if present, is the data timestamped by the DLA.</t>
 <t>In this scheme the DLA provide a proof of the existence of the inner TST
 prior to a specific point in time.</t>
@@ -213,12 +224,9 @@ not just to proof the existence of the data timestamped with a TST.</t>
 <t>The TSA generates the inner TST, then commit to the Calendar Server the request to timestamp
 on the DL the digest of the inner TST, finally the TSA generate the outer TST, including
 in the DL Extension the Calendar Token and the inner TST.</t>
-<t>In this scenario it is also possible to upgrade later the TST. When the TSA receive
-a request containing a Serial DL Extension, it can check the Calendar Token contained and,
-if there is a pending promise inside, it can request the Calendar Server to get the
-proof to include it in the new TST.</t>
-<t>In the new outer TST the previous inner TST will remain unchanged and accompained
-by the DL proof of existence.</t></section>
+<t>In this scenario the upgrade of a DL Extension will produce a new outer TST that will
+contain the previous inner TST unchanged and accompained by the new DL proof of existence
+instead of the old promise related to it.</t></section>
 <section anchor="_calendar_token" title="Calendar Token"><t>A Calendar Token SHALL contain:</t>
 <t>
   <list style="symbols">
