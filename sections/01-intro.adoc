@@ -33,6 +33,7 @@ the issue by extending the validity of TSA timestamps.
 Distributed Ledgers security is based on hashes of data timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
+// @cisba mettere link alla definizione di DL
 
 The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.

@@ -65,6 +65,14 @@ of the TST itself prior to a specific point in time.
 This limit is due to the fact that TST Extensions are included in the digest that
 has to be be signed by the TSA.
 
+
+The upgrade from a promise to a proof can be done requesting a new TST, including
+the previous DL Extension containing the Calendar Token.
+When the TSA receive
+a request containing a Serial DL Extension, it can check the Calendar Token contained and,
+if there is a pending promise inside, it can request the Calendar Server to get the
+proof to include it in the new TST.
+
 === Serial Scheme
 
 The inner TST, if present, is the data timestamped by the DLA.
@@ -79,13 +87,9 @@ The TSA generates the inner TST, then commit to the Calendar Server the request 
 on the DL the digest of the inner TST, finally the TSA generate the outer TST, including
 in the DL Extension the Calendar Token and the inner TST.
 
-In this scenario it is also possible to upgrade later the TST. When the TSA receive
-a request containing a Serial DL Extension, it can check the Calendar Token contained and,
-if there is a pending promise inside, it can request the Calendar Server to get the
-proof to include it in the new TST.
-
-In the new outer TST the previous inner TST will remain unchanged and accompained
-by the DL proof of existence.
+In this scenario the upgrade of a DL Extension will produce a new outer TST that will
+contain the previous inner TST unchanged and accompained by the new DL proof of existence
+instead of the old promise related to it.
 
 === Calendar Token
 
