@@ -87,7 +87,7 @@ The TSA generates the inner TST, then commit to the Calendar Server the request 
 on the DL the digest of the inner TST, finally the TSA generate the outer TST, including
 in the DL Extension the Calendar Token and the inner TST.
 
-In this scenario the upgrade of a DL Extension will produce a new outer TST that will
+In this scenario the upgrade of a DL Extension promise will produce a new outer TST that will
 contain the previous inner TST unchanged and accompained by the new DL proof of existence
 instead of the old promise related to it.
 
