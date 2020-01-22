@@ -58,7 +58,3 @@ A calendar is simply a collection of Distributed Ledger Attestations.
 
 Calendar Server::
 A server providing remote access to a collection of Distributed Ledger Attestation.
-
-OpenTimestamps::
-An open source software acting as aggregation and calendar server to timestamp
-on the Bitcoin Distributed Ledger <<OTS>>.

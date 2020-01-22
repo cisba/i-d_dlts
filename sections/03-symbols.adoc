@@ -19,6 +19,3 @@ DL::
 
 DLA::
     Distributed Ledger Attestation
-
-OTS::
-    A Digital Ledger Attestation provided by an OpenTimestamps Calendar Server
