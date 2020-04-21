@@ -2,12 +2,12 @@
 [#introduction]
 == Introduction
 
-Attesting that a file existed prior to a specific point in time can be useful to:
+Attesting that a file existed prior to a specific point in time can be useful - for example - to:
 
 * prove when an agreement was signed, if it is disputed
 * validate a signature after a revocation occurred
 * prove the ownership for copyright
-* grant record Integrity
+* grant record integrity
 
 A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161>>
 can be based on an accurate time source linked to Coordinated Universal Time,
@@ -45,6 +45,7 @@ security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
 While in the case of a permissionless DL security could be granted by the economic incentive
 of nodes <<Nakamoto>>.
+// @cisba mettere link a Hyperledger per la distinzione tra permissioned/permissionless
 
 On the other hand a DLA is not yet a standard solution. Furthermore a DLA
 is as less precise as bigger is the network, because distributed nodes need time to reach consensus.
