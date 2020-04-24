@@ -482,14 +482,14 @@
   <h1 id="rfc.section.1">
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
-<p id="rfc.section.1.p.1">Attesting that a file existed prior to a specific point in time can be useful to:</p>
+<p id="rfc.section.1.p.1">Attesting that a file existed prior to a specific point in time can be useful - for example - to:</p>
 <p></p>
 
 <ul>
 <li>prove when an agreement was signed, if it is disputed</li>
 <li>validate a signature after a revocation occurred</li>
 <li>prove the ownership for copyright</li>
-<li>grant record Integrity</li>
+<li>grant record integrity</li>
 </ul>
 
 <p> </p>
@@ -501,7 +501,7 @@
 <p id="rfc.section.1.p.8">Security of a Distributed Ledger (def. in <a href="#conventions" class="xref">Section 2</a>) is based on hashes of data timestamped and widely published.  Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</p>
 <p id="rfc.section.1.p.9">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience of the distributed system and the overall design aiming to survive perpetually.</p>
 <p id="rfc.section.1.p.10">Based on a distributed trust scheme, a Distributed Ledger significantly increase security as already noted by Haber and Stornetta in 1991 <a href="#HaberStornetta" class="xref">[HaberStornetta]</a>.</p>
-<p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.  While in the case of a permissionless DL security could be granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
+<p id="rfc.section.1.p.11">In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<a href="#Hyperledger" class="xref">[Hyperledger]</a>.  While in the case of a permissionless DL security could be granted by the economic incentive of nodes <a href="#Nakamoto" class="xref">[Nakamoto]</a>.</p>
 <p id="rfc.section.1.p.12">On the other hand a DLA is not yet a standard solution. Furthermore a DLA is as less precise as bigger is the network, because distributed nodes need time to reach consensus.</p>
 <p id="rfc.section.1.p.13">Since a DLA results as a complementary element to provide a long-term validity to TST - the aim of this specification is to provide an extension of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</p>
 <h1 id="rfc.section.2">
@@ -701,6 +701,11 @@ DLProof ::= OCTET STRING
 <td class="reference"><b id="HaberStornetta">[HaberStornetta]</b></td>
 <td class="top">
 <a>Haber, S.</a> and <a>W. S. Stornetta</a>, "<a href="https://www.anf.es/pdf/Haber_Stornetta.pdf">How to Time-Stamp a Digital Document</a>", 1991.</td>
+</tr>
+<tr>
+<td class="reference"><b id="Hyperledger">[Hyperledger]</b></td>
+<td class="top">
+<a>The Linux Foundation</a>, "<a href="https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf">Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus</a>", August 2017.</td>
 </tr>
 <tr>
 <td class="reference"><b id="IETF.TLP">[IETF.TLP]</b></td>

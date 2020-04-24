@@ -1,0 +1,13 @@
+<reference anchor='Hyperledger' target='https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf'>
+  <front>
+    <title>
+        Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus
+    </title>
+    <author>
+    <organization>
+    The Linux Foundation
+    </organization>
+    </author>
+    <date month='August' year='2017'></date>
+  </front>
+</reference>

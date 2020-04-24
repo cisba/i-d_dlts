@@ -69,13 +69,13 @@
 with Time Attestations recorded on Distributed Ledgers</t>
 </abstract>
 </front><middle>
-<section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful to:</t>
+<section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful - for example - to:</t>
 <t>
   <list style="symbols">
     <t>prove when an agreement was signed, if it is disputed</t>
     <t>validate a signature after a revocation occurred</t>
     <t>prove the ownership for copyright</t>
-    <t>grant record Integrity</t>
+    <t>grant record integrity</t>
   </list>
 </t>
 <t>A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161"/>
@@ -102,7 +102,7 @@ with each additional timestamp reinforcing the ones before it.</t>
 of the distributed system and the overall design aiming to survive perpetually.</t>
 <t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta"/>.</t>
-<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
+<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<xref target="Hyperledger"/>.
 While in the case of a permissionless DL security could be granted by the economic incentive
 of nodes <xref target="Nakamoto"/>.</t>
 <t>On the other hand a DLA is not yet a standard solution. Furthermore a DLA
@@ -367,6 +367,19 @@ Time stamping profile</title>
     <author fullname="W. Scott Stornetta">
     </author>
     <date year="1991"/>
+  </front>
+</reference>
+  <reference anchor="Hyperledger" target="https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf">
+  <front>
+    <title>
+        Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus
+    </title>
+    <author>
+    <organization>
+    The Linux Foundation
+    </organization>
+    </author>
+    <date month="August" year="2017"/>
   </front>
 </reference>
   <reference anchor="IETF.TLP" target="https://trustee.ietf.org/trust-legal-provisions.html">

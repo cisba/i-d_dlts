@@ -77,7 +77,7 @@ Table of Contents
 1.  Introduction
 
    Attesting that a file existed prior to a specific point in time can
-   be useful to:
+   be useful - for example - to:
 
    o  prove when an agreement was signed, if it is disputed
 
@@ -85,7 +85,7 @@ Table of Contents
 
    o  prove the ownership for copyright
 
-   o  grant record Integrity
+   o  grant record integrity
 
    A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA)
    compliant with [RFC3161] can be based on an accurate time source
@@ -137,7 +137,7 @@ Internet-Draft                    DLTS                      January 2020
    Stornetta in 1991 [HaberStornetta].
 
    In the case of a permissioned DL, security could be enhanced by an
-   authoritative network of trust.  While in the case of a
+   authoritative network of trust[Hyperledger].  While in the case of a
    permissionless DL security could be granted by the economic incentive
    of nodes [Nakamoto].
 
@@ -472,6 +472,13 @@ Internet-Draft                    DLTS                      January 2020
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
+   [Hyperledger]
+              The Linux Foundation, "Hyperledger Architecture, Volume 1:
+              Introduction to Hyperledger Business Blockchain Design
+              Philosophy and Consensus", August 2017,
+              <https://www.hyperledger.org/wp-content/uploads/2017/08/
+              Hyperledger_Arch_WG_Paper_1_Consensus.pdf>.
+
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
               <https://trustee.ietf.org/trust-legal-provisions.html>.
@@ -491,13 +498,6 @@ Internet-Draft                    DLTS                      January 2020
               systems - Technical Report No. 1979-1", June 1979,
               <http://www.merkle.com/papers/Thesis1979.pdf>.
 
-   [Nakamoto]
-              Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
-              System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
-
-
-
-
 
 
 
@@ -505,6 +505,10 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 9]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [Nakamoto]
+              Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
+              System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
 
    [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
               X.509 Public Key Infrastructure Certificate and
@@ -545,6 +549,19 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    Daniele Ribaudo
    Intesi Group
    Via Torino 48
@@ -556,12 +573,6 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
-
-Cisbani, et al.           Expires July 16, 2020                [Page 10]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
@@ -571,17 +582,6 @@ Internet-Draft                    DLTS                      January 2020
    Phone: +39 026 760 641
    Email: dribaudo@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-
-
-
-
-
-
 
 
 
