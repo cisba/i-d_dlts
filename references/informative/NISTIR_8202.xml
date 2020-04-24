@@ -1,0 +1,20 @@
+<reference anchor='NISTIR_8202' target='https://doi.org/10.6028/NIST.IR.8202'>
+  <front>
+    <title>
+        Blockchain Technology Overview
+    </title>
+    <author fullname="Dylan Yaga">
+    <organization>National Institute of Standards and Technology</organization>
+    </author>
+    <author fullname="Peter Mell">
+    <organization>National Institute of Standards and Technology</organization>
+    </author>
+    <author fullname="Nik Roby">
+    <organization>G2, Inc.</organization>
+    </author>
+    <author fullname="Karen Scarfone">
+    <organization>Scarfone Cybersecurity</organization>
+    </author>
+    <date month='October' year='2018'></date>
+  </front>
+</reference>

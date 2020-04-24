@@ -137,9 +137,9 @@ Internet-Draft                    DLTS                      January 2020
    Stornetta in 1991 [HaberStornetta].
 
    In the case of a permissioned DL, security could be enhanced by an
-   authoritative network of trust[Hyperledger].  While in the case of a
-   permissionless DL security could be granted by the economic incentive
-   of nodes [Nakamoto].
+   authoritative network of trust[Hyperledger][NISTIR_8202].  While in
+   the case of a permissionless DL security could be granted by the
+   economic incentive of nodes [Nakamoto].
 
    On the other hand a DLA is not yet a standard solution.  Furthermore
    a DLA is as less precise as bigger is the network, because
@@ -510,6 +510,11 @@ Internet-Draft                    DLTS                      January 2020
               Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
               System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
 
+   [NISTIR_8202]
+              Yaga, D., Mell, P., Roby, N., and K. Scarfone, "Blockchain
+              Technology Overview", October 2018,
+              <https://doi.org/10.6028/NIST.IR.8202>.
+
    [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
               X.509 Public Key Infrastructure Certificate and
               Certificate Revocation List (CRL) Profile", RFC 3280,
@@ -547,11 +552,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: ecisbani@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
 
 
 

@@ -102,7 +102,7 @@ with each additional timestamp reinforcing the ones before it.</t>
 of the distributed system and the overall design aiming to survive perpetually.</t>
 <t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta"/>.</t>
-<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<xref target="Hyperledger"/>.
+<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<xref target="Hyperledger"/><xref target="NISTIR_8202"/>.
 While in the case of a permissionless DL security could be granted by the economic incentive
 of nodes <xref target="Nakamoto"/>.</t>
 <t>On the other hand a DLA is not yet a standard solution. Furthermore a DLA
@@ -435,6 +435,26 @@ Time stamping profile</title>
     </organization>
     </author>
     <date month="June" year="1979"/>
+  </front>
+</reference>
+  <reference anchor="NISTIR_8202" target="https://doi.org/10.6028/NIST.IR.8202">
+  <front>
+    <title>
+        Blockchain Technology Overview
+    </title>
+    <author fullname="Dylan Yaga">
+    <organization>National Institute of Standards and Technology</organization>
+    </author>
+    <author fullname="Peter Mell">
+    <organization>National Institute of Standards and Technology</organization>
+    </author>
+    <author fullname="Nik Roby">
+    <organization>G2, Inc.</organization>
+    </author>
+    <author fullname="Karen Scarfone">
+    <organization>Scarfone Cybersecurity</organization>
+    </author>
+    <date month="October" year="2018"/>
   </front>
 </reference>
   <reference anchor="Nakamoto" target="https://bitcoin.org/bitcoin.pdf">

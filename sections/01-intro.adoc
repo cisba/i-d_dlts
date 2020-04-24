@@ -41,7 +41,7 @@ of the distributed system and the overall design aiming to survive perpetually.
 Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
-In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<<Hyperledger>>.
+In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<<Hyperledger>><<NISTIR_8202>>.
 While in the case of a permissionless DL security could be granted by the economic incentive
 of nodes <<Nakamoto>>.
 // @cisba mettere link a Hyperledger per la distinzione tra permissioned/permissionless
