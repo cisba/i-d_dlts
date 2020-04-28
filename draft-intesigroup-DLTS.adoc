@@ -41,7 +41,7 @@
 :code_3: 20123
 :country_3: Italy
 :uri_3: https://www.intesigroup.com
-:email_3: dribaudo@intesigroup.com
+:email_3: gdamiano@intesigroup.com
 :docfile: draft-intesigroup-DLTS.adoc
 :mn-document-class: ietf
 :mn-output-extensions: xmlrfc2,txt,html,nits

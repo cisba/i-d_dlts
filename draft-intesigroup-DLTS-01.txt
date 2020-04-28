@@ -67,8 +67,9 @@ Table of Contents
    5.  DL Time-Stamp Extension . . . . . . . . . . . . . . . . . . .   6
      5.1.  Promise . . . . . . . . . . . . . . . . . . . . . . . . .   6
      5.2.  Proof . . . . . . . . . . . . . . . . . . . . . . . . . .   7
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   7
+     5.3.  DL Promise Generation Process . . . . . . . . . . . . . .   7
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
@@ -104,7 +105,6 @@ Table of Contents
    The integrity of the timestamping process that is inevitably bound to
    the integrity of the TSA gave rise anyway to other proposals like
    [ANSI.X9.95] and [ISO.IEC.18014-4].
-
 
 
 
@@ -170,7 +170,7 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 3]
 Internet-Draft                    DLTS                      January 2020
 
 
-   Trusted Tirth Party
+   Trusted Third Party
       As defined in [RFC3161]
 
    Time-Stamp Authority
@@ -183,7 +183,7 @@ Internet-Draft                    DLTS                      January 2020
       Various definitions of blockchain and distributed ledger
       technology exist, and some of these stress different technical
       features.  Given the nature and scope of this document and the
-      lack of definitional consensus we chosed to use the term as
+      lack of definitional consensus we choosed to use the term as
       defined by UK Government Chief Scientific Adviser [UK-GCSA] "A
       distributed ledger is essentially an asset database that can be
       shared across a network of multiple sites, geographies or
@@ -202,7 +202,7 @@ Internet-Draft                    DLTS                      January 2020
       [RFC6962]
 
    Aggregation Server
-      A server providing the aggregation in a Merke Tree of digests to
+      A server providing the aggregation in a Merkle Tree of digests to
       be timestamped.  Digests submitted for aggregation are added to a
       list periodically combined into a single Merkle Tree.  Then the
       digest at the root of that tree is timestamped on a Distributed
@@ -256,23 +256,23 @@ Internet-Draft                    DLTS                      January 2020
    honest by a number of auditors who will challenge the logger to prove
    its correct behavior [CrosbyWallach].
 
-   A Merkle Tree data structure allow to accomplish this very efficently
-   aggregating many requests and submitting to the log periodically just
-   the root digest of the tree.  This log is built as an hash chain (aka
-   blockchain) of small blocks of data.  With this conditions the entire
-   chain can be shared and mantained by a large number of nodes,
-   becoming a distributed system.
+   A Merkle Tree data structure allow to accomplish this very
+   efficeintly aggregating many requests and submitting to the log
+   periodically just the root digest of the tree.  This log is built as
+   a hash chain (aka blockchain) of small blocks of data.  Consequently,
+   the entire chain can be shared and maintained by a large number of
+   nodes, becoming a distributed system.
 
-   In a permissioned DL the number of nodes can be small enought to
-   permit a quick syncronization to reach the consensus about the state
-   of the chain.  Instead in a permissionless DL the large number of
-   nodes introduces a relevant delay to reach the consensus.
+   In a permissioned DL the number of nodes can be small enough to
+   permit a quick synchronization to reach the consensus about the state
+   of the chain.  In a permissionless DL the large number of nodes
+   introduces a relevant delay to reach the consensus.
 
-   In the case of Bitcoin the consensus is reached statistically.
+   In the case of Bitcoin, the consensus is reached statistically.
    Usually in an elapsed mean time of one hour six new blocks are added
    to the chain.  A block of data that has been added before the last
-   six blocks is considered practically immutable.  This is motivated by
-   the high computational power that would be required to rewrite the
+   six blocks, is considered practically immutable.  This is motivated
+   by the high computational power that would be required to rewrite the
    chain.
 
 
@@ -289,16 +289,16 @@ Internet-Draft                    DLTS                      January 2020
    This is the motivation to distinguish from a *promise* of attestation
    and a *proof* of attestation.  An Aggregation Server generally can
    provide only a promise to timestamping the digest of the client in
-   the DL.  After the aggregation is completed and the root hash of the
-   Merkle Tree has been recorded in a block of the chain, the promise is
-   still not yet comnfirmed,
+   the DL.  After the aggregation is completed and the the Merkle Tree
+   root hash has been recorded in a block within the chain, the promise
+   is still not yet confirmed.
 
    Only when the consensus on that block is reached - statistically, in
-   the Bitcoin case - then the attestation could be consideed a proof,
+   the Bitcoin case - then the attestation could be considered a proof,
    stored and provided by a Calendar Server.
 
    For simplicity of implementation, the Aggregation and the Calendar
-   Server can be a uniq instance.  So in this document we will refer
+   Server can be a unique instance.  So in this document we will refer
    generically to a Calendar Server indicating both services.
 
    The DLA data structure is out of scope of this specification.  Any
@@ -312,9 +312,9 @@ Internet-Draft                    DLTS                      January 2020
    compliant to [RFC3161] using a non critical extension.
 
    The use of non critical extension is backward compatible with
-   software currently availables.
+   currently available existing software.
 
-   The extension MUST follow the specifications described in [RFC3161]
+   The extension MUST satisfy the specifications described in [RFC3161]
    and Section 4.2.1 of [RFC3280].
 
    The new extension MUST have the following root OID:
@@ -326,9 +326,9 @@ Internet-Draft                    DLTS                      January 2020
 
 5.1.  Promise
 
-   This extension contain the promise obtained from a Calendar Server in
-   response to a timestamp request on the DL.  The ASN.1 structure is as
-   follow:
+   This extension contains the promise obtained from a Calendar Server
+   in response to a timestamp request on the DL.  The ASN.1 structure is
+   as follow:
 
 
 
@@ -346,12 +346,13 @@ Internet-Draft                    DLTS                      January 2020
 
    DLPromise ::= OCTET STRING
 
-   The data timestamped by the DLA SHALL be an hash of the same data
-   that will be signed by the TSA without the DL extension itself.
+   The input data, timestamped by the DLA, SHALL be the hash value of
+   the same data that will be signed by the TSA, without the DL
+   extension itself.
 
 5.2.  Proof
 
-   This extension contain the proof obtained from a Calendar Server in
+   This extension contains the proof obtained from a Calendar Server in
    response to a timestamp upgrade request of a previously obtained
    promise.  The ASN.1 structure is as follow:
 
@@ -366,10 +367,32 @@ Internet-Draft                    DLTS                      January 2020
    DLProof ::= OCTET STRING
 
    The upgrade from a promise to a proof MAY be done requesting a new
-   TST, including the DL extension containing the promise prevously
-   obtained.  When the TSA receive a request containing a DL extension
+   TST, including the DL extension containing the promise previously
+   obtained.  When the TSA receives a request containing a DL extension,
    if there is a pending promise inside, it MAY request the Calendar
-   Server to get the proof and MAY include it in the new TST.
+   Server to get the proof and MAY include it in the TST response.
+
+5.3.  DL Promise Generation Process
+
+   The input to the DL Promise generation process includes the result of
+   the message digest calculation of the DER encoded TST, without the DL
+   extension.  In case that, the TST contains more extensions, the hash
+   calculation is executed to the DER encoded TST containing all the
+   extensions with the exclusion of DL itself.  The hash algorithm and
+   hash parameters are the same used to sign the TST, which are included
+   in the final ContentInfo object, as describe in Section 2.4.2 of
+   [RFC3161].
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 7]
+
+Internet-Draft                    DLTS                      January 2020
+
 
 6.  Security Considerations
 
@@ -383,16 +406,6 @@ Internet-Draft                    DLTS                      January 2020
 7.  IANA Considerations
 
    This document does not require any action by IANA.
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 7]
-
-Internet-Draft                    DLTS                      January 2020
-
 
 8.  References
 
@@ -426,6 +439,17 @@ Internet-Draft                    DLTS                      January 2020
               <http://static.usenix.org/event/sec09/tech/full_papers/
               crosby.pdf>.
 
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 8]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    [eIDAS]    The European Parliament And The Council Of The European
               Union, "Regulation (EU) No 910/2014", July 2014,
               <https://eur-lex.europa.eu/legal-content/EN/TXT/
@@ -438,17 +462,6 @@ Internet-Draft                    DLTS                      January 2020
               2016, <https://www.etsi.org/deliver/
               etsi_en/319400_319499/319422/01.01.01_60/
               en_319422v010101p.pdf>.
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 8]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    [ETSI.TS.101.861]
               European Telecommunications Standards Institute,
@@ -481,6 +494,18 @@ Internet-Draft                    DLTS                      January 2020
               <http://citeseerx.ist.psu.edu/viewdoc/
               summary?doi=10.1.1.23.7486>.
 
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    [ISO.IEC.18014-4]
               International Organization for Standardization,
               "Information technology - Security techniques - Time-
@@ -494,17 +519,6 @@ Internet-Draft                    DLTS                      January 2020
    [Nakamoto]
               Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
               System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
-
-
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 9]
-
-Internet-Draft                    DLTS                      January 2020
-
 
    [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
               X.509 Public Key Infrastructure Certificate and
@@ -534,6 +548,20 @@ Internet-Draft                    DLTS                      January 2020
 
 Authors' Addresses
 
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    Emanuele Cisbani
    Intesi Group
    Via Torino 48
@@ -556,12 +584,6 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
-
-Cisbani, et al.           Expires July 16, 2020                [Page 10]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
@@ -569,30 +591,8 @@ Internet-Draft                    DLTS                      January 2020
    Italy
 
    Phone: +39 026 760 641
-   Email: dribaudo@intesigroup.com
+   Email: gdamiano@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -15,7 +15,7 @@ definitions:
 Public Key Infrastructure::
 As defined in <<RFC3280>>
 
-Trusted Tirth Party::
+Trusted Third Party::
 As defined in <<RFC3161>>
 
 Time-Stamp Authority::
@@ -28,7 +28,7 @@ Distributed Ledger::
 Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
-consensus we chosed to use the term
+consensus we choosed to use the term
 as defined by UK Government Chief Scientific Adviser <<UK-GCSA>>
 "A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
@@ -44,7 +44,7 @@ Merkle Tree::
 As defined in <<Merkle>>, <<CrosbyWallach>> and<<RFC6962,2.1 of>>
 
 Aggregation Server::
-A server providing the aggregation in a Merke Tree of digests to be timestamped.
+A server providing the aggregation in a Merkle Tree of digests to be timestamped.
 Digests submitted for aggregation are added to a list periodically combined
 into a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.

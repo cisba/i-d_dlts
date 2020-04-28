@@ -7,21 +7,20 @@ clients who wish to store their events in the log, and
 kept honest by a number of auditors who will challenge
 the logger to prove its correct behavior <<CrosbyWallach>>.
 
-A Merkle Tree data structure allow to accomplish this very efficently aggregating
+A Merkle Tree data structure allow to accomplish this very efficeintly aggregating
 many requests and submitting to the log periodically just the root digest of the tree.
-This log is built as an hash chain (aka blockchain) of small blocks of data.
-With this conditions the entire chain can be shared and mantained
+This log is built as a hash chain (aka blockchain) of small blocks of data.
+Consequently, the entire chain can be shared and maintained
 by a large number of nodes, becoming a distributed system.
 
-In a permissioned DL the number of nodes can be small enought to permit a quick
-syncronization to reach the consensus about the state of the chain.
-Instead in a permissionless DL the large number of nodes introduces a relevant delay
+In a permissioned DL the number of nodes can be small enough to permit a quick
+synchronization to reach the consensus about the state of the chain.
+In a permissionless DL the large number of nodes introduces a relevant delay
 to reach the consensus.
 
-In the case of Bitcoin the consensus is reached statistically.
+In the case of Bitcoin, the consensus is reached statistically.
 Usually in an elapsed mean time of one hour six new blocks are added to the chain.
-A block of data that has been added before the last six blocks
-is considered practically immutable.
+A block of data that has been added before the last six blocks, is considered practically immutable.
 This is motivated by the high computational power that would be required to rewrite the chain.
 
 As a result of this scenario the time elapsed - from the request of aggregation of a digest
@@ -29,13 +28,12 @@ to the proof consolidated inside the DL - could amount to more than one hour.
 
 This is the motivation to distinguish from a *promise* of attestation and a *proof* of attestation.
 An Aggregation Server generally can provide only a promise to timestamping the digest of the client
-in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been
-recorded in a block of the chain, the promise is still not yet comnfirmed,
+in the DL. After the aggregation is completed and the the Merkle Tree root hash has been recorded in a block within the chain, the promise is still not yet confirmed.
 
 Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
-the attestation could be consideed a proof, stored and provided by a Calendar Server.
+the attestation could be considered a proof, stored and provided by a Calendar Server.
 
-For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.
+For simplicity of implementation, the Aggregation and the Calendar Server can be a unique instance.
 So in this document we will refer generically to a Calendar Server indicating both services.
 
 The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.

@@ -57,7 +57,7 @@
         <country>Italy</country>
       </postal>
       <phone>+39 026 760 641</phone>
-      <email>dribaudo@intesigroup.com</email>
+      <email>gdamiano@intesigroup.com</email>
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
@@ -121,13 +121,13 @@ definitions:</t>
 <t>
   <list style="hanging">
     <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>As defined in <xref target="RFC3280"/></t>
-    <t hangText="Trusted Tirth Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
+    <t hangText="Trusted Third Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
     <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
     <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
     <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
-consensus we chosed to use the term
+consensus we choosed to use the term
 as defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/>
 "A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
@@ -139,7 +139,7 @@ use of &#8216;keys&#8217; and signatures to control who can do what within the s
 Entries can also be updated by one, some or all of the participants, according to
 rules agreed by the network".</t>
     <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in <xref target="Merkle"/>, <xref target="CrosbyWallach"/> andSection 2.1 of <xref target="RFC6962"/></t>
-    <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merke Tree of digests to be timestamped.
+    <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merkle Tree of digests to be timestamped.
 Digests submitted for aggregation are added to a list periodically combined
 into a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.</t>
@@ -165,35 +165,33 @@ in a precise Distributed Ledger.</t>
 clients who wish to store their events in the log, and
 kept honest by a number of auditors who will challenge
 the logger to prove its correct behavior <xref target="CrosbyWallach"/>.</t>
-<t>A Merkle Tree data structure allow to accomplish this very efficently aggregating
+<t>A Merkle Tree data structure allow to accomplish this very efficeintly aggregating
 many requests and submitting to the log periodically just the root digest of the tree.
-This log is built as an hash chain (aka blockchain) of small blocks of data.
-With this conditions the entire chain can be shared and mantained
+This log is built as a hash chain (aka blockchain) of small blocks of data.
+Consequently, the entire chain can be shared and maintained
 by a large number of nodes, becoming a distributed system.</t>
-<t>In a permissioned DL the number of nodes can be small enought to permit a quick
-syncronization to reach the consensus about the state of the chain.
-Instead in a permissionless DL the large number of nodes introduces a relevant delay
+<t>In a permissioned DL the number of nodes can be small enough to permit a quick
+synchronization to reach the consensus about the state of the chain.
+In a permissionless DL the large number of nodes introduces a relevant delay
 to reach the consensus.</t>
-<t>In the case of Bitcoin the consensus is reached statistically.
+<t>In the case of Bitcoin, the consensus is reached statistically.
 Usually in an elapsed mean time of one hour six new blocks are added to the chain.
-A block of data that has been added before the last six blocks
-is considered practically immutable.
+A block of data that has been added before the last six blocks, is considered practically immutable.
 This is motivated by the high computational power that would be required to rewrite the chain.</t>
 <t>As a result of this scenario the time elapsed - from the request of aggregation of a digest
 to the proof consolidated inside the DL - could amount to more than one hour.</t>
 <t>This is the motivation to distinguish from a <spanx style="strong">promise</spanx> of attestation and a <spanx style="strong">proof</spanx> of attestation.
 An Aggregation Server generally can provide only a promise to timestamping the digest of the client
-in the DL. After the aggregation is completed and the root hash of the Merkle Tree has been
-recorded in a block of the chain, the promise is still not yet comnfirmed,</t>
+in the DL. After the aggregation is completed and the the Merkle Tree root hash has been recorded in a block within the chain, the promise is still not yet confirmed.</t>
 <t>Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
-the attestation could be consideed a proof, stored and provided by a Calendar Server.</t>
-<t>For simplicity of implementation, the Aggregation and the Calendar Server can be a uniq instance.
+the attestation could be considered a proof, stored and provided by a Calendar Server.</t>
+<t>For simplicity of implementation, the Aggregation and the Calendar Server can be a unique instance.
 So in this document we will refer generically to a Calendar Server indicating both services.</t>
 <t>The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
 <section anchor="_dl_time_stamp_extension" title="DL Time-Stamp Extension"><t>A DLA, generated by a Calendar Server, MAY be included
 into a TST compliant to <xref target="RFC3161"/> using a non critical extension.</t>
-<t>The use of non critical extension is backward compatible with software currently availables.</t>
-<t>The extension MUST follow the specifications described in <xref target="RFC3161"/> and Section 4.2.1 of <xref target="RFC3280"/>.</t>
+<t>The use of non critical extension is backward compatible with currently available existing software.</t>
+<t>The extension MUST satisfy the specifications described in <xref target="RFC3161"/> and Section 4.2.1 of <xref target="RFC3280"/>.</t>
 <t>The new extension MUST have the following root OID:</t>
 <figure>
   <artwork><![CDATA[
@@ -201,7 +199,7 @@ id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 ]]></artwork>
 </figure>
 <t>where id-ce identify the root of standard extensions as described in <xref target="RFC3280"/>.</t>
-<section anchor="_promise" title="Promise"><t>This extension contain the promise obtained from a Calendar Server in response to a timestamp request on the DL.
+<section anchor="_promise" title="Promise"><t>This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
 The ASN.1 structure is as follow:</t>
 <figure>
   <artwork><![CDATA[
@@ -220,9 +218,8 @@ Promise ::= SEQUENCE {
 DLPromise ::= OCTET STRING
 ]]></artwork>
 </figure>
-<t>The data timestamped by the DLA SHALL be an hash of
-the same data that will be signed by the TSA without the DL extension itself.</t></section>
-<section anchor="_proof" title="Proof"><t>This extension contain the proof obtained from a Calendar Server in response to a timestamp upgrade request of a previously obtained promise.
+<t>The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself.</t></section>
+<section anchor="_proof" title="Proof"><t>This extension contains the proof obtained from a Calendar Server in response to a timestamp upgrade request of a previously obtained promise.
 The ASN.1 structure is as follow:</t>
 <figure>
   <artwork><![CDATA[
@@ -244,10 +241,12 @@ DLProof ::= OCTET STRING
 ]]></artwork>
 </figure>
 <t>The upgrade from a promise to a proof MAY be done requesting a new TST, including
-the DL extension containing the promise prevously obtained.
-When the TSA receive a request containing a DL extension
-if there is a pending promise inside, it MAY request the Calendar Server to get the
-proof and MAY include it in the new TST.</t></section></section>
+the DL extension containing the promise previously obtained.
+When the TSA receives a request containing a DL extension,
+if there is a pending promise inside, it MAY request the Calendar Server to get the proof and MAY include it in the TST response.</t></section>
+<section anchor="_dl_promise_generation_process" title="DL Promise Generation Process">
+  <t>The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <xref target="RFC3161"/>.</t>
+</section></section>
 <section anchor="security" title="Security Considerations"><t>Every security consideration described in Section 4 of <xref target="RFC3161"/> SHALL be evaluated designing
 TSA services that include DL Time-Stamp extensions.</t>
 <t>When a TSA execute a request to a Calendar Servers the use of a nonce is
