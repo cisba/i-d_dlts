@@ -161,7 +161,7 @@ Internet-Draft                    DLTS                      January 2020
    This document also refers to the following terms and definitions:
 
    Public Key Infrastructure
-      As defined in [RFC3280]
+      As defined in [RFC5280]
 
 
 
@@ -315,14 +315,14 @@ Internet-Draft                    DLTS                      January 2020
    software currently availables.
 
    The extension MUST follow the specifications described in [RFC3161]
-   and Section 4.2.1 of [RFC3280].
+   and Section 4.2.1 of [RFC5280].
 
    The new extension MUST have the following root OID:
 
    id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 
    where id-ce identify the root of standard extensions as described in
-   [RFC3280].
+   [RFC5280].
 
 5.1.  Promise
 
@@ -408,6 +408,12 @@ Internet-Draft                    DLTS                      January 2020
               Protocol (TSP)", RFC 3161, DOI 10.17487/RFC3161, August
               2001, <https://www.rfc-editor.org/info/rfc3161>.
 
+   [RFC5280]  Cooper, D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk, "Internet X.509 Public Key
+              Infrastructure Certificate and Certificate Revocation List
+              (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
+              <https://www.rfc-editor.org/info/rfc5280>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
@@ -431,13 +437,7 @@ Internet-Draft                    DLTS                      January 2020
               <https://eur-lex.europa.eu/legal-content/EN/TXT/
               HTML/?uri=CELEX:32014R0910=EN>.
 
-   [ETSI.EN.319.422]
-              European Telecommunications Standards Institute,
-              "Electronic Signatures and Infrastructures (ESI); Time-
-              stamping protocol and time-stamp token profiles", March
-              2016, <https://www.etsi.org/deliver/
-              etsi_en/319400_319499/319422/01.01.01_60/
-              en_319422v010101p.pdf>.
+
 
 
 
@@ -449,6 +449,14 @@ Cisbani, et al.           Expires July 16, 2020                 [Page 8]
 
 Internet-Draft                    DLTS                      January 2020
 
+
+   [ETSI.EN.319.422]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); Time-
+              stamping protocol and time-stamp token profiles", March
+              2016, <https://www.etsi.org/deliver/
+              etsi_en/319400_319499/319422/01.01.01_60/
+              en_319422v010101p.pdf>.
 
    [ETSI.TS.101.861]
               European Telecommunications Standards Institute,
@@ -488,6 +496,16 @@ Internet-Draft                    DLTS                      January 2020
               <http://citeseerx.ist.psu.edu/viewdoc/
               summary?doi=10.1.1.23.7486>.
 
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                 [Page 9]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    [ISO.IEC.18014-4]
               International Organization for Standardization,
               "Information technology - Security techniques - Time-
@@ -498,14 +516,6 @@ Internet-Draft                    DLTS                      January 2020
               systems - Technical Report No. 1979-1", June 1979,
               <http://www.merkle.com/papers/Thesis1979.pdf>.
 
-
-
-
-Cisbani, et al.           Expires July 16, 2020                 [Page 9]
-
-Internet-Draft                    DLTS                      January 2020
-
-
    [Nakamoto]
               Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
               System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
@@ -514,12 +524,6 @@ Internet-Draft                    DLTS                      January 2020
               Yaga, D., Mell, P., Roby, N., and K. Scarfone, "Blockchain
               Technology Overview", October 2018,
               <https://doi.org/10.6028/NIST.IR.8202>.
-
-   [RFC3280]  Housley, R., Polk, W., Ford, W., and D. Solo, "Internet
-              X.509 Public Key Infrastructure Certificate and
-              Certificate Revocation List (CRL) Profile", RFC 3280,
-              DOI 10.17487/RFC3280, April 2002,
-              <https://www.rfc-editor.org/info/rfc3280>.
 
    [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
               Text on Security Considerations", BCP 72, RFC 3552,
@@ -543,6 +547,21 @@ Internet-Draft                    DLTS                      January 2020
 
 Authors' Addresses
 
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.           Expires July 16, 2020                [Page 10]
+
+Internet-Draft                    DLTS                      January 2020
+
+
    Emanuele Cisbani
    Intesi Group
    Via Torino 48
@@ -552,14 +571,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: ecisbani@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-Cisbani, et al.           Expires July 16, 2020                [Page 10]
-
-Internet-Draft                    DLTS                      January 2020
 
 
    Daniele Ribaudo
@@ -582,17 +593,6 @@ Internet-Draft                    DLTS                      January 2020
    Phone: +39 026 760 641
    Email: dribaudo@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-
-
-
-
-
-
 
 
 
