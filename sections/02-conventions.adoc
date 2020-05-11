@@ -13,7 +13,7 @@ This document also refers to the following terms and
 definitions:
 
 Public Key Infrastructure::
-As defined in <<RFC3280>>
+As defined in <<RFC5280>>
 
 Trusted Third Party::
 As defined in <<RFC3161>>

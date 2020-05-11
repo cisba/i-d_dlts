@@ -2,12 +2,12 @@
 [#introduction]
 == Introduction
 
-Attesting that a file existed prior to a specific point in time can be useful to:
+Attesting that a file existed prior to a specific point in time can be useful - for example - to:
 
 * prove when an agreement was signed, if it is disputed
 * validate a signature after a revocation occurred
 * prove the ownership for copyright
-* grant record Integrity
+* grant record integrity
 
 A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161>>
 can be based on an accurate time source linked to Coordinated Universal Time,
@@ -17,7 +17,7 @@ enforced his usage with legal effect by <<eIDAS>> Regulation,
 <<ETSI.EN.319.422>> European Standard and <<ETSI.TS.101.861>> Technical Specification.
 
 In a deep comparation of Time Stamping Schemes conducted in 2001 by Masashi Une <<IMES>>,
-PKI TSA has been evaluated one of the the most desirables with respect to security against
+PKI TSA has been evaluated one of the most desirables with respect to security against
 alteration of a time stamp.
 
 The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
@@ -34,7 +34,6 @@ Security of a Distributed Ledger (def. in <<conventions>>) is based on hashes of
 timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
-// @cisba mettere link alla definizione di DL
 
 The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
 of the distributed system and the overall design aiming to survive perpetually.
@@ -42,9 +41,10 @@ of the distributed system and the overall design aiming to survive perpetually.
 Based on a distributed trust scheme, a Distributed Ledger significantly increase
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
-In the case of a permissioned DL, security could be enhanced by an authoritative network of trust.
+In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<<Hyperledger>><<NISTIR_8202>>.
 While in the case of a permissionless DL security could be granted by the economic incentive
 of nodes <<Nakamoto>>.
+// @cisba mettere link a Hyperledger per la distinzione tra permissioned/permissionless
 
 On the other hand a DLA is not yet a standard solution. Furthermore a DLA
 is as less precise as bigger is the network, because distributed nodes need time to reach consensus.
