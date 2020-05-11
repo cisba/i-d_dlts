@@ -7,7 +7,7 @@ clients who wish to store their events in the log, and
 kept honest by a number of auditors who will challenge
 the logger to prove its correct behavior <<CrosbyWallach>>.
 
-A Merkle Tree data structure allow to accomplish this very efficeintly aggregating
+A Merkle Tree data structure allow to accomplish this very efficiently aggregating
 many requests and submitting to the log periodically just the root digest of the tree.
 This log is built as a hash chain (aka blockchain) of small blocks of data.
 Consequently, the entire chain can be shared and maintained

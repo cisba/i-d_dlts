@@ -390,14 +390,14 @@
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.39.0 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.37.3 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Cisbani, E., Ribaudo, D., and G. Damiano" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-intesigroup-DLTS-01" />
   <meta name="dct.issued" scheme="ISO8601" content="2020-01-13" />
-  <meta name="dct.abstract" content="This document provides a standard to extend Time-Stamp Tokens with Time Attestations recorded on Distributed Ledgers " />
-  <meta name="description" content="This document provides a standard to extend Time-Stamp Tokens with Time Attestations recorded on Distributed Ledgers " />
+  <meta name="dct.abstract" content="This document provides a standard to extend Time-Stamp Tokens with Time Attestations recorded on Distributed Ledgers" />
+  <meta name="description" content="This document provides a standard to extend Time-Stamp Tokens with Time Attestations recorded on Distributed Ledgers" />
 
 </head>
 
@@ -533,7 +533,7 @@
 </dd>
 <dt>Distributed Ledger</dt>
 <dd style="margin-left: 8">
-<br>Various definitions of blockchain and distributed ledger technology exist, and some of these stress different technical features.  Given the nature and scope of this document and the lack of definitional consensus we choosed to use the term as defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
+<br>Various definitions of blockchain and distributed ledger technology exist, and some of these stress different technical features.  Given the nature and scope of this document and the lack of definitional consensus we chose to use the term as defined by UK Government Chief Scientific Adviser <a href="#UK-GCSA" class="xref">[UK-GCSA]</a> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.  Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</dd>
 <dt>Merkle Tree</dt>
 <dd style="margin-left: 8">
 <br>As defined in <a href="#Merkle" class="xref">[Merkle]</a>, <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a> andSection 2.1 of <a href="#RFC6962" class="xref">[RFC6962]</a>
@@ -584,7 +584,7 @@
 <a href="#rfc.section.4">4.</a> <a href="#main" id="main">DL Attestation</a>
 </h1>
 <p id="rfc.section.4.p.1">A Digital Ledger can be viewed as an untrusted logger, serving a number of clients who wish to store their events in the log, and kept honest by a number of auditors who will challenge the logger to prove its correct behavior <a href="#CrosbyWallach" class="xref">[CrosbyWallach]</a>.</p>
-<p id="rfc.section.4.p.2">A Merkle Tree data structure allow to accomplish this very efficeintly aggregating many requests and submitting to the log periodically just the root digest of the tree.  This log is built as a hash chain (aka blockchain) of small blocks of data.  Consequently, the entire chain can be shared and maintained by a large number of nodes, becoming a distributed system.</p>
+<p id="rfc.section.4.p.2">A Merkle Tree data structure allow to accomplish this very efficiently aggregating many requests and submitting to the log periodically just the root digest of the tree.  This log is built as a hash chain (aka blockchain) of small blocks of data.  Consequently, the entire chain can be shared and maintained by a large number of nodes, becoming a distributed system.</p>
 <p id="rfc.section.4.p.3">In a permissioned DL the number of nodes can be small enough to permit a quick synchronization to reach the consensus about the state of the chain.  In a permissionless DL the large number of nodes introduces a relevant delay to reach the consensus.</p>
 <p id="rfc.section.4.p.4">In the case of Bitcoin, the consensus is reached statistically.  Usually in an elapsed mean time of one hour six new blocks are added to the chain.  A block of data that has been added before the last six blocks, is considered practically immutable.  This is motivated by the high computational power that would be required to rewrite the chain.</p>
 <p id="rfc.section.4.p.5">As a result of this scenario the time elapsed - from the request of aggregation of a digest to the proof consolidated inside the DL - could amount to more than one hour.</p>
@@ -640,12 +640,12 @@ DLProof ::= OCTET STRING
 <h1 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#_dl_promise_generation_process" id="_dl_promise_generation_process">DL Promise Generation Process</a>
 </h1>
-<p id="rfc.section.5.3.p.1">The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
+<p id="rfc.section.5.3.p.1">The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL extension itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <a href="#RFC3161" class="xref">[RFC3161]</a>.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
 <p id="rfc.section.6.p.1">Every security consideration described in Section 4 of <a href="#RFC3161" class="xref">[RFC3161]</a> SHALL be evaluated designing TSA services that include DL Time-Stamp extensions.</p>
-<p id="rfc.section.6.p.2">When a TSA execute a request to a Calendar Servers the use of a nonce is RECOMMENDED because using a nonce always allows to detect replays.</p>
+<p id="rfc.section.6.p.2">When a TSA execute a request to a Calendar Servers the use of a nonce is RECOMMENDED because using a nonce always allows you to detect replays.</p>
 <h1 id="rfc.section.7">
 <a href="#rfc.section.7">7.</a> <a href="#iana" id="iana">IANA Considerations</a>
 </h1>

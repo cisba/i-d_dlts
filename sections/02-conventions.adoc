@@ -28,7 +28,7 @@ Distributed Ledger::
 Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
-consensus we choosed to use the term
+consensus we chose to use the term
 as defined by UK Government Chief Scientific Adviser <<UK-GCSA>>
 "A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within

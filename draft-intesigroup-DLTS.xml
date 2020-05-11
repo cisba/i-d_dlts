@@ -127,7 +127,7 @@ definitions:</t>
     <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
-consensus we choosed to use the term
+consensus we chose to use the term
 as defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA"/>
 "A distributed ledger is essentially an asset database that can be shared across
 a network of multiple sites, geographies or institutions. All participants within
@@ -165,7 +165,7 @@ in a precise Distributed Ledger.</t>
 clients who wish to store their events in the log, and
 kept honest by a number of auditors who will challenge
 the logger to prove its correct behavior <xref target="CrosbyWallach"/>.</t>
-<t>A Merkle Tree data structure allow to accomplish this very efficeintly aggregating
+<t>A Merkle Tree data structure allow to accomplish this very efficiently aggregating
 many requests and submitting to the log periodically just the root digest of the tree.
 This log is built as a hash chain (aka blockchain) of small blocks of data.
 Consequently, the entire chain can be shared and maintained
@@ -245,12 +245,12 @@ the DL extension containing the promise previously obtained.
 When the TSA receives a request containing a DL extension,
 if there is a pending promise inside, it MAY request the Calendar Server to get the proof and MAY include it in the TST response.</t></section>
 <section anchor="_dl_promise_generation_process" title="DL Promise Generation Process">
-  <t>The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <xref target="RFC3161"/>.</t>
+  <t>The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL extension itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <xref target="RFC3161"/>.</t>
 </section></section>
 <section anchor="security" title="Security Considerations"><t>Every security consideration described in Section 4 of <xref target="RFC3161"/> SHALL be evaluated designing
 TSA services that include DL Time-Stamp extensions.</t>
 <t>When a TSA execute a request to a Calendar Servers the use of a nonce is
-RECOMMENDED because using a nonce always allows to detect replays.</t></section>
+RECOMMENDED because using a nonce always allows you to detect replays.</t></section>
 <section anchor="iana" title="IANA Considerations">
   <t>This document does not require any action by IANA.</t>
 </section>

@@ -183,19 +183,19 @@ Internet-Draft                    DLTS                      January 2020
       Various definitions of blockchain and distributed ledger
       technology exist, and some of these stress different technical
       features.  Given the nature and scope of this document and the
-      lack of definitional consensus we choosed to use the term as
-      defined by UK Government Chief Scientific Adviser [UK-GCSA] "A
-      distributed ledger is essentially an asset database that can be
-      shared across a network of multiple sites, geographies or
-      institutions.  All participants within a network can have their
-      own identical copy of the ledger.  Any changes to the ledger are
-      reflected in all copies in minutes, or in some cases, seconds.
-      The assets can be financial, legal, physical or electronic.  The
-      security and accuracy of the assets stored in the ledger are
-      maintained cryptographically through the use of 'keys' and
-      signatures to control who can do what within the shared ledger.
-      Entries can also be updated by one, some or all of the
-      participants, according to rules agreed by the network".
+      lack of definitional consensus we chose to use the term as defined
+      by UK Government Chief Scientific Adviser [UK-GCSA] "A distributed
+      ledger is essentially an asset database that can be shared across
+      a network of multiple sites, geographies or institutions.  All
+      participants within a network can have their own identical copy of
+      the ledger.  Any changes to the ledger are reflected in all copies
+      in minutes, or in some cases, seconds.  The assets can be
+      financial, legal, physical or electronic.  The security and
+      accuracy of the assets stored in the ledger are maintained
+      cryptographically through the use of 'keys' and signatures to
+      control who can do what within the shared ledger.  Entries can
+      also be updated by one, some or all of the participants, according
+      to rules agreed by the network".
 
    Merkle Tree
       As defined in [Merkle], [CrosbyWallach] andSection 2.1 of
@@ -257,7 +257,7 @@ Internet-Draft                    DLTS                      January 2020
    its correct behavior [CrosbyWallach].
 
    A Merkle Tree data structure allow to accomplish this very
-   efficeintly aggregating many requests and submitting to the log
+   efficiently aggregating many requests and submitting to the log
    periodically just the root digest of the tree.  This log is built as
    a hash chain (aka blockchain) of small blocks of data.  Consequently,
    the entire chain can be shared and maintained by a large number of
@@ -378,10 +378,10 @@ Internet-Draft                    DLTS                      January 2020
    the message digest calculation of the DER encoded TST, without the DL
    extension.  In case that, the TST contains more extensions, the hash
    calculation is executed to the DER encoded TST containing all the
-   extensions with the exclusion of DL itself.  The hash algorithm and
-   hash parameters are the same used to sign the TST, which are included
-   in the final ContentInfo object, as describe in Section 2.4.2 of
-   [RFC3161].
+   extensions with the exclusion of DL extension itself.  The hash
+   algorithm and hash parameters are the same used to sign the TST,
+   which are included in the final ContentInfo object, as describe in
+   Section 2.4.2 of [RFC3161].
 
 
 
@@ -401,7 +401,8 @@ Internet-Draft                    DLTS                      January 2020
    extensions.
 
    When a TSA execute a request to a Calendar Servers the use of a nonce
-   is RECOMMENDED because using a nonce always allows to detect replays.
+   is RECOMMENDED because using a nonce always allows you to detect
+   replays.
 
 7.  IANA Considerations
 
@@ -437,7 +438,6 @@ Internet-Draft                    DLTS                      January 2020
               American National Standards Institute (ANSI), "Trusted
               Time Stamp Management And Security", 2005,
               <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
-
 
 
 

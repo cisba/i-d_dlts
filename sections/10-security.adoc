@@ -6,4 +6,4 @@ Every security consideration described in <<RFC3161,4 of>> SHALL be evaluated de
 TSA services that include DL Time-Stamp extensions.
 
 When a TSA execute a request to a Calendar Servers the use of a nonce is
-RECOMMENDED because using a nonce always allows to detect replays.
+RECOMMENDED because using a nonce always allows you to detect replays.

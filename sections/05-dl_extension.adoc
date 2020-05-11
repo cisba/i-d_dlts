@@ -52,4 +52,4 @@ if there is a pending promise inside, it MAY request the Calendar Server to get 
 
 === DL Promise Generation Process
 
-The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <<RFC3161>>.
+The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL extension itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <<RFC3161>>.
