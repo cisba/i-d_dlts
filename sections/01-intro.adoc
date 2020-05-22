@@ -11,24 +11,24 @@ Attesting that a file existed prior to a specific point in time can be useful - 
 
 A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161>>
 can be based on an accurate time source linked to Coordinated Universal Time,
-and can be very precise - it can proves the existence also at the second or less.
-It is a so consolidated standard that - for example - the European Union 
-enforced his usage with legal effect by <<eIDAS>> Regulation,
+and can be very precise - it can prove the existence also at the second or less.
+It is such a consolidated standard that - for example - the European Union legally
+enforced its usage by <<eIDAS>> Regulation,
 <<ETSI.EN.319.422>> European Standard and <<ETSI.TS.101.861>> Technical Specification.
 
-In a deep comparation of Time Stamping Schemes conducted in 2001 by Masashi Une <<IMES>>,
-PKI TSA has been evaluated one of the most desirables with respect to security against
+In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <<IMES>>,
+PKI TSA was evaluated as one of the most desirables in term of security against
 alteration of a time stamp.
 
 The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise anyway to other proposals like <<ANSI.X9.95>> and <<ISO.IEC.18014-4>>.
+gave rise to other proposals like <<ANSI.X9.95>> and <<ISO.IEC.18014-4>>.
 
-Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years -
-for technical reasons - like the TSA certificates expiration -
-and for economic reasons - like the cost of providing the validation service by TSA.
+Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
+for technical reasons such as the TSA certificates expiration, or 
+for economic reasons such as the cost of providing the validation service by TSA.
 
-This situation gave rise also to some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
-the issue by extending the validity of TSA timestamps.
+This situation brought about some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
+the inconvenience by extending the validity of TSA timestamps.
 
 Security of a Distributed Ledger (def. in <<conventions>>) is based on hashes of data
 timestamped and widely published.
@@ -36,18 +36,17 @@ Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
 
 The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
-of the distributed system and the overall design aiming to survive perpetually.
+of the distributed system and the overall design whose aim is to survive perpetually.
 
-Based on a distributed trust scheme, a Distributed Ledger significantly increase
+Based on a distributed trust scheme, a Distributed Ledger significantly increases
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
-In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<<Hyperledger>><<NISTIR_8202>>.
-While in the case of a permissionless DL security could be granted by the economic incentive
-of nodes <<Nakamoto>>.
-// @cisba mettere link a Hyperledger per la distinzione tra permissioned/permissionless
+In the case of a permissioned DL, security is provided by an authoritative network of trust<<Hyperledger>><<NISTIR_8202>>,
+while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <<Nakamoto>>.
 
-On the other hand a DLA is not yet a standard solution. Furthermore a DLA
-is as less precise as bigger is the network, because distributed nodes need time to reach consensus.
+On the other hand, a DLA is not yet a standard solution. 
+Furthermore, the bigger the network the less precise the DLA,
+because distributed nodes need time to reach consensus.
 
 Since a DLA results as a complementary element to provide a long-term
 validity to TST - the aim of this specification is to provide an extension
