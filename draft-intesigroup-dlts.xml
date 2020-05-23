@@ -67,7 +67,8 @@
 <abstract><t>This document defines a standard to extend Time Stamp Tokens
 with Time Attestations recorded on Distributed Ledgers.</t>
 <t>The aim is to provide long-term validity to Time Stamp Tokens,
-backward compatible with currently available existing software.</t></abstract>
+backward compatible with currently available existing software.</t>
+<t>This document update <xref target="RFC3161">RFC 3161</xref>.</t></abstract>
 </front><middle>
 <section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful - for example - to:</t>
 <t>
