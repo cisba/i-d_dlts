@@ -14,8 +14,11 @@ Expires: November 26, 2020                                  May 25, 2020
 
 Abstract
 
-   This document provides a standard to extend Time-Stamp Tokens with
-   Time Attestations recorded on Distributed Ledgers
+   This document defines a standard to extend Time Stamp Tokens with
+   Time Attestations recorded on Distributed Ledgers.
+
+   The aim is to provide long-term validity to Time Stamp Tokens,
+   backward compatible with currently available existing software.
 
 Status of This Memo
 
@@ -46,9 +49,6 @@ Copyright Notice
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
    include Simplified BSD License text as described in Section 4.e of
-   the Trust Legal Provisions and are provided without warranty as
-   described in the Simplified BSD License.
-
 
 
 
@@ -58,6 +58,9 @@ Cisbani, et al.         Expires November 26, 2020               [Page 1]
 Internet-Draft                    DLTS                          May 2020
 
 
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
@@ -65,14 +68,14 @@ Table of Contents
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
    4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   5
    5.  DL Time-Stamp Extension . . . . . . . . . . . . . . . . . . .   6
-     5.1.  Promise . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     5.1.  Promise . . . . . . . . . . . . . . . . . . . . . . . . .   7
      5.2.  Proof . . . . . . . . . . . . . . . . . . . . . . . . . .   7
      5.3.  DL Promise Generation Process . . . . . . . . . . . . . .   7
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .   8
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .   9
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
 1.  Introduction
@@ -101,9 +104,6 @@ Table of Contents
    Masashi Une [IMES], PKI TSA was evaluated as one of the most
    desirables in term of security against alteration of a time stamp.
 
-   The integrity of the timestamping process that is inevitably bound to
-   the integrity of the TSA gave rise to other proposals like ANSI X9.95
-   [ANSI.X9.95] and ISO/IEC 18014-4 [ISO.IEC.18014-4].
 
 
 
@@ -113,6 +113,10 @@ Cisbani, et al.         Expires November 26, 2020               [Page 2]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   The integrity of the timestamping process that is inevitably bound to
+   the integrity of the TSA gave rise to other proposals like ANSI X9.95
+   [ANSI.X9.95] and ISO/IEC 18014-4 [ISO.IEC.18014-4].
 
    Furthermore a TSA TST can be validated for a limited time - usually
    no longer than 20 years for technical reasons such as the TSA
@@ -146,7 +150,7 @@ Internet-Draft                    DLTS                          May 2020
    distributed nodes need time to reach consensus.
 
    Since a DLA turns out to be a complementary element providing long-
-   term validity to TST - the aim of this specification is to allaw an
+   term validity to TST - the aim of this specification is to allow an
    extension of the Time-Stamp Token for Distributed Ledger Attestations
    (DLA).
 
@@ -158,10 +162,6 @@ Internet-Draft                    DLTS                          May 2020
    interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
    when, they appear in all capitals, as shown here.
 
-   This document also refers to the following terms and definitions:
-
-   Public Key Infrastructure
-      As defined in RFC 5280 [RFC5280]
 
 
 
@@ -169,6 +169,11 @@ Cisbani, et al.         Expires November 26, 2020               [Page 3]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   This document also refers to the following terms and definitions:
+
+   Public Key Infrastructure
+      As defined in RFC 5280 [RFC5280]
 
    Trusted Third Party
       As defined in RFC 3161 [RFC3161]
@@ -213,11 +218,6 @@ Internet-Draft                    DLTS                          May 2020
       promise of timestamping in a precise Distributed Ledger.
 
    Calendar
-      A calendar is simply a collection of Distributed Ledger
-      Attestations.
-
-   Calendar Server
-
 
 
 
@@ -226,6 +226,10 @@ Cisbani, et al.         Expires November 26, 2020               [Page 4]
 Internet-Draft                    DLTS                          May 2020
 
 
+      A calendar is simply a collection of Distributed Ledger
+      Attestations.
+
+   Calendar Server
       A server providing remote access to a collection of Distributed
       Ledger Attestations.
 
@@ -270,10 +274,6 @@ Internet-Draft                    DLTS                          May 2020
 
    In the case of Bitcoin, consensus is reached statistically.  Usually
    in an average elapsed time of one hour six new blocks are added to
-   the chain.  A block of data that was added before the last six
-   blocks, is considered to be practically immutable.  This is due to
-   the high computational power that would be required to rewrite the
-   chain.
 
 
 
@@ -281,6 +281,11 @@ Cisbani, et al.         Expires November 26, 2020               [Page 5]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   the chain.  A block of data that was added before the last six
+   blocks, is considered to be practically immutable.  This is due to
+   the high computational power that would be required to rewrite the
+   chain.
 
    As a result of this scenario the elapsed time - from the request of
    aggregation of a digest to the proof consolidated inside the DL, may
@@ -323,13 +328,8 @@ Internet-Draft                    DLTS                          May 2020
    where id-ce identify the root of standard extensions as described in
    RFC 5280 [RFC5280].
 
-5.1.  Promise
 
-   This extension contains the promise obtained from a Calendar Server
-   in response to a timestamp request on the DL.  The ASN.1 structure is
-   as follows:
 
-   id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 
 
 
@@ -337,6 +337,14 @@ Cisbani, et al.         Expires November 26, 2020               [Page 6]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+5.1.  Promise
+
+   This extension contains the promise obtained from a Calendar Server
+   in response to a timestamp request on the DL.  The ASN.1 structure is
+   as follows:
+
+   id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 
    Promise ::= SEQUENCE {
        version          [0] INTEGER,
@@ -379,20 +387,16 @@ Internet-Draft                    DLTS                          May 2020
    is applied to the DER encoded TST containing all the extensions with
    the exclusion of new DL extension itself.
 
-   The hash algorithm and hash parameters are the same of the TST
-   signature, which are included in the final ContentInfo object, as
-   described in Section 2.4.2 of RFC 3161 [RFC3161].
-
-
-
-
-
 
 
 Cisbani, et al.         Expires November 26, 2020               [Page 7]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   The hash algorithm and hash parameters are the same of the TST
+   signature, which are included in the final ContentInfo object, as
+   described in Section 2.4.2 of RFC 3161 [RFC3161].
 
 6.  Security Considerations
 
@@ -436,12 +440,8 @@ Internet-Draft                    DLTS                          May 2020
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
-8.2.  Informative References
 
-   [ANSI.X9.95]
-              American National Standards Institute (ANSI), "Trusted
-              Time Stamp Management And Security", 2005,
-              <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
+
 
 
 
@@ -449,6 +449,13 @@ Cisbani, et al.         Expires November 26, 2020               [Page 8]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+8.2.  Informative References
+
+   [ANSI.X9.95]
+              American National Standards Institute (ANSI), "Trusted
+              Time Stamp Management And Security", 2005,
+              <https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005>.
 
    [CrosbyWallach]
               Crosby, S. and D. Wallach, "Efficient Data Structures for
@@ -492,19 +499,19 @@ Internet-Draft                    DLTS                          May 2020
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
-   [Hyperledger]
-              The Linux Foundation, "Hyperledger Architecture, Volume 1:
-              Introduction to Hyperledger Business Blockchain Design
-              Philosophy and Consensus", August 2017,
-              <https://www.hyperledger.org/wp-content/uploads/2017/08/
-              Hyperledger_Arch_WG_Paper_1_Consensus.pdf>.
-
 
 
 Cisbani, et al.         Expires November 26, 2020               [Page 9]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   [Hyperledger]
+              The Linux Foundation, "Hyperledger Architecture, Volume 1:
+              Introduction to Hyperledger Business Blockchain Design
+              Philosophy and Consensus", August 2017,
+              <https://www.hyperledger.org/wp-content/uploads/2017/08/
+              Hyperledger_Arch_WG_Paper_1_Consensus.pdf>.
 
    [IETF.TLP]
               IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
@@ -548,19 +555,18 @@ Internet-Draft                    DLTS                          May 2020
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
 
-   [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
-              Ledger Technology: beyond block chain", January 2016, <htt
-              ps://assets.publishing.service.gov.uk/government/uploads/s
-              ystem/uploads/attachment_data/file/492972/gs-16-1-
-              distributed-ledger-technology.pdf>.
-
-
 
 
 Cisbani, et al.         Expires November 26, 2020              [Page 10]
 
 Internet-Draft                    DLTS                          May 2020
 
+
+   [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
+              Ledger Technology: beyond block chain", January 2016, <htt
+              ps://assets.publishing.service.gov.uk/government/uploads/s
+              ystem/uploads/attachment_data/file/492972/gs-16-1-
+              distributed-ledger-technology.pdf>.
 
 Authors' Addresses
 
@@ -595,12 +601,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: gdamiano@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
-
 
 
 

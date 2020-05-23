@@ -1,4 +1,7 @@
 [abstract]
 
-This document provides a standard to extend Time-Stamp Tokens
+This document defines a standard to extend Time Stamp Tokens
 with Time Attestations recorded on Distributed Ledgers.
+
+The aim is to provide long-term validity to Time Stamp Tokens,
+backward compatible with currently available existing software.

@@ -64,10 +64,10 @@
   <date day="25" month="May" year="2020"/>
   <area>Internet</area>
 
-<abstract>
-  <t>This document provides a standard to extend Time-Stamp Tokens
-with Time Attestations recorded on Distributed Ledgers</t>
-</abstract>
+<abstract><t>This document defines a standard to extend Time Stamp Tokens
+with Time Attestations recorded on Distributed Ledgers.</t>
+<t>The aim is to provide long-term validity to Time Stamp Tokens,
+backward compatible with currently available existing software.</t></abstract>
 </front><middle>
 <section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful - for example - to:</t>
 <t>
@@ -109,7 +109,7 @@ while in the case of a permissionless DL security is provided by the economic in
 Furthermore, the bigger the network the less precise the DLA,
 because distributed nodes need time to reach consensus.</t>
 <t>Since a DLA turns out to be a complementary element providing long-term
-validity to TST - the aim of this specification is to allaw an extension
+validity to TST - the aim of this specification is to allow an extension
 of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</t></section>
 <section anchor="conventions" title="Terms and Definitions"><t>The key words "<spanx style="strong">MUST</spanx>", "<spanx style="strong">MUST NOT</spanx>", "<spanx style="strong">REQUIRED</spanx>", "<spanx style="strong">SHALL</spanx>",
 "<spanx style="strong">SHALL NOT</spanx>", "<spanx style="strong">SHOULD</spanx>", "<spanx style="strong">SHOULD NOT</spanx>", "<spanx style="strong">RECOMMENDED</spanx>",
