@@ -36,7 +36,7 @@ Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.
 
 The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
-of the distributed system and the overall design whose aim is to survive perpetually.
+of the distributed system and the overall design whose aim is the DL perpetual survival.
 
 Based on a distributed trust scheme, a Distributed Ledger significantly increases
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
@@ -48,6 +48,6 @@ On the other hand, a DLA is not yet a standard solution.
 Furthermore, the bigger the network the less precise the DLA,
 because distributed nodes need time to reach consensus.
 
-Since a DLA results as a complementary element to provide a long-term
-validity to TST - the aim of this specification is to provide an extension
+Since a DLA turns out to be a complementary element providing long-term
+validity to TST - the aim of this specification is to allaw an extension
 of the Time-Stamp Token for Distributed Ledger Attestations (DLA).
