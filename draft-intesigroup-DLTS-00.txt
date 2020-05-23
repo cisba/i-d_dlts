@@ -10,7 +10,7 @@ Expires: November 26, 2020                                  May 25, 2020
 
 
                      Distributed Ledger Time-Stamp
-                       draft-intesigroup-DLTS-01
+                       draft-intesigroup-DLTS-00
 
 Abstract
 

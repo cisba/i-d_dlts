@@ -16,7 +16,7 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-DLTS-01">
+<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-DLTS-00">
 <front>
   <title abbrev="DLTS">Distributed Ledger Time-Stamp</title>
   <author fullname="Emanuele Cisbani" surname="Cisbani" initials="E.">

@@ -1,6 +1,6 @@
 = Distributed Ledger Time-Stamp
 :doctype: internet-draft
-:name: draft-intesigroup-DLTS-01
+:name: draft-intesigroup-DLTS-00
 :abbrev: DLTS
 :updates: 3161
 :status: std
