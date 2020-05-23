@@ -5,7 +5,7 @@
 A Digital Ledger can be seen as an untrusted logger - serving a number of
 clients who wish to store their events in the log -
 kept honest by a number of auditors who will challenge
-the logger to prove its correct behavior <<CrosbyWallach>>.
+the logger to prove its correct behaviour <<CrosbyWallach>>.
 
 A Merkle Tree data structure accomplishes this in a very efficient way by aggregating
 many requests and submitting periodically to the log only the root digest of the tree.
