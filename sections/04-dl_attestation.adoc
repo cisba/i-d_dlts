@@ -30,10 +30,11 @@ This is why we distinguish between a *promise* of attestation and a *proof* of a
 Generally, an Aggregation Server provides only a promise to timestamp the client's digest
 in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.
 
-Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
-the attestation could be considered a proof, stored and provided by a Calendar Server.
+Only after reaching consensus on that block can attestation be considered as proof,
+and made available by the Calendar Server.
 
-For simplicity of implementation, the Aggregation and the Calendar Server can be a unique instance.
-So in this document we will refer generically to a Calendar Server indicating both services.
+For the sake of simplicity, the Aggregation Server and the Calendar Server
+can be implemented as a unique instance.
+In this document we will generically refer to a Calendar Server indicating both services.
 
-The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.
+The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.

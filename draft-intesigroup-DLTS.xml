@@ -61,7 +61,7 @@
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
-  <date day="13" month="January" year="2020"/>
+  <date day="25" month="May" year="2020"/>
   <area>Internet</area>
 
 <abstract>
@@ -78,37 +78,38 @@ with Time Attestations recorded on Distributed Ledgers</t>
     <t>grant record integrity</t>
   </list>
 </t>
-<t>A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161"/>
+<t>A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161">RFC 3161</xref>
 can be based on an accurate time source linked to Coordinated Universal Time,
-and can be very precise - it can proves the existence also at the second or less.
-It is a so consolidated standard that - for example - the European Union
-enforced his usage with legal effect by <xref target="eIDAS"/> Regulation,
-<xref target="ETSI.EN.319.422"/> European Standard and <xref target="ETSI.TS.101.861"/> Technical Specification.</t>
-<t>In a deep comparation of Time Stamping Schemes conducted in 2001 by Masashi Une <xref target="IMES"/>,
-PKI TSA has been evaluated one of the most desirables with respect to security against
+and can be very precise - it can prove the existence also at the second or less.
+It is such a consolidated standard that - for example - the European Union legally
+enforced its usage by <xref target="eIDAS">eIDAS Regulation</xref>,
+European Standards and Technical Specifications
+<xref target="ETSI.EN.319.422"/> <xref target="ETSI.TS.101.861"/>.</t>
+<t>In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <xref target="IMES"/>,
+PKI TSA was evaluated as one of the most desirables in term of security against
 alteration of a time stamp.</t>
 <t>The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise anyway to other proposals like <xref target="ANSI.X9.95"/> and <xref target="ISO.IEC.18014-4"/>.</t>
-<t>Furthermore a TSA TST can be validated for a limited time - usually no more than 20 years -
-for technical reasons - like the TSA certificates expiration -
-and for economic reasons - like the cost of providing the validation service by TSA.</t>
-<t>This situation gave rise also to some solutions <xref target="ETSI.TS.102.778-4"/> aimed at mitigating
-the issue by extending the validity of TSA timestamps.</t>
+gave rise to other proposals like <xref target="ANSI.X9.95">ANSI X9.95</xref> and <xref target="ISO.IEC.18014-4">ISO/IEC 18014-4</xref>.</t>
+<t>Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
+for technical reasons such as the TSA certificates expiration, or
+for economic reasons such as the cost of providing the validation service by TSA.</t>
+<t>This situation brought about some solutions <xref target="ETSI.TS.102.778-4"/> aimed at mitigating
+the inconvenience by extending the validity of TSA timestamps.</t>
 <t>Security of a Distributed Ledger (def. in <xref target="conventions"/>) is based on hashes of data
 timestamped and widely published.
 Each timestamp includes the previous timestamp in its hash, forming a chain,
 with each additional timestamp reinforcing the ones before it.</t>
 <t>The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
-of the distributed system and the overall design aiming to survive perpetually.</t>
-<t>Based on a distributed trust scheme, a Distributed Ledger significantly increase
+of the distributed system and the overall design whose aim is the DL perpetual survival.</t>
+<t>Based on a distributed trust scheme, a Distributed Ledger significantly increases
 security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta"/>.</t>
-<t>In the case of a permissioned DL, security could be enhanced by an authoritative network of trust<xref target="Hyperledger"/><xref target="NISTIR_8202"/>.
-While in the case of a permissionless DL security could be granted by the economic incentive
-of nodes <xref target="Nakamoto"/>.</t>
-<t>On the other hand a DLA is not yet a standard solution. Furthermore a DLA
-is as less precise as bigger is the network, because distributed nodes need time to reach consensus.</t>
-<t>Since a DLA results as a complementary element to provide a long-term
-validity to TST - the aim of this specification is to provide an extension
+<t>In the case of a permissioned DL, security is provided by an authoritative network of trust <xref target="Hyperledger"/><xref target="NISTIR_8202"/>,
+while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <xref target="Nakamoto"/>.</t>
+<t>On the other hand, a DLA is not yet a standard solution.
+Furthermore, the bigger the network the less precise the DLA,
+because distributed nodes need time to reach consensus.</t>
+<t>Since a DLA turns out to be a complementary element providing long-term
+validity to TST - the aim of this specification is to allaw an extension
 of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</t></section>
 <section anchor="conventions" title="Terms and Definitions"><t>The key words "<spanx style="strong">MUST</spanx>", "<spanx style="strong">MUST NOT</spanx>", "<spanx style="strong">REQUIRED</spanx>", "<spanx style="strong">SHALL</spanx>",
 "<spanx style="strong">SHALL NOT</spanx>", "<spanx style="strong">SHOULD</spanx>", "<spanx style="strong">SHOULD NOT</spanx>", "<spanx style="strong">RECOMMENDED</spanx>",
@@ -120,10 +121,10 @@ all capitals, as shown here.</t>
 definitions:</t>
 <t>
   <list style="hanging">
-    <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>As defined in <xref target="RFC5280"/></t>
-    <t hangText="Trusted Third Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
-    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
-    <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161"/></t>
+    <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>As defined in <xref target="RFC5280">RFC 5280</xref></t>
+    <t hangText="Trusted Third Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
+    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
+    <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
     <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
@@ -138,15 +139,15 @@ of the assets stored in the ledger are maintained cryptographically through the
 use of &#8216;keys&#8217; and signatures to control who can do what within the shared ledger.
 Entries can also be updated by one, some or all of the participants, according to
 rules agreed by the network".</t>
-    <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in <xref target="Merkle"/>, <xref target="CrosbyWallach"/> andSection 2.1 of <xref target="RFC6962"/></t>
-    <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation in a Merkle Tree of digests to be timestamped.
+    <t hangText="Merkle Tree"><vspace blankLines="0"/>As defined in <xref target="Merkle"/>, <xref target="CrosbyWallach"/> and Section 2.1 of <xref target="RFC6962">RFC 6962</xref></t>
+    <t hangText="Aggregation Server"><vspace blankLines="0"/>A server providing the aggregation of digests to be timestamped in a Merkle Tree.
 Digests submitted for aggregation are added to a list periodically combined
 into a single Merkle Tree. Then the digest at the root of that tree is timestamped
 on a Distributed Ledger.</t>
     <t hangText="Distributed Ledger Attestation"><vspace blankLines="0"/>A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping
 in a precise Distributed Ledger.</t>
     <t hangText="Calendar"><vspace blankLines="0"/>A calendar is simply a collection of Distributed Ledger Attestations.</t>
-    <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of Distributed Ledger Attestation.</t>
+    <t hangText="Calendar Server"><vspace blankLines="0"/>A server providing remote access to a collection of Distributed Ledger Attestations.</t>
   </list>
 </t></section>
 <section anchor="symbols" title="Symbols And Abbreviations">
@@ -161,46 +162,47 @@ in a precise Distributed Ledger.</t>
   </list>
 </t>
 </section>
-<section anchor="main" title="DL Attestation"><t>A Digital Ledger can be viewed as an untrusted logger, serving a number of
-clients who wish to store their events in the log, and
+<section anchor="main" title="DL Attestation"><t>A Digital Ledger can be seen as an untrusted logger - serving a number of
+clients who wish to store their events in the log -
 kept honest by a number of auditors who will challenge
 the logger to prove its correct behavior <xref target="CrosbyWallach"/>.</t>
-<t>A Merkle Tree data structure allow to accomplish this very efficiently aggregating
-many requests and submitting to the log periodically just the root digest of the tree.
+<t>A Merkle Tree data structure accomplishes this in a very efficient way by aggregating
+many requests and submitting periodically to the log only the root digest of the tree.
 This log is built as a hash chain (aka blockchain) of small blocks of data.
 Consequently, the entire chain can be shared and maintained
 by a large number of nodes, becoming a distributed system.</t>
 <t>In a permissioned DL the number of nodes can be small enough to permit a quick
-synchronization to reach the consensus about the state of the chain.
+synchronization and reach consensus concerning the state of the chain.
 In a permissionless DL the large number of nodes introduces a relevant delay
-to reach the consensus.</t>
-<t>In the case of Bitcoin, the consensus is reached statistically.
-Usually in an elapsed mean time of one hour six new blocks are added to the chain.
-A block of data that has been added before the last six blocks, is considered practically immutable.
-This is motivated by the high computational power that would be required to rewrite the chain.</t>
-<t>As a result of this scenario the time elapsed - from the request of aggregation of a digest
-to the proof consolidated inside the DL - could amount to more than one hour.</t>
-<t>This is the motivation to distinguish from a <spanx style="strong">promise</spanx> of attestation and a <spanx style="strong">proof</spanx> of attestation.
-An Aggregation Server generally can provide only a promise to timestamping the digest of the client
-in the DL. After the aggregation is completed and the the Merkle Tree root hash has been recorded in a block within the chain, the promise is still not yet confirmed.</t>
-<t>Only when the consensus on that block is reached - statistically, in the Bitcoin case - then
-the attestation could be considered a proof, stored and provided by a Calendar Server.</t>
-<t>For simplicity of implementation, the Aggregation and the Calendar Server can be a unique instance.
-So in this document we will refer generically to a Calendar Server indicating both services.</t>
-<t>The DLA data structure is out of scope of this specification. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
+in order to reach consensus.</t>
+<t>In the case of Bitcoin, consensus is reached statistically.
+Usually in an average elapsed time of one hour six new blocks are added to the chain.
+A block of data that was added before the last six blocks, is considered to be practically immutable.
+This is due to the high computational power that would be required to rewrite the chain.</t>
+<t>As a result of this scenario the elapsed time - from the request of aggregation of a digest
+to the proof consolidated inside the DL, may amount to one hour or more.</t>
+<t>This is why we distinguish between a <spanx style="strong">promise</spanx> of attestation and a <spanx style="strong">proof</spanx> of attestation.
+Generally, an Aggregation Server provides only a promise to timestamp the client&#8217;s digest
+in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.</t>
+<t>Only after reaching consensus on that block can attestation be considered as proof,
+and made available by the Calendar Server.</t>
+<t>For the sake of simplicity, the Aggregation Server and the Calendar Server
+can be implemented as a unique instance.
+In this document we will generically refer to a Calendar Server indicating both services.</t>
+<t>The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
 <section anchor="_dl_time_stamp_extension" title="DL Time-Stamp Extension"><t>A DLA, generated by a Calendar Server, MAY be included
-into a <xref target="RFC3161"/> TST, using a non critical extension.</t>
+into a TST, using a non critical extension <xref target="RFC3161"/>.</t>
 <t>The use of non critical extension is backward compatible with currently available existing software.</t>
-<t>The extension MUST be compliant to the specifications described in <xref target="RFC3161"/> and Section 4.2.1 of <xref target="RFC5280"/>.</t>
+<t>The extension MUST be compliant to the specifications described in <xref target="RFC3161">RFC 3161</xref> and Section 4.2.1 of <xref target="RFC5280">RFC 5280</xref>.</t>
 <t>The new extension MUST have the following root OID:</t>
 <figure>
   <artwork><![CDATA[
 id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 ]]></artwork>
 </figure>
-<t>where id-ce identify the root of standard extensions as described in <xref target="RFC5280"/>.</t>
+<t>where id-ce identify the root of standard extensions as described in <xref target="RFC5280">RFC 5280</xref>.</t>
 <section anchor="_promise" title="Promise"><t>This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
-The ASN.1 structure is as follow:</t>
+The ASN.1 structure is as follows:</t>
 <figure>
   <artwork><![CDATA[
 id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
@@ -220,7 +222,7 @@ DLPromise ::= OCTET STRING
 </figure>
 <t>The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself.</t></section>
 <section anchor="_proof" title="Proof"><t>This extension contains the proof obtained from a Calendar Server in response to a timestamp upgrade request of a previously obtained promise.
-The ASN.1 structure is as follow:</t>
+The ASN.1 structure is as follows:</t>
 <figure>
   <artwork><![CDATA[
 id-ce-dlts-proof OBJECT IDENTIFIER ::= {
@@ -240,17 +242,24 @@ Proof ::= SEQUENCE {
 DLProof ::= OCTET STRING
 ]]></artwork>
 </figure>
-<t>The upgrade from a promise to a proof MAY be done requesting a new TST, including
+<t>Upgrade from a promise to a proof MAY be done requesting a new TST, including
 the DL extension containing the promise previously obtained.
 When the TSA receives a request containing a DL extension,
-if there is a pending promise inside, it MAY request the Calendar Server to get the proof and MAY include it in the TST response.</t></section>
-<section anchor="_dl_promise_generation_process" title="DL Promise Generation Process">
-  <t>The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension. In case that, the TST contains more extensions, the hash calculation is executed to the DER encoded TST containing all the extensions with the exclusion of DL extension itself.  The hash algorithm and hash parameters are the same used to sign the TST, which are included in the final ContentInfo object, as describe in Section 2.4.2 of <xref target="RFC3161"/>.</t>
-</section></section>
-<section anchor="security" title="Security Considerations"><t>Every security consideration described in Section 4 of <xref target="RFC3161"/> SHALL be evaluated designing
+and there is a pending promise inside, it MAY request
+from the Calendar Server to get the proof and MAY include it in the TST response.</t></section>
+<section anchor="_dl_promise_generation_process" title="DL Promise Generation Process"><t>The input to the DL Promise generation process includes the result of
+the message digest calculation of the DER encoded TST, without the DL extension.
+If the TST contains more extensions, the hash calculation is applied to the DER
+encoded TST containing all the extensions with the exclusion of new DL extension itself.</t>
+<t>The hash algorithm and hash parameters are the same of the TST signature,
+which are included in the final ContentInfo object, as described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref>.</t></section></section>
+<section anchor="security" title="Security Considerations"><t>Each security consideration described in Section 4 of <xref target="RFC3161">RFC 3161</xref> SHALL be evaluated designing
 TSA services that include DL Time-Stamp extensions.</t>
-<t>When a TSA execute a request to a Calendar Servers the use of a nonce is
-RECOMMENDED because using a nonce always allows you to detect replays.</t></section>
+<t>When a TSA executes a request to a Calendar Server the use of a nonce is
+RECOMMENDED because using a nonce always allows the client to detect replays.</t>
+<t>Safety and reliability of the DL Extension depends on the robustness
+of the hash algorithms and on the stability of the DL,
+i.e. how expensive or difficult it would be for an attacker to alter the DL.</t></section>
 <section anchor="iana" title="IANA Considerations">
   <t>This document does not require any action by IANA.</t>
 </section>
