@@ -10,7 +10,7 @@ Expires: November 26, 2020                                  May 25, 2020
 
 
                      Distributed Ledger Time-Stamp
-                       draft-intesigroup-DLTS-00
+                       draft-intesigroup-dlts-00
 
 Abstract
 
@@ -55,7 +55,7 @@ Copyright Notice
 
 Cisbani, et al.         Expires November 26, 2020               [Page 1]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    the Trust Legal Provisions and are provided without warranty as
@@ -111,7 +111,7 @@ Table of Contents
 
 Cisbani, et al.         Expires November 26, 2020               [Page 2]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    The integrity of the timestamping process that is inevitably bound to
@@ -167,7 +167,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 3]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    This document also refers to the following terms and definitions:
@@ -223,7 +223,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 4]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
       A calendar is simply a collection of Distributed Ledger
@@ -279,7 +279,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 5]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    the chain.  A block of data that was added before the last six
@@ -335,7 +335,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 6]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
 5.1.  Promise
@@ -391,7 +391,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 7]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    The hash algorithm and hash parameters are the same of the TST
@@ -447,7 +447,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 8]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
 8.2.  Informative References
@@ -503,7 +503,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020               [Page 9]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    [Hyperledger]
@@ -559,7 +559,7 @@ Internet-Draft                    DLTS                          May 2020
 
 Cisbani, et al.         Expires November 26, 2020              [Page 10]
 
-Internet-Draft                    DLTS                          May 2020
+Internet-Draft                    dlts                          May 2020
 
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
