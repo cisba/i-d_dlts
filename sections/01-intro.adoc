@@ -50,5 +50,5 @@ Furthermore, the bigger the network the less precise the DLA,
 because distributed nodes need time to reach consensus.
 
 Since a DLA turns out to be a complementary element providing long-term
-validity to TST - the aim of this specification is to allaw an extension
+validity to TST - the aim of this specification is to allow an extension
 of the Time-Stamp Token for Distributed Ledger Attestations (DLA).
