@@ -605,6 +605,7 @@
 id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 </pre>
 <p id="rfc.section.5.p.5">where id-ce identify the root of standard extensions as described in <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
+<p id="rfc.section.5.p.6">A TST MUST NOT have more than one DL extension. This limitation is a consequence of the DL promise generation process (see <a href="#promise_generation_process" class="xref">Section 5.3</a>).</p>
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#_promise" id="_promise">Promise</a>
 </h1>
@@ -638,11 +639,11 @@ Proof ::= SEQUENCE {
 <pre>
 DLProof ::= OCTET STRING
 </pre>
-<p id="rfc.section.5.2.p.2">Upgrade from a promise to a proof MAY be done requesting a new TST, including the DL extension containing the promise previously obtained.  When the TSA receives a request containing a DL extension, and there is a pending promise inside, it MAY request from the Calendar Server to get the proof and MAY include it in the TST response.</p>
+<p id="rfc.section.5.2.p.2">Upgrade from a promise to a proof MAY be done requesting a new TST, including the DL extension containing the promise previously obtained.  When the TSA receives a request containing a DL extension, and there is a pending promise inside, it MAY request from a Calendar Server to get the proof and MAY include it in the TST response.</p>
 <h1 id="rfc.section.5.3">
-<a href="#rfc.section.5.3">5.3.</a> <a href="#_dl_promise_generation_process" id="_dl_promise_generation_process">DL Promise Generation Process</a>
+<a href="#rfc.section.5.3">5.3.</a> <a href="#promise_generation_process" id="promise_generation_process">DL Promise Generation Process</a>
 </h1>
-<p id="rfc.section.5.3.p.1">The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension.  If the TST contains more extensions, the hash calculation is applied to the DER encoded TST containing all the extensions with the exclusion of new DL extension itself.</p>
+<p id="rfc.section.5.3.p.1">The input to the DL Promise generation process includes the result of the message digest calculation of the DER encoded TST, without the DL extension.  If the TST contains more extensions, the hash calculation is applied to the DER encoded TST containing all the extensions with the exclusion of the DL extension itself.</p>
 <p id="rfc.section.5.3.p.2">The hash algorithm and hash parameters are the same of the TST signature, which are included in the final ContentInfo object, as described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a>.</p>
 <h1 id="rfc.section.6">
 <a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>

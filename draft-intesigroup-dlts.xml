@@ -202,6 +202,7 @@ id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 ]]></artwork>
 </figure>
 <t>where id-ce identify the root of standard extensions as described in <xref target="RFC5280">RFC 5280</xref>.</t>
+<t>A TST MUST NOT have more than one DL extension. This limitation is a consequence of the DL promise generation process (see <xref target="promise_generation_process"/>).</t>
 <section anchor="_promise" title="Promise"><t>This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
 The ASN.1 structure is as follows:</t>
 <figure>
@@ -247,11 +248,11 @@ DLProof ::= OCTET STRING
 the DL extension containing the promise previously obtained.
 When the TSA receives a request containing a DL extension,
 and there is a pending promise inside, it MAY request
-from the Calendar Server to get the proof and MAY include it in the TST response.</t></section>
-<section anchor="_dl_promise_generation_process" title="DL Promise Generation Process"><t>The input to the DL Promise generation process includes the result of
+from a Calendar Server to get the proof and MAY include it in the TST response.</t></section>
+<section anchor="promise_generation_process" title="DL Promise Generation Process"><t>The input to the DL Promise generation process includes the result of
 the message digest calculation of the DER encoded TST, without the DL extension.
 If the TST contains more extensions, the hash calculation is applied to the DER
-encoded TST containing all the extensions with the exclusion of new DL extension itself.</t>
+encoded TST containing all the extensions with the exclusion of the DL extension itself.</t>
 <t>The hash algorithm and hash parameters are the same of the TST signature,
 which are included in the final ContentInfo object, as described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref>.</t></section></section>
 <section anchor="security" title="Security Considerations"><t>Each security consideration described in Section 4 of <xref target="RFC3161">RFC 3161</xref> SHALL be evaluated designing

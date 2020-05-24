@@ -14,6 +14,8 @@ The new extension MUST have the following root OID:
 
 where id-ce identify the root of standard extensions as described in <<RFC5280,RFC 5280>>.
 
+A TST MUST NOT have more than one DL extension. This limitation is a consequence of the DL promise generation process (see <<promise_generation_process>>).
+
 === Promise
 
 This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
@@ -49,14 +51,15 @@ Upgrade from a promise to a proof MAY be done requesting a new TST, including
 the DL extension containing the promise previously obtained.
 When the TSA receives a request containing a DL extension,
 and there is a pending promise inside, it MAY request
-from the Calendar Server to get the proof and MAY include it in the TST response.
+from a Calendar Server to get the proof and MAY include it in the TST response.
 
+[[promise_generation_process]]
 === DL Promise Generation Process
 
 The input to the DL Promise generation process includes the result of
 the message digest calculation of the DER encoded TST, without the DL extension.
 If the TST contains more extensions, the hash calculation is applied to the DER
-encoded TST containing all the extensions with the exclusion of new DL extension itself.
+encoded TST containing all the extensions with the exclusion of the DL extension itself.
 
 The hash algorithm and hash parameters are the same of the TST signature,
 which are included in the final ContentInfo object, as described in Section 2.4.2 of <<RFC3161,RFC 3161>>.

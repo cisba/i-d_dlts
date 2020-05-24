@@ -328,8 +328,8 @@ Internet-Draft                    dlts                          May 2020
    where id-ce identify the root of standard extensions as described in
    RFC 5280 [RFC5280].
 
-
-
+   A TST MUST NOT have more than one DL extension.  This limitation is a
+   consequence of the DL promise generation process (see Section 5.3).
 
 
 
@@ -375,9 +375,8 @@ Internet-Draft                    dlts                          May 2020
    Upgrade from a promise to a proof MAY be done requesting a new TST,
    including the DL extension containing the promise previously
    obtained.  When the TSA receives a request containing a DL extension,
-   and there is a pending promise inside, it MAY request from the
-   Calendar Server to get the proof and MAY include it in the TST
-   response.
+   and there is a pending promise inside, it MAY request from a Calendar
+   Server to get the proof and MAY include it in the TST response.
 
 5.3.  DL Promise Generation Process
 
@@ -385,7 +384,8 @@ Internet-Draft                    dlts                          May 2020
    the message digest calculation of the DER encoded TST, without the DL
    extension.  If the TST contains more extensions, the hash calculation
    is applied to the DER encoded TST containing all the extensions with
-   the exclusion of new DL extension itself.
+   the exclusion of the DL extension itself.
+
 
 
 
