@@ -4,9 +4,8 @@
 <!ENTITY RFC2119 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3161 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3161.xml">
 <!ENTITY RFC5280 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5280.xml">
+<!ENTITY RFC6838 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6838.xml">
 <!ENTITY RFC8174 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
-<!ENTITY RFC3552 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3552.xml">
-<!ENTITY RFC5378 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5378.xml">
 <!ENTITY RFC6962 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.6962.xml">
 ]>
 <?rfc strict="yes"?>
@@ -203,8 +202,8 @@ id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 </figure>
 <t>where id-ce identify the root of standard extensions as described in <xref target="RFC5280">RFC 5280</xref>.</t>
 <t>A TST MUST NOT have more than one DL extension. This limitation is a consequence of the DL promise generation process (see <xref target="promise_generation_process"/>).</t>
-<section anchor="_promise" title="Promise"><t>This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
-The ASN.1 structure is as follows:</t>
+<section anchor="_promise" title="Promise"><t>This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.</t>
+<t>The ASN.1 structure is as follows:</t>
 <figure>
   <artwork><![CDATA[
 id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
@@ -214,7 +213,8 @@ id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
   <artwork><![CDATA[
 Promise ::= SEQUENCE {
     version          [0] INTEGER,
-    dlpromise        [1] DLPromise }
+    calendarFormat   [1] UTF8String,
+    dlPromise        [2] DLPromise }
 ]]></artwork>
 </figure>
 <figure>
@@ -222,7 +222,17 @@ Promise ::= SEQUENCE {
 DLPromise ::= OCTET STRING
 ]]></artwork>
 </figure>
-<t>The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself.</t></section>
+<t>The fields of type Promise have the following meanings:</t>
+<t>
+  <list style="symbols">
+    <t>version is the syntax version number. It MUST always be 0.</t>
+    <t>calendarFormat is the media type format of the DL attestation.
+It MUST be a registered application media type in accordance to
+the procedures laid out in <xref target="RFC6838">RFC 6838</xref>.</t>
+    <t>dlPromise is the promise obtained from a Calendar Server.</t>
+  </list>
+</t>
+<t>The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself (see <xref target="promise_generation_process"/>).</t></section>
 <section anchor="_proof" title="Proof"><t>This extension contains the proof obtained from a Calendar Server in response to a timestamp upgrade request of a previously obtained promise.
 The ASN.1 structure is as follows:</t>
 <figure>
@@ -234,9 +244,9 @@ id-ce-dlts-proof OBJECT IDENTIFIER ::= {
 <figure>
   <artwork><![CDATA[
 Proof ::= SEQUENCE {
-      version        [0] INTEGER,
-      dlproof        [1] DLProof,
-      blockchain     [2] UTF8String }
+    version          [0] INTEGER,
+    calendarFormat   [1] UTF8String,
+    dlProof          [2] DLProof }
 ]]></artwork>
 </figure>
 <figure>
@@ -244,6 +254,16 @@ Proof ::= SEQUENCE {
 DLProof ::= OCTET STRING
 ]]></artwork>
 </figure>
+<t>The fields of type Proof have the following meanings:</t>
+<t>
+  <list style="symbols">
+    <t>version is the syntax version number. It MUST always be 0.</t>
+    <t>calendarFormat is the media type format of the DL attestation.
+It MUST be a registered application media type in accordance to
+the procedures laid out in <xref target="RFC6838">RFC 6838</xref>.</t>
+    <t>dlProof is the proof obtained from a Calendar Server.</t>
+  </list>
+</t>
 <t>Upgrade from a promise to a proof MAY be done requesting a new TST, including
 the DL extension containing the promise previously obtained.
 When the TSA receives a request containing a DL extension,
@@ -270,6 +290,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.</t>
   &RFC2119;
   &RFC3161;
   &RFC5280;
+  &RFC6838;
   &RFC8174;
 </references>
 <references title="Informative References">
@@ -393,15 +414,6 @@ Time stamping profile</title>
     <date month="August" year="2017"/>
   </front>
 </reference>
-  <reference anchor="IETF.TLP" target="https://trustee.ietf.org/trust-legal-provisions.html">
-  <front>
-  <title>IETF Trust Legal Provisions (TLP)</title>
-  <author>
-    <organization>IETF</organization>
-  </author>
-  <date month="April" day="12" year="2018"/>
-  </front>
-</reference>
   <reference anchor="IMES" target="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486">
   <front>
     <title>
@@ -512,8 +524,6 @@ Time stamping profile</title>
     <date day="23" month="July" year="2014"/>
   </front>
 </reference>
-  &RFC3552;
-  &RFC5378;
   &RFC6962;
 </references>
 </back>

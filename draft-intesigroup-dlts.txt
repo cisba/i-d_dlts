@@ -71,11 +71,11 @@ Table of Contents
    5.  DL Time-Stamp Extension . . . . . . . . . . . . . . . . . . .   6
      5.1.  Promise . . . . . . . . . . . . . . . . . . . . . . . . .   7
      5.2.  Proof . . . . . . . . . . . . . . . . . . . . . . . . . .   7
-     5.3.  DL Promise Generation Process . . . . . . . . . . . . . .   7
+     5.3.  DL Promise Generation Process . . . . . . . . . . . . . .   8
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   8
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   8
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   9
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .   9
      8.2.  Informative References  . . . . . . . . . . . . . . . . .   9
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
 
@@ -341,20 +341,32 @@ Internet-Draft                    dlts                          May 2020
 5.1.  Promise
 
    This extension contains the promise obtained from a Calendar Server
-   in response to a timestamp request on the DL.  The ASN.1 structure is
-   as follows:
+   in response to a timestamp request on the DL.
+
+   The ASN.1 structure is as follows:
 
    id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 
    Promise ::= SEQUENCE {
        version          [0] INTEGER,
-       dlpromise        [1] DLPromise }
+       calendarFormat   [1] UTF8String,
+       dlPromise        [2] DLPromise }
 
    DLPromise ::= OCTET STRING
 
+   The fields of type Promise have the following meanings:
+
+   o  version is the syntax version number.  It MUST always be 0.
+
+   o  calendarFormat is the media type format of the DL attestation.  It
+      MUST be a registered application media type in accordance to the
+      procedures laid out in RFC 6838 [RFC6838].
+
+   o  dlPromise is the promise obtained from a Calendar Server.
+
    The input data, timestamped by the DLA, SHALL be the hash value of
    the same data that will be signed by the TSA, without the DL
-   extension itself.
+   extension itself (see Section 5.3).
 
 5.2.  Proof
 
@@ -366,11 +378,29 @@ Internet-Draft                    dlts                          May 2020
        id-ce-dlts 2 }
 
    Proof ::= SEQUENCE {
-         version        [0] INTEGER,
-         dlproof        [1] DLProof,
-         blockchain     [2] UTF8String }
+       version          [0] INTEGER,
+       calendarFormat   [1] UTF8String,
+       dlProof          [2] DLProof }
 
    DLProof ::= OCTET STRING
+
+   The fields of type Proof have the following meanings:
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020               [Page 7]
+
+Internet-Draft                    dlts                          May 2020
+
+
+   o  version is the syntax version number.  It MUST always be 0.
+
+   o  calendarFormat is the media type format of the DL attestation.  It
+      MUST be a registered application media type in accordance to the
+      procedures laid out in RFC 6838 [RFC6838].
+
+   o  dlProof is the proof obtained from a Calendar Server.
 
    Upgrade from a promise to a proof MAY be done requesting a new TST,
    including the DL extension containing the promise previously
@@ -385,14 +415,6 @@ Internet-Draft                    dlts                          May 2020
    extension.  If the TST contains more extensions, the hash calculation
    is applied to the DER encoded TST containing all the extensions with
    the exclusion of the DL extension itself.
-
-
-
-
-Cisbani, et al.         Expires November 26, 2020               [Page 7]
-
-Internet-Draft                    dlts                          May 2020
-
 
    The hash algorithm and hash parameters are the same of the TST
    signature, which are included in the final ContentInfo object, as
@@ -416,6 +438,18 @@ Internet-Draft                    dlts                          May 2020
 
    This document does not require any action by IANA.
 
+
+
+
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020               [Page 8]
+
+Internet-Draft                    dlts                          May 2020
+
+
 8.  References
 
 8.1.  Normative References
@@ -436,19 +470,14 @@ Internet-Draft                    dlts                          May 2020
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
               <https://www.rfc-editor.org/info/rfc5280>.
 
+   [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
+              Specifications and Registration Procedures", BCP 13,
+              RFC 6838, DOI 10.17487/RFC6838, January 2013,
+              <https://www.rfc-editor.org/info/rfc6838>.
+
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
-
-
-
-
-
-
-Cisbani, et al.         Expires November 26, 2020               [Page 8]
-
-Internet-Draft                    dlts                          May 2020
-
 
 8.2.  Informative References
 
@@ -468,6 +497,14 @@ Internet-Draft                    dlts                          May 2020
               Union, "Regulation (EU) No 910/2014", July 2014,
               <https://eur-lex.europa.eu/legal-content/EN/TXT/
               HTML/?uri=CELEX:32014R0910=EN>.
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020               [Page 9]
+
+Internet-Draft                    dlts                          May 2020
+
 
    [ETSI.EN.319.422]
               European Telecommunications Standards Institute,
@@ -499,23 +536,12 @@ Internet-Draft                    dlts                          May 2020
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
 
-
-
-Cisbani, et al.         Expires November 26, 2020               [Page 9]
-
-Internet-Draft                    dlts                          May 2020
-
-
    [Hyperledger]
               The Linux Foundation, "Hyperledger Architecture, Volume 1:
               Introduction to Hyperledger Business Blockchain Design
               Philosophy and Consensus", August 2017,
               <https://www.hyperledger.org/wp-content/uploads/2017/08/
               Hyperledger_Arch_WG_Paper_1_Consensus.pdf>.
-
-   [IETF.TLP]
-              IETF, "IETF Trust Legal Provisions (TLP)", April 2018,
-              <https://trustee.ietf.org/trust-legal-provisions.html>.
 
    [IMES]     Une, M., "The Security Evaluation of Time Stamping
               Schemes: The Present Situation and Studies (2001)", 2001,
@@ -527,6 +553,14 @@ Internet-Draft                    dlts                          May 2020
               "Information technology - Security techniques - Time-
               stamping services - Part 4: Traceability of time sources",
               April 2015, <https://www.iso.org/standard/59934.html>.
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 10]
+
+Internet-Draft                    dlts                          May 2020
+
 
    [Merkle]   Merkle, R. C., "Secrecy, authentication, and public-key
               systems - Technical Report No. 1979-1", June 1979,
@@ -541,26 +575,9 @@ Internet-Draft                    dlts                          May 2020
               Technology Overview", October 2018,
               <https://doi.org/10.6028/NIST.IR.8202>.
 
-   [RFC3552]  Rescorla, E. and B. Korver, "Guidelines for Writing RFC
-              Text on Security Considerations", BCP 72, RFC 3552,
-              DOI 10.17487/RFC3552, July 2003,
-              <https://www.rfc-editor.org/info/rfc3552>.
-
-   [RFC5378]  Bradner, S., Ed. and J. Contreras, Ed., "Rights
-              Contributors Provide to the IETF Trust", BCP 78, RFC 5378,
-              DOI 10.17487/RFC5378, November 2008,
-              <https://www.rfc-editor.org/info/rfc5378>.
-
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
-
-
-
-Cisbani, et al.         Expires November 26, 2020              [Page 10]
-
-Internet-Draft                    dlts                          May 2020
-
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
@@ -592,6 +609,15 @@ Authors' Addresses
    URI:   https://www.intesigroup.com
 
 
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 11]
+
+Internet-Draft                    dlts                          May 2020
+
+
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
@@ -613,4 +639,34 @@ Authors' Addresses
 
 
 
-Cisbani, et al.         Expires November 26, 2020              [Page 11]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 12]

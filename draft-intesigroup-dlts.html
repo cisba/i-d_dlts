@@ -609,19 +609,31 @@ id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#_promise" id="_promise">Promise</a>
 </h1>
-<p id="rfc.section.5.1.p.1">This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.  The ASN.1 structure is as follows:</p>
+<p id="rfc.section.5.1.p.1">This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.</p>
+<p id="rfc.section.5.1.p.2">The ASN.1 structure is as follows:</p>
 <pre>
 id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 </pre>
 <pre>
 Promise ::= SEQUENCE {
     version          [0] INTEGER,
-    dlpromise        [1] DLPromise }
+    calendarFormat   [1] UTF8String,
+    dlPromise        [2] DLPromise }
 </pre>
 <pre>
 DLPromise ::= OCTET STRING
 </pre>
-<p id="rfc.section.5.1.p.2">The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself.</p>
+<p id="rfc.section.5.1.p.3">The fields of type Promise have the following meanings:</p>
+<p></p>
+
+<ul>
+<li>version is the syntax version number. It MUST always be 0.</li>
+<li>calendarFormat is the media type format of the DL attestation.  It MUST be a registered application media type in accordance to the procedures laid out in <a href="#RFC6838" class="xref">RFC 6838</a>.</li>
+<li>dlPromise is the promise obtained from a Calendar Server.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.5.1.p.5">The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself (see <a href="#promise_generation_process" class="xref">Section 5.3</a>).</p>
 <h1 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#_proof" id="_proof">Proof</a>
 </h1>
@@ -632,14 +644,24 @@ id-ce-dlts-proof OBJECT IDENTIFIER ::= {
 </pre>
 <pre>
 Proof ::= SEQUENCE {
-      version        [0] INTEGER,
-      dlproof        [1] DLProof,
-      blockchain     [2] UTF8String }
+    version          [0] INTEGER,
+    calendarFormat   [1] UTF8String,
+    dlProof          [2] DLProof }
 </pre>
 <pre>
 DLProof ::= OCTET STRING
 </pre>
-<p id="rfc.section.5.2.p.2">Upgrade from a promise to a proof MAY be done requesting a new TST, including the DL extension containing the promise previously obtained.  When the TSA receives a request containing a DL extension, and there is a pending promise inside, it MAY request from a Calendar Server to get the proof and MAY include it in the TST response.</p>
+<p id="rfc.section.5.2.p.2">The fields of type Proof have the following meanings:</p>
+<p></p>
+
+<ul>
+<li>version is the syntax version number. It MUST always be 0.</li>
+<li>calendarFormat is the media type format of the DL attestation.  It MUST be a registered application media type in accordance to the procedures laid out in <a href="#RFC6838" class="xref">RFC 6838</a>.</li>
+<li>dlProof is the proof obtained from a Calendar Server.</li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.5.2.p.4">Upgrade from a promise to a proof MAY be done requesting a new TST, including the DL extension containing the promise previously obtained.  When the TSA receives a request containing a DL extension, and there is a pending promise inside, it MAY request from a Calendar Server to get the proof and MAY include it in the TST response.</p>
 <h1 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#promise_generation_process" id="promise_generation_process">DL Promise Generation Process</a>
 </h1>
@@ -674,6 +696,11 @@ DLProof ::= OCTET STRING
 <td class="reference"><b id="RFC5280">[RFC5280]</b></td>
 <td class="top">
 <a>Cooper, D.</a>, <a>Santesson, S.</a>, <a>Farrell, S.</a>, <a>Boeyen, S.</a>, <a>Housley, R.</a> and <a>W. Polk</a>, "<a href="https://tools.ietf.org/html/rfc5280">Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</a>", RFC 5280, DOI 10.17487/RFC5280, May 2008.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC6838">[RFC6838]</b></td>
+<td class="top">
+<a>Freed, N.</a>, <a>Klensin, J.</a> and <a>T. Hansen</a>, "<a href="https://tools.ietf.org/html/rfc6838">Media Type Specifications and Registration Procedures</a>", BCP 13, RFC 6838, DOI 10.17487/RFC6838, January 2013.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC8174">[RFC8174]</b></td>
@@ -725,11 +752,6 @@ DLProof ::= OCTET STRING
 <a>The Linux Foundation</a>, "<a href="https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf">Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus</a>", August 2017.</td>
 </tr>
 <tr>
-<td class="reference"><b id="IETF.TLP">[IETF.TLP]</b></td>
-<td class="top">
-<a>IETF</a>, "<a href="https://trustee.ietf.org/trust-legal-provisions.html">IETF Trust Legal Provisions (TLP)</a>", April 2018.</td>
-</tr>
-<tr>
 <td class="reference"><b id="IMES">[IMES]</b></td>
 <td class="top">
 <a title="INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN">Une, M.</a>, "<a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486">The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)</a>", 2001.</td>
@@ -753,16 +775,6 @@ DLProof ::= OCTET STRING
 <td class="reference"><b id="NISTIR_8202">[NISTIR_8202]</b></td>
 <td class="top">
 <a title="National Institute of Standards and Technology">Yaga, D.</a>, <a title="National Institute of Standards and Technology">Mell, P.</a>, <a title="G2, Inc.">Roby, N.</a> and <a title="Scarfone Cybersecurity">K. Scarfone</a>, "<a href="https://doi.org/10.6028/NIST.IR.8202">Blockchain Technology Overview</a>", October 2018.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC3552">[RFC3552]</b></td>
-<td class="top">
-<a>Rescorla, E.</a> and <a>B. Korver</a>, "<a href="https://tools.ietf.org/html/rfc3552">Guidelines for Writing RFC Text on Security Considerations</a>", BCP 72, RFC 3552, DOI 10.17487/RFC3552, July 2003.</td>
-</tr>
-<tr>
-<td class="reference"><b id="RFC5378">[RFC5378]</b></td>
-<td class="top">
-<a>Bradner, S.</a> and <a>J. Contreras</a>, "<a href="https://tools.ietf.org/html/rfc5378">Rights Contributors Provide to the IETF Trust</a>", BCP 78, RFC 5378, DOI 10.17487/RFC5378, November 2008.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC6962">[RFC6962]</b></td>
