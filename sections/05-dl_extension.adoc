@@ -19,17 +19,29 @@ A TST MUST NOT have more than one DL extension. This limitation is a consequence
 === Promise
 
 This extension contains the promise obtained from a Calendar Server in response to a timestamp request on the DL.
+
 The ASN.1 structure is as follows:
 
     id-ce-dlts-promise OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 
     Promise ::= SEQUENCE {
         version          [0] INTEGER,
-        dlpromise        [1] DLPromise }
+        calendarFormat   [1] UTF8String,
+        dlPromise        [2] DLPromise }
 
     DLPromise ::= OCTET STRING
 
-The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself.
+The fields of type Promise have the following meanings:
+
+* version is the syntax version number. It MUST always be 0.
+
+* calendarFormat is the media type format of the DL attestation.
+  It MUST be a registered application media type in accordance to
+  the procedures laid out in <<RFC6838,RFC 6838>>.
+
+* dlPromise is the promise obtained from a Calendar Server.
+
+The input data, timestamped by the DLA, SHALL be the hash value of the same data that will be signed by the TSA, without the DL extension itself (see <<promise_generation_process>>).
 
 === Proof
 
@@ -40,12 +52,22 @@ The ASN.1 structure is as follows:
         id-ce-dlts 2 }
 
     Proof ::= SEQUENCE {
-          version        [0] INTEGER,
-          dlproof        [1] DLProof,
-          blockchain     [2] UTF8String }
+        version          [0] INTEGER,
+        calendarFormat   [1] UTF8String,
+        dlProof          [2] DLProof }
 
     DLProof ::= OCTET STRING
 
+The fields of type Proof have the following meanings:
+
+[no-bullet]
+* version is the syntax version number. It MUST always be 0.
+
+* calendarFormat is the media type format of the DL attestation.
+  It MUST be a registered application media type in accordance to
+  the procedures laid out in <<RFC6838,RFC 6838>>.
+
+* dlProof is the proof obtained from a Calendar Server.
 
 Upgrade from a promise to a proof MAY be done requesting a new TST, including
 the DL extension containing the promise previously obtained.
