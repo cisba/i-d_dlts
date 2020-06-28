@@ -458,11 +458,11 @@ Internet-Draft                    dlts                          May 2020
 
    Compliant servers SHOULD use status field as follows:
 
-   o  when in the response there are all the requested proof, the status
-      field MUST contain the value zero (granted).
+   o  when in the response there are all the expected proofs and
+      promises, the status field MUST contain the value zero (granted).
 
-   o  when in the response only a subset of the requested proof is
-      returned, the status field MUST contain the value one
+   o  when in the response only a subset of the expected proofs and
+      promises is returned, the status field MUST contain the value one
       (grantedWithMods).
 
    o  when all the received promises are not recognized by the Calendar
