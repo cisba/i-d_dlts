@@ -379,6 +379,7 @@
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
 <link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 DL Time-Stamp Attributes">
+<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Response Status">
 <link href="#rfc.section.4.2" rel="Chapter" title="4.2 DL Time-Stamp Extensions">
 <link href="#rfc.section.4.3" rel="Chapter" title="4.3 Response Status">
 <link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
@@ -461,7 +462,9 @@
 </li>
 <ul><li>4.1.   <a href="#rfc.section.4.1">DL Time-Stamp Attributes</a>
 </li>
-<li>4.2.   <a href="#rfc.section.4.2">DL Time-Stamp Extensions</a>
+<ul><li>4.1.1.   <a href="#rfc.section.4.1.1">Response Status</a>
+</li>
+</ul><li>4.2.   <a href="#rfc.section.4.2">DL Time-Stamp Extensions</a>
 </li>
 <li>4.3.   <a href="#rfc.section.4.3">Response Status</a>
 </li>
@@ -599,12 +602,11 @@ id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 <p id="rfc.section.4.p.12">The ASN.1 structure of type Promise is as follows:</p>
 <pre>
 Promise ::= SEQUENCE {
-    version          [0] INTEGER,
-    signerInfo       [1] issuerAndSerialNumber,
-    serialNumber     [2] INTEGER,
-    signature        [3] SignatureValue,
-    calendarFormat   [4] UTF8String,
-    dlPromise        [5] DLPromise }
+    version          INTEGER,
+    calendarFormat   UTF8String,
+    dlPromise        DLPromise,
+    signerInfo       issuerAndSerialNumber,
+    serialNumber     INTEGER }
 </pre>
 <pre>
 DLPromise ::= OCTET STRING
@@ -612,12 +614,11 @@ DLPromise ::= OCTET STRING
 <p id="rfc.section.4.p.13">The ASN.1 structure of type Proof is as follows:</p>
 <pre>
 Proof ::= SEQUENCE {
-    version          [0] INTEGER,
-    signerInfo       [1] issuerAndSerialNumber,
-    serialNumber     [2] INTEGER,
-    signature        [3] SignatureValue,
-    calendarFormat   [4] UTF8String,
-    dlProof          [5] DLProof }
+    version          INTEGER,
+    calendarFormat   UTF8String,
+    dlProof          DLProof,
+    signerInfo       issuerAndSerialNumber,
+    serialNumber     INTEGER }
 </pre>
 <pre>
 DLProof ::= OCTET STRING
@@ -627,12 +628,10 @@ DLProof ::= OCTET STRING
 
 <ul>
 <li>version is the syntax version number. It MUST always be 0.  The usage is as described in Section 1.3 of <a href="#RFC5652" class="xref">RFC 5652</a>.</li>
+<li>calendarFormat is the media type format of the DL attestation.  It MUST be a registered application media type in accordance to the procedures laid out in <a href="#RFC6838" class="xref">RFC 6838</a>.</li>
+<li>dlProof and dlPromise are the proof and the promise obtained from a Calendar Server using as input value the value of signature field of the SignerInfo structure, described in Section 5.3 of <a href="#RFC5652" class="xref">RFC 5652</a>, of the digital signature of the TimeStampToken.</li>
 <li>signerInfo is an IssuerAndSerialNumber type that identifies the TSU signing certificate as described in Section 10.2.4 of <a href="#RFC5652" class="xref">RFC 5652</a>.</li>
 <li>serialNumber is an integer assigned by the TSA to each TimeStampToken as described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a>.</li>
-<li>signature is the field of type SignatureValue of the structure SignerInfo described in Section 5.3 of <a href="#RFC5652" class="xref">RFC 5652</a> - not to be confused with the signerInfo field.</li>
-<li>calendarFormat is the media type format of the DL attestation.  It MUST be a registered application media type in accordance to the procedures laid out in <a href="#RFC6838" class="xref">RFC 6838</a>.</li>
-<li>dlProof is the proof obtained from a Calendar Server using the signature field as input.</li>
-<li>dlPromise is the promise obtained from a Calendar Server using the signature field as input.</li>
 </ul>
 
 <p> </p>
@@ -656,11 +655,26 @@ id-ce-dlts-proofs OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 <pre>
 Proofs              SET OF Proof
 </pre>
+<p id="rfc.section.4.1.p.6">All the proof and promises returned MUST refer to the same parent TimeStampToken issued at the time of the request.</p>
+<h1 id="rfc.section.4.1.1">
+<a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#_response_status" id="_response_status">Response Status</a>
+</h1>
+<p id="rfc.section.4.1.1.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
+<p id="rfc.section.4.1.1.p.2">If the response status code for the PKI Token is zero (granted), compliant servers SHOULD use status field referring to DLTS status as follows:</p>
+<p></p>
+
+<ul>
+<li>when in the response there are all the expected proofs and/or promises, the status field MUST contain the value zero (granted).</li>
+<li>when in the response only a subset of the expected proofs and/or promises is returned, the status field MUST contain the value one (grantedWithMods).</li>
+<li>when in the response no proofs or promises is returned, the status field MUST contain the value one (rejection).</li>
+</ul>
+
+<p> </p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#_dl_time_stamp_extensions" id="_dl_time_stamp_extensions">DL Time-Stamp Extensions</a>
 </h1>
 <p id="rfc.section.4.2.p.1">Upgrade from a set of promises to a set of proofs MAY be done requesting a new TST including in a non critical extension the set of promises previously obtained inside an unsigned attribute.</p>
-<p id="rfc.section.4.2.p.2">When the TSA receives a request wich has a non critical extension containing a set of promises, it MAY request from a Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response using a non critical extension of the TSTInfo sequence.</p>
+<p id="rfc.section.4.2.p.2">When the TSA receives a request which has a non critical extension containing a set of promises, it MAY request from a Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response using a non critical extension of the TSTInfo sequence.</p>
 <p id="rfc.section.4.2.p.3">To grant the backward compatibility with any currently available existing software the request and response non critical extensions MUST be compliant to the specifications described in Section 2.4 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 4.2 of <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
 <p id="rfc.section.4.2.p.4">Conforming TSAs MUST mark these extensions as non-critical.</p>
 <p id="rfc.section.4.2.p.5">The ASN.1 structure of the proof request extension is as follows:</p>
@@ -677,16 +691,18 @@ id-ce-dlts-proofs OBJECT IDENTIFIER
 <pre>
 Proofs               SET OF Proof
 </pre>
+<p id="rfc.section.4.2.p.7">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request.  Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerInfo (referring to TSU certificate) and serialNumber (referring to time stamp serial number), that has been received in the Promise structure of the proof request extension.</p>
 <h1 id="rfc.section.4.3">
-<a href="#rfc.section.4.3">4.3.</a> <a href="#_response_status" id="_response_status">Response Status</a>
+<a href="#rfc.section.4.3">4.3.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
 </h1>
 <p id="rfc.section.4.3.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.4.3.p.2">Compliant servers SHOULD use status field as follows:</p>
+<p id="rfc.section.4.3.p.2">If the response status code for the PKI Token is zero (granted), compliant servers SHOULD use status field referring to DLTS status as follows:</p>
 <p></p>
 
 <ul>
-<li>when in the response there are all the expected proofs and promises, the status field MUST contain the value zero (granted).</li>
-<li>when in the response only a subset of the expected proofs and promises is returned, the status field MUST contain the value one (grantedWithMods).</li>
+<li>when in the response there are all the expected proofs and/or promises, the status field MUST contain the value zero (granted).</li>
+<li>when in the response only a subset of the expected proofs is returned, the status field MUST contain the value one (grantedWithMods).</li>
+<li>when in the response no proofs or promises is returned, the status field MUST contain the value one (rejection).</li>
 <li>when all the received promises are not recognized by the Calendar Server the status field MUST contain the value two (rejection).</li>
 <li>when all the received promises recognized by the Calendar Server are pending the status field MUST contain the value three (waiting).</li>
 </ul>
