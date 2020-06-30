@@ -86,7 +86,8 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-Compliant servers SHOULD use status field as follows:
+If the response status code for the PKI Token is zero (granted),
+compliant servers SHOULD use status field referring to DLTS status as follows:
 
 * when in the response there are all the expected proofs and/or promises,
   the status field MUST contain the value zero (granted).
@@ -146,8 +147,8 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: spiegare che lo status PKI sovrascrive quello dlts
-Compliant servers SHOULD use status field as follows:
+If the response status code for the PKI Token is zero (granted),
+compliant servers SHOULD use status field referring to DLTS status as follows:
 
 * when in the response there are all the expected proofs and/or promises,
   the status field MUST contain the value zero (granted).
