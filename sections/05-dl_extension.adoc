@@ -13,13 +13,10 @@ The ASN.1 structure of type Promise is as follows:
         calendarFormat   UTF8String,
         dlPromise        DLPromise,
         signerInfo       issuerAndSerialNumber,
-        serialNumber     INTEGER,
-        signature        [0] SignatureValue OPTIONAL }
+        serialNumber     INTEGER }
 
     DLPromise ::= OCTET STRING
 
-// N.B.: in un SEQUENCE il tag number è necessario solo se ci sono campi opzionalli
-//       consecutivi dello stesso tipo, risolvere l'ambiguità - qui non succede.
 
 The ASN.1 structure of type Proof is as follows:
 
@@ -28,8 +25,7 @@ The ASN.1 structure of type Proof is as follows:
         calendarFormat   UTF8String,
         dlProof          DLProof,
         signerInfo       issuerAndSerialNumber,
-        serialNumber     INTEGER,
-        signature        [0] SignatureValue OPTIONAL }
+        serialNumber     INTEGER }
 
     DLProof ::= OCTET STRING
 
@@ -43,7 +39,10 @@ The fields of type Promise and Proof have the following meanings:
   It MUST be a registered application media type in accordance to
   the procedures laid out in <<RFC6838,RFC 6838>>.
 
-* dlProof is the proof obtained from a Calendar Server using the signature field as input.
+* dlProof and dl Promise are the proof and the promise obtained from
+  a Calendar Server using as input the signature field of type SignatureValue
+  of the structure SignerInfo described in Section 5.3 of <<RFC5652,RFC 5652>>,
+  not to be confused with the signerInfo field.
 
 * dlPromise is the promise obtained from a Calendar Server using the signature field as input.
 
@@ -53,10 +52,6 @@ The fields of type Promise and Proof have the following meanings:
 * serialNumber is an integer assigned by the TSA to each TimeStampToken
   as described in Section 2.4.2 of <<RFC3161,RFC 3161>>.
 
-* signature is the field of type SignatureValue of the structure SignerInfo described
-  in Section 5.3 of <<RFC5652,RFC 5652>> - not to be confused with the signerInfo field.
-// FIXME: ho aggiunto questo campo per maggior chiarezza e completezza
-//        tuttavia non sono sicuro che non ci siano controindicazioni
 
 === DL Time-Stamp Attributes
 
