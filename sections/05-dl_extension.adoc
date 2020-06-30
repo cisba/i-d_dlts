@@ -14,7 +14,7 @@ The ASN.1 structure of type Promise is as follows:
         dlPromise        DLPromise,
         signerInfo       issuerAndSerialNumber,
         serialNumber     INTEGER,
-        signature        SignatureValue OPTIONAL }
+        signature        [0] SignatureValue OPTIONAL }
 
     DLPromise ::= OCTET STRING
 
@@ -29,7 +29,7 @@ The ASN.1 structure of type Proof is as follows:
         dlProof          DLProof,
         signerInfo       issuerAndSerialNumber,
         serialNumber     INTEGER,
-        signature        SignatureValue OPTIONAL }
+        signature        [0] SignatureValue OPTIONAL }
 
     DLProof ::= OCTET STRING
 
