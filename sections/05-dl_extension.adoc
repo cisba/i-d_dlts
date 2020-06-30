@@ -143,9 +143,7 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: Siamo sicuri che non serva uno status specifico e distinto relativo agli oggetti dlts?
-//       Se la TSA deve rispondere grantedWithMods per la marca PKI e granted per i dlts?
-//       Non è meglio mettere un campo status dentro ogni set-of-promises e set-of-proofs?
+//FIXME: spiegare che lo status PKI sovrascrive quello dlts
 Compliant servers SHOULD use status field as follows:
 
 * when in the response there are all the expected proofs and/or promises,
