@@ -39,19 +39,17 @@ The fields of type Promise and Proof have the following meanings:
   It MUST be a registered application media type in accordance to
   the procedures laid out in <<RFC6838,RFC 6838>>.
 
-* dlProof and dl Promise are the proof and the promise obtained from
-  a Calendar Server using as input the signature field of type SignatureValue
-  of the structure SignerInfo described in Section 5.3 of <<RFC5652,RFC 5652>>,
-  not to be confused with the signerInfo field.
-
-* dlPromise is the promise obtained from a Calendar Server using the signature field as input.
+* dlProof and dlPromise are the proof and the promise obtained from
+  a Calendar Server using as input value the value of signature field of 
+  the SignerInfo structure, described in Section 5.3 of <<RFC5652,RFC 5652>>,
+  of the digital signature of the TimeStampToken.
 
 * signerInfo is an IssuerAndSerialNumber type that identifies the TSU
   signing certificate as described in Section 10.2.4 of <<RFC5652,RFC 5652>>.
 
 * serialNumber is an integer assigned by the TSA to each TimeStampToken
   as described in Section 2.4.2 of <<RFC3161,RFC 3161>>.
-
+  
 
 === DL Time-Stamp Attributes
 
@@ -78,6 +76,8 @@ The ASN.1 structure of the set of proofs attribute is as follows:
 
     Proofs              SET OF Proof
 
+All the attributes refer to the same parent TimeStampToken. 
+
 
 === DL Time-Stamp Extensions
 
@@ -85,7 +85,7 @@ Upgrade from a set of promises to a set of proofs MAY be done
 requesting a new TST including in a non critical extension
 the set of promises previously obtained inside an unsigned attribute.
 
-When the TSA receives a request wich has a non critical extension
+When the TSA receives a request which has a non critical extension
 containing a set of promises,
 it MAY request from a Calendar Server to get the corresponding proof
 for each of them, and MAY include the set of proofs in the TST response
@@ -110,6 +110,9 @@ The ASN.1 structure of the proof response extension is as follows:
 
     Proofs               SET OF Proof
 
+All the extensions refer to other TimeStampToken, each Proof contains an explicit reference to the pointing TimeStampToken with signerInfo (referring to TSU certificate) and serialNumber (referring to time stamp serial number). 
+
+
 === Response Status
 
 The response status code in the TimeStampResp MUST be compliant
@@ -121,11 +124,14 @@ and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 //       Non è meglio mettere un campo status dentro ogni set-of-promises e set-of-proofs?
 Compliant servers SHOULD use status field as follows:
 
-* when in the response there are all the expected proofs and promises,
+* when in the response there are all the expected proofs and / or promises,
   the status field MUST contain the value zero (granted).
 
-* when in the response only a subset of the expected proofs and promises is returned,
+* when in the response only a subset of the expected proofs is returned,
   the status field MUST contain the value one (grantedWithMods).
+
+* when in the response no proofs or promises is returned,
+  the status field MUST contain the value one (rejection).
 
 * when all the received promises are not recognized by the Calendar Server
   the status field MUST contain the value two (rejection).
