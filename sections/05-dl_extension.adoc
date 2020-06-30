@@ -76,8 +76,8 @@ The ASN.1 structure of the set of proofs attribute is as follows:
 
     Proofs              SET OF Proof
 
-All the attributes refer to the same parent TimeStampToken.
-// FIXME: spiegare bene il riferimento al timestamp emesso in quel momento
+All the proof and promises returned MUST refer to the same parent
+TimeStampToken issued at the time of the request.
 
 
 ==== Response Status
@@ -132,11 +132,13 @@ The ASN.1 structure of the proof response extension is as follows:
 
     Proofs               SET OF Proof
 
-All the extensions refer to other TimeStampToken, each Proof contains
-an explicit reference to the pointing TimeStampToken with signerInfo
-(referring to TSU certificate) and serialNumber (referring to time stamp serial number).
-// FIXME: spiegare bene che non si fa mai riferimento al timestamp corrente
-//        ma solo ad altri precedenti
+The proofs returned in the extensions by the TSA MUST NOT refer to
+the TimeStampToken issued at the time of the request.
+Each Proof MUST contain the explicit reference to the pointing
+TimeStampToken with signerInfo (referring to TSU certificate)
+and serialNumber (referring to time stamp serial number),
+that has been received in the Promise structure of the proof request extension.
+
 
 === Response Status
 
