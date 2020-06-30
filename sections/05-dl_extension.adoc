@@ -88,10 +88,10 @@ and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
 Compliant servers SHOULD use status field as follows:
 
-* when in the response there are all the expected proofs and / or promises,
+* when in the response there are all the expected proofs and/or promises,
   the status field MUST contain the value zero (granted).
 
-* when in the response only a subset of the expected proofs is returned,
+* when in the response only a subset of the expected proofs and/or promises is returned,
   the status field MUST contain the value one (grantedWithMods).
 //FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
 //       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
@@ -148,7 +148,7 @@ and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 //       Non è meglio mettere un campo status dentro ogni set-of-promises e set-of-proofs?
 Compliant servers SHOULD use status field as follows:
 
-* when in the response there are all the expected proofs and / or promises,
+* when in the response there are all the expected proofs and/or promises,
   the status field MUST contain the value zero (granted).
 
 * when in the response only a subset of the expected proofs is returned,
