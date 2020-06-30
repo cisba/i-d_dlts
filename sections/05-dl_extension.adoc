@@ -40,7 +40,7 @@ The fields of type Promise and Proof have the following meanings:
   the procedures laid out in <<RFC6838,RFC 6838>>.
 
 * dlProof and dlPromise are the proof and the promise obtained from
-  a Calendar Server using as input value the value of signature field of 
+  a Calendar Server using as input value the value of signature field of
   the SignerInfo structure, described in Section 5.3 of <<RFC5652,RFC 5652>>,
   of the digital signature of the TimeStampToken.
 
@@ -49,7 +49,7 @@ The fields of type Promise and Proof have the following meanings:
 
 * serialNumber is an integer assigned by the TSA to each TimeStampToken
   as described in Section 2.4.2 of <<RFC3161,RFC 3161>>.
-  
+
 
 === DL Time-Stamp Attributes
 
@@ -76,8 +76,29 @@ The ASN.1 structure of the set of proofs attribute is as follows:
 
     Proofs              SET OF Proof
 
-All the attributes refer to the same parent TimeStampToken. 
+All the attributes refer to the same parent TimeStampToken.
+// FIXME: spiegare bene il riferimento al timestamp emesso in quel momento
 
+
+==== Response Status
+
+The response status code in the TimeStampResp MUST be compliant
+to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
+and Section 5.2.3 of <<RFC4210,RFC 4210>>.
+
+Compliant servers SHOULD use status field as follows:
+
+* when in the response there are all the expected proofs and / or promises,
+  the status field MUST contain the value zero (granted).
+
+* when in the response only a subset of the expected proofs is returned,
+  the status field MUST contain the value one (grantedWithMods).
+//FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
+//       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
+//       La TSA deve rispondere grantedWithMods ma il client ignora l'attributo unsigned.
+
+* when in the response no proofs or promises is returned,
+  the status field MUST contain the value one (rejection).
 
 === DL Time-Stamp Extensions
 
@@ -110,8 +131,11 @@ The ASN.1 structure of the proof response extension is as follows:
 
     Proofs               SET OF Proof
 
-All the extensions refer to other TimeStampToken, each Proof contains an explicit reference to the pointing TimeStampToken with signerInfo (referring to TSU certificate) and serialNumber (referring to time stamp serial number). 
-
+All the extensions refer to other TimeStampToken, each Proof contains
+an explicit reference to the pointing TimeStampToken with signerInfo
+(referring to TSU certificate) and serialNumber (referring to time stamp serial number).
+// FIXME: spiegare bene che non si fa mai riferimento al timestamp corrente
+//        ma solo ad altri precedenti
 
 === Response Status
 
