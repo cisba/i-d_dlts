@@ -96,6 +96,7 @@ Compliant servers SHOULD use status field as follows:
 //FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
 //       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
 //       La TSA deve rispondere grantedWithMods ma il client ignora l'attributo unsigned.
+//       Se la cosa viene gestita a livello di policy qui forse lo devo spegare, no?
 
 * when in the response no proofs or promises is returned,
   the status field MUST contain the value one (rejection).
