@@ -506,8 +506,8 @@ Cisbani, et al.         Expires November 26, 2020               [Page 9]
 Internet-Draft                    dlts                          May 2020
 
 
-   Safety and reliability of the DL Extension depends on the robustness
-   of the hash algorithms and on the stability of the DL, i.e. how
+   Safety and reliability of the DL proofs depends on the robustness of
+   the hash algorithms and on the stability of the DL, i.e. how
    expensive or difficult it would be for an attacker to alter the DL.
 
 7.  IANA Considerations

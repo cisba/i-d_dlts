@@ -8,6 +8,6 @@ TSA services that include DL Time-Stamp extensions.
 When a TSA executes a request to a Calendar Server the use of a nonce is
 RECOMMENDED because using a nonce always allows the client to detect replays.
 
-Safety and reliability of the DL Extension depends on the robustness
+Safety and reliability of the DL proofs depends on the robustness
 of the hash algorithms and on the stability of the DL,
 i.e. how expensive or difficult it would be for an attacker to alter the DL.

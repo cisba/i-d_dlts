@@ -348,7 +348,7 @@ the status field SHOULD contain the value three (waiting).</t>
 TSA services that include DL Time-Stamp extensions.</t>
 <t>When a TSA executes a request to a Calendar Server the use of a nonce is
 RECOMMENDED because using a nonce always allows the client to detect replays.</t>
-<t>Safety and reliability of the DL Extension depends on the robustness
+<t>Safety and reliability of the DL proofs depends on the robustness
 of the hash algorithms and on the stability of the DL,
 i.e. how expensive or difficult it would be for an attacker to alter the DL.</t></section>
 <section anchor="iana" title="IANA Considerations">
