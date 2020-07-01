@@ -86,23 +86,9 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: lo status DEVE tenere conto anche del TST PKI!
-Compliant servers SHOULD use status field as follows:
-
-* when in the response there are all the expected proofs and/or promises,
-  the status field MUST contain the value zero (accepted).
-
-* according to the TimeStamp policy, when the response contains only a subset
-  of the expected proofs, the status field COULD contains the value one
-  (grantedWithMods) or the value two (rejection)
-// ATTENZIONE: se lo status è rejection (2) il Token PKI *non può* essere
-//             restituito (lo dice l'RFC 3161)
-// When status contains a value other than zero or one, a TimeStampToken MUST NOT be present.
-
-//FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
-//       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
-//       La TSA deve rispondere grantedWithMods ma il client ignora l'attributo unsigned.
-// when the PKIStatus contains the value one a TimeStampToken, with modifications, is present
+According to the TimeStamp policy, when the response contains only a subset
+of the expected proofs, the status field SHOULD contains the value one
+(grantedWithMods) or the value two (rejection)
 
 === DL Time-Stamp Extensions
 
@@ -149,17 +135,14 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: lo status DEVE tenere conto anche del TST PKI!
-Compliant servers SHOULD use status field as follows:
+Compliant servers SHOULD also use status field as follows:
 
-* when in the response there are all the expected proofs,
-  the status field MUST contain the value zero (accepted).
+* according to the TimeStamp policy, when the response contains only a subset
+  of the expected proofs, the status field SHOULD contains the value one
+  (grantedWithMods) or two (rejection)
 
-* when in the response only a subset of the expected proofs is returned,
-  the status field MUST contain the value one (grantedWithMods).
-
-* when in the response no proof is returned,
-  the status field MUST contain the value two (rejection).
+* when in the response no proof can be returned,
+  the status field SHOULD contain the value two (rejection).
 
 * when all the received promises recognized by the Calendar Server are pending
-  the status field MUST contain the value three (waiting).
+  the status field SHOULD contain the value three (waiting).

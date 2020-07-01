@@ -72,12 +72,12 @@ Table of Contents
        4.1.1.  Response Status . . . . . . . . . . . . . . . . . . .   8
      4.2.  DL Time-Stamp Extensions  . . . . . . . . . . . . . . . .   8
      4.3.  Response Status . . . . . . . . . . . . . . . . . . . . .   9
-   5.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
+   5.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
    7.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      7.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
-     7.2.  Informative References  . . . . . . . . . . . . . . . . .  11
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
+     7.2.  Informative References  . . . . . . . . . . . . . . . . .  10
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -247,6 +247,9 @@ Internet-Draft                    dlts                          May 2020
    TST
       Time-Stamp Token
 
+   TSU
+      Time-Stamping Unit
+
    DL
       Distributed Ledger
 
@@ -272,9 +275,6 @@ Internet-Draft                    dlts                          May 2020
    state of the chain.  In a permissionless DL the large number of nodes
    introduces a relevant delay in order to reach consensus.
 
-   In the case of Bitcoin, consensus is reached statistically.  Usually
-   in an average elapsed time of one hour six new blocks are added to
-
 
 
 Cisbani, et al.         Expires November 26, 2020               [Page 5]
@@ -282,6 +282,8 @@ Cisbani, et al.         Expires November 26, 2020               [Page 5]
 Internet-Draft                    dlts                          May 2020
 
 
+   In the case of Bitcoin, consensus is reached statistically.  Usually
+   in an average elapsed time of one hour six new blocks are added to
    the chain.  A block of data that was added before the last six
    blocks, is considered to be practically immutable.  This is due to
    the high computational power that would be required to rewrite the
@@ -328,8 +330,6 @@ Internet-Draft                    dlts                          May 2020
 
    DLPromise ::= OCTET STRING
 
-   The ASN.1 structure of type Proof is as follows:
-
 
 
 
@@ -337,6 +337,8 @@ Cisbani, et al.         Expires November 26, 2020               [Page 6]
 
 Internet-Draft                    dlts                          May 2020
 
+
+   The ASN.1 structure of type Proof is as follows:
 
    Proof ::= SEQUENCE {
        version          INTEGER,
@@ -384,8 +386,6 @@ Internet-Draft                    dlts                          May 2020
    attributes; they MUST NOT be signed attributes, authenticated
    attributes, unauthenticated attributes, or unprotected attributes.
 
-   The ASN.1 structure of the set of promises attribute is as follows:
-
 
 
 
@@ -393,6 +393,8 @@ Cisbani, et al.         Expires November 26, 2020               [Page 7]
 
 Internet-Draft                    dlts                          May 2020
 
+
+   The ASN.1 structure of the set of promises attribute is as follows:
 
    id-ce-dlts-promises OBJECT IDENTIFIER ::= { id-ce-dlts 0 }
 
@@ -413,19 +415,9 @@ Internet-Draft                    dlts                          May 2020
    the specifications described in Section 2.4.2 of RFC 3161 [RFC3161]
    and Section 5.2.3 of RFC 4210 [RFC4210].
 
-   If the response status code for the PKI Token is zero (granted),
-   compliant servers SHOULD use status field referring to DLTS status as
-   follows:
-
-   o  when in the response there are all the expected proofs and/or
-      promises, the status field MUST contain the value zero (granted).
-
-   o  when in the response only a subset of the expected proofs and/or
-      promises is returned, the status field MUST contain the value one
-      (grantedWithMods).
-
-   o  when in the response no proofs or promises is returned, the status
-      field MUST contain the value one (rejection).
+   According to the TimeStamp policy, when the response contains only a
+   subset of the expected proofs, the status field SHOULD contains the
+   value one (grantedWithMods) or the value two (rejection)
 
 4.2.  DL Time-Stamp Extensions
 
@@ -441,15 +433,6 @@ Internet-Draft                    dlts                          May 2020
 
    To grant the backward compatibility with any currently available
    existing software the request and response non critical extensions
-
-
-
-
-Cisbani, et al.         Expires November 26, 2020               [Page 8]
-
-Internet-Draft                    dlts                          May 2020
-
-
    MUST be compliant to the specifications described in Section 2.4 of
    RFC 3161 [RFC3161] and Section 4.2 of RFC 5280 [RFC5280].
 
@@ -458,6 +441,14 @@ Internet-Draft                    dlts                          May 2020
    The ASN.1 structure of the proof request extension is as follows:
 
    id-ce-dlts-promises OBJECT IDENTIFIER
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020               [Page 8]
+
+Internet-Draft                    dlts                          May 2020
+
 
    Proomises            SET OF Promise
 
@@ -480,34 +471,17 @@ Internet-Draft                    dlts                          May 2020
    the specifications described in Section 2.4.2 of RFC 3161 [RFC3161]
    and Section 5.2.3 of RFC 4210 [RFC4210].
 
-   If the response status code for the PKI Token is zero (granted),
-   compliant servers SHOULD use status field referring to DLTS status as
-   follows:
+   Compliant servers SHOULD also use status field as follows:
 
-   o  when in the response there are all the expected proofs and/or
-      promises, the status field MUST contain the value zero (granted).
+   o  according to the TimeStamp policy, when the response contains only
+      a subset of the expected proofs, the status field SHOULD contains
+      the value one (grantedWithMods) or two (rejection)
 
-   o  when in the response only a subset of the expected proofs is
-      returned, the status field MUST contain the value one
-      (grantedWithMods).
-
-   o  when in the response no proofs or promises is returned, the status
-      field MUST contain the value one (rejection).
-
-   o  when all the received promises are not recognized by the Calendar
-      Server the status field MUST contain the value two (rejection).
-
-
-
-
-
-Cisbani, et al.         Expires November 26, 2020               [Page 9]
-
-Internet-Draft                    dlts                          May 2020
-
+   o  when in the response no proof can be returned, the status field
+      SHOULD contain the value two (rejection).
 
    o  when all the received promises recognized by the Calendar Server
-      are pending the status field MUST contain the value three
+      are pending the status field SHOULD contain the value three
       (waiting).
 
 5.  Security Considerations
@@ -523,6 +497,14 @@ Internet-Draft                    dlts                          May 2020
    Safety and reliability of the DL Extension depends on the robustness
    of the hash algorithms and on the stability of the DL, i.e. how
    expensive or difficult it would be for an attacker to alter the DL.
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020               [Page 9]
+
+Internet-Draft                    dlts                          May 2020
+
 
 6.  IANA Considerations
 
@@ -554,14 +536,6 @@ Internet-Draft                    dlts                          May 2020
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
               <https://www.rfc-editor.org/info/rfc5280>.
 
-
-
-
-Cisbani, et al.         Expires November 26, 2020              [Page 10]
-
-Internet-Draft                    dlts                          May 2020
-
-
    [RFC5652]  Housley, R., "Cryptographic Message Syntax (CMS)", STD 70,
               RFC 5652, DOI 10.17487/RFC5652, September 2009,
               <https://www.rfc-editor.org/info/rfc5652>.
@@ -576,6 +550,17 @@ Internet-Draft                    dlts                          May 2020
               May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 7.2.  Informative References
+
+
+
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 10]
+
+Internet-Draft                    dlts                          May 2020
+
 
    [ANSI.X9.95]
               American National Standards Institute (ANSI), "Trusted
@@ -610,14 +595,6 @@ Internet-Draft                    dlts                          May 2020
               etsi_ts/101800_101899/101861/01.04.01_60/
               ts_101861v010401p.pdf>.
 
-
-
-
-Cisbani, et al.         Expires November 26, 2020              [Page 11]
-
-Internet-Draft                    dlts                          May 2020
-
-
    [ETSI.TS.102.778-4]
               European Telecommunications Standards Institute,
               "Electronic Signatures and Infrastructures (ESI); PDF
@@ -631,6 +608,15 @@ Internet-Draft                    dlts                          May 2020
               Haber, S. and W. S. Stornetta, "How to Time-Stamp a
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
+
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 11]
+
+Internet-Draft                    dlts                          May 2020
+
 
    [Hyperledger]
               The Linux Foundation, "Hyperledger Architecture, Volume 1:
@@ -667,13 +653,6 @@ Internet-Draft                    dlts                          May 2020
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
 
-
-
-Cisbani, et al.         Expires November 26, 2020              [Page 12]
-
-Internet-Draft                    dlts                          May 2020
-
-
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
               ps://assets.publishing.service.gov.uk/government/uploads/s
@@ -681,6 +660,19 @@ Internet-Draft                    dlts                          May 2020
               distributed-ledger-technology.pdf>.
 
 Authors' Addresses
+
+
+
+
+
+
+
+
+
+Cisbani, et al.         Expires November 26, 2020              [Page 12]
+
+Internet-Draft                    dlts                          May 2020
+
 
    Emanuele Cisbani
    Intesi Group
@@ -713,6 +705,14 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: gdamiano@intesigroup.com
    URI:   https://www.intesigroup.com
+
+
+
+
+
+
+
+
 
 
 

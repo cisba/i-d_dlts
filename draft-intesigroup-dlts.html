@@ -573,6 +573,9 @@
 <dt>TST</dt>
 <dd style="margin-left: 8">
 <br>Time-Stamp Token</dd>
+<dt>TSU</dt>
+<dd style="margin-left: 8">
+<br>Time-Stamping Unit</dd>
 <dt>DL</dt>
 <dd style="margin-left: 8">
 <br>Distributed Ledger</dd>
@@ -660,16 +663,7 @@ Proofs              SET OF Proof
 <a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#_response_status" id="_response_status">Response Status</a>
 </h1>
 <p id="rfc.section.4.1.1.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.4.1.1.p.2">If the response status code for the PKI Token is zero (granted), compliant servers SHOULD use status field referring to DLTS status as follows:</p>
-<p></p>
-
-<ul>
-<li>when in the response there are all the expected proofs and/or promises, the status field MUST contain the value zero (granted).</li>
-<li>when in the response only a subset of the expected proofs and/or promises is returned, the status field MUST contain the value one (grantedWithMods).</li>
-<li>when in the response no proofs or promises is returned, the status field MUST contain the value one (rejection).</li>
-</ul>
-
-<p> </p>
+<p id="rfc.section.4.1.1.p.2">According to the TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contains the value one (grantedWithMods) or the value two (rejection)</p>
 <h1 id="rfc.section.4.2">
 <a href="#rfc.section.4.2">4.2.</a> <a href="#_dl_time_stamp_extensions" id="_dl_time_stamp_extensions">DL Time-Stamp Extensions</a>
 </h1>
@@ -696,15 +690,13 @@ Proofs               SET OF Proof
 <a href="#rfc.section.4.3">4.3.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
 </h1>
 <p id="rfc.section.4.3.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.4.3.p.2">If the response status code for the PKI Token is zero (granted), compliant servers SHOULD use status field referring to DLTS status as follows:</p>
+<p id="rfc.section.4.3.p.2">Compliant servers SHOULD also use status field as follows:</p>
 <p></p>
 
 <ul>
-<li>when in the response there are all the expected proofs and/or promises, the status field MUST contain the value zero (granted).</li>
-<li>when in the response only a subset of the expected proofs is returned, the status field MUST contain the value one (grantedWithMods).</li>
-<li>when in the response no proofs or promises is returned, the status field MUST contain the value one (rejection).</li>
-<li>when all the received promises are not recognized by the Calendar Server the status field MUST contain the value two (rejection).</li>
-<li>when all the received promises recognized by the Calendar Server are pending the status field MUST contain the value three (waiting).</li>
+<li>according to the TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contains the value one (grantedWithMods) or two (rejection)</li>
+<li>when in the response no proof can be returned, the status field SHOULD contain the value two (rejection).</li>
+<li>when all the received promises recognized by the Calendar Server are pending the status field SHOULD contain the value three (waiting).</li>
 </ul>
 
 <p> </p>

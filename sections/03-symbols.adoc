@@ -14,6 +14,9 @@ TSA::
 TST::
     Time-Stamp Token
 
+TSU::
+    Time-Stamping Unit
+
 DL::
     Distributed Ledger
 

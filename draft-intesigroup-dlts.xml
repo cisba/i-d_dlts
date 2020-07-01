@@ -159,6 +159,7 @@ in a precise Distributed Ledger.</t>
     <t hangText="TTP"><vspace blankLines="0"/>Trusted Third Party</t>
     <t hangText="TSA"><vspace blankLines="0"/>Time-Stamp Authority</t>
     <t hangText="TST"><vspace blankLines="0"/>Time-Stamp Token</t>
+    <t hangText="TSU"><vspace blankLines="0"/>Time-Stamping Unit</t>
     <t hangText="DL"><vspace blankLines="0"/>Distributed Ledger</t>
     <t hangText="DLA"><vspace blankLines="0"/>Distributed Ledger Attestation</t>
   </list>
@@ -285,18 +286,9 @@ TimeStampToken issued at the time of the request.</t>
 <section anchor="_response_status" title="Response Status"><t>The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref>
 and Section 5.2.3 of <xref target="RFC4210">RFC 4210</xref>.</t>
-<t>If the response status code for the PKI Token is zero (granted),
-compliant servers SHOULD use status field referring to DLTS status as follows:</t>
-<t>
-  <list style="symbols">
-    <t>when in the response there are all the expected proofs and/or promises,
-the status field MUST contain the value zero (granted).</t>
-    <t>when in the response only a subset of the expected proofs and/or promises is returned,
-the status field MUST contain the value one (grantedWithMods).</t>
-    <t>when in the response no proofs or promises is returned,
-the status field MUST contain the value one (rejection).</t>
-  </list>
-</t></section></section>
+<t>According to the TimeStamp policy, when the response contains only a subset
+of the expected proofs, the status field SHOULD contains the value one
+(grantedWithMods) or the value two (rejection)</t></section></section>
 <section anchor="_dl_time_stamp_extensions" title="DL Time-Stamp Extensions"><t>Upgrade from a set of promises to a set of proofs MAY be done
 requesting a new TST including in a non critical extension
 the set of promises previously obtained inside an unsigned attribute.</t>
@@ -341,20 +333,16 @@ that has been received in the Promise structure of the proof request extension.<
 <section anchor="_response_status_2" title="Response Status"><t>The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref>
 and Section 5.2.3 of <xref target="RFC4210">RFC 4210</xref>.</t>
-<t>If the response status code for the PKI Token is zero (granted),
-compliant servers SHOULD use status field referring to DLTS status as follows:</t>
+<t>Compliant servers SHOULD also use status field as follows:</t>
 <t>
   <list style="symbols">
-    <t>when in the response there are all the expected proofs and/or promises,
-the status field MUST contain the value zero (granted).</t>
-    <t>when in the response only a subset of the expected proofs is returned,
-the status field MUST contain the value one (grantedWithMods).</t>
-    <t>when in the response no proofs or promises is returned,
-the status field MUST contain the value one (rejection).</t>
-    <t>when all the received promises are not recognized by the Calendar Server
-the status field MUST contain the value two (rejection).</t>
+    <t>according to the TimeStamp policy, when the response contains only a subset
+of the expected proofs, the status field SHOULD contains the value one
+(grantedWithMods) or two (rejection)</t>
+    <t>when in the response no proof can be returned,
+the status field SHOULD contain the value two (rejection).</t>
     <t>when all the received promises recognized by the Calendar Server are pending
-the status field MUST contain the value three (waiting).</t>
+the status field SHOULD contain the value three (waiting).</t>
   </list>
 </t></section></section>
 <section anchor="security" title="Security Considerations"><t>Each security consideration described in Section 4 of <xref target="RFC3161">RFC 3161</xref> SHALL be evaluated designing
