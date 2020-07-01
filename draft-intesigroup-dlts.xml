@@ -192,9 +192,8 @@ and made available by the Calendar Server.</t>
 <t>For the sake of simplicity, the Aggregation Server and the Calendar Server
 can be implemented as a unique instance.
 In this document we will generically refer to a Calendar Server indicating both services.</t>
-<t>The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.
-== DL Time-Stamp Objects</t>
-<t>The new objects MUST have the following root OID:</t>
+<t>The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
+<section anchor="_dl_time_stamp_objects" title="DL Time-Stamp Objects"><t>The new objects MUST have the following root OID:</t>
 <figure>
   <artwork><![CDATA[
 id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }

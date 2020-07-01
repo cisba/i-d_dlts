@@ -378,15 +378,16 @@
 <link href="#rfc.section.2" rel="Chapter" title="2 Terms and Definitions">
 <link href="#rfc.section.3" rel="Chapter" title="3 Symbols And Abbreviations">
 <link href="#rfc.section.4" rel="Chapter" title="4 DL Attestation">
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 DL Time-Stamp Attributes">
-<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 Response Status">
-<link href="#rfc.section.4.2" rel="Chapter" title="4.2 DL Time-Stamp Extensions">
-<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Response Status">
-<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
-<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations">
-<link href="#rfc.references" rel="Chapter" title="7 References">
-<link href="#rfc.references.1" rel="Chapter" title="7.1 Normative References">
-<link href="#rfc.references.2" rel="Chapter" title="7.2 Informative References">
+<link href="#rfc.section.5" rel="Chapter" title="5 DL Time-Stamp Objects">
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 DL Time-Stamp Attributes">
+<link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 Response Status">
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 DL Time-Stamp Extensions">
+<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Response Status">
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
+<link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
+<link href="#rfc.references" rel="Chapter" title="8 References">
+<link href="#rfc.references.1" rel="Chapter" title="8.1 Normative References">
+<link href="#rfc.references.2" rel="Chapter" title="8.2 Informative References">
 <link href="#rfc.authors" rel="Chapter">
 
 
@@ -460,23 +461,25 @@
 </li>
 <li>4.   <a href="#rfc.section.4">DL Attestation</a>
 </li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">DL Time-Stamp Attributes</a>
+<li>5.   <a href="#rfc.section.5">DL Time-Stamp Objects</a>
 </li>
-<ul><li>4.1.1.   <a href="#rfc.section.4.1.1">Response Status</a>
+<ul><li>5.1.   <a href="#rfc.section.5.1">DL Time-Stamp Attributes</a>
 </li>
-</ul><li>4.2.   <a href="#rfc.section.4.2">DL Time-Stamp Extensions</a>
+<ul><li>5.1.1.   <a href="#rfc.section.5.1.1">Response Status</a>
 </li>
-<li>4.3.   <a href="#rfc.section.4.3">Response Status</a>
+</ul><li>5.2.   <a href="#rfc.section.5.2">DL Time-Stamp Extensions</a>
 </li>
-</ul><li>5.   <a href="#rfc.section.5">Security Considerations</a>
+<li>5.3.   <a href="#rfc.section.5.3">Response Status</a>
 </li>
-<li>6.   <a href="#rfc.section.6">IANA Considerations</a>
+</ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
-<li>7.   <a href="#rfc.references">References</a>
+<li>7.   <a href="#rfc.section.7">IANA Considerations</a>
 </li>
-<ul><li>7.1.   <a href="#rfc.references.1">Normative References</a>
+<li>8.   <a href="#rfc.references">References</a>
 </li>
-<li>7.2.   <a href="#rfc.references.2">Informative References</a>
+<ul><li>8.1.   <a href="#rfc.references.1">Normative References</a>
+</li>
+<li>8.2.   <a href="#rfc.references.2">Informative References</a>
 </li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a>
 </li>
@@ -596,13 +599,16 @@
 <p id="rfc.section.4.p.6">This is why we distinguish between a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.  Generally, an Aggregation Server provides only a promise to timestamp the client&#8217;s digest in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.</p>
 <p id="rfc.section.4.p.7">Only after reaching consensus on that block can attestation be considered as proof, and made available by the Calendar Server.</p>
 <p id="rfc.section.4.p.8">For the sake of simplicity, the Aggregation Server and the Calendar Server can be implemented as a unique instance.  In this document we will generically refer to a Calendar Server indicating both services.</p>
-<p id="rfc.section.4.p.9">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.  == DL Time-Stamp Objects</p>
-<p id="rfc.section.4.p.10">The new objects MUST have the following root OID:</p>
+<p id="rfc.section.4.p.9">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</p>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#_dl_time_stamp_objects" id="_dl_time_stamp_objects">DL Time-Stamp Objects</a>
+</h1>
+<p id="rfc.section.5.p.1">The new objects MUST have the following root OID:</p>
 <pre>
 id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
 </pre>
-<p id="rfc.section.4.p.11">where id-ce identify the root of standard extensions as described in <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
-<p id="rfc.section.4.p.12">The ASN.1 structure of type Promise is as follows:</p>
+<p id="rfc.section.5.p.2">where id-ce identify the root of standard extensions as described in <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
+<p id="rfc.section.5.p.3">The ASN.1 structure of type Promise is as follows:</p>
 <pre>
 Promise ::= SEQUENCE {
     version          INTEGER,
@@ -614,7 +620,7 @@ Promise ::= SEQUENCE {
 <pre>
 DLPromise ::= OCTET STRING
 </pre>
-<p id="rfc.section.4.p.13">The ASN.1 structure of type Proof is as follows:</p>
+<p id="rfc.section.5.p.4">The ASN.1 structure of type Proof is as follows:</p>
 <pre>
 Proof ::= SEQUENCE {
     version          INTEGER,
@@ -626,7 +632,7 @@ Proof ::= SEQUENCE {
 <pre>
 DLProof ::= OCTET STRING
 </pre>
-<p id="rfc.section.4.p.14">The fields of type Promise and Proof have the following meanings:</p>
+<p id="rfc.section.5.p.5">The fields of type Promise and Proof have the following meanings:</p>
 <p></p>
 
 <ul>
@@ -638,59 +644,59 @@ DLProof ::= OCTET STRING
 </ul>
 
 <p> </p>
-<h1 id="rfc.section.4.1">
-<a href="#rfc.section.4.1">4.1.</a> <a href="#_dl_time_stamp_attributes" id="_dl_time_stamp_attributes">DL Time-Stamp Attributes</a>
+<h1 id="rfc.section.5.1">
+<a href="#rfc.section.5.1">5.1.</a> <a href="#_dl_time_stamp_attributes" id="_dl_time_stamp_attributes">DL Time-Stamp Attributes</a>
 </h1>
-<p id="rfc.section.4.1.p.1">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included into a TST, using an unsigned attribute of the per-signer information.</p>
-<p id="rfc.section.4.1.p.2">To grant the backward compatibility with any currently available existing software the unsigned attribute MUST be compliant to the specifications defined in Section 5.3 of <a href="#RFC5652" class="xref">RFC 5652</a> for type Attribute.</p>
-<p id="rfc.section.4.1.p.3">The set of promises and the set of proofs attributes MUST be unsigned attributes; they MUST NOT be signed attributes, authenticated attributes, unauthenticated attributes, or unprotected attributes.</p>
-<p id="rfc.section.4.1.p.4">The ASN.1 structure of the set of promises attribute is as follows:</p>
+<p id="rfc.section.5.1.p.1">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included into a TST, using an unsigned attribute of the per-signer information.</p>
+<p id="rfc.section.5.1.p.2">To grant the backward compatibility with any currently available existing software the unsigned attribute MUST be compliant to the specifications defined in Section 5.3 of <a href="#RFC5652" class="xref">RFC 5652</a> for type Attribute.</p>
+<p id="rfc.section.5.1.p.3">The set of promises and the set of proofs attributes MUST be unsigned attributes; they MUST NOT be signed attributes, authenticated attributes, unauthenticated attributes, or unprotected attributes.</p>
+<p id="rfc.section.5.1.p.4">The ASN.1 structure of the set of promises attribute is as follows:</p>
 <pre>
 id-ce-dlts-promises OBJECT IDENTIFIER ::= { id-ce-dlts 0 }
 </pre>
 <pre>
 Promises            SET OF Promise
 </pre>
-<p id="rfc.section.4.1.p.5">The ASN.1 structure of the set of proofs attribute is as follows:</p>
+<p id="rfc.section.5.1.p.5">The ASN.1 structure of the set of proofs attribute is as follows:</p>
 <pre>
 id-ce-dlts-proofs OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
 </pre>
 <pre>
 Proofs              SET OF Proof
 </pre>
-<p id="rfc.section.4.1.p.6">All the proof and promises returned MUST refer to the same parent TimeStampToken issued at the time of the request.</p>
-<h1 id="rfc.section.4.1.1">
-<a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#_response_status" id="_response_status">Response Status</a>
+<p id="rfc.section.5.1.p.6">All the proof and promises returned MUST refer to the same parent TimeStampToken issued at the time of the request.</p>
+<h1 id="rfc.section.5.1.1">
+<a href="#rfc.section.5.1.1">5.1.1.</a> <a href="#_response_status" id="_response_status">Response Status</a>
 </h1>
-<p id="rfc.section.4.1.1.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.4.1.1.p.2">According to the TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contains the value one (grantedWithMods) or the value two (rejection)</p>
-<h1 id="rfc.section.4.2">
-<a href="#rfc.section.4.2">4.2.</a> <a href="#_dl_time_stamp_extensions" id="_dl_time_stamp_extensions">DL Time-Stamp Extensions</a>
+<p id="rfc.section.5.1.1.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
+<p id="rfc.section.5.1.1.p.2">According to the TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contains the value one (grantedWithMods) or the value two (rejection)</p>
+<h1 id="rfc.section.5.2">
+<a href="#rfc.section.5.2">5.2.</a> <a href="#_dl_time_stamp_extensions" id="_dl_time_stamp_extensions">DL Time-Stamp Extensions</a>
 </h1>
-<p id="rfc.section.4.2.p.1">Upgrade from a set of promises to a set of proofs MAY be done requesting a new TST including in a non critical extension the set of promises previously obtained inside an unsigned attribute.</p>
-<p id="rfc.section.4.2.p.2">When the TSA receives a request which has a non critical extension containing a set of promises, it MAY request from a Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response using a non critical extension of the TSTInfo sequence.</p>
-<p id="rfc.section.4.2.p.3">To grant the backward compatibility with any currently available existing software the request and response non critical extensions MUST be compliant to the specifications described in Section 2.4 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 4.2 of <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
-<p id="rfc.section.4.2.p.4">Conforming TSAs MUST mark these extensions as non-critical.</p>
-<p id="rfc.section.4.2.p.5">The ASN.1 structure of the proof request extension is as follows:</p>
+<p id="rfc.section.5.2.p.1">Upgrade from a set of promises to a set of proofs MAY be done requesting a new TST including in a non critical extension the set of promises previously obtained inside an unsigned attribute.</p>
+<p id="rfc.section.5.2.p.2">When the TSA receives a request which has a non critical extension containing a set of promises, it MAY request from a Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response using a non critical extension of the TSTInfo sequence.</p>
+<p id="rfc.section.5.2.p.3">To grant the backward compatibility with any currently available existing software the request and response non critical extensions MUST be compliant to the specifications described in Section 2.4 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 4.2 of <a href="#RFC5280" class="xref">RFC 5280</a>.</p>
+<p id="rfc.section.5.2.p.4">Conforming TSAs MUST mark these extensions as non-critical.</p>
+<p id="rfc.section.5.2.p.5">The ASN.1 structure of the proof request extension is as follows:</p>
 <pre>
 id-ce-dlts-promises OBJECT IDENTIFIER
 </pre>
 <pre>
 Proomises            SET OF Promise
 </pre>
-<p id="rfc.section.4.2.p.6">The ASN.1 structure of the proof response extension is as follows:</p>
+<p id="rfc.section.5.2.p.6">The ASN.1 structure of the proof response extension is as follows:</p>
 <pre>
 id-ce-dlts-proofs OBJECT IDENTIFIER
 </pre>
 <pre>
 Proofs               SET OF Proof
 </pre>
-<p id="rfc.section.4.2.p.7">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request.  Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerInfo (referring to TSU certificate) and serialNumber (referring to time stamp serial number), that has been received in the Promise structure of the proof request extension.</p>
-<h1 id="rfc.section.4.3">
-<a href="#rfc.section.4.3">4.3.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
+<p id="rfc.section.5.2.p.7">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request.  Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerInfo (referring to TSU certificate) and serialNumber (referring to time stamp serial number), that has been received in the Promise structure of the proof request extension.</p>
+<h1 id="rfc.section.5.3">
+<a href="#rfc.section.5.3">5.3.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
 </h1>
-<p id="rfc.section.4.3.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.4.3.p.2">Compliant servers SHOULD also use status field as follows:</p>
+<p id="rfc.section.5.3.p.1">The response status code in the TimeStampResp MUST be compliant to the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
+<p id="rfc.section.5.3.p.2">Compliant servers SHOULD also use status field as follows:</p>
 <p></p>
 
 <ul>
@@ -700,20 +706,20 @@ Proofs               SET OF Proof
 </ul>
 
 <p> </p>
-<h1 id="rfc.section.5">
-<a href="#rfc.section.5">5.</a> <a href="#security" id="security">Security Considerations</a>
-</h1>
-<p id="rfc.section.5.p.1">Each security consideration described in Section 4 of <a href="#RFC3161" class="xref">RFC 3161</a> SHALL be evaluated designing TSA services that include DL Time-Stamp extensions.</p>
-<p id="rfc.section.5.p.2">When a TSA executes a request to a Calendar Server the use of a nonce is RECOMMENDED because using a nonce always allows the client to detect replays.</p>
-<p id="rfc.section.5.p.3">Safety and reliability of the DL Extension depends on the robustness of the hash algorithms and on the stability of the DL, i.e. how expensive or difficult it would be for an attacker to alter the DL.</p>
 <h1 id="rfc.section.6">
-<a href="#rfc.section.6">6.</a> <a href="#iana" id="iana">IANA Considerations</a>
+<a href="#rfc.section.6">6.</a> <a href="#security" id="security">Security Considerations</a>
 </h1>
-<p id="rfc.section.6.p.1">This document does not require any action by IANA.</p>
+<p id="rfc.section.6.p.1">Each security consideration described in Section 4 of <a href="#RFC3161" class="xref">RFC 3161</a> SHALL be evaluated designing TSA services that include DL Time-Stamp extensions.</p>
+<p id="rfc.section.6.p.2">When a TSA executes a request to a Calendar Server the use of a nonce is RECOMMENDED because using a nonce always allows the client to detect replays.</p>
+<p id="rfc.section.6.p.3">Safety and reliability of the DL Extension depends on the robustness of the hash algorithms and on the stability of the DL, i.e. how expensive or difficult it would be for an attacker to alter the DL.</p>
+<h1 id="rfc.section.7">
+<a href="#rfc.section.7">7.</a> <a href="#iana" id="iana">IANA Considerations</a>
+</h1>
+<p id="rfc.section.7.p.1">This document does not require any action by IANA.</p>
 <h1 id="rfc.references">
-<a href="#rfc.references">7.</a> References</h1>
+<a href="#rfc.references">8.</a> References</h1>
 <h1 id="rfc.references.1">
-<a href="#rfc.references.1">7.1.</a> Normative References</h1>
+<a href="#rfc.references.1">8.1.</a> Normative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="RFC2119">[RFC2119]</b></td>
@@ -752,7 +758,7 @@ Proofs               SET OF Proof
 </tr>
 </tbody></table>
 <h1 id="rfc.references.2">
-<a href="#rfc.references.2">7.2.</a> Informative References</h1>
+<a href="#rfc.references.2">8.2.</a> Informative References</h1>
 <table><tbody>
 <tr>
 <td class="reference"><b id="ANSI.X9.95">[ANSI.X9.95]</b></td>
