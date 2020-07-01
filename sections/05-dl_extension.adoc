@@ -100,7 +100,7 @@ compliant servers SHOULD use status field referring to DLTS status as follows:
 //       Se la cosa viene gestita a livello di policy qui forse lo devo spegare, no?
 
 * when in the response no proofs or promises is returned,
-  the status field MUST contain the value one (rejection).
+  the status field MUST contain the value two (rejection).
 
 === DL Time-Stamp Extensions
 
@@ -150,16 +150,13 @@ and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 If the response status code for the PKI Token is zero (granted),
 compliant servers SHOULD use status field referring to DLTS status as follows:
 
-* when in the response there are all the expected proofs and/or promises,
+* when in the response there are all the expected proofs,
   the status field MUST contain the value zero (granted).
 
 * when in the response only a subset of the expected proofs is returned,
   the status field MUST contain the value one (grantedWithMods).
 
-* when in the response no proofs or promises is returned,
-  the status field MUST contain the value one (rejection).
-
-* when all the received promises are not recognized by the Calendar Server
+* when in the response no proof is returned,
   the status field MUST contain the value two (rejection).
 
 * when all the received promises recognized by the Calendar Server are pending
