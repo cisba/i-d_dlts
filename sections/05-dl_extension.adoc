@@ -86,7 +86,7 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: lo status non può non tenere conto affatto del TST PKI!
+//FIXME: lo status DEVE tenere conto anche del TST PKI!
 Compliant servers SHOULD use status field as follows:
 
 * when in the response there are all the expected proofs and/or promises,
@@ -95,13 +95,12 @@ Compliant servers SHOULD use status field as follows:
 * according to the TimeStamp policy, when the response contains only a subset
   of the expected proofs, the status field COULD contains the value one
   (grantedWithMods) or the value two (rejection)
-// FIXME: questa parte va sistemata perché se restituiamo rejected (2)
-//        il Token PKI *non può* essere restituito (lo dice l'RFC 4210)
+// ATTENZIONE: se lo status è rejection (2) il Token PKI *non può* essere
+//             restituito (lo dice l'RFC 4210)
 
 //FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
 //       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
 //       La TSA deve rispondere grantedWithMods ma il client ignora l'attributo unsigned.
-//       Se la cosa viene gestita a livello di policy qui forse lo devo spegare, no?
 
 === DL Time-Stamp Extensions
 
@@ -148,7 +147,7 @@ The response status code in the TimeStampResp MUST be compliant
 to the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
 and Section 5.2.3 of <<RFC4210,RFC 4210>>.
 
-//FIXME: lo status non può non tenere conto affatto del TST PKI!
+//FIXME: lo status DEVE tenere conto anche del TST PKI!
 Compliant servers SHOULD use status field as follows:
 
 * when in the response there are all the expected proofs,
