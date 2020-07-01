@@ -96,11 +96,13 @@ Compliant servers SHOULD use status field as follows:
   of the expected proofs, the status field COULD contains the value one
   (grantedWithMods) or the value two (rejection)
 // ATTENZIONE: se lo status è rejection (2) il Token PKI *non può* essere
-//             restituito (lo dice l'RFC 4210)
+//             restituito (lo dice l'RFC 3161)
+// When status contains a value other than zero or one, a TimeStampToken MUST NOT be present.
 
 //FIXME: Supponiamo che la TSA restituisca due promesse, una su DL BTC e una su DL ETH.
 //       Supponiamo che solo la promise su DL ETH fallisca per qualche motivo.
 //       La TSA deve rispondere grantedWithMods ma il client ignora l'attributo unsigned.
+// when the PKIStatus contains the value one a TimeStampToken, with modifications, is present
 
 === DL Time-Stamp Extensions
 
