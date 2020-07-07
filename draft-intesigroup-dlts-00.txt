@@ -6,7 +6,7 @@ Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
 Updates: 3161 (if approved)                                   G. Damiano
 Intended status: Standards Track                            Intesi Group
-Expires: November 26, 2020                                  May 25, 2020
+Expires: January 8, 2021                                    July 7, 2020
 
 
                      Distributed Ledger Time-Stamp
@@ -37,7 +37,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on November 26, 2020.
+   This Internet-Draft will expire on January 8, 2021.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 1]
+Cisbani, et al.          Expires January 8, 2021                [Page 1]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    include Simplified BSD License text as described in Section 4.e of
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 2]
+Cisbani, et al.          Expires January 8, 2021                [Page 2]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    The integrity of the timestamping process that is inevitably bound to
@@ -165,9 +165,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 3]
+Cisbani, et al.          Expires January 8, 2021                [Page 3]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    This document also refers to the following terms and definitions:
@@ -221,9 +221,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 4]
+Cisbani, et al.          Expires January 8, 2021                [Page 4]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
       A calendar is simply a collection of Distributed Ledger
@@ -277,9 +277,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 5]
+Cisbani, et al.          Expires January 8, 2021                [Page 5]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    In the case of Bitcoin, consensus is reached statistically.  Usually
@@ -333,9 +333,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 6]
+Cisbani, et al.          Expires January 8, 2021                [Page 6]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    DLPromise ::= OCTET STRING
@@ -379,19 +379,19 @@ Internet-Draft                    dlts                          May 2020
    MAY be included in a TST, using an unsigned attribute of the per-
    signer information.
 
-   To grant the backward compatibility with any currently available
-   software the unsigned attribute MUST be compliant with the
-   specifications defined in Section 5.3 of RFC 5652 [RFC5652] for
-   Attribute type.
+   To grant backward compatibility with any currently available software
+   the unsigned attribute MUST be compliant with the specifications
+   defined in Section 5.3 of RFC 5652 [RFC5652] for Attribute type.
 
    Attributes including a set of promises and a set of proofs MUST be
    unsigned attributes; they MUST NOT be signed attributes,
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 7]
+
+Cisbani, et al.          Expires January 8, 2021                [Page 7]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    authenticated attributes, unauthenticated attributes, or unprotected
@@ -436,7 +436,7 @@ Internet-Draft                    dlts                          May 2020
    of proofs in the TST response, using a non critical extension of the
    TSTInfo sequence.
 
-   To grant the backward compatibility with any currently available
+   To grant backward compatibility with any currently available
    software, request and response non critical extensions MUST be
    compliant with the specifications described in Section 2.4 of RFC
    3161 [RFC3161] and Section 4.2 of RFC 5280 [RFC5280].
@@ -445,16 +445,16 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 8]
+Cisbani, et al.          Expires January 8, 2021                [Page 8]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    The ASN.1 structure of the proof request extension is as follows:
 
    id-ce-dlts-promises OBJECT IDENTIFIER
 
-   Proomises            SET OF Promise
+   Promises            SET OF Promise
 
    The ASN.1 structure of the proof response extension is as follows:
 
@@ -501,9 +501,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020               [Page 9]
+Cisbani, et al.          Expires January 8, 2021                [Page 9]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    Safety and reliability of the DL proofs depends on the robustness of
@@ -557,9 +557,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020              [Page 10]
+Cisbani, et al.          Expires January 8, 2021               [Page 10]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
 8.2.  Informative References
@@ -613,9 +613,9 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020              [Page 11]
+Cisbani, et al.          Expires January 8, 2021               [Page 11]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    [Hyperledger]
@@ -669,9 +669,9 @@ Authors' Addresses
 
 
 
-Cisbani, et al.         Expires November 26, 2020              [Page 12]
+Cisbani, et al.          Expires January 8, 2021               [Page 12]
 
-Internet-Draft                    dlts                          May 2020
+Internet-Draft                    dlts                         July 2020
 
 
    Emanuele Cisbani
@@ -725,4 +725,4 @@ Internet-Draft                    dlts                          May 2020
 
 
 
-Cisbani, et al.         Expires November 26, 2020              [Page 13]
+Cisbani, et al.          Expires January 8, 2021               [Page 13]
