@@ -2,7 +2,7 @@
 :doctype: internet-draft
 :name: draft-intesigroup-dlts-00
 :abbrev: dlts
-:updates: 3161
+//:updates: 3161
 :status: std
 :ipr: trust200902
 :submissionType: individual

@@ -382,7 +382,7 @@
 <link href="#rfc.section.5.1" rel="Chapter" title="5.1 DL Time-Stamp Attributes">
 <link href="#rfc.section.5.1.1" rel="Chapter" title="5.1.1 Response Status">
 <link href="#rfc.section.5.2" rel="Chapter" title="5.2 DL Time-Stamp Extensions">
-<link href="#rfc.section.5.3" rel="Chapter" title="5.3 Response Status">
+<link href="#rfc.section.5.2.1" rel="Chapter" title="5.2.1 Response Status">
 <link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations">
 <link href="#rfc.section.7" rel="Chapter" title="7 IANA Considerations">
 <link href="#rfc.references" rel="Chapter" title="8 References">
@@ -397,8 +397,8 @@
   <meta name="dct.creator" content="Cisbani, E., Ribaudo, D., and G. Damiano" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-intesigroup-dlts-00" />
   <meta name="dct.issued" scheme="ISO8601" content="2020-07-07" />
-  <meta name="dct.abstract" content="This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software.This document update RFC 3161." />
-  <meta name="description" content="This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software.This document update RFC 3161." />
+  <meta name="dct.abstract" content="This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software." />
+  <meta name="description" content="This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software." />
 
 </head>
 
@@ -416,15 +416,15 @@
 <td class="right">D. Ribaudo</td>
 </tr>
 <tr>
-<td class="left">Updates: 3161 (if approved)</td>
+<td class="left">Intended status: Standards Track</td>
 <td class="right">G. Damiano</td>
 </tr>
 <tr>
-<td class="left">Intended status: Standards Track</td>
+<td class="left">Expires: January 8, 2021</td>
 <td class="right">Intesi Group</td>
 </tr>
 <tr>
-<td class="left">Expires: January 8, 2021</td>
+<td class="left"></td>
 <td class="right">July 7, 2020</td>
 </tr>
 
@@ -438,7 +438,6 @@
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.</p>
 <p>The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software.</p>
-<p>This document update <a href="#RFC3161" class="xref">RFC 3161</a>.</p>
 <h1 id="rfc.status"><a href="#rfc.status">Status of This Memo</a></h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
@@ -469,9 +468,9 @@
 </li>
 </ul><li>5.2.   <a href="#rfc.section.5.2">DL Time-Stamp Extensions</a>
 </li>
-<li>5.3.   <a href="#rfc.section.5.3">Response Status</a>
+<ul><li>5.2.1.   <a href="#rfc.section.5.2.1">Response Status</a>
 </li>
-</ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
+</ul></ul><li>6.   <a href="#rfc.section.6">Security Considerations</a>
 </li>
 <li>7.   <a href="#rfc.section.7">IANA Considerations</a>
 </li>
@@ -697,11 +696,11 @@ id-ce-dlts-proofs OBJECT IDENTIFIER
 Proofs               SET OF Proof
 </pre>
 <p id="rfc.section.5.2.p.7">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request.  Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerInfo (referring to the TSU certificate) and serialNumber (referring to the time stamp serial number), which have been received in the Promise structure of the proof request extension.</p>
-<h1 id="rfc.section.5.3">
-<a href="#rfc.section.5.3">5.3.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
+<h1 id="rfc.section.5.2.1">
+<a href="#rfc.section.5.2.1">5.2.1.</a> <a href="#_response_status_2" id="_response_status_2">Response Status</a>
 </h1>
-<p id="rfc.section.5.3.p.1">The response status code in the TimeStampResp MUST be compliant with the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
-<p id="rfc.section.5.3.p.2">Compliant servers SHOULD also use the status field as follows:</p>
+<p id="rfc.section.5.2.1.p.1">The response status code in the TimeStampResp MUST be compliant with the specifications described in Section 2.4.2 of <a href="#RFC3161" class="xref">RFC 3161</a> and Section 5.2.3 of <a href="#RFC4210" class="xref">RFC 4210</a>.</p>
+<p id="rfc.section.5.2.1.p.2">Compliant servers SHOULD also use the status field as follows:</p>
 <p></p>
 
 <ul>

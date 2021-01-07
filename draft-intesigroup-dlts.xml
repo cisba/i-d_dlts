@@ -17,7 +17,7 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc ipr="trust200902" updates="3161" category="std" submissionType="IETF" docName="draft-intesigroup-dlts-00">
+<rfc ipr="trust200902" category="std" submissionType="IETF" docName="draft-intesigroup-dlts-00">
 <front>
   <title abbrev="dlts">Distributed Ledger Time-Stamp</title>
   <author fullname="Emanuele Cisbani" surname="Cisbani" initials="E.">
@@ -68,8 +68,7 @@
 <abstract><t>This document defines a standard to extend Time Stamp Tokens
 with Time Attestations recorded on Distributed Ledgers.</t>
 <t>The aim is to provide long-term validity to Time Stamp Tokens,
-backward compatible with currently available software.</t>
-<t>This document update <xref target="RFC3161">RFC 3161</xref>.</t></abstract>
+backward compatible with currently available software.</t></abstract>
 </front><middle>
 <section anchor="introduction" title="Introduction"><t>Attesting that a file existed prior to a specific point in time can be useful - for example - to:</t>
 <t>
@@ -328,7 +327,7 @@ the TimeStampToken issued at the time of the request.
 Each Proof MUST contain the explicit reference to the pointing
 TimeStampToken with signerInfo (referring to the TSU certificate)
 and serialNumber (referring to the time stamp serial number),
-which have been received in the Promise structure of the proof request extension.</t></section>
+which have been received in the Promise structure of the proof request extension.</t>
 <section anchor="_response_status_2" title="Response Status"><t>The response status code in the TimeStampResp MUST be compliant
 with the specifications described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref>
 and Section 5.2.3 of <xref target="RFC4210">RFC 4210</xref>.</t>
@@ -343,7 +342,7 @@ the status field SHOULD contain the value two (rejection)</t>
     <t>when all the received promises recognized by the Calendar Server are pending,
 the status field SHOULD contain the value three (waiting).</t>
   </list>
-</t></section></section>
+</t></section></section></section>
 <section anchor="security" title="Security Considerations"><t>Each security consideration described in Section 4 of <xref target="RFC3161">RFC 3161</xref> SHALL be evaluated designing
 TSA services that include DL Time-Stamp extensions.</t>
 <t>When a TSA executes a request to a Calendar Server the use of a nonce is
