@@ -4,9 +4,9 @@
 
 Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
-Intended status: Standards Track                              G. Damiano
-Expires: January 8, 2021                                    Intesi Group
-                                                            July 7, 2020
+Updates: 3161 (if approved)                                   G. Damiano
+Intended status: Standards Track                            Intesi Group
+Expires: January 8, 2021                                    July 7, 2020
 
 
                      Distributed Ledger Time-Stamp
@@ -19,6 +19,8 @@ Abstract
 
    The aim is to provide long-term validity to Time Stamp Tokens,
    backward compatible with currently available software.
+
+   This document update RFC 3161 [RFC3161].
 
 Status of This Memo
 
@@ -48,8 +50,6 @@ Copyright Notice
    publication of this document.  Please review these documents
    carefully, as they describe your rights and restrictions with respect
    to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
-
 
 
 
@@ -58,6 +58,7 @@ Cisbani, et al.          Expires January 8, 2021                [Page 1]
 Internet-Draft                    dlts                         July 2020
 
 
+   include Simplified BSD License text as described in Section 4.e of
    the Trust Legal Provisions and are provided without warranty as
    described in the Simplified BSD License.
 
@@ -71,7 +72,7 @@ Table of Contents
      5.1.  DL Time-Stamp Attributes  . . . . . . . . . . . . . . . .   7
        5.1.1.  Response Status . . . . . . . . . . . . . . . . . . .   8
      5.2.  DL Time-Stamp Extensions  . . . . . . . . . . . . . . . .   8
-       5.2.1.  Response Status . . . . . . . . . . . . . . . . . . .   9
+     5.3.  Response Status . . . . . . . . . . . . . . . . . . . . .   9
    6.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
@@ -104,7 +105,6 @@ Table of Contents
    In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by
    Masashi Une [IMES], PKI TSA was evaluated as one of the most
    desirables in term of security against alteration of a time stamp.
-
 
 
 
@@ -469,7 +469,7 @@ Internet-Draft                    dlts                         July 2020
    (referring to the time stamp serial number), which have been received
    in the Promise structure of the proof request extension.
 
-5.2.1.  Response Status
+5.3.  Response Status
 
    The response status code in the TimeStampResp MUST be compliant with
    the specifications described in Section 2.4.2 of RFC 3161 [RFC3161]
