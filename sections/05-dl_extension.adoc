@@ -130,7 +130,7 @@ and serialNumber (referring to the time stamp serial number),
 which have been received in the Promise structure of the proof request extension.
 
 
-=== Response Status
+==== Response Status
 
 The response status code in the TimeStampResp MUST be compliant
 with the specifications described in Section 2.4.2 of <<RFC3161,RFC 3161>>
