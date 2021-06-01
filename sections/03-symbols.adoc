@@ -9,7 +9,7 @@ TTP::
     Trusted Third Party
 
 TSA::
-    Time-Stamp Authority
+    Time-Stamping Authority
 
 TST::
     Time-Stamp Token

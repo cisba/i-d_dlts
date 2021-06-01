@@ -18,11 +18,14 @@ As defined in <<RFC5280,RFC 5280>>
 Trusted Third Party::
 As defined in <<RFC3161,RFC 3161>>
 
-Time-Stamp Authority::
+Time-Stamping Authority::
 As defined in <<RFC3161,RFC 3161>>
 
 Time-Stamp Token::
 As defined in <<RFC3161,RFC 3161>>
+
+Time-Stamping Unit::
+As defined in <<RFC3161,RFC 3628>>
 
 Distributed Ledger::
 Various definitions of blockchain and distributed ledger technology exist,

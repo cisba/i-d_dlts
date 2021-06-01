@@ -1,6 +1,6 @@
 = Distributed Ledger Time-Stamp
 :doctype: internet-draft
-:name: draft-intesigroup-dlts-01
+:name: draft-intesigroup-dlts-02
 :abbrev: dlts
 //:updates: 3161
 :status: std
@@ -8,7 +8,7 @@
 :submissionType: individual
 :area: Internet
 :intended-series: full-standard
-:revdate: 2021-01-07T00:00:00Z
+:revdate: 2021-06-01T00:00:00Z
 :fullname: Emanuele Cisbani
 :lastname: Cisbani
 :forename_initials: E.

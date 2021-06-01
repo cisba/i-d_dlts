@@ -18,7 +18,7 @@ synchronization and reach consensus concerning the state of the chain.
 In a permissionless DL the large number of nodes introduces a relevant delay
 in order to reach consensus.
 
-In the case of Bitcoin, consensus is reached statistically.
+In the case of Bitcoin, for example, consensus is reached statistically.
 Usually in an average elapsed time of one hour six new blocks are added to the chain.
 A block of data that was added before the last six blocks, is considered to be practically immutable.
 This is due to the high computational power that would be required to rewrite the chain.

@@ -5,8 +5,8 @@
 Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
 Intended status: Standards Track                              G. Damiano
-Expires: July 11, 2021                                      Intesi Group
-                                                         January 7, 2021
+Expires: 11 July 2021                                       Intesi Group
+                                                          7 January 2021
 
 
                      Distributed Ledger Time-Stamp
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 11, 2021.
+   This Internet-Draft will expire on 11 July 2021.
 
 Copyright Notice
 
@@ -43,23 +43,20 @@ Copyright Notice
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
-   Provisions Relating to IETF Documents
-   (https://trustee.ietf.org/license-info) in effect on the date of
-   publication of this document.  Please review these documents
-   carefully, as they describe your rights and restrictions with respect
-   to this document.  Code Components extracted from this document must
-   include Simplified BSD License text as described in Section 4.e of
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Simplified BSD License text
+   as described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Simplified BSD License.
 
 
 
-
-Cisbani, et al.           Expires July 11, 2021                 [Page 1]
+Cisbani, et al.           Expires 11 July 2021                  [Page 1]
 
 Internet-Draft                    dlts                      January 2021
 
-
-   the Trust Legal Provisions and are provided without warranty as
-   described in the Simplified BSD License.
 
 Table of Contents
 
@@ -84,13 +81,13 @@ Table of Contents
    Attesting that a file existed prior to a specific point in time can
    be useful - for example - to:
 
-   o  prove when an agreement was signed, if it is disputed
+   *  prove when an agreement was signed, if it is disputed
 
-   o  validate a signature after a revocation occurred
+   *  validate a signature after a revocation occurred
 
-   o  prove the ownership for copyright
+   *  prove the ownership for copyright
 
-   o  grant record integrity
+   *  grant record integrity
 
    A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA)
    compliant with RFC 3161 [RFC3161] can be based on an accurate time
@@ -105,18 +102,17 @@ Table of Contents
    Masashi Une [IMES], PKI TSA was evaluated as one of the most
    desirables in term of security against alteration of a time stamp.
 
-
-
-
-
-Cisbani, et al.           Expires July 11, 2021                 [Page 2]
-
-Internet-Draft                    dlts                      January 2021
-
-
    The integrity of the timestamping process that is inevitably bound to
    the integrity of the TSA gave rise to other proposals like ANSI X9.95
    [ANSI.X9.95] and ISO/IEC 18014-4 [ISO.IEC.18014-4].
+
+
+
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 2]
+
+Internet-Draft                    dlts                      January 2021
+
 
    Furthermore a TSA TST can be validated for a limited time - usually
    no longer than 20 years for technical reasons such as the TSA
@@ -162,18 +158,17 @@ Internet-Draft                    dlts                      January 2021
    interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
    when, they appear in all capitals, as shown here.
 
-
-
-
-Cisbani, et al.           Expires July 11, 2021                 [Page 3]
-
-Internet-Draft                    dlts                      January 2021
-
-
    This document also refers to the following terms and definitions:
 
    Public Key Infrastructure
       As defined in RFC 5280 [RFC5280]
+
+
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 3]
+
+Internet-Draft                    dlts                      January 2021
+
 
    Trusted Third Party
       As defined in RFC 3161 [RFC3161]
@@ -218,16 +213,18 @@ Internet-Draft                    dlts                      January 2021
       promise of timestamping in a precise Distributed Ledger.
 
    Calendar
+      A calendar is simply a collection of Distributed Ledger
+      Attestations.
 
 
 
-Cisbani, et al.           Expires July 11, 2021                 [Page 4]
+
+
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 4]
 
 Internet-Draft                    dlts                      January 2021
 
-
-      A calendar is simply a collection of Distributed Ledger
-      Attestations.
 
    Calendar Server
       A server providing remote access to a collection of Distributed
@@ -277,7 +274,10 @@ Internet-Draft                    dlts                      January 2021
 
 
 
-Cisbani, et al.           Expires July 11, 2021                 [Page 5]
+
+
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 5]
 
 Internet-Draft                    dlts                      January 2021
 
@@ -333,7 +333,7 @@ Internet-Draft                    dlts                      January 2021
 
 
 
-Cisbani, et al.           Expires July 11, 2021                 [Page 6]
+Cisbani, et al.           Expires 11 July 2021                  [Page 6]
 
 Internet-Draft                    dlts                      January 2021
 
@@ -353,24 +353,24 @@ Internet-Draft                    dlts                      January 2021
 
    The fields of Promise and Proof type have the following meanings:
 
-   o  version is the syntax version number.  It MUST always be 0.  The
+   *  version is the syntax version number.  It MUST always be 0.  The
       usage is as described in Section 1.3 of RFC 5652 [RFC5652]
 
-   o  calendarFormat is the media type format of the DL attestation.  It
+   *  calendarFormat is the media type format of the DL attestation.  It
       MUST be a registered application media type, in accordance with
       procedures laid out in RFC 6838 [RFC6838]
 
-   o  dlProof and dlPromise are the proof and promise obtained from a
+   *  dlProof and dlPromise are the proof and promise obtained from a
       Calendar Server using as input value the value of the signature
       field of the SignerInfo structure inside the digital signature of
       the TimeStampToken, as described in Section 5.3 of RFC 5652
       [RFC5652]
 
-   o  signerInfo is an IssuerAndSerialNumber type that identifies the
+   *  signerInfo is an IssuerAndSerialNumber type that identifies the
       TSU signing certificate as described in Section 10.2.4 of RFC 5652
       [RFC5652]
 
-   o  serialNumber is an integer assigned by the TSA to each
+   *  serialNumber is an integer assigned by the TSA to each
       TimeStampToken as described in Section 2.4.2 of RFC 3161 [RFC3161]
 
 5.1.  DL Time-Stamp Attributes
@@ -383,17 +383,19 @@ Internet-Draft                    dlts                      January 2021
    the unsigned attribute MUST be compliant with the specifications
    defined in Section 5.3 of RFC 5652 [RFC5652] for Attribute type.
 
-   Attributes including a set of promises and a set of proofs MUST be
-   unsigned attributes; they MUST NOT be signed attributes,
 
 
 
 
-Cisbani, et al.           Expires July 11, 2021                 [Page 7]
+
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 7]
 
 Internet-Draft                    dlts                      January 2021
 
 
+   Attributes including a set of promises and a set of proofs MUST be
+   unsigned attributes; they MUST NOT be signed attributes,
    authenticated attributes, unauthenticated attributes, or unprotected
    attributes.
 
@@ -441,14 +443,14 @@ Internet-Draft                    dlts                      January 2021
    compliant with the specifications described in Section 2.4 of RFC
    3161 [RFC3161] and Section 4.2 of RFC 5280 [RFC5280].
 
-   Conforming TSAs MUST mark these extensions as non-critical.
 
 
-
-Cisbani, et al.           Expires July 11, 2021                 [Page 8]
+Cisbani, et al.           Expires 11 July 2021                  [Page 8]
 
 Internet-Draft                    dlts                      January 2021
 
+
+   Conforming TSAs MUST mark these extensions as non-critical.
 
    The ASN.1 structure of the proof request extension is as follows:
 
@@ -477,14 +479,14 @@ Internet-Draft                    dlts                      January 2021
 
    Compliant servers SHOULD also use the status field as follows:
 
-   o  according to TimeStamp policy, when the response contains only a
+   *  according to TimeStamp policy, when the response contains only a
       subset of the expected proofs, the status field SHOULD contain
       either the value one (grantedWithMods) or two (rejection)
 
-   o  when in the response no proof can be returned, the status field
+   *  when in the response no proof can be returned, the status field
       SHOULD contain the value two (rejection)
 
-   o  when all the received promises recognized by the Calendar Server
+   *  when all the received promises recognized by the Calendar Server
       are pending, the status field SHOULD contain the value three
       (waiting).
 
@@ -494,17 +496,19 @@ Internet-Draft                    dlts                      January 2021
    [RFC3161] SHALL be evaluated designing TSA services that include DL
    Time-Stamp extensions.
 
-   When a TSA executes a request to a Calendar Server the use of a nonce
-   is RECOMMENDED because using a nonce always allows the client to
-   detect replays.
 
 
 
 
-Cisbani, et al.           Expires July 11, 2021                 [Page 9]
+
+Cisbani, et al.           Expires 11 July 2021                  [Page 9]
 
 Internet-Draft                    dlts                      January 2021
 
+
+   When a TSA executes a request to a Calendar Server the use of a nonce
+   is RECOMMENDED because using a nonce always allows the client to
+   detect replays.
 
    Safety and reliability of the DL proofs depends on the robustness of
    the hash algorithms and on the stability of the DL, i.e. how
@@ -549,18 +553,18 @@ Internet-Draft                    dlts                      January 2021
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
               <https://www.rfc-editor.org/info/rfc6838>.
 
-   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
-              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
-              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 
 
 
-
-Cisbani, et al.           Expires July 11, 2021                [Page 10]
+Cisbani, et al.           Expires 11 July 2021                 [Page 10]
 
 Internet-Draft                    dlts                      January 2021
 
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
 
 8.2.  Informative References
 
@@ -577,7 +581,7 @@ Internet-Draft                    dlts                      January 2021
               crosby.pdf>.
 
    [eIDAS]    The European Parliament And The Council Of The European
-              Union, "Regulation (EU) No 910/2014", July 2014,
+              Union, "Regulation (EU) No 910/2014", 23 July 2014,
               <https://eur-lex.europa.eu/legal-content/EN/TXT/
               HTML/?uri=CELEX:32014R0910=EN>.
 
@@ -606,17 +610,18 @@ Internet-Draft                    dlts                      January 2021
               etsi_ts/102700_102799/10277804/01.01.02_60/
               ts_10277804v010102p.pdf>.
 
+
+
+
+Cisbani, et al.           Expires 11 July 2021                 [Page 11]
+
+Internet-Draft                    dlts                      January 2021
+
+
    [HaberStornetta]
               Haber, S. and W. S. Stornetta, "How to Time-Stamp a
               Digital Document", 1991,
               <https://www.anf.es/pdf/Haber_Stornetta.pdf>.
-
-
-
-Cisbani, et al.           Expires July 11, 2021                [Page 11]
-
-Internet-Draft                    dlts                      January 2021
-
 
    [Hyperledger]
               The Linux Foundation, "Hyperledger Architecture, Volume 1:
@@ -640,9 +645,9 @@ Internet-Draft                    dlts                      January 2021
               systems - Technical Report No. 1979-1", June 1979,
               <http://www.merkle.com/papers/Thesis1979.pdf>.
 
-   [Nakamoto]
-              Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
-              System", October 2008, <https://bitcoin.org/bitcoin.pdf>.
+   [Nakamoto] Nakamoto, S., "Bitcoin: A Peer-to-Peer Electronic Cash
+              System", 31 October 2008,
+              <https://bitcoin.org/bitcoin.pdf>.
 
    [NISTIR_8202]
               Yaga, D., Mell, P., Roby, N., and K. Scarfone, "Blockchain
@@ -664,12 +669,7 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-Cisbani, et al.           Expires July 11, 2021                [Page 12]
+Cisbani, et al.           Expires 11 July 2021                 [Page 12]
 
 Internet-Draft                    dlts                      January 2021
 
@@ -677,7 +677,7 @@ Internet-Draft                    dlts                      January 2021
    Emanuele Cisbani
    Intesi Group
    Via Torino 48
-   Milano  20123
+   20123 Milano
    Italy
 
    Phone: +39 026 760 641
@@ -688,7 +688,7 @@ Internet-Draft                    dlts                      January 2021
    Daniele Ribaudo
    Intesi Group
    Via Torino 48
-   Milano  20123
+   20123 Milano
    Italy
 
    Phone: +39 026 760 641
@@ -699,7 +699,7 @@ Internet-Draft                    dlts                      January 2021
    Giuseppe Damiano
    Intesi Group
    Via Torino 48
-   Milano  20123
+   20123 Milano
    Italy
 
    Phone: +39 026 760 641
@@ -725,4 +725,4 @@ Internet-Draft                    dlts                      January 2021
 
 
 
-Cisbani, et al.           Expires July 11, 2021                [Page 13]
+Cisbani, et al.           Expires 11 July 2021                 [Page 13]

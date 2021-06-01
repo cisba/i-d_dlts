@@ -1,3 +1,7 @@
 xml2rfc
 idnits
-python-magic-bin
+
+# Linux requires
+python-magic
+# macOS requires instead:
+# python-magic-bin

@@ -3,6 +3,7 @@
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!ENTITY RFC2119 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3161 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3161.xml">
+<!ENTITY RFC3628 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.3628.xml">
 <!ENTITY RFC4210 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.4210.xml">
 <!ENTITY RFC5280 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5280.xml">
 <!ENTITY RFC5652 SYSTEM "https://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.5652.xml">
@@ -17,7 +18,7 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc ipr="trust200902" category="std" submissionType="IETF" docName="draft-intesigroup-dlts-01">
+<rfc ipr="trust200902" category="std" submissionType="IETF" docName="draft-intesigroup-dlts-02">
 <front>
   <title abbrev="dlts">Distributed Ledger Time-Stamp</title>
   <author fullname="Emanuele Cisbani" surname="Cisbani" initials="E.">
@@ -62,7 +63,7 @@
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
-  <date day="7" month="January" year="2021"/>
+  <date day="1" month="June" year="2021"/>
   <area>Internet</area>
 
 <abstract><t>This document defines a standard to extend Time Stamp Tokens
@@ -124,8 +125,9 @@ definitions:</t>
   <list style="hanging">
     <t hangText="Public Key Infrastructure"><vspace blankLines="0"/>As defined in <xref target="RFC5280">RFC 5280</xref></t>
     <t hangText="Trusted Third Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
-    <t hangText="Time-Stamp Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
+    <t hangText="Time-Stamping Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
     <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
+    <t hangText="Time-Stamping Unit"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3628</xref></t>
     <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional
@@ -156,7 +158,7 @@ in a precise Distributed Ledger.</t>
   <list style="hanging">
     <t hangText="PKI"><vspace blankLines="0"/>Public Key Infrastructure</t>
     <t hangText="TTP"><vspace blankLines="0"/>Trusted Third Party</t>
-    <t hangText="TSA"><vspace blankLines="0"/>Time-Stamp Authority</t>
+    <t hangText="TSA"><vspace blankLines="0"/>Time-Stamping Authority</t>
     <t hangText="TST"><vspace blankLines="0"/>Time-Stamp Token</t>
     <t hangText="TSU"><vspace blankLines="0"/>Time-Stamping Unit</t>
     <t hangText="DL"><vspace blankLines="0"/>Distributed Ledger</t>
@@ -177,7 +179,7 @@ by a large number of nodes, becoming a distributed system.</t>
 synchronization and reach consensus concerning the state of the chain.
 In a permissionless DL the large number of nodes introduces a relevant delay
 in order to reach consensus.</t>
-<t>In the case of Bitcoin, consensus is reached statistically.
+<t>In the case of Bitcoin, for example, consensus is reached statistically.
 Usually in an average elapsed time of one hour six new blocks are added to the chain.
 A block of data that was added before the last six blocks, is considered to be practically immutable.
 This is due to the high computational power that would be required to rewrite the chain.</t>
@@ -192,21 +194,14 @@ and made available by the Calendar Server.</t>
 can be implemented as a unique instance.
 In this document we will generically refer to a Calendar Server indicating both services.</t>
 <t>The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t></section>
-<section anchor="_dl_time_stamp_objects" title="DL Time-Stamp Objects"><t>The new objects MUST have the following root OID:</t>
-<figure>
-  <artwork><![CDATA[
-id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
-]]></artwork>
-</figure>
-<t>where id-ce identifies the root of standard extensions as described in <xref target="RFC5280">RFC 5280</xref>.</t>
-<t>The ASN.1 structure of Promise type is as follows:</t>
+<section anchor="_dl_time_stamp_objects" title="DL Time-Stamp Objects"><t>The ASN.1 structure of Promise type is as follows:</t>
 <figure>
   <artwork><![CDATA[
 Promise ::= SEQUENCE {
     version          INTEGER,
     calendarFormat   UTF8String,
     dlPromise        DLPromise,
-    signerInfo       issuerAndSerialNumber,
+    signerIdentifier issuerAndSerialNumber,
     serialNumber     INTEGER }
 ]]></artwork>
 </figure>
@@ -222,7 +217,7 @@ Proof ::= SEQUENCE {
     version          INTEGER,
     calendarFormat   UTF8String,
     dlProof          DLProof,
-    signerInfo       issuerAndSerialNumber,
+    signerIdentifier issuerAndSerialNumber,
     serialNumber     INTEGER }
 ]]></artwork>
 </figure>
@@ -238,12 +233,14 @@ DLProof ::= OCTET STRING
 The usage is as described in Section 1.3 of <xref target="RFC5652">RFC 5652</xref></t>
     <t>calendarFormat is the media type format of the DL attestation.
 It MUST be a registered application media type, in accordance with
-procedures laid out in <xref target="RFC6838">RFC 6838</xref></t>
+procedures laid out in <xref target="RFC6838">RFC 6838</xref> - for example, if you wanted
+to use the <xref target="OpenTimestamps"/> format, the calendarFormat value would be
+the string "application/vnd.opentimestamps.ots" (without quotes)</t>
     <t>dlProof and dlPromise are the proof and promise obtained from a Calendar Server
 using as input value the value of the signature field of the SignerInfo structure
 inside the digital signature of the TimeStampToken, as described in Section 5.3
 of <xref target="RFC5652">RFC 5652</xref></t>
-    <t>signerInfo is an IssuerAndSerialNumber type that identifies the TSU
+    <t>signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU
 signing certificate as described in Section 10.2.4 of <xref target="RFC5652">RFC 5652</xref></t>
     <t>serialNumber is an integer assigned by the TSA to each TimeStampToken
 as described in Section 2.4.2 of <xref target="RFC3161">RFC 3161</xref></t>
@@ -257,10 +254,12 @@ in Section 5.3 of <xref target="RFC5652">RFC 5652</xref> for Attribute type.</t>
 <t>Attributes including a set of promises and a set of proofs MUST be unsigned attributes;
 they MUST NOT be signed attributes, authenticated attributes,
 unauthenticated attributes, or unprotected attributes.</t>
+<t>The new objects MUST have the following OIDs where id-ce identifies
+the root of standard extensions as described in <xref target="RFC5280">RFC 5280</xref>.</t>
 <t>The ASN.1 structure of attributes including a set of promises is as follows:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-dlts-promises OBJECT IDENTIFIER ::= { id-ce-dlts 0 }
+id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 ]]></artwork>
 </figure>
 <figure>
@@ -271,7 +270,7 @@ Promises            SET OF Promise
 <t>The ASN.1 structure of attributes including a set of proofs is as follows:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-dlts-proofs OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
+id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 ]]></artwork>
 </figure>
 <figure>
@@ -325,7 +324,7 @@ Proofs               SET OF Proof
 <t>The proofs returned in the extensions by the TSA MUST NOT refer to
 the TimeStampToken issued at the time of the request.
 Each Proof MUST contain the explicit reference to the pointing
-TimeStampToken with signerInfo (referring to the TSU certificate)
+TimeStampToken with signerIdentifier (referring to the TSU certificate)
 and serialNumber (referring to the time stamp serial number),
 which have been received in the Promise structure of the proof request extension.</t>
 <section anchor="_response_status_2" title="Response Status"><t>The response status code in the TimeStampResp MUST be compliant
@@ -357,6 +356,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.</t>
 <references title="Normative References">
   &RFC2119;
   &RFC3161;
+  &RFC3628;
   &RFC4210;
   &RFC5280;
   &RFC5652;
@@ -558,6 +558,16 @@ Time stamping profile</title>
     <author fullname="Satoshi Nakamoto">
     </author>
     <date day="31" month="October" year="2008"/>
+  </front>
+</reference>
+  <reference anchor="OpenTimestamps" target="https://petertodd.org/2016/opentimestamps-announcement">
+  <front>
+    <title>
+        OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin
+    </title>
+    <author fullname="Peter Todd">
+    </author>
+    <date day="15" month="September" year="2016"/>
   </front>
 </reference>
   <reference anchor="UK-GCSA" target="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/492972/gs-16-1-distributed-ledger-technology.pdf">

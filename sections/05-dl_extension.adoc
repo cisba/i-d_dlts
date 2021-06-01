@@ -1,19 +1,13 @@
 
 == DL Time-Stamp Objects
 
-The new objects MUST have the following root OID:
-
-    id-ce-dlts OBJECT IDENTIFIER ::= { id-ce TBD1 }
-
-where id-ce identifies the root of standard extensions as described in <<RFC5280,RFC 5280>>.
-
 The ASN.1 structure of Promise type is as follows:
 
     Promise ::= SEQUENCE {
         version          INTEGER,
         calendarFormat   UTF8String,
         dlPromise        DLPromise,
-        signerInfo       issuerAndSerialNumber,
+        signerIdentifier issuerAndSerialNumber,
         serialNumber     INTEGER }
 
     DLPromise ::= OCTET STRING
@@ -25,7 +19,7 @@ The ASN.1 structure of Proof type is as follows:
         version          INTEGER,
         calendarFormat   UTF8String,
         dlProof          DLProof,
-        signerInfo       issuerAndSerialNumber,
+        signerIdentifier issuerAndSerialNumber,
         serialNumber     INTEGER }
 
     DLProof ::= OCTET STRING
@@ -38,14 +32,16 @@ The fields of Promise and Proof type have the following meanings:
 
 * calendarFormat is the media type format of the DL attestation.
   It MUST be a registered application media type, in accordance with
-  procedures laid out in <<RFC6838,RFC 6838>>
+  procedures laid out in <<RFC6838,RFC 6838>> - for example, if you wanted
+  to use the <<OpenTimestamps>> format, the calendarFormat value would be
+  the string "application/vnd.opentimestamps.ots" (without quotes)
 
 * dlProof and dlPromise are the proof and promise obtained from a Calendar Server
   using as input value the value of the signature field of the SignerInfo structure
   inside the digital signature of the TimeStampToken, as described in Section 5.3
   of <<RFC5652,RFC 5652>>
 
-* signerInfo is an IssuerAndSerialNumber type that identifies the TSU
+* signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU
   signing certificate as described in Section 10.2.4 of <<RFC5652,RFC 5652>>
 
 * serialNumber is an integer assigned by the TSA to each TimeStampToken
@@ -65,15 +61,18 @@ Attributes including a set of promises and a set of proofs MUST be unsigned attr
 they MUST NOT be signed attributes, authenticated attributes,
 unauthenticated attributes, or unprotected attributes.
 
+The new objects MUST have the following OIDs where id-ce identifies
+the root of standard extensions as described in <<RFC5280,RFC 5280>>.
+
 The ASN.1 structure of attributes including a set of promises is as follows:
 
-    id-ce-dlts-promises OBJECT IDENTIFIER ::= { id-ce-dlts 0 }
+    id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 
     Promises            SET OF Promise
 
 The ASN.1 structure of attributes including a set of proofs is as follows:
 
-    id-ce-dlts-proofs OBJECT IDENTIFIER ::= { id-ce-dlts 1 }
+    id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 
     Proofs              SET OF Proof
 
@@ -125,7 +124,7 @@ The ASN.1 structure of the proof response extension is as follows:
 The proofs returned in the extensions by the TSA MUST NOT refer to
 the TimeStampToken issued at the time of the request.
 Each Proof MUST contain the explicit reference to the pointing
-TimeStampToken with signerInfo (referring to the TSU certificate)
+TimeStampToken with signerIdentifier (referring to the TSU certificate)
 and serialNumber (referring to the time stamp serial number),
 which have been received in the Promise structure of the proof request extension.
 
