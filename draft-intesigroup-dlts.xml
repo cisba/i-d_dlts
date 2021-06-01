@@ -127,7 +127,7 @@ definitions:</t>
     <t hangText="Trusted Third Party"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
     <t hangText="Time-Stamping Authority"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
     <t hangText="Time-Stamp Token"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3161</xref></t>
-    <t hangText="Time-Stamping Unit"><vspace blankLines="0"/>As defined in <xref target="RFC3161">RFC 3628</xref></t>
+    <t hangText="Time-Stamping Unit"><vspace blankLines="0"/>As defined in <xref target="RFC3628">RFC 3628</xref></t>
     <t hangText="Distributed Ledger"><vspace blankLines="0"/>Various definitions of blockchain and distributed ledger technology exist,
 and some of these stress different technical features.
 Given the nature and scope of this document and the lack of definitional

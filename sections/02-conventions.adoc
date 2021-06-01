@@ -25,7 +25,7 @@ Time-Stamp Token::
 As defined in <<RFC3161,RFC 3161>>
 
 Time-Stamping Unit::
-As defined in <<RFC3161,RFC 3628>>
+As defined in <<RFC3628,RFC 3628>>
 
 Distributed Ledger::
 Various definitions of blockchain and distributed ledger technology exist,

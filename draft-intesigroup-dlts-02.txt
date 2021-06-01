@@ -180,7 +180,7 @@ Internet-Draft                    dlts                         June 2021
       As defined in RFC 3161 [RFC3161]
 
    Time-Stamping Unit
-      As defined in RFC 3628 [RFC3161]
+      As defined in RFC 3628 [RFC3628]
 
    Distributed Ledger
       Various definitions of blockchain and distributed ledger
