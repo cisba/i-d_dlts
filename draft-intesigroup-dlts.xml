@@ -302,7 +302,7 @@ and Section 4.2 of <xref target="RFC5280">RFC 5280</xref>.</t>
 <t>The ASN.1 structure of the proof request extension is as follows:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-dlts-promises OBJECT IDENTIFIER
+id-ce-dltsPromises OBJECT IDENTIFIER
 ]]></artwork>
 </figure>
 <figure>
@@ -313,7 +313,7 @@ Promises            SET OF Promise
 <t>The ASN.1 structure of the proof response extension is as follows:</t>
 <figure>
   <artwork><![CDATA[
-id-ce-dlts-proofs OBJECT IDENTIFIER
+id-ce-dltsProofs OBJECT IDENTIFIER
 ]]></artwork>
 </figure>
 <figure>

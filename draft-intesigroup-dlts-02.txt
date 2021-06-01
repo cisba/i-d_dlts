@@ -452,13 +452,13 @@ Internet-Draft                    dlts                         June 2021
 
    The ASN.1 structure of the proof request extension is as follows:
 
-   id-ce-dlts-promises OBJECT IDENTIFIER
+   id-ce-dltsPromises OBJECT IDENTIFIER
 
    Promises            SET OF Promise
 
    The ASN.1 structure of the proof response extension is as follows:
 
-   id-ce-dlts-proofs OBJECT IDENTIFIER
+   id-ce-dltsProofs OBJECT IDENTIFIER
 
    Proofs               SET OF Proof
 
