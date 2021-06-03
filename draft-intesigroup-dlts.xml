@@ -280,6 +280,8 @@ Proofs              SET OF Proof
 </figure>
 <t>All the proofs and promises that have been returned MUST refer to the same parent
 TimeStampToken issued at the time of the request.</t>
+<t>Note that a TSA can return a set of proofs and promises for the same input value
+as it can use calendar servers operating on different Distributed Ledgers.</t>
 <section anchor="_response_status" title="Response Status"><t>The response status code in the TimeStampResp MUST be compliant with
 the specifications described in Section 2.4.2 of <xref target="RFC3161"/>
 and Section 5.2.3 of <xref target="RFC4210"/>.</t>

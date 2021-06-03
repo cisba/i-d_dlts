@@ -69,7 +69,7 @@ Table of Contents
        5.1.1.  Response Status . . . . . . . . . . . . . . . . . . .   8
      5.2.  DL Time-Stamp Extensions  . . . . . . . . . . . . . . . .   8
        5.2.1.  Response Status . . . . . . . . . . . . . . . . . . .   9
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  10
    7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
    8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
      8.1.  Normative References  . . . . . . . . . . . . . . . . . .  10
@@ -414,6 +414,10 @@ Internet-Draft                    dlts                         June 2021
    All the proofs and promises that have been returned MUST refer to the
    same parent TimeStampToken issued at the time of the request.
 
+   Note that a TSA can return a set of proofs and promises for the same
+   input value as it can use calendar servers operating on different
+   Distributed Ledgers.
+
 5.1.1.  Response Status
 
    The response status code in the TimeStampResp MUST be compliant with
@@ -437,10 +441,6 @@ Internet-Draft                    dlts                         June 2021
    of proofs in the TST response, using a non critical extension of the
    TSTInfo sequence.
 
-   To grant backward compatibility with any currently available
-   software, request and response non critical extensions MUST be
-   compliant with the specifications described in Section 2.4 of
-   [RFC3161] and Section 4.2 of [RFC5280].
 
 
 
@@ -449,6 +449,11 @@ Cisbani, et al.          Expires 5 December 2021                [Page 8]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   To grant backward compatibility with any currently available
+   software, request and response non critical extensions MUST be
+   compliant with the specifications described in Section 2.4 of
+   [RFC3161] and Section 4.2 of [RFC5280].
 
    Conforming TSAs MUST mark these extensions as non-critical.
 
@@ -491,11 +496,6 @@ Internet-Draft                    dlts                         June 2021
       are pending, the status field SHOULD contain the value three
       (waiting).
 
-6.  Security Considerations
-
-   Each security consideration described in Section 4 of [RFC3161] SHALL
-   be evaluated designing TSA services that include DL Time-Stamp
-   extensions.
 
 
 
@@ -505,6 +505,12 @@ Cisbani, et al.          Expires 5 December 2021                [Page 9]
 
 Internet-Draft                    dlts                         June 2021
 
+
+6.  Security Considerations
+
+   Each security consideration described in Section 4 of [RFC3161] SHALL
+   be evaluated designing TSA services that include DL Time-Stamp
+   extensions.
 
    When a TSA executes a request to a Calendar Server the use of a nonce
    is RECOMMENDED because using a nonce always allows the client to
@@ -549,18 +555,16 @@ Internet-Draft                    dlts                         June 2021
               (CRL) Profile", RFC 5280, DOI 10.17487/RFC5280, May 2008,
               <https://www.rfc-editor.org/info/rfc5280>.
 
-   [RFC5652]  Housley, R., "Cryptographic Message Syntax (CMS)", STD 70,
-              RFC 5652, DOI 10.17487/RFC5652, September 2009,
-              <https://www.rfc-editor.org/info/rfc5652>.
-
-
-
 
 
 Cisbani, et al.          Expires 5 December 2021               [Page 10]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   [RFC5652]  Housley, R., "Cryptographic Message Syntax (CMS)", STD 70,
+              RFC 5652, DOI 10.17487/RFC5652, September 2009,
+              <https://www.rfc-editor.org/info/rfc5652>.
 
    [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
@@ -606,10 +610,6 @@ Internet-Draft                    dlts                         June 2021
               etsi_ts/101800_101899/101861/01.04.01_60/
               ts_101861v010401p.pdf>.
 
-   [ETSI.TS.102.778-4]
-              European Telecommunications Standards Institute,
-              "Electronic Signatures and Infrastructures (ESI); PDF
-              Advanced Electronic Signature Profiles; Part 4: PAdES Long
 
 
 
@@ -618,6 +618,10 @@ Cisbani, et al.          Expires 5 December 2021               [Page 11]
 Internet-Draft                    dlts                         June 2021
 
 
+   [ETSI.TS.102.778-4]
+              European Telecommunications Standards Institute,
+              "Electronic Signatures and Infrastructures (ESI); PDF
+              Advanced Electronic Signature Profiles; Part 4: PAdES Long
               Term - PAdES-LTV Profile", December 2009,
               <https://www.etsi.org/deliver/
               etsi_ts/102700_102799/10277804/01.01.02_60/
@@ -659,10 +663,6 @@ Internet-Draft                    dlts                         June 2021
               Technology Overview", October 2018,
               <https://doi.org/10.6028/NIST.IR.8202>.
 
-   [OpenTimestamps]
-              Todd, P., "OpenTimestamps: Scalable, Trust-Minimized,
-              Distributed Timestamping with Bitcoin", 15 September 2016,
-              <https://petertodd.org/2016/opentimestamps-announcement>.
 
 
 
@@ -673,6 +673,11 @@ Cisbani, et al.          Expires 5 December 2021               [Page 12]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   [OpenTimestamps]
+              Todd, P., "OpenTimestamps: Scalable, Trust-Minimized,
+              Distributed Timestamping with Bitcoin", 15 September 2016,
+              <https://petertodd.org/2016/opentimestamps-announcement>.
 
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
@@ -717,11 +722,6 @@ Authors' Addresses
    Phone: +39 026 760 641
    Email: gdamiano@intesigroup.com
    URI:   https://www.intesigroup.com
-
-
-
-
-
 
 
 

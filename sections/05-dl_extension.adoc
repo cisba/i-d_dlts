@@ -79,6 +79,8 @@ The ASN.1 structure of attributes including a set of proofs is as follows:
 All the proofs and promises that have been returned MUST refer to the same parent
 TimeStampToken issued at the time of the request.
 
+Note that a TSA can return a set of proofs and promises for the same input value
+as it can use calendar servers operating on different Distributed Ledgers.
 
 ==== Response Status
 
