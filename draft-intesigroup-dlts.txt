@@ -5,8 +5,8 @@
 Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
 Intended status: Standards Track                              G. Damiano
-Expires: 4 December 2021                                    Intesi Group
-                                                             2 June 2021
+Expires: 5 December 2021                                    Intesi Group
+                                                             3 June 2021
 
 
                      Distributed Ledger Time-Stamp
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 December 2021.
+   This Internet-Draft will expire on 5 December 2021.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 1]
+Cisbani, et al.          Expires 5 December 2021                [Page 1]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 2]
+Cisbani, et al.          Expires 5 December 2021                [Page 2]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -165,7 +165,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 3]
+Cisbani, et al.          Expires 5 December 2021                [Page 3]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -221,7 +221,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 4]
+Cisbani, et al.          Expires 5 December 2021                [Page 4]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -277,7 +277,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 5]
+Cisbani, et al.          Expires 5 December 2021                [Page 5]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -333,7 +333,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 6]
+Cisbani, et al.          Expires 5 December 2021                [Page 6]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -389,7 +389,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 7]
+Cisbani, et al.          Expires 5 December 2021                [Page 7]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -421,8 +421,9 @@ Internet-Draft                    dlts                         June 2021
    Section 5.2.3 of [RFC4210].
 
    According to the TimeStamp policy, when the response contains only a
-   subset of the expected proofs, the status field SHOULD contain either
-   the value one (grantedWithMods) or the value two (rejection).
+   subset of the expected proofs and promises, the status field SHOULD
+   contain either the value one (grantedWithMods) or the value two
+   (rejection).
 
 5.2.  DL Time-Stamp Extensions
 
@@ -441,14 +442,15 @@ Internet-Draft                    dlts                         June 2021
    compliant with the specifications described in Section 2.4 of
    [RFC3161] and Section 4.2 of [RFC5280].
 
-   Conforming TSAs MUST mark these extensions as non-critical.
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 8]
+Cisbani, et al.          Expires 5 December 2021                [Page 8]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   Conforming TSAs MUST mark these extensions as non-critical.
 
    The ASN.1 structure of the proof request extension is as follows:
 
@@ -495,16 +497,18 @@ Internet-Draft                    dlts                         June 2021
    be evaluated designing TSA services that include DL Time-Stamp
    extensions.
 
-   When a TSA executes a request to a Calendar Server the use of a nonce
-   is RECOMMENDED because using a nonce always allows the client to
-   detect replays.
 
 
 
-Cisbani, et al.          Expires 4 December 2021                [Page 9]
+
+Cisbani, et al.          Expires 5 December 2021                [Page 9]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   When a TSA executes a request to a Calendar Server the use of a nonce
+   is RECOMMENDED because using a nonce always allows the client to
+   detect replays.
 
    Safety and reliability of the DL proofs depends on the robustness of
    the hash algorithms and on the stability of the DL, i.e. how
@@ -549,18 +553,19 @@ Internet-Draft                    dlts                         June 2021
               RFC 5652, DOI 10.17487/RFC5652, September 2009,
               <https://www.rfc-editor.org/info/rfc5652>.
 
+
+
+
+
+Cisbani, et al.          Expires 5 December 2021               [Page 10]
+
+Internet-Draft                    dlts                         June 2021
+
+
    [RFC6838]  Freed, N., Klensin, J., and T. Hansen, "Media Type
               Specifications and Registration Procedures", BCP 13,
               RFC 6838, DOI 10.17487/RFC6838, January 2013,
               <https://www.rfc-editor.org/info/rfc6838>.
-
-
-
-
-Cisbani, et al.          Expires 4 December 2021               [Page 10]
-
-Internet-Draft                    dlts                         June 2021
-
 
    [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
@@ -605,18 +610,18 @@ Internet-Draft                    dlts                         June 2021
               European Telecommunications Standards Institute,
               "Electronic Signatures and Infrastructures (ESI); PDF
               Advanced Electronic Signature Profiles; Part 4: PAdES Long
+
+
+
+Cisbani, et al.          Expires 5 December 2021               [Page 11]
+
+Internet-Draft                    dlts                         June 2021
+
+
               Term - PAdES-LTV Profile", December 2009,
               <https://www.etsi.org/deliver/
               etsi_ts/102700_102799/10277804/01.01.02_60/
               ts_10277804v010102p.pdf>.
-
-
-
-
-Cisbani, et al.          Expires 4 December 2021               [Page 11]
-
-Internet-Draft                    dlts                         June 2021
-
 
    [HaberStornetta]
               Haber, S. and W. S. Stornetta, "How to Time-Stamp a
@@ -659,20 +664,19 @@ Internet-Draft                    dlts                         June 2021
               Distributed Timestamping with Bitcoin", 15 September 2016,
               <https://petertodd.org/2016/opentimestamps-announcement>.
 
-   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
-              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
-              <https://www.rfc-editor.org/info/rfc6962>.
 
 
 
 
 
-
-
-Cisbani, et al.          Expires 4 December 2021               [Page 12]
+Cisbani, et al.          Expires 5 December 2021               [Page 12]
 
 Internet-Draft                    dlts                         June 2021
 
+
+   [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
+              Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
+              <https://www.rfc-editor.org/info/rfc6962>.
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
               Ledger Technology: beyond block chain", January 2016, <htt
@@ -721,8 +725,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-Cisbani, et al.          Expires 4 December 2021               [Page 13]
+Cisbani, et al.          Expires 5 December 2021               [Page 13]

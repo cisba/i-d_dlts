@@ -63,7 +63,7 @@
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
-  <date day="2" month="June" year="2021"/>
+  <date day="3" month="June" year="2021"/>
   <area>Internet</area>
 
 <abstract><t>This document defines a standard to extend Time Stamp Tokens
@@ -284,8 +284,8 @@ TimeStampToken issued at the time of the request.</t>
 the specifications described in Section 2.4.2 of <xref target="RFC3161"/>
 and Section 5.2.3 of <xref target="RFC4210"/>.</t>
 <t>According to the TimeStamp policy, when the response contains only a subset
-of the expected proofs, the status field SHOULD contain either the value one
-(grantedWithMods) or the value two (rejection).</t></section></section>
+of the expected proofs and promises, the status field SHOULD contain either
+the value one (grantedWithMods) or the value two (rejection).</t></section></section>
 <section anchor="_dl_time_stamp_extensions" title="DL Time-Stamp Extensions"><t>Upgrade from a set of promises to a set of proofs MAY be done
 requesting a new TST including inside a non critical extension
 the set of promises previously obtained in an unsigned attribute.</t>
