@@ -343,7 +343,53 @@ the status field SHOULD contain the value two (rejection)</t>
     <t>when all the received promises recognized by the Calendar Server are pending,
 the status field SHOULD contain the value three (waiting).</t>
   </list>
-</t></section></section></section>
+</t></section></section>
+<section anchor="_use_case" title="Use case"><t>In order to clarify the use of the objects thus defined, the case of
+a subscription made by two actors at different times, using distinct
+time stamps, is illustrated below.</t>
+<section anchor="_promises" title="Promises"><t>Since each signer applies a time stamp to his signature, the structure
+will be presented according to the following simplified scheme, in which
+each promise is inserted as an unsigned attribute of the time stamp
+to which it refers.</t>
+<figure anchor="id" title="Figure 1">
+  <artwork align="center" type="text/plain" alt="alt_text"><![CDATA[
+signature-1
+    +--- timestampToken-1
+                |--- signerIdentifier
+                |--- serialNumber-1
+                +--- id-ce-dltsPromises
+                        |--- Promise
+                        |--- version
+                        |--- calendarFormat
+                        |--- dlPromise
+                        |--- signerIdentifier
+                        +--- serialNumber-1
+signature-2
+    +--- timestampToken-2
+                |--- signerIdentifier
+                |--- serialNumber-2
+                +--- id-ce-dltsPromises
+                        |--- Promise
+                        |--- version
+                        |--- calendarFormat
+                        |--- dlPromise
+                        |--- signerIdentifier
+                        +--- serialNumber-2
+]]></artwork>
+</figure>
+<t>Although replicating the signerIdentifier and serialNumber information
+may seem redundant in the case of a single timestamp, it can never be
+ruled out that a second signature with a new timestamp will be added later.</t>
+<t>When you also want to obtain the proof of attestation on the DL, the
+application will be able to collect the two promises and include them
+as extensions in a new timestamp request. The result would have the
+following structure:</t>
+<t>From this example it is evident that the signerIdentifier and serialNumber pair
+is necessary to uniquely identify the TimestampToken to which each Proof
+obtained refers.</t>
+<t>It is up to the application to choose whether the new timestamp, containing
+the evidence, will be saved within the same document, containing the promises,
+or stored separately.</t></section></section></section>
 <section anchor="security" title="Security Considerations"><t>Each security consideration described in Section 4 of <xref target="RFC3161"/> SHALL be evaluated designing
 TSA services that include DL Time-Stamp extensions.</t>
 <t>When a TSA executes a request to a Calendar Server the use of a nonce is

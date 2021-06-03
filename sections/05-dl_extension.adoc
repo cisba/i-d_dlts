@@ -148,3 +148,74 @@ Compliant servers SHOULD also use the status field as follows:
 
 * when all the received promises recognized by the Calendar Server are pending,
   the status field SHOULD contain the value three (waiting).
+
+=== Use case
+
+In order to clarify the use of the objects thus defined, the case of
+a subscription made by two actors at different times, using distinct
+time stamps, is illustrated below.
+
+==== Promises
+
+Since each signer applies a time stamp to his signature, the structure
+will be presented according to the following simplified scheme, in which
+each promise is inserted as an unsigned attribute of the time stamp
+to which it refers.
+
+[[id]]
+.Figure 1
+====
+
+[[subid1]]
+[align=center,alt=alt_text,type=text/plain]
+....
+signature-1
+    +--- timestampToken-1
+                |--- signerIdentifier
+                |--- serialNumber-1
+                +--- id-ce-dltsPromises
+                        |--- Promise
+                        |--- version
+                        |--- calendarFormat
+                        |--- dlPromise
+                        |--- signerIdentifier
+                        +--- serialNumber-1
+signature-2
+    +--- timestampToken-2
+                |--- signerIdentifier
+                |--- serialNumber-2
+                +--- id-ce-dltsPromises
+                        |--- Promise
+                        |--- version
+                        |--- calendarFormat
+                        |--- dlPromise
+                        |--- signerIdentifier
+                        +--- serialNumber-2
+....
+
+====
+
+// [[subid2]]
+// .Figure1.jpg
+// [align=center,alt=alt_text]
+// image::filename.jpg[alt_text]
+
+
+Although replicating the signerIdentifier and serialNumber information
+may seem redundant in the case of a single timestamp, it can never be
+ruled out that a second signature with a new timestamp will be added later.
+
+When you also want to obtain the proof of attestation on the DL, the
+application will be able to collect the two promises and include them
+as extensions in a new timestamp request. The result would have the
+following structure:
+
+// Figura 2
+
+From this example it is evident that the signerIdentifier and serialNumber pair
+is necessary to uniquely identify the TimestampToken to which each Proof
+obtained refers.
+
+It is up to the application to choose whether the new timestamp, containing
+the evidence, will be saved within the same document, containing the promises,
+or stored separately.
