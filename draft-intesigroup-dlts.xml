@@ -63,7 +63,7 @@
       <uri>https://www.intesigroup.com</uri>
     </address>
   </author>
-  <date day="3" month="June" year="2021"/>
+  <date day="4" month="June" year="2021"/>
   <area>Internet</area>
 
 <abstract><t>This document defines a standard to extend Time Stamp Tokens
@@ -351,30 +351,30 @@ time stamps, is illustrated below.</t>
 will be presented according to the following simplified scheme, in which
 each promise is inserted as an unsigned attribute of the time stamp
 to which it refers.</t>
-<figure anchor="id" title="Figure 1">
+<figure anchor="use-case-promises" title="Figure 1">
   <artwork align="center" type="text/plain" alt="alt_text"><![CDATA[
 signature-1
-    +--- timestampToken-1
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-1
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-1
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
 signature-2
-    +--- timestampToken-2
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-2
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-2
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
 ]]></artwork>
 </figure>
 <t>Although replicating the signerIdentifier and serialNumber information
@@ -384,6 +384,26 @@ ruled out that a second signature with a new timestamp will be added later.</t>
 application will be able to collect the two promises and include them
 as extensions in a new timestamp request. The result would have the
 following structure:</t>
+<figure anchor="use-case-proofs" title="Figure 2">
+  <artwork align="center" type="text/plain" alt="alt_text"><![CDATA[
+    +--- timestampToken
+                |--- signerIdentifier
+                |--- serialNumber-3
+                +--- id-ce-dltsPromises
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
+]]></artwork>
+</figure>
 <t>From this example it is evident that the signerIdentifier and serialNumber pair
 is necessary to uniquely identify the TimestampToken to which each Proof
 obtained refers.</t>

@@ -34,7 +34,7 @@ backward compatible with currently available software.
     setuptools 49.2.1
     six 1.16.0
 -->
-<link href="/tmp/draft-intesigroup-dlts.html20210603-25483-1658plg" rel="alternate" type="application/rfc+xml">
+<link href="/tmp/draft-intesigroup-dlts.html20210604-22638-od5erb" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -1184,7 +1184,7 @@ li > p:last-of-type {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Cisbani, et al.</td>
-<td class="center">Expires 5 December 2021</td>
+<td class="center">Expires 6 December 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1197,12 +1197,12 @@ li > p:last-of-type {
 <dd class="internet-draft">draft-intesigroup-dlts-02</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-06-03" class="published">3 June 2021</time>
+<time datetime="2021-06-04" class="published">4 June 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-12-05">5 December 2021</time></dd>
+<dd class="expires"><time datetime="2021-12-06">6 December 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1247,7 +1247,7 @@ backward compatible with currently available software.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 December 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 6 December 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1746,32 +1746,32 @@ time stamps, is illustrated below.<a href="#section-5.3-1" class="pilcrow">¶</a
 will be presented according to the following simplified scheme, in which
 each promise is inserted as an unsigned attribute of the time stamp
 to which it refers.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
-<span id="name-figure-1"></span><div id="id">
+<span id="name-figure-1"></span><div id="use-case-promises">
 <figure id="figure-1">
             <div class="artwork art-text alignCenter art-text/plain" id="section-5.3.1-2.1">
 <pre>
 signature-1
-    +--- timestampToken-1
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-1
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-1
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
 signature-2
-    +--- timestampToken-2
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-2
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-2
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
 </pre>
 </div>
 <figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
@@ -1785,12 +1785,38 @@ ruled out that a second signature with a new timestamp will be added later.<a hr
 application will be able to collect the two promises and include them
 as extensions in a new timestamp request. The result would have the
 following structure:<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.3.1-5">From this example it is evident that the signerIdentifier and serialNumber pair
+<span id="name-figure-2"></span><div id="use-case-proofs">
+<figure id="figure-2">
+            <div class="artwork art-text alignCenter art-text/plain" id="section-5.3.1-5.1">
+<pre>
+    +--- timestampToken
+                |--- signerIdentifier
+                |--- serialNumber-3
+                +--- id-ce-dltsPromises
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
+</pre>
+</div>
+<figcaption><a href="#figure-2" class="selfRef">Figure 2</a>:
+<a href="#name-figure-2" class="selfRef">Figure 2</a>
+            </figcaption></figure>
+</div>
+<p id="section-5.3.1-6">From this example it is evident that the signerIdentifier and serialNumber pair
 is necessary to uniquely identify the TimestampToken to which each Proof
-obtained refers.<a href="#section-5.3.1-5" class="pilcrow">¶</a></p>
-<p id="section-5.3.1-6">It is up to the application to choose whether the new timestamp, containing
+obtained refers.<a href="#section-5.3.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.3.1-7">It is up to the application to choose whether the new timestamp, containing
 the evidence, will be saved within the same document, containing the promises,
-or stored separately.<a href="#section-5.3.1-6" class="pilcrow">¶</a></p>
+or stored separately.<a href="#section-5.3.1-7" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

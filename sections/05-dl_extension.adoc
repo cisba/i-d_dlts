@@ -162,44 +162,37 @@ will be presented according to the following simplified scheme, in which
 each promise is inserted as an unsigned attribute of the time stamp
 to which it refers.
 
-[[id]]
+[[use-case-promises]]
 .Figure 1
 ====
 
-[[subid1]]
 [align=center,alt=alt_text,type=text/plain]
 ....
 signature-1
-    +--- timestampToken-1
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-1
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-1
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
 signature-2
-    +--- timestampToken-2
+    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-2
                 +--- id-ce-dltsPromises
-                        |--- Promise
-                        |--- version
-                        |--- calendarFormat
-                        |--- dlPromise
-                        |--- signerIdentifier
-                        +--- serialNumber-2
+                        +--- Promise
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
 ....
 
 ====
-
-// [[subid2]]
-// .Figure1.jpg
-// [align=center,alt=alt_text]
-// image::filename.jpg[alt_text]
-
 
 Although replicating the signerIdentifier and serialNumber information
 may seem redundant in the case of a single timestamp, it can never be
@@ -210,7 +203,31 @@ application will be able to collect the two promises and include them
 as extensions in a new timestamp request. The result would have the
 following structure:
 
-// Figura 2
+[[use-case-proofs]]
+.Figure 2
+====
+
+[align=center,alt=alt_text,type=text/plain]
+....
+    +--- timestampToken
+                |--- signerIdentifier
+                |--- serialNumber-3
+                +--- id-ce-dltsPromises
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-1
+                        +--- Proof
+                                |--- version
+                                |--- calendarFormat
+                                |--- dlPromise
+                                |--- signerIdentifier
+                                +--- serialNumber-2
+....
+
+====
 
 From this example it is evident that the signerIdentifier and serialNumber pair
 is necessary to uniquely identify the TimestampToken to which each Proof
