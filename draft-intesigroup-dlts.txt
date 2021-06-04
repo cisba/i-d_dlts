@@ -4,8 +4,9 @@
 
 Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
-Intended status: Standards Track                              G. Damiano
-Expires: 6 December 2021                                    Intesi Group
+Intended status: Standards Track                            Intesi Group
+Expires: 6 December 2021                                      G. Damiano
+                                                                 Entrust
                                                              4 June 2021
 
 
@@ -42,6 +43,21 @@ Copyright Notice
    Copyright (c) 2021 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 1]
+
+Internet-Draft                    dlts                         June 2021
+
+
    This document is subject to BCP 78 and the IETF Trust's Legal
    Provisions Relating to IETF Documents (https://trustee.ietf.org/
    license-info) in effect on the date of publication of this document.
@@ -51,32 +67,25 @@ Copyright Notice
    as described in Section 4.e of the Trust Legal Provisions and are
    provided without warranty as described in the Simplified BSD License.
 
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 1]
-
-Internet-Draft                    dlts                         June 2021
-
-
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-   2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   3
+   2.  Terms and Definitions . . . . . . . . . . . . . . . . . . . .   4
    3.  Symbols And Abbreviations . . . . . . . . . . . . . . . . . .   5
-   4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   5
-   5.  DL Time-Stamp Objects . . . . . . . . . . . . . . . . . . . .   6
-     5.1.  DL Time-Stamp Attributes  . . . . . . . . . . . . . . . .   7
+   4.  DL Attestation  . . . . . . . . . . . . . . . . . . . . . . .   6
+   5.  DL Time-Stamp Objects . . . . . . . . . . . . . . . . . . . .   7
+     5.1.  DL Time-Stamp Attributes  . . . . . . . . . . . . . . . .   8
        5.1.1.  Response Status . . . . . . . . . . . . . . . . . . .   8
-     5.2.  DL Time-Stamp Extensions  . . . . . . . . . . . . . . . .   8
-       5.2.1.  Response Status . . . . . . . . . . . . . . . . . . .   9
+     5.2.  DL Time-Stamp Extensions  . . . . . . . . . . . . . . . .   9
+       5.2.1.  Response Status . . . . . . . . . . . . . . . . . . .  10
      5.3.  Use case  . . . . . . . . . . . . . . . . . . . . . . . .  10
        5.3.1.  Promises  . . . . . . . . . . . . . . . . . . . . . .  10
-   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  11
-   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  12
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  14
+   6.  Security Considerations . . . . . . . . . . . . . . . . . . .  12
+   7.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  12
+   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  12
+     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  12
+     8.2.  Informative References  . . . . . . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  15
 
 1.  Introduction
 
@@ -91,6 +100,20 @@ Table of Contents
 
    *  grant record integrity
 
+
+
+
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 2]
+
+Internet-Draft                    dlts                         June 2021
+
+
    A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA)
    compliant with RFC 3161 [RFC3161] can be based on an accurate time
    source linked to Coordinated Universal Time, and can be very precise
@@ -103,16 +126,6 @@ Table of Contents
    In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by
    Masashi Une [IMES], PKI TSA was evaluated as one of the most
    desirables in term of security against alteration of a time stamp.
-
-
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 2]
-
-Internet-Draft                    dlts                         June 2021
-
 
    The integrity of the timestamping process that is inevitably bound to
    the integrity of the TSA gave rise to other proposals like ANSI X9.95
@@ -149,6 +162,14 @@ Internet-Draft                    dlts                         June 2021
    Furthermore, the bigger the network the less precise the DLA, because
    distributed nodes need time to reach consensus.
 
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 3]
+
+Internet-Draft                    dlts                         June 2021
+
+
    Since a DLA turns out to be a complementary element providing long-
    term validity to TST - the aim of this specification is to allow an
    extension of the Time-Stamp Token for Distributed Ledger Attestations
@@ -161,14 +182,6 @@ Internet-Draft                    dlts                         June 2021
    RECOMMENDED*", "*MAY*", and "*OPTIONAL*" in this document are to be
    interpreted as described in BCP 14 [RFC2119] [RFC8174] when, and only
    when, they appear in all capitals, as shown here.
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 3]
-
-Internet-Draft                    dlts                         June 2021
-
 
    This document also refers to the following terms and definitions:
 
@@ -205,6 +218,14 @@ Internet-Draft                    dlts                         June 2021
       also be updated by one, some or all of the participants, according
       to rules agreed by the network".
 
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 4]
+
+Internet-Draft                    dlts                         June 2021
+
+
    Merkle Tree
       As defined in [Merkle], [CrosbyWallach] and Section 2.1 of
       [RFC6962]
@@ -215,16 +236,6 @@ Internet-Draft                    dlts                         June 2021
       list periodically combined into a single Merkle Tree.  Then the
       digest at the root of that tree is timestamped on a Distributed
       Ledger.
-
-
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 4]
-
-Internet-Draft                    dlts                         June 2021
-
 
    Distributed Ledger Attestation
       A Distributed Ledger (Timestamping) Attestation is a proof or a
@@ -261,6 +272,16 @@ Internet-Draft                    dlts                         June 2021
    DLA
       Distributed Ledger Attestation
 
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 5]
+
+Internet-Draft                    dlts                         June 2021
+
+
 4.  DL Attestation
 
    A Digital Ledger can be seen as an untrusted logger - serving a
@@ -274,13 +295,6 @@ Internet-Draft                    dlts                         June 2021
    chain (aka blockchain) of small blocks of data.  Consequently, the
    entire chain can be shared and maintained by a large number of nodes,
    becoming a distributed system.
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 5]
-
-Internet-Draft                    dlts                         June 2021
-
 
    In a permissioned DL the number of nodes can be small enough to
    permit a quick synchronization and reach consensus concerning the
@@ -317,6 +331,13 @@ Internet-Draft                    dlts                         June 2021
    and data structure.  For this specification the DLA is considered as
    pure data.
 
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 6]
+
+Internet-Draft                    dlts                         June 2021
+
+
 5.  DL Time-Stamp Objects
 
    The ASN.1 structure of Promise type is as follows:
@@ -329,14 +350,6 @@ Internet-Draft                    dlts                         June 2021
        serialNumber     INTEGER }
 
    DLPromise ::= OCTET STRING
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 6]
-
-Internet-Draft                    dlts                         June 2021
-
 
    The ASN.1 structure of Proof type is as follows:
 
@@ -372,6 +385,15 @@ Internet-Draft                    dlts                         June 2021
    *  serialNumber is an integer assigned by the TSA to each
       TimeStampToken as described in Section 2.4.2 of [RFC3161]
 
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 7]
+
+Internet-Draft                    dlts                         June 2021
+
+
 5.1.  DL Time-Stamp Attributes
 
    A set of proofs or a set of promises, generated by a Calendar Server,
@@ -386,13 +408,6 @@ Internet-Draft                    dlts                         June 2021
    unsigned attributes; they MUST NOT be signed attributes,
    authenticated attributes, unauthenticated attributes, or unprotected
    attributes.
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 7]
-
-Internet-Draft                    dlts                         June 2021
-
 
    The new objects MUST have the following OIDs where id-ce identifies
    the root of standard extensions as described in [RFC5280].
@@ -424,6 +439,17 @@ Internet-Draft                    dlts                         June 2021
    the specifications described in Section 2.4.2 of [RFC3161] and
    Section 5.2.3 of [RFC4210].
 
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 8]
+
+Internet-Draft                    dlts                         June 2021
+
+
    According to the TimeStamp policy, when the response contains only a
    subset of the expected proofs and promises, the status field SHOULD
    contain either the value one (grantedWithMods) or the value two
@@ -440,15 +466,6 @@ Internet-Draft                    dlts                         June 2021
    get the corresponding proof for each of them, and MAY include the set
    of proofs in the TST response, using a non critical extension of the
    TSTInfo sequence.
-
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 8]
-
-Internet-Draft                    dlts                         June 2021
-
 
    To grant backward compatibility with any currently available
    software, request and response non critical extensions MUST be
@@ -477,6 +494,18 @@ Internet-Draft                    dlts                         June 2021
    been received in the Promise structure of the proof request
    extension.
 
+
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021                [Page 9]
+
+Internet-Draft                    dlts                         June 2021
+
+
 5.2.1.  Response Status
 
    The response status code in the TimeStampResp MUST be compliant with
@@ -496,16 +525,6 @@ Internet-Draft                    dlts                         June 2021
       are pending, the status field SHOULD contain the value three
       (waiting).
 
-
-
-
-
-
-Cisbani, et al.          Expires 6 December 2021                [Page 9]
-
-Internet-Draft                    dlts                         June 2021
-
-
 5.3.  Use case
 
    In order to clarify the use of the objects thus defined, the case of
@@ -518,6 +537,30 @@ Internet-Draft                    dlts                         June 2021
    structure will be presented according to the following simplified
    scheme, in which each promise is inserted as an unsigned attribute of
    the time stamp to which it refers.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021               [Page 10]
+
+Internet-Draft                    dlts                         June 2021
+
 
            signature-1
                +--- timestampToken
@@ -557,7 +600,20 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 10]
+
+
+
+
+
+
+
+
+
+
+
+
+
+Cisbani, et al.          Expires 6 December 2021               [Page 11]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -613,7 +669,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 11]
+Cisbani, et al.          Expires 6 December 2021               [Page 12]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -669,7 +725,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 12]
+Cisbani, et al.          Expires 6 December 2021               [Page 13]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -725,7 +781,7 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 13]
+Cisbani, et al.          Expires 6 December 2021               [Page 14]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -781,7 +837,7 @@ Authors' Addresses
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 14]
+Cisbani, et al.          Expires 6 December 2021               [Page 15]
 
 Internet-Draft                    dlts                         June 2021
 
@@ -802,16 +858,14 @@ Internet-Draft                    dlts                         June 2021
 
 
    Giuseppe Damiano
-   Intesi Group
-   Via Torino 48
-   20123 Milano
-   Italy
+   Entrust
+   One Station Square
+   Cambridge
+   CB1 2GA
+   United Kingdom
 
-   Phone: +39 026 760 641
-   Email: gdamiano@intesigroup.com
-   URI:   https://www.intesigroup.com
-
-
+   Email: giuseppe.damiano@entrust.com
+   URI:   https://www.entrust.com
 
 
 
@@ -837,4 +891,6 @@ Internet-Draft                    dlts                         June 2021
 
 
 
-Cisbani, et al.          Expires 6 December 2021               [Page 15]
+
+
+Cisbani, et al.          Expires 6 December 2021               [Page 16]

@@ -50,17 +50,16 @@
     </address>
   </author>
   <author fullname="Giuseppe Damiano" surname="Damiano" initials="G.">
-    <organization>Intesi Group</organization>
+    <organization>Entrust</organization>
     <address>
       <postal>
-        <street>Via Torino 48</street>
-        <city>Milano</city>
-        <code>20123</code>
-        <country>Italy</country>
+        <street>One Station Square</street>
+        <city>Cambridge</city>
+        <code>CB1 2GA</code>
+        <country>United Kingdom</country>
       </postal>
-      <phone>+39 026 760 641</phone>
-      <email>gdamiano@intesigroup.com</email>
-      <uri>https://www.intesigroup.com</uri>
+      <email>giuseppe.damiano@entrust.com</email>
+      <uri>https://www.entrust.com</uri>
     </address>
   </author>
   <date day="4" month="June" year="2021"/>
