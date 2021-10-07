@@ -234,7 +234,8 @@ The usage is as described in Section 1.3 of <xref target="RFC5652"/></t>
 It MUST be a registered application media type, in accordance with
 procedures laid out in <xref target="RFC6838"/> - for example, if you wanted
 to use the <xref target="OpenTimestamps"/> format, the calendarFormat value would be
-the string "application/vnd.opentimestamps.ots" (without quotes)</t>
+the string "application/vnd.opentimestamps.ots" (without quotes)
+that is the IANA registered Media Type <xref target="OTS"/></t>
     <t>dlProof and dlPromise are the proof and promise obtained from a Calendar Server
 using as input value the value of the signature field of the SignerInfo structure
 inside the digital signature of the TimeStampToken, as described in Section 5.3
@@ -625,6 +626,16 @@ Time stamping profile</title>
     <author fullname="Satoshi Nakamoto">
     </author>
     <date day="31" month="October" year="2008"/>
+  </front>
+</reference>
+  <reference anchor="OTS" target="https://www.iana.org/assignments/media-types/application/vnd.opentimestamps.ots">
+  <front>
+    <title>
+        IANA registered OpenTimestamps Media Type
+    </title>
+    <author fullname="Emanuele Cisbani">
+    </author>
+    <date day="24" month="June" year="2021"/>
   </front>
 </reference>
   <reference anchor="OpenTimestamps" target="https://petertodd.org/2016/opentimestamps-announcement">

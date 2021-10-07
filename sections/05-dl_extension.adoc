@@ -35,6 +35,7 @@ The fields of Promise and Proof type have the following meanings:
   procedures laid out in <<RFC6838>> - for example, if you wanted
   to use the <<OpenTimestamps>> format, the calendarFormat value would be
   the string "application/vnd.opentimestamps.ots" (without quotes)
+  that is the IANA registered Media Type <<OTS>>
 
 * dlProof and dlPromise are the proof and promise obtained from a Calendar Server
   using as input value the value of the signature field of the SignerInfo structure

@@ -1,0 +1,10 @@
+<reference anchor='OTS' target='https://www.iana.org/assignments/media-types/application/vnd.opentimestamps.ots'>
+  <front>
+    <title>
+        IANA registered OpenTimestamps Media Type
+    </title>
+    <author fullname="Emanuele Cisbani">
+    </author>
+    <date day='24' month='June' year='2021'></date>
+  </front>
+</reference>

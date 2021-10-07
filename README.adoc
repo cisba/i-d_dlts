@@ -9,4 +9,5 @@
 
 = Usage
 
+    [if venv is used] source <venv-path>/bin/activate
     make all

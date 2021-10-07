@@ -372,6 +372,7 @@ Internet-Draft                    dlts                         June 2021
       procedures laid out in [RFC6838] - for example, if you wanted to
       use the [OpenTimestamps] format, the calendarFormat value would be
       the string "application/vnd.opentimestamps.ots" (without quotes)
+      that is the IANA registered Media Type [OTS]
 
    *  dlProof and dlPromise are the proof and promise obtained from a
       Calendar Server using as input value the value of the signature
@@ -384,7 +385,6 @@ Internet-Draft                    dlts                         June 2021
 
    *  serialNumber is an integer assigned by the TSA to each
       TimeStampToken as described in Section 2.4.2 of [RFC3161]
-
 
 
 
@@ -815,6 +815,10 @@ Internet-Draft                    dlts                         June 2021
               Distributed Timestamping with Bitcoin", 15 September 2016,
               <https://petertodd.org/2016/opentimestamps-announcement>.
 
+   [OTS]      Cisbani, E., "IANA registered OpenTimestamps Media Type",
+              24 June 2021, <https://www.iana.org/assignments/media-
+              types/application/vnd.opentimestamps.ots>.
+
    [RFC6962]  Laurie, B., Langley, A., and E. Kasper, "Certificate
               Transparency", RFC 6962, DOI 10.17487/RFC6962, June 2013,
               <https://www.rfc-editor.org/info/rfc6962>.
@@ -830,10 +834,6 @@ Authors' Addresses
    Emanuele Cisbani
    Intesi Group
    Via Torino 48
-   20123 Milano
-   Italy
-
-   Phone: +39 026 760 641
 
 
 
@@ -842,6 +842,10 @@ Cisbani, et al.         Expires 11 December 2021               [Page 15]
 Internet-Draft                    dlts                         June 2021
 
 
+   20123 Milano
+   Italy
+
+   Phone: +39 026 760 641
    Email: ecisbani@intesigroup.com
    URI:   https://www.intesigroup.com
 
@@ -866,10 +870,6 @@ Internet-Draft                    dlts                         June 2021
 
    Email: giuseppe.damiano@entrust.com
    URI:   https://www.entrust.com
-
-
-
-
 
 
 
