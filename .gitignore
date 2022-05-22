@@ -2,3 +2,4 @@
 .tmp.xml
 deploy_key
 temp/
+.venv
