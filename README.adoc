@@ -1,13 +1,13 @@
 = Setup
 
-    pip install -r requirements.txt
-    rvm alias create default <your-ruby-version>
-    rvm gemset create metanorma
-    rvm --ruby-version use default@metanorma
+    [follow rvm.io instructions to install rvm]
+    rvm install ruby-2.6.3
     gem install bundler
     bundle install
+    pip install -r requirements.txt
 
 = Usage
 
     [if venv is used] source <venv-path>/bin/activate
     make all
+
