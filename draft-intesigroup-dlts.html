@@ -14,27 +14,28 @@ with Time Attestations recorded on Distributed Ledgers.
        The aim is to provide long-term validity to Time Stamp Tokens,
 backward compatible with currently available software. 
     " name="description">
-<meta content="xml2rfc 3.8.0" name="generator">
-<meta content="draft-intesigroup-dlts-03" name="ietf.draft">
+<meta content="xml2rfc 3.12.7" name="generator">
+<meta content="draft-intesigroup-dlts-04" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.8.0
-    Python 3.8.9
+  xml2rfc 3.12.7
+    Python 3.9.2
     appdirs 1.4.4
-    ConfigArgParse 1.4.1
-    google-i18n-address 2.4.0
+    ConfigArgParse 1.5.3
+    google-i18n-address 2.5.1
     html5lib 1.1
     intervaltree 3.1.0
     Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.6.3
-    pycountry 20.7.3
-    pyflakes 2.3.1
-    PyYAML 5.4.1
+    lxml 4.8.0
+    MarkupSafe 2.0.1
+    pycountry 22.3.5
+    pyflakes 2.4.0
+    PyYAML 6.0
     requests 2.25.1
-    setuptools 49.2.1
+    setuptools 52.0.0
     six 1.16.0
 -->
-<link href="/tmp/draft-intesigroup-dlts.html20211116-6955-f7ljiu" rel="alternate" type="application/rfc+xml">
+<link href="/tmp/draft-intesigroup-dlts.html20220522-104493-lrtvg6" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">/*
 
@@ -201,6 +202,9 @@ ul.empty, .ulEmpty {
 }
 ul.empty li, .ulEmpty li {
   margin-top: 0.5em;
+}
+ul.ulBare, li.ulBare {
+  margin-left: 0em !important;
 }
 ul.compact, .ulCompact,
 ol.compact, .olCompact {
@@ -384,6 +388,12 @@ hr {
 #identifiers dd {
   float: left;
   margin-bottom: 0;
+}
+/* Fix PDF info block run off issue */
+@media print {
+  #identifiers dd {
+    float: none;
+  }
 }
 #identifiers .authors .author {
   display: inline-block;
@@ -648,6 +658,9 @@ hr.addr {
   }
   figure {
     overflow: scroll;
+  }
+  pre.breakable {
+    break-inside: auto;
   }
   h1, h2, h3, h4, h5, h6 {
     page-break-after: avoid;
@@ -1079,7 +1092,7 @@ tr:nth-child(2n+1) > td {
 }
 /* Change the approach to avoiding breaks inside artwork etc. */
 figure, pre, table, .artwork, .sourcecode  {
-  break-before: avoid-page;
+  break-before: auto;
   break-after: auto;
 }
 /* Avoid breaks between <dt> and <dd> */
@@ -1180,11 +1193,11 @@ li > p:last-of-type {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">dlts</td>
-<td class="right">November 2021</td>
+<td class="right">May 2022</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Cisbani, et al.</td>
-<td class="center">Expires 29 May 2022</td>
+<td class="center">Expires 26 November 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1194,15 +1207,15 @@ li > p:last-of-type {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-intesigroup-dlts-03</dd>
+<dd class="internet-draft">draft-intesigroup-dlts-04</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-11-25" class="published">25 November 2021</time>
+<time datetime="2022-05-25" class="published">25 May 2022</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2022-05-29">29 May 2022</time></dd>
+<dd class="expires"><time datetime="2022-11-26">26 November 2022</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1247,7 +1260,7 @@ backward compatible with currently available software.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 29 May 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 November 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1256,7 +1269,7 @@ backward compatible with currently available software.<a href="#section-abstract
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2021 IETF Trust and the persons identified as the
+            Copyright (c) 2022 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1265,9 +1278,9 @@ backward compatible with currently available software.<a href="#section-abstract
             publication of this document. Please review these documents
             carefully, as they describe your rights and restrictions with
             respect to this document. Code Components extracted from this
-            document must include Simplified BSD License text as described in
+            document must include Revised BSD License text as described in
             Section 4.e of the Trust Legal Provisions and are provided without
-            warranty as described in the Simplified BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
+            warranty as described in the Revised BSD License.<a href="#section-boilerplate.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="toc">
@@ -1275,67 +1288,67 @@ backward compatible with currently available software.<a href="#section-abstract
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.1">
+<nav class="toc"><ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.2">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-terms-and-definitions" class="xref">Terms and Definitions</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.3">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="xref">3</a>.  <a href="#name-symbols-and-abbreviations" class="xref">Symbols And Abbreviations</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.4">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-dl-attestation" class="xref">DL Attestation</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.5">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-dl-time-stamp-objects" class="xref">DL Time-Stamp Objects</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1">
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1">
                 <p id="section-toc.1-1.5.2.1.1"><a href="#section-5.1" class="xref">5.1</a>.  <a href="#name-dl-time-stamp-attributes" class="xref">DL Time-Stamp Attributes</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.1.2.1">
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.1.2.1">
                     <p id="section-toc.1-1.5.2.1.2.1.1"><a href="#section-5.1.1" class="xref">5.1.1</a>.  <a href="#name-response-status" class="xref">Response Status</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2">
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2">
                 <p id="section-toc.1-1.5.2.2.1"><a href="#section-5.2" class="xref">5.2</a>.  <a href="#name-dl-time-stamp-extensions" class="xref">DL Time-Stamp Extensions</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.2.2.1">
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.2.2.1">
                     <p id="section-toc.1-1.5.2.2.2.1.1"><a href="#section-5.2.1" class="xref">5.2.1</a>.  <a href="#name-response-status-2" class="xref">Response Status</a></p>
 </li>
                 </ul>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.5.2.3">
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3">
                 <p id="section-toc.1-1.5.2.3.1"><a href="#section-5.3" class="xref">5.3</a>.  <a href="#name-use-case" class="xref">Use case</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.5.2.3.2.1">
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5.2.3.2.1">
                     <p id="section-toc.1-1.5.2.3.2.1.1"><a href="#section-5.3.1" class="xref">5.3.1</a>.  <a href="#name-promises" class="xref">Promises</a></p>
 </li>
                 </ul>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.6">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.7">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.8">
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-references" class="xref">References</a></p>
-<ul class="ulEmpty toc compact">
-<li class="ulEmpty toc compact" id="section-toc.1-1.8.2.1">
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.1">
                 <p id="section-toc.1-1.8.2.1.1"><a href="#section-8.1" class="xref">8.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-              <li class="ulEmpty toc compact" id="section-toc.1-1.8.2.2">
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8.2.2">
                 <p id="section-toc.1-1.8.2.2.1"><a href="#section-8.2" class="xref">8.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty toc compact" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
+          <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1548,7 +1561,7 @@ In this document we will generically refer to a Calendar Server indicating both 
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-dl-time-stamp-objects" class="section-name selfRef">DL Time-Stamp Objects</a>
       </h2>
 <p id="section-5-1">The ASN.1 structure of Promise type is as follows:<a href="#section-5-1" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5-2">
+<div class="alignLeft art-text artwork" id="section-5-2">
 <pre>
 Promise ::= SEQUENCE {
     version          INTEGER,
@@ -1558,13 +1571,13 @@ Promise ::= SEQUENCE {
     serialNumber     INTEGER }
 </pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5-3">
+<div class="alignLeft art-text artwork" id="section-5-3">
 <pre>
 DLPromise ::= OCTET STRING
 </pre><a href="#section-5-3" class="pilcrow">¶</a>
 </div>
 <p id="section-5-4">The ASN.1 structure of Proof type is as follows:<a href="#section-5-4" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5-5">
+<div class="alignLeft art-text artwork" id="section-5-5">
 <pre>
 Proof ::= SEQUENCE {
     version          INTEGER,
@@ -1574,7 +1587,7 @@ Proof ::= SEQUENCE {
     serialNumber     INTEGER }
 </pre><a href="#section-5-5" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5-6">
+<div class="alignLeft art-text artwork" id="section-5-6">
 <pre>
 DLProof ::= OCTET STRING
 </pre><a href="#section-5-6" class="pilcrow">¶</a>
@@ -1619,23 +1632,23 @@ unauthenticated attributes, or unprotected attributes.<a href="#section-5.1-3" c
 <p id="section-5.1-4">The new objects MUST have the following OIDs where id-ce identifies
 the root of standard extensions as described in <span>[<a href="#RFC5280" class="xref">RFC5280</a>]</span>.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 <p id="section-5.1-5">The ASN.1 structure of attributes including a set of promises is as follows:<a href="#section-5.1-5" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5.1-6">
+<div class="alignLeft art-text artwork" id="section-5.1-6">
 <pre>
 id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 </pre><a href="#section-5.1-6" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5.1-7">
+<div class="alignLeft art-text artwork" id="section-5.1-7">
 <pre>
 Promises            SET OF Promise
 </pre><a href="#section-5.1-7" class="pilcrow">¶</a>
 </div>
 <p id="section-5.1-8">The ASN.1 structure of attributes including a set of proofs is as follows:<a href="#section-5.1-8" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5.1-9">
+<div class="alignLeft art-text artwork" id="section-5.1-9">
 <pre>
 id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 </pre><a href="#section-5.1-9" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5.1-10">
+<div class="alignLeft art-text artwork" id="section-5.1-10">
 <pre>
 Proofs              SET OF Proof
 </pre><a href="#section-5.1-10" class="pilcrow">¶</a>
@@ -1678,23 +1691,23 @@ with the specifications described in Section 2.4 of <span>[<a href="#RFC3161" cl
 and Section 4.2 of <span>[<a href="#RFC5280" class="xref">RFC5280</a>]</span>.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 <p id="section-5.2-4">Conforming TSAs MUST mark these extensions as non-critical.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
 <p id="section-5.2-5">The ASN.1 structure of the proof request extension is as follows:<a href="#section-5.2-5" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5.2-6">
+<div class="alignLeft art-text artwork" id="section-5.2-6">
 <pre>
 id-ce-dltsPromises OBJECT IDENTIFIER
 </pre><a href="#section-5.2-6" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5.2-7">
+<div class="alignLeft art-text artwork" id="section-5.2-7">
 <pre>
 Promises            SET OF Promise
 </pre><a href="#section-5.2-7" class="pilcrow">¶</a>
 </div>
 <p id="section-5.2-8">The ASN.1 structure of the proof response extension is as follows:<a href="#section-5.2-8" class="pilcrow">¶</a></p>
-<div class="artwork art-text alignLeft" id="section-5.2-9">
+<div class="alignLeft art-text artwork" id="section-5.2-9">
 <pre>
 id-ce-dltsProofs OBJECT IDENTIFIER
 </pre><a href="#section-5.2-9" class="pilcrow">¶</a>
 </div>
-<div class="artwork art-text alignLeft" id="section-5.2-10">
+<div class="alignLeft art-text artwork" id="section-5.2-10">
 <pre>
 Proofs               SET OF Proof
 </pre><a href="#section-5.2-10" class="pilcrow">¶</a>
@@ -1749,7 +1762,7 @@ each promise is inserted as an unsigned attribute of the time stamp
 to which it refers.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 <span id="name-figure-1"></span><div id="use-case-promises">
 <figure id="figure-1">
-            <div class="artwork art-text alignCenter art-text/plain" id="section-5.3.1-2.1">
+            <div class="alignCenter art-text art-text/plain artwork" id="section-5.3.1-2.1">
 <pre>
 signature-1
     +--- timestampToken
@@ -1788,7 +1801,7 @@ as extensions in a new timestamp request. The result would have the
 following structure:<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
 <span id="name-figure-2"></span><div id="use-case-proofs">
 <figure id="figure-2">
-            <div class="artwork art-text alignCenter art-text/plain" id="section-5.3.1-5.1">
+            <div class="alignCenter art-text art-text/plain artwork" id="section-5.3.1-5.1">
 <pre>
     +--- timestampToken
                 |--- signerIdentifier
@@ -1966,7 +1979,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.<a h
 </section>
 </section>
 <div id="authors-addresses">
-<section id="section-appendix.a">
+<section id="appendix-A">
       <h2 id="name-authors-addresses">
 <a href="#name-authors-addresses" class="section-name selfRef">Authors' Addresses</a>
       </h2>
