@@ -42,7 +42,7 @@
 :email_3: giuseppe.damiano@entrust.com
 :docfile: draft-intesigroup-DLTS.adoc
 :mn-document-class: ietf
-:mn-output-extensions: xmlrfc2,txt,html,nits
+:mn-output-extensions: txt,html
 
 include::sections/00-abstract.adoc[]
 
