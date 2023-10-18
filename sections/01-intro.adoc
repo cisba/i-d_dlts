@@ -8,7 +8,7 @@ Attesting that a file existed prior to a specific point in time can be useful - 
 * prove the ownership for copyright
 * grant record integrity
 
-A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161,RFC 3161>>
+A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <<RFC3161>>
 can be based on an accurate time source linked to Coordinated Universal Time,
 and can be very precise - it can prove the existence also at the second or less.
 It is such a consolidated standard that - for example - the European Union legally
@@ -21,13 +21,13 @@ PKI TSA was evaluated as one of the most desirables in term of security against
 alteration of a time stamp.
 
 The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise to other proposals like <<ANSI.X9.95,ANSI X9.95>> and <<ISO.IEC.18014-4,ISO/IEC 18014-4>>.
+gave rise to other proposals like <<ANSI.X9.95,ANSI X9.95>> and <<ISO.IEC.18014-4>>.
 
 Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
 for technical reasons such as the TSA certificates expiration, or 
 for economic reasons such as the cost of providing the validation service by TSA.
 
-This situation brought about some solutions <<ETSI.TS.102.778-4>> aimed at mitigating
+This situation brought about some solutions <<ETSI.TS.102.778_4>> aimed at mitigating
 the inconvenience by extending the validity of TSA timestamps.
 
 Security of a Distributed Ledger (def. in <<conventions>>) is based on hashes of data
