@@ -2,14 +2,282 @@
 [bibliography]
 == Normative References
 
-++++
-include::../references/normative/*[]
-++++
+* [[[RFC2119,RFC 2119]]]
+
+* [[[RFC3161,RFC 3161]]]
+
+* [[[RFC3628,RFC 3628]]]
+
+* [[[RFC4210,RFC 4210]]]
+
+* [[[RFC5280,RFC 5280]]]
+
+* [[[RFC5652,RFC 5652]]]
+
+* [[[RFC6838,RFC 6838]]]
+
+* [[[RFC8174,RFC 8174]]]
 
 [bibliography]
 == Informative References
 
-++++
-include::../references/informative/*.xml[]
-++++
+* [[[ISO.IEC.18014-4,ISO/IEC 18014-4]]]
 
+* [[[NISTIR_8202,NIST IR 8202]]]
+
+* [[[RFC6962,RFC 6962]]]
+
+[%bibitem]
+=== Trusted Time Stamp Management And Security
+id:: ANSI.X9.95
+contributor::
+contributor:organization.name:: Trusted Time Stamp Management And Security
+contributor:organization.contact::
+contributor:organization.contact.street:: 1899 L Street, NW
+contributor:organization.contact.country:: USA
+contributor:organization.contact.city:: Washington
+contributor:organization.contact.uri:: https://ansi.org
+structured_identifier::
+structured_identifier.year:: 2005
+link::
+link.type:: src
+link.content:: https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005
+
+[%bibitem]
+=== Efficient Data Structures for Tamper-Evident Logging
+id:: CrosbyWallach
+contributor::
+contributor.person.name.completename.content:: Scott A. Crosby
+contributor::
+contributor.person.name.completename.content:: Dan S. Wallach
+date::
+date.type:: published
+date.on:: 2009-08
+link::
+link.type:: src
+link.content:: http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf
+
+
+[%bibitem]
+=== Regulation (EU) No 910/2014
+id:: eIDAS
+contributor::
+contributor:organization.name:: The European Parliament And The Council Of The European Union
+contributor:organization.contact::
+contributor:organization.contact.street:: 60 rue Wiertz / Wiertzstraat 60
+contributor:organization.contact.city:: Bruxelles
+contributor:organization.contact.country:: Belgium
+contributor:organization.contact.uri:: https://europarl.europa.eu
+link::
+link.type:: src
+link.content:: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&from=EN
+
+[%bibitem]
+=== {blank}
+id:: ETSI.EN.319.422
+title::
+title.type:: title-main
+title.content:: Electronic Signatures and Infrastructures (ESI)
+title.format:: text/plain
+title::
+title.type:: title-main
+title.content:: Time-stamping protocol and time-stamp token profiles
+title.format:: text/plain
+contributor::
+contributor:organization.name:: European Telecommunications Standards Institute
+contributor:organization.contact::
+contributor:organization.contact.street:: 650 Route des Lucioles
+contributor:organization.contact.country:: France
+contributor:organization.contact.city:: Sophia Antipolis Cedex
+contributor:organization.contact.email:: https://www.etsi.org
+link::
+link.type:: src
+link.content:: https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf
+
+[%bibitem]
+=== {blank}
+id:: ETSI.TS.101.861
+title::
+title.type:: title-main
+title.content:: Electronic Signatures and Infrastructures (ESI)
+title.language:: en
+title::
+title.type:: main
+title.content:: Time stamping profile
+title.language:: en
+contributor::
+contributor:organization.name:: European Telecommunications Standards Institute
+contributor:organization.contact.street:: 650 Route des Lucioles 
+contributor:organization.contact.country:: France
+contributor:organization.contact.city:: Sophia Antipolis Cedex
+contributor:organization.contact.uri:: https://www.etsi.org
+date::
+date.type:: published
+date.on:: 2011-07
+link::
+link.type:: src
+link.content:: https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.01_60/ts_101861v010401p.pdf
+
+[%bibitem]
+=== {blank}
+id:: ETSI.TS.102.778_4
+title::
+title.type:: title-main
+title.content:: Electronic Signatures and Infrastructures (ESI)
+title.language:: en
+title::
+title.type:: main
+title.content:: PDF Advanced Electronic Signature Profiles
+title.language:: en
+title::
+title.type:: part
+title.content:: PAdES Long Term - PAdES-LTV Profile
+title.part:: 4
+title.language:: en
+contributor::
+contributor:organization.name:: European Telecommunications Standards Institute
+contributor:organization.contact::
+contributor:organization.contact.street:: 650 Route des Lucioles
+contributor:organization.contact.country:: France
+contributor:organization.contact.city:: Sophia Antipolis Cedex 
+contributor:organization.contact.uri:: https://www.etsi.org
+date::
+date.type:: published
+date.on:: 2009-12
+link::
+link.type:: src
+link.content:: https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.02_60/ts_10277804v010102p.pdf
+
+[%bibitem]
+=== {blank}
+id:: HaberStornetta
+title::
+title.type:: main
+title.content:: How to Time-Stamp a Digital Document
+title.language:: en
+contributor::
+contributor.person.name.completename.content:: Stuart Haber
+contributor::
+contributor.person.name.completename.content:: W. Scott Stornetta
+structured_identifier::
+structured_identifier.year:: 1991
+link::
+link.type:: src
+link.content:: https://www.anf.es/pdf/Haber_Stornetta.pdf
+
+[%bibitem]
+=== {blank}
+id:: Hyperledger
+title::
+title.type:: main
+title.content:: Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus
+title.language:: en
+contributor::
+contributor:organization.name:: The Linux Foundation
+date::
+date.type:: published
+date.on:: 2017-08
+link::
+link.type:: src
+link.content:: https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf
+
+
+[%bibitem]
+=== {blank}
+id:: IMES
+title::
+title.type:: main
+title.content:: The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)
+title.language:: en
+contributor::
+contributor:organization.name:: INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN
+contributor::
+contributor.person.name.completename.content:: Masashi Une
+date::
+date.type:: issued
+date.on:: 2001
+link::
+link.type:: src
+link.content:: http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486
+
+[%bibitem]
+=== {blank}
+id:: Merkle
+title::
+title.type:: main
+title.content:: Secrecy, authentication, and public-key systems - Technical Report No. 1979-1
+title.language:: en
+contributor::
+contributor:organization.name:: Stanford Electronics Laboratories, Department of Electrical Engineering, Stanford University, Stanford. CA 94305
+contributor::
+contributor.person.name.completename.content:: Ralph Charles Merkle
+date::
+date.type:: published
+date.on:: 1979-06
+link::
+link.type:: src
+link.content:: http://www.merkle.com/papers/Thesis1979.pdf
+
+[%bibitem]
+=== {blank}
+id:: Nakamoto
+title::
+title.type:: main
+title.content:: Bitcoin: A Peer-to-Peer Electronic Cash System
+title.language:: en
+contributor::
+contributor.person.name.completename.content:: Satoshi Nakamoto
+date::
+date.type:: published
+date.on:: 2008-10-31
+link::
+link.type:: src
+link.content:: https://bitcoin.org/bitcoin.pdf
+
+[%bibitem]
+=== {blank}
+id:: OpenTimestamps
+title::
+title.type:: main
+title.content:: OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin
+title.language:: en
+contributor::
+contributor.person.name.completename.content:: Peter Todd
+date::
+date.type:: published
+date.on:: 2016-09-15
+link::
+link.type:: src
+link.content:: https://petertodd.org/2016/opentimestamps-announcement
+
+[%bibitem]
+=== {blank}
+id:: OTS
+title::
+title.type:: main
+title.content:: IANA registered OpenTimestamps Media Type
+title.language:: en
+contributor::
+contributor.person.name.completename.content:: Emanuele Cisbani
+date::
+date.type:: published
+date.on:: 2021-06-24
+link::
+link.type:: src
+link.content:: https://www.iana.org/assignments/media-types/application/vnd.opentimestamps.ots
+
+[%bibitem]
+=== {blank}
+id:: UK-GCSA
+title::
+title.type:: main
+title.content:: Distributed Ledger Technology: beyond block chain
+title.language:: en
+contributor::
+contributor.person.name.completename.content:: UK Government Chief Scientific Adviser
+date::
+date.type:: published
+date.on:: 2016-01
+link::
+link.type:: src
+link.content:: https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/492972/gs-16-1-distributed-ledger-technology.pdf
