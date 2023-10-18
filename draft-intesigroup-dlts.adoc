@@ -2,7 +2,7 @@
 :doctype: internet-draft
 :name: draft-intesigroup-dlts-07
 :abbrev: dlts
-:status: std
+:status: standard
 :ipr: trust200902
 :submissionType: individual
 :area: Internet
@@ -45,12 +45,19 @@
 :mn-output-extensions: xmlrfc2,txt,html,nits
 
 include::sections/00-abstract.adoc[]
+
 include::sections/01-intro.adoc[]
+
 include::sections/02-conventions.adoc[]
+
 include::sections/03-symbols.adoc[]
+
 include::sections/04-dl_attestation.adoc[]
+
 include::sections/05-dl_extension.adoc[]
+
 include::sections/10-security.adoc[]
+
 include::sections/11-iana.adoc[]
 
 // References must be given before appendixes
