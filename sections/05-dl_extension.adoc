@@ -3,6 +3,8 @@
 
 The ASN.1 structure of Promise type is as follows:
 
+[%unnumbered]
+----
     Promise ::= SEQUENCE {
         version          INTEGER,
         calendarFormat   UTF8String,
@@ -11,10 +13,12 @@ The ASN.1 structure of Promise type is as follows:
         serialNumber     INTEGER }
 
     DLPromise ::= OCTET STRING
-
+----
 
 The ASN.1 structure of Proof type is as follows:
 
+[%unnumbered]
+----
     Proof ::= SEQUENCE {
         version          INTEGER,
         calendarFormat   UTF8String,
@@ -67,15 +71,21 @@ the root of standard extensions as described in <<RFC5280>>.
 
 The ASN.1 structure of attributes including a set of promises is as follows:
 
+[%unnumbered]
+----
     id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 
     Promises            SET OF Promise
+----
 
 The ASN.1 structure of attributes including a set of proofs is as follows:
 
+[%unnumbered]
+----
     id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 
     Proofs              SET OF Proof
+----
 
 All the proofs and promises that have been returned MUST refer to the same parent
 TimeStampToken issued at the time of the request.
@@ -107,22 +117,28 @@ using a non critical extension of the TSTInfo sequence.
 
 To grant backward compatibility with any currently available software,
 request and response non critical extensions MUST be compliant
-with the specifications described in Section 2.4 of <<RFC3161>>
-and Section 4.2 of <<RFC5280>>.
+with the specifications described in <<RFC3161,section=2.4>>
+and <<RFC5280,section=4.2>>.
 
 Conforming TSAs MUST mark these extensions as non-critical.
 
 The ASN.1 structure of the proof request extension is as follows:
 
+[%unnumbered]
+----
     id-ce-dltsPromises OBJECT IDENTIFIER
 
     Promises            SET OF Promise
+----
 
 The ASN.1 structure of the proof response extension is as follows:
 
+[%unnumbered]
+----
     id-ce-dltsProofs OBJECT IDENTIFIER
 
     Proofs               SET OF Proof
+----
 
 The proofs returned in the extensions by the TSA MUST NOT refer to
 the TimeStampToken issued at the time of the request.
