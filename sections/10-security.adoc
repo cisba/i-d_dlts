@@ -1,5 +1,4 @@
 
-[#security]
 == Security Considerations
 
 Each security consideration described in Section 4 of <<RFC3161>> SHALL be evaluated designing

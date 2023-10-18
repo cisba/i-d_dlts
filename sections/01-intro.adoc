@@ -1,5 +1,4 @@
 
-[#introduction]
 == Introduction
 
 Attesting that a file existed prior to a specific point in time can be useful - for example - to:
