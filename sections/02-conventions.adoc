@@ -39,7 +39,7 @@ a network can have their own identical copy of the ledger. Any changes to the
 ledger are reflected in all copies in minutes, or in some cases, seconds. The
 assets can be financial, legal, physical or electronic. The security and accuracy
 of the assets stored in the ledger are maintained cryptographically through the
-use of ‘keys’ and signatures to control who can do what within the shared ledger.
+use of 'keys' and signatures to control who can do what within the shared ledger.
 Entries can also be updated by one, some or all of the participants, according to
 rules agreed by the network".
 
