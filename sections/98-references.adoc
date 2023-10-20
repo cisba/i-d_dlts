@@ -23,33 +23,75 @@
 
 * [[[ISO.IEC.18014-4,ISO/IEC 18014-4]]]
 
-* [[[NISTIR_8202,NIST IR 8202]]]
-
 * [[[RFC6962,RFC 6962]]]
 
+
 [%bibitem]
-=== Trusted Time Stamp Management And Security
-id:: ANSI.X9.95
+=== {blank}
+id:: NISTIR_8202
+title::
+title.type:: title-main
+title.content:: Blockchain Technology Overview
+title.format:: text/plain
 contributor::
-contributor:organization.name:: Trusted Time Stamp Management And Security
-contributor:organization.contact::
-contributor:organization.contact.street:: 1899 L Street, NW
-contributor:organization.contact.country:: USA
-contributor:organization.contact.city:: Washington
-contributor:organization.contact.uri:: https://ansi.org
-structured_identifier::
-structured_identifier.year:: 2005
+contributor.person.name.completename.content:: Dylan Yaga
+contributor.person.affiliation.organization.name:: National Institute of Standards and Technology
+contributor::
+contributor.person.name.completename.content:: Peter Mell
+contributor.person.affiliation.organization.name:: National Institute of Standards and Technology
+contributor::
+contributor.person.name.completename.content:: Nik Roby
+contributor.person.affiliation.organization.name:: G2, Inc.
+contributor::
+contributor.person.name.completename.content:: Karen Scarfone
+contributor.person.affiliation.organization.name:: Scarfone Cybersecurity
+date::
+date.type:: published
+date.on:: 2018-10
+link::
+link.type:: src
+link.content:: https://doi.org/10.6028/NIST.IR.8202
+
+[%bibitem]
+=== {blank}
+id:: ANSI.X9.95
+title::
+title.type:: title-main
+title.content:: Trusted Time Stamp Management And Security
+title.format:: text/plain
+contributor::
+contributor.organization.name:: American National Standards Institute (ANSI)
+contributor.organization.contact::
+contributor.organization.contact.street:: 1899 L Street, NW
+contributor.organization.contact.country:: USA
+contributor.organization.contact.city:: Washington
+contributor.organization.contact.uri:: https://ansi.org
+date::
+date.type:: published
+date.on:: 2005
 link::
 link.type:: src
 link.content:: https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005
 
 [%bibitem]
-=== Efficient Data Structures for Tamper-Evident Logging
+=== {blank}
 id:: CrosbyWallach
+title::
+title.type:: main
+title.content:: Efficient Data Structures for Tamper-Evident Logging
+title.format:: text/plain
 contributor::
 contributor.person.name.completename.content:: Scott A. Crosby
 contributor::
 contributor.person.name.completename.content:: Dan S. Wallach
+series::
+series.type:: main
+series.title.type:: original
+series.title.content:: Proceedings of the 18th USENIX Security Symposium
+series.title.language:: en
+series.title.script:: Latn
+series.title.format:: text/plain
+series.place:: Montreal
 date::
 date.type:: published
 date.on:: 2009-08
@@ -59,15 +101,22 @@ link.content:: http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf
 
 
 [%bibitem]
-=== Regulation (EU) No 910/2014
+=== {blank}
 id:: eIDAS
+title::
+title.type:: main
+title.content:: Regulation (EU) No 910/2014
+title.format:: text/plain
 contributor::
-contributor:organization.name:: The European Parliament And The Council Of The European Union
-contributor:organization.contact::
-contributor:organization.contact.street:: 60 rue Wiertz / Wiertzstraat 60
-contributor:organization.contact.city:: Bruxelles
-contributor:organization.contact.country:: Belgium
-contributor:organization.contact.uri:: https://europarl.europa.eu
+contributor.organization.name:: The European Parliament And The Council Of The European Union
+contributor.organization.contact::
+contributor.organization.contact.street:: 60 rue Wiertz / Wiertzstraat 60
+contributor.organization.contact.city:: Bruxelles
+contributor.organization.contact.country:: Belgium
+contributor.organization.contact.uri:: https://europarl.europa.eu
+date::
+date.type:: published
+date.on:: 2014-07-23
 link::
 link.type:: src
 link.content:: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910&from=EN
@@ -77,19 +126,18 @@ link.content:: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32
 id:: ETSI.EN.319.422
 title::
 title.type:: title-main
-title.content:: Electronic Signatures and Infrastructures (ESI)
-title.format:: text/plain
-title::
-title.type:: title-main
-title.content:: Time-stamping protocol and time-stamp token profiles
+title.content:: Electronic Signatures and Infrastructures (ESI); Time-stamping protocol and time-stamp token profiles
 title.format:: text/plain
 contributor::
-contributor:organization.name:: European Telecommunications Standards Institute
-contributor:organization.contact::
-contributor:organization.contact.street:: 650 Route des Lucioles
-contributor:organization.contact.country:: France
-contributor:organization.contact.city:: Sophia Antipolis Cedex
-contributor:organization.contact.email:: https://www.etsi.org
+contributor.organization.name:: European Telecommunications Standards Institute
+contributor.organization.contact::
+contributor.organization.contact.street:: 650 Route des Lucioles
+contributor.organization.contact.country:: France
+contributor.organization.contact.city:: Sophia Antipolis Cedex
+contributor.organization.contact.email:: https://www.etsi.org
+date::
+date.type:: published
+date.on:: 2016-03
 link::
 link.type:: src
 link.content:: https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf
@@ -99,18 +147,18 @@ link.content:: https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.0
 id:: ETSI.TS.101.861
 title::
 title.type:: title-main
-title.content:: Electronic Signatures and Infrastructures (ESI)
+title.content:: Electronic Signatures and Infrastructures (ESI); Time stamping profile
 title.language:: en
 title::
 title.type:: main
 title.content:: Time stamping profile
 title.language:: en
 contributor::
-contributor:organization.name:: European Telecommunications Standards Institute
-contributor:organization.contact.street:: 650 Route des Lucioles 
-contributor:organization.contact.country:: France
-contributor:organization.contact.city:: Sophia Antipolis Cedex
-contributor:organization.contact.uri:: https://www.etsi.org
+contributor.organization.name:: European Telecommunications Standards Institute
+contributor.organization.contact.street:: 650 Route des Lucioles 
+contributor.organization.contact.country:: France
+contributor.organization.contact.city:: Sophia Antipolis Cedex
+contributor.organization.contact.uri:: https://www.etsi.org
 date::
 date.type:: published
 date.on:: 2011-07
@@ -122,25 +170,16 @@ link.content:: https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.0
 === {blank}
 id:: ETSI.TS.102.778_4
 title::
-title.type:: title-main
-title.content:: Electronic Signatures and Infrastructures (ESI)
-title.language:: en
-title::
 title.type:: main
-title.content:: PDF Advanced Electronic Signature Profiles
-title.language:: en
-title::
-title.type:: part
-title.content:: PAdES Long Term - PAdES-LTV Profile
-title.part:: 4
+title.content:: Electronic Signatures and Infrastructures (ESI); PDF Advanced Electronic Signature Profiles; Part 4: PAdES Long Term - PAdES-LTV Profile
 title.language:: en
 contributor::
-contributor:organization.name:: European Telecommunications Standards Institute
-contributor:organization.contact::
-contributor:organization.contact.street:: 650 Route des Lucioles
-contributor:organization.contact.country:: France
-contributor:organization.contact.city:: Sophia Antipolis Cedex 
-contributor:organization.contact.uri:: https://www.etsi.org
+contributor.organization.name:: European Telecommunications Standards Institute
+contributor.organization.contact::
+contributor.organization.contact.street:: 650 Route des Lucioles
+contributor.organization.contact.country:: France
+contributor.organization.contact.city:: Sophia Antipolis Cedex 
+contributor.organization.contact.uri:: https://www.etsi.org
 date::
 date.type:: published
 date.on:: 2009-12
@@ -173,7 +212,7 @@ title.type:: main
 title.content:: Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus
 title.language:: en
 contributor::
-contributor:organization.name:: The Linux Foundation
+contributor.organization.name:: The Linux Foundation
 date::
 date.type:: published
 date.on:: 2017-08
@@ -190,7 +229,7 @@ title.type:: main
 title.content:: The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)
 title.language:: en
 contributor::
-contributor:organization.name:: INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN
+contributor.organization.name:: INSTITUTE FOR MONETARY AND ECONOMIC STUDIES - BANK OF JAPAN
 contributor::
 contributor.person.name.completename.content:: Masashi Une
 date::
@@ -208,7 +247,7 @@ title.type:: main
 title.content:: Secrecy, authentication, and public-key systems - Technical Report No. 1979-1
 title.language:: en
 contributor::
-contributor:organization.name:: Stanford Electronics Laboratories, Department of Electrical Engineering, Stanford University, Stanford. CA 94305
+contributor.organization.name:: Stanford Electronics Laboratories, Department of Electrical Engineering, Stanford University, Stanford. CA 94305
 contributor::
 contributor.person.name.completename.content:: Ralph Charles Merkle
 date::
@@ -274,7 +313,7 @@ title.type:: main
 title.content:: Distributed Ledger Technology: beyond block chain
 title.language:: en
 contributor::
-contributor.person.name.completename.content:: UK Government Chief Scientific Adviser
+contributor.organization.name:: UK Government Chief Scientific Adviser
 date::
 date.type:: published
 date.on:: 2016-01
