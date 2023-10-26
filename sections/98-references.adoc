@@ -198,8 +198,9 @@ contributor::
 contributor.person.name.completename.content:: Stuart Haber
 contributor::
 contributor.person.name.completename.content:: W. Scott Stornetta
-structured_identifier::
-structured_identifier.year:: 1991
+date::
+date.type:: published
+date.on:: 1991
 link::
 link.type:: src
 link.content:: https://www.anf.es/pdf/Haber_Stornetta.pdf
