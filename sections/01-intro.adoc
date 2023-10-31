@@ -21,7 +21,7 @@ PKI TSA was evaluated as one of the most desirables in term of security against
 alteration of a time stamp.
 
 The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise to other proposals like <<ANSI.X9.95,ANSI X9.95>> and <<ISO.IEC.18014-4>>.
+gave rise to other proposals like <<ANSI.X9.95>> and <<ISO.IEC.18014-4>>.
 
 Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
 for technical reasons such as the TSA certificates expiration, or 
@@ -41,7 +41,7 @@ of the distributed system and the overall design whose aim is the DL perpetual s
 Based on a distributed trust scheme, a Distributed Ledger significantly increases
 security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 
-In the case of a permissioned DL, security is provided by an authoritative network of trust <<Hyperledger>><<NISTIR_8202>>,
+In the case of a permissioned DL, security is provided by an authoritative network of trust <<Hyperledger>>, <<NIST.IR.8202>>,
 while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <<Nakamoto>>.
 
 On the other hand, a DLA is not yet a standard solution. 

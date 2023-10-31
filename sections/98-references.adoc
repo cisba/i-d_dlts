@@ -31,6 +31,8 @@
 [%bibitem]
 === {blank}
 id:: ANSI.X9.95
+docid::
+docid.id:: ANSI X9.95:2005
 title::
 title.type:: title-main
 title.content:: Trusted Time Stamp Management And Security
@@ -52,6 +54,7 @@ link.content:: https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005
 [%bibitem]
 === {blank}
 id:: CrosbyWallach
+docid::
 title::
 title.type:: main
 title.content:: Efficient Data Structures for Tamper-Evident Logging
@@ -79,12 +82,14 @@ link.content:: http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf
 [%bibitem]
 === {blank}
 id:: eIDAS
+docid::
+docid.id:: Regulation (EU) No 910/2014
 title::
 title.type:: main
-title.content:: Regulation (EU) No 910/2014
+title.content:: Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC
 title.format:: text/plain
 contributor::
-contributor.organization.name:: The European Parliament And The Council Of The European Union
+contributor.organization.name:: The European Parliament and the Council of the European Union
 contributor.organization.contact::
 contributor.organization.contact.street:: 60 rue Wiertz / Wiertzstraat 60
 contributor.organization.contact.city:: Bruxelles
@@ -100,6 +105,8 @@ link.content:: https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32
 [%bibitem]
 === {blank}
 id:: ETSI.EN.319.422
+docid::
+docid.id:: ETSI EN 319.422
 title::
 title.type:: title-main
 title.content:: Electronic Signatures and Infrastructures (ESI); Time-stamping protocol and time-stamp token profiles
@@ -121,6 +128,8 @@ link.content:: https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.0
 [%bibitem]
 === {blank}
 id:: ETSI.TS.101.861
+docid::
+docid.id:: ETSI TS 101.861
 title::
 title.type:: title-main
 title.content:: Electronic Signatures and Infrastructures (ESI); Time stamping profile
@@ -131,7 +140,7 @@ title.content:: Time stamping profile
 title.language:: en
 contributor::
 contributor.organization.name:: European Telecommunications Standards Institute
-contributor.organization.contact.street:: 650 Route des Lucioles 
+contributor.organization.contact.street:: 650 Route des Lucioles
 contributor.organization.contact.country:: France
 contributor.organization.contact.city:: Sophia Antipolis Cedex
 contributor.organization.contact.uri:: https://www.etsi.org
@@ -145,6 +154,8 @@ link.content:: https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.0
 [%bibitem]
 === {blank}
 id:: ETSI.TS.102.778_4
+docid::
+docid.id:: ETSI TS 102.778-4
 title::
 title.type:: main
 title.content:: Electronic Signatures and Infrastructures (ESI); PDF Advanced Electronic Signature Profiles; Part 4: PAdES Long Term - PAdES-LTV Profile
@@ -154,7 +165,7 @@ contributor.organization.name:: European Telecommunications Standards Institute
 contributor.organization.contact::
 contributor.organization.contact.street:: 650 Route des Lucioles
 contributor.organization.contact.country:: France
-contributor.organization.contact.city:: Sophia Antipolis Cedex 
+contributor.organization.contact.city:: Sophia Antipolis Cedex
 contributor.organization.contact.uri:: https://www.etsi.org
 date::
 date.type:: published
@@ -166,6 +177,7 @@ link.content:: https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01
 [%bibitem]
 === {blank}
 id:: HaberStornetta
+docid::
 title::
 title.type:: main
 title.content:: How to Time-Stamp a Digital Document
@@ -184,6 +196,7 @@ link.content:: https://www.anf.es/pdf/Haber_Stornetta.pdf
 [%bibitem]
 === {blank}
 id:: Hyperledger
+docid::
 title::
 title.type:: main
 title.content:: Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus
@@ -201,6 +214,7 @@ link.content:: https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledge
 [%bibitem]
 === {blank}
 id:: IMES
+docid::
 title::
 title.type:: main
 title.content:: The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)
@@ -219,9 +233,11 @@ link.content:: http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486
 [%bibitem]
 === {blank}
 id:: Merkle
+docid::
+docid.id:: Standard Electronic Labs Technical Report No. 1979-1
 title::
 title.type:: main
-title.content:: Secrecy, authentication, and public-key systems - Technical Report No. 1979-1
+title.content:: Secrecy, authentication, and public-key systems
 title.language:: en
 contributor::
 contributor.organization.name:: Stanford Electronics Laboratories, Department of Electrical Engineering, Stanford University, Stanford. CA 94305
@@ -237,6 +253,7 @@ link.content:: http://www.merkle.com/papers/Thesis1979.pdf
 [%bibitem]
 === {blank}
 id:: Nakamoto
+docid::
 title::
 title.type:: main
 title.content:: Bitcoin: A Peer-to-Peer Electronic Cash System
@@ -253,6 +270,7 @@ link.content:: https://bitcoin.org/bitcoin.pdf
 [%bibitem]
 === {blank}
 id:: OpenTimestamps
+docid::
 title::
 title.type:: main
 title.content:: OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin
@@ -269,6 +287,7 @@ link.content:: https://petertodd.org/2016/opentimestamps-announcement
 [%bibitem]
 === {blank}
 id:: OTS
+docid::
 title::
 title.type:: main
 title.content:: IANA registered OpenTimestamps Media Type
@@ -285,6 +304,7 @@ link.content:: https://www.iana.org/assignments/media-types/application/vnd.open
 [%bibitem]
 === {blank}
 id:: UK-GCSA
+docid::
 title::
 title.type:: main
 title.content:: Distributed Ledger Technology: beyond block chain
