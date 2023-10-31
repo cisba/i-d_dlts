@@ -24,7 +24,7 @@ The integrity of the timestamping process that is inevitably bound to the integr
 gave rise to other proposals like <<ANSI.X9.95>> and <<ISO.IEC.18014-4>>.
 
 Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
-for technical reasons such as the TSA certificates expiration, or 
+for technical reasons such as the TSA certificates expiration, or
 for economic reasons such as the cost of providing the validation service by TSA.
 
 This situation brought about some solutions <<ETSI.TS.102.778_4>> aimed at mitigating
@@ -44,7 +44,7 @@ security as already noted by Haber and Stornetta in 1991 <<HaberStornetta>>.
 In the case of a permissioned DL, security is provided by an authoritative network of trust <<Hyperledger>>, <<NIST.IR.8202>>,
 while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <<Nakamoto>>.
 
-On the other hand, a DLA is not yet a standard solution. 
+On the other hand, a DLA is not yet a standard solution.
 Furthermore, the bigger the network the less precise the DLA,
 because distributed nodes need time to reach consensus.
 
