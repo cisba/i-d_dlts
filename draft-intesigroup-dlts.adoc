@@ -8,7 +8,7 @@
 :area: Internet
 :published-date: 2023-11-25
 :intended-series: full-standard
-:revdate: 2023-11-25T00:00:00Z
+:revdate: 2023-11-25
 :fullname: Emanuele Cisbani
 :lastname: Cisbani
 :forename_initials: E.
@@ -41,9 +41,8 @@
 :country_3: United Kingdom
 :contributor-uri_3: https://www.entrust.com
 :email_3: giuseppe.damiano@entrust.com
-:docfile: draft-intesigroup-DLTS.adoc
 :mn-document-class: ietf
-:mn-output-extensions: txt,html
+:mn-output-extensions: rfc,txt,html,rxl
 
 include::sections/00-abstract.adoc[]
 
