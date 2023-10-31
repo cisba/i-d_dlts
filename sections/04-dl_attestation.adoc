@@ -1,5 +1,4 @@
 
-[#main]
 == DL Attestation
 
 A Digital Ledger can be seen as an untrusted logger - serving a number of

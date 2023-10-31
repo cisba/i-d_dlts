@@ -1,0 +1,9 @@
+---
+metanorma:
+  source:
+    files:
+      - draft-intesigroup-dlts.adoc
+
+  collection:
+    organization: "IETF / intesigroup"
+    name: "Distributed Ledger Time-Stamp"

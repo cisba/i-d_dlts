@@ -1,4 +1,5 @@
-[abstract]
+
+== Abstract
 
 This document defines a standard to extend Time Stamp Tokens
 with Time Attestations recorded on Distributed Ledgers.
