@@ -25,32 +25,8 @@
 
 * [[[RFC6962,RFC 6962]]]
 
+* [[[NIST.IR.8202,NIST IR 8202]]]
 
-[%bibitem]
-=== {blank}
-id:: NISTIR_8202
-title::
-title.type:: title-main
-title.content:: Blockchain Technology Overview
-title.format:: text/plain
-contributor::
-contributor.person.name.completename.content:: Dylan Yaga
-contributor.person.affiliation.organization.name:: National Institute of Standards and Technology
-contributor::
-contributor.person.name.completename.content:: Peter Mell
-contributor.person.affiliation.organization.name:: National Institute of Standards and Technology
-contributor::
-contributor.person.name.completename.content:: Nik Roby
-contributor.person.affiliation.organization.name:: G2, Inc.
-contributor::
-contributor.person.name.completename.content:: Karen Scarfone
-contributor.person.affiliation.organization.name:: Scarfone Cybersecurity
-date::
-date.type:: published
-date.on:: 2018-10
-link::
-link.type:: src
-link.content:: https://doi.org/10.6028/NIST.IR.8202
 
 [%bibitem]
 === {blank}
