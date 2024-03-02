@@ -1,56 +1,64 @@
 = Distributed Ledger Time-Stamp
 :doctype: internet-draft
-:name: draft-intesigroup-dlts-07
+:docnumber: draft-intesigroup-dlts-07
 :abbrev: dlts
-:status: std
+:status: standard
 :ipr: trust200902
 :submissionType: individual
 :area: Internet
+:published-date: 2023-11-25
 :intended-series: full-standard
-:revdate: 2023-11-25T00:00:00Z
+:revdate: 2023-11-25
 :fullname: Emanuele Cisbani
 :lastname: Cisbani
 :forename_initials: E.
-:organization: Intesi Group
+:affiliation: Intesi Group
 :phone: +39 026 760 641
 :street: Via Torino 48
 :city: Milano
-:code: 20123
+:postcode: 20123
 :country: Italy
-:uri: https://www.intesigroup.com
+:contributor-uri: https://www.intesigroup.com
 :email: ecisbani@intesigroup.com
 :fullname_2: Daniele Ribaudo
 :lastname_2: Ribaudo
 :forename_initials_2: D.
-:organization_2: Intesi Group
+:affiliation_2: Intesi Group
 :phone_2: +39 026 760 641
 :street_2: Via Torino 48
 :city_2: Milano
-:code_2: 20123
+:postcode_2: 20123
 :country_2: Italy
-:uri_2: https://www.intesigroup.com
+:contributor-uri_2: https://www.intesigroup.com
 :email_2: dribaudo@intesigroup.com
 :fullname_3: Giuseppe Damiano
 :lastname_3: Damiano
 :forename_initials_3: G.
-:organization_3: Entrust
+:affiliation_3: Entrust
 :street_3: One Station Square
 :city_3: Cambridge
-:code_3: CB1 2GA
+:postcode_3: CB1 2GA
 :country_3: United Kingdom
-:uri_3: https://www.entrust.com
+:contributor-uri_3: https://www.entrust.com
 :email_3: giuseppe.damiano@entrust.com
-:docfile: draft-intesigroup-DLTS.adoc
+:sort-refs: true
 :mn-document-class: ietf
-:mn-output-extensions: xmlrfc2,txt,html,nits
+:mn-output-extensions: rfc,txt,html,rxl
 
 include::sections/00-abstract.adoc[]
+
 include::sections/01-intro.adoc[]
+
 include::sections/02-conventions.adoc[]
+
 include::sections/03-symbols.adoc[]
+
 include::sections/04-dl_attestation.adoc[]
+
 include::sections/05-dl_extension.adoc[]
+
 include::sections/10-security.adoc[]
+
 include::sections/11-iana.adoc[]
 
 // References must be given before appendixes

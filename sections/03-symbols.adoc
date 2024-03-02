@@ -1,24 +1,23 @@
 
-[#symbols]
 == Symbols And Abbreviations
 
 PKI::
-    Public Key Infrastructure
+Public Key Infrastructure
 
 TTP::
-    Trusted Third Party
+Trusted Third Party
 
 TSA::
-    Time-Stamping Authority
+Time-Stamping Authority
 
 TST::
-    Time-Stamp Token
+Time-Stamp Token
 
 TSU::
-    Time-Stamping Unit
+Time-Stamping Unit
 
 DL::
-    Distributed Ledger
+Distributed Ledger
 
 DLA::
-    Distributed Ledger Attestation
+Distributed Ledger Attestation
