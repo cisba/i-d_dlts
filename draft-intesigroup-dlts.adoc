@@ -41,6 +41,7 @@
 :country_3: United Kingdom
 :contributor-uri_3: https://www.entrust.com
 :email_3: giuseppe.damiano@entrust.com
+:sort-refs: true
 :mn-document-class: ietf
 :mn-output-extensions: rfc,txt,html,rxl
 
