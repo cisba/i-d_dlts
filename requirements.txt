@@ -1,7 +1,0 @@
-xml2rfc
-idnits
-
-# Linux requires
-python-magic
-# macOS requires instead:
-# python-magic-bin
