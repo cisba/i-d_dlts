@@ -1,13 +1,11 @@
 = Setup
 
-    [follow rvm.io instructions to install rvm]
-    rvm install ruby-2.6.3
-    gem install bundler
-    bundle install
-    pip install -r requirements.txt
+	https://www.metanorma.org/install/
+	sudo snap install metanorma
 
 = Usage
 
-    [if venv is used] source <venv-path>/bin/activate
-    make all
+	metanorma  draft-intesigroup-dlts.adoc 	
+	diff -W 152 -y draft-intesigroup-dlts-07.txt draft-intesigroup-dlts.txt |less -S
+
 
