@@ -2,7 +2,7 @@
 <title language="en" format="text/plain" type="main">Distributed Ledger Time-Stamp</title>
 
 <title language="en" format="text/plain" type="abbrev">dlts</title>
-<docidentifier primary="true">draft-intesigroup-dlts-08</docidentifier><docnumber>draft-intesigroup-dlts-08</docnumber><date type="published"><on>2024-05-25</on></date><contributor><role type="author"/><person>
+<docidentifier primary="true">draft-intesigroup-dlts-09</docidentifier><docnumber>draft-intesigroup-dlts-09</docnumber><date type="published"><on>2024-05-25</on></date><contributor><role type="author"/><person>
 <name><completename>Emanuele Cisbani</completename></name>
 <affiliation><organization>
 <name>Intesi Group</name>
@@ -16,7 +16,12 @@
 <name>Entrust</name>
 <address><street>One Station Square</street><city>Cambridge</city><country>United Kingdom</country><postcode>CB1 2GA</postcode></address></organization></affiliation><email>giuseppe.damiano@entrust.com</email><uri>https://www.entrust.com</uri></person></contributor><contributor><role type="publisher"/><organization>
 <name>Internet Engineering Task Force</name>
-<abbreviation>IETF</abbreviation></organization></contributor><version><revision-date>2024-05-25</revision-date></version><language>en</language><script>Latn</script><status><stage>standard</stage></status><copyright><from>2024</from><owner><organization>
+<abbreviation>IETF</abbreviation></organization></contributor><version><revision-date>2024-05-25</revision-date></version><language>en</language><script>Latn</script><abstract><p>This document defines a standard to extend Time Stamp Tokens
+with Time Attestations recorded on Distributed Ledgers.</p>
+
+<p>The aim is to provide long-term validity to Time Stamp Tokens,
+backward compatible with currently available software.</p>
+</abstract><status><stage>standard</stage></status><copyright><from>2024</from><owner><organization>
 <name>Internet Engineering Task Force</name>
 <abbreviation>IETF</abbreviation></organization></owner></copyright><series type="stream">
 <title>IETF</title>
