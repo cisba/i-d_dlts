@@ -5,7 +5,9 @@
 
 = Usage
 
+	sudo snap save/refresh metanorma
 	metanorma  draft-intesigroup-dlts.adoc 	
 	diff -W 152 -y draft-intesigroup-dlts-07.txt draft-intesigroup-dlts.txt |less -S
+	sudo snap save metanorma
 
 
