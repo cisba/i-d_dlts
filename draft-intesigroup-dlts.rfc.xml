@@ -6,10 +6,10 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-10" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-11" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
   <front>
     <title abbrev="dlts">Distributed Ledger Time-Stamp</title>
-    <seriesInfo value="draft-intesigroup-dlts-10" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
+    <seriesInfo value="draft-intesigroup-dlts-11" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
     <seriesInfo name="" value="" status="full-standard"></seriesInfo>
     <author fullname="Emanuele Cisbani">
       <organization>Intesi Group</organization>
@@ -52,13 +52,11 @@
         <uri>https://www.entrust.com</uri>
       </address>
     </author>
-    <date day="25" year="2024" month="November"></date>
+    <date day="25" year="2025" month="May"></date>
     <area>Internet</area>
-    <abstract anchor="_abstract"><t anchor="_469ae2e4-966f-7430-6c19-582668b61421">This document defines a standard to extend Time Stamp Tokens
-with Time Attestations recorded on Distributed Ledgers.</t>
+    <abstract anchor="_abstract"><t anchor="_abdb9d34-5ed2-2f50-e63a-2aba212cbe8c">This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.</t>
 
-<t anchor="_9b56c736-1543-2b17-9a7d-21c112ae52ed">The aim is to provide long-term validity to Time Stamp Tokens,
-backward compatible with currently available software.</t>
+<t anchor="_5291a88d-ccd6-6e18-38f1-67dc9be9bfdc">The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software.</t>
 </abstract>
   </front>
   <middle>
@@ -72,147 +70,83 @@ backward compatible with currently available software.</t>
 <li>grant record integrity</li>
 </ul>
 
-<t anchor="_417bdb26-732f-f35b-7220-93b62abdb701">A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161" section="" relative=""></xref>
-can be based on an accurate time source linked to Coordinated Universal Time,
-and can be very precise - it can prove the existence also at the second or less.
-It is such a consolidated standard that - for example - the European Union legally
-enforced its usage by <xref target="eIDAS" section="" relative="">eIDAS Regulation</xref>,
-European Standards and Technical Specifications
-<xref target="ETSI.EN.319.422" section="" relative=""></xref> <xref target="ETSI.TS.101.861" section="" relative=""></xref>.</t>
+<t anchor="_d73b21a7-d949-edbc-f7f1-9b53b3f86d84">A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <xref target="RFC3161" section="" relative=""></xref> can be based on an accurate time source linked to Coordinated Universal Time, and can be very precise - it can prove the existence also at the second or less. It is such a consolidated standard that - for example - the European Union legally enforced its usage by  <xref target="eIDAS" section="" relative="">eIDAS Regulation</xref>, European Standards and Technical Specifications <xref target="ETSI.EN.319.422" section="" relative=""></xref> <xref target="ETSI.TS.101.861" section="" relative=""></xref>.</t>
 
-<t anchor="_da1e0ef4-cd62-8b73-0aba-67d502e11ac0">In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <xref target="IMES" section="" relative=""></xref>,
-PKI TSA was evaluated as one of the most desirables in term of security against
-alteration of a time stamp.</t>
+<t anchor="_461350a3-c906-8c08-f23e-00afb70ecb8b">In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <xref target="IMES" section="" relative=""></xref>, PKI TSA was evaluated as one of the most desirables in term of security against alteration of a time stamp.</t>
 
-<t anchor="_f8fc02f6-52d4-e258-5c8e-43c8f42e5bcf">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise to other proposals like <xref target="ANSI.X9.95" section="" relative=""></xref> and <xref target="ISO.IEC.18014-4" section="" relative=""></xref>.</t>
+<t anchor="_da4b6927-7ebc-f433-6c9a-5672f0d655ae">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA gave rise to other proposals like  <xref target="ANSI.X9.95" section="" relative=""></xref> and <xref target="ISO.IEC.18014-4" section="" relative=""></xref>.</t>
 
-<t anchor="_6f06c962-7fdf-7b31-c8a9-171a0cf17df5">Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
-for technical reasons such as the TSA certificates expiration, or
-for economic reasons such as the cost of providing the validation service by TSA.</t>
+<t anchor="_12670bf6-0e14-eb3d-51b1-b812ffdb3284">Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years for technical reasons such as the TSA certificates expiration, or for economic reasons such as the cost of providing the validation service by TSA.</t>
 
-<t anchor="_dd115680-986c-58e4-d051-eeda84ea04a0">This situation brought about some solutions <xref target="ETSI.TS.102.778_4" section="" relative=""></xref> aimed at mitigating
-the inconvenience by extending the validity of TSA timestamps.</t>
+<t anchor="_9fb60c0e-1433-0bc3-aaa9-a9ec29d61434">This situation brought about some solutions <xref target="ETSI.TS.102.778_4" section="" relative=""></xref> aimed at mitigating the inconvenience by extending the validity of TSA timestamps.</t>
 
-<t anchor="_2a66390f-9924-5748-0f18-d3aae6b3a6fa">Security of a Distributed Ledger (def. in <xref target="conventions"></xref>) is based on hashes of data
-timestamped and widely published.
-Each timestamp includes the previous timestamp in its hash, forming a chain,
-with each additional timestamp reinforcing the ones before it.</t>
+<t anchor="_74029d78-1b9d-5459-217b-86430f81c554">Security of a Distributed Ledger (def. in <xref target="conventions"></xref>) is based on hashes of data timestamped and widely published. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.</t>
 
-<t anchor="_c48fffaa-3bf2-dc5f-b3af-d9d3386cee5e">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
-of the distributed system and the overall design whose aim is the DL perpetual survival.</t>
+<t anchor="_389fce91-7e67-027d-aef6-10717c8247a3">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience of the distributed system and the overall design whose aim is the DL perpetual survival.</t>
 
-<t anchor="_41ef532f-627a-1108-2fa8-df96194216d8">Based on a distributed trust scheme, a Distributed Ledger significantly increases
-security as already noted by Haber and Stornetta in 1991 <xref target="HaberStornetta" section="" relative=""></xref>.</t>
+<t anchor="_0afc9511-7432-f606-3740-663074a64f6c">Based on a distributed trust scheme, a Distributed Ledger significantly increases security as already noted by Haber and Stornetta in 1991  <xref target="HaberStornetta" section="" relative=""></xref>.</t>
 
-<t anchor="_0681323e-5289-6f54-1be4-f4a448337767">In the case of a permissioned DL, security is provided by an authoritative network of trust <xref target="Hyperledger" section="" relative=""></xref>, <xref target="NIST.IR.8202" section="" relative=""></xref>,
-while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <xref target="Nakamoto" section="" relative=""></xref>.</t>
+<t anchor="_192e8605-ca52-a1e6-c5ee-b4c5e37d9527">In the case of a permissioned DL, security is provided by an authoritative network of trust <xref target="Hyperledger" section="" relative=""></xref>, <xref target="NIST.IR.8202" section="" relative=""></xref>, while in the case of a permissionless DL security is provided by the economic incentive for running full nodes  <xref target="Nakamoto" section="" relative=""></xref>.</t>
 
-<t anchor="_83ca33fd-28f6-aa63-01de-b419df888157">On the other hand, a DLA is not yet a standard solution.
-Furthermore, the bigger the network the less precise the DLA,
-because distributed nodes need time to reach consensus.</t>
+<t anchor="_703c7edd-c46e-3127-abb2-26d58bd36d80">On the other hand, a DLA is not yet a standard solution. Furthermore, the bigger the network the less precise the DLA, because distributed nodes need time to reach consensus.</t>
 
-<t anchor="_c57dd877-a8d7-700d-69f2-d570a020b73a">Since a DLA turns out to be a complementary element providing long-term
-validity to TST - the aim of this specification is to allow an extension
-of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</t>
+<t anchor="_bacff062-c920-cdb7-c74c-29ac8f8d81e8">Since a DLA turns out to be a complementary element providing long-term validity to TST - the aim of this specification is to allow an extension of the Time-Stamp Token for Distributed Ledger Attestations (DLA).</t>
 </section>
     <section anchor="conventions"><name>Terms and definitions</name>
 
-<t anchor="_af289f2c-8083-125b-8b74-43dfa9619555">The key words "<bcp14>MUST</bcp14>", "<bcp14>MUST NOT</bcp14>", "<bcp14>REQUIRED</bcp14>", "<bcp14>SHALL</bcp14>",
-"<bcp14>SHALL NOT</bcp14>", "<bcp14>SHOULD</bcp14>", "<bcp14>SHOULD NOT</bcp14>", "<bcp14>RECOMMENDED</bcp14>",
-"<bcp14>NOT RECOMMENDED</bcp14>", "<bcp14>MAY</bcp14>", and "<bcp14>OPTIONAL</bcp14>" in this
-document are to be interpreted as described in BCP 14
-<xref target="RFC2119" section="" relative=""></xref> <xref target="RFC8174" section="" relative=""></xref> when, and only when, they appear in
-all capitals, as shown here.</t>
+<t anchor="_07cdb279-2c1d-61fd-3302-c882841d8e5a">The key words "<bcp14>MUST</bcp14>", "<bcp14>MUST NOT</bcp14>", "<bcp14>REQUIRED</bcp14>", "<bcp14>SHALL</bcp14>", " <bcp14>SHALL NOT</bcp14>", "<bcp14>SHOULD</bcp14>", "<bcp14>SHOULD NOT</bcp14>", "<bcp14>RECOMMENDED</bcp14>", " <bcp14>NOT RECOMMENDED</bcp14>", "<bcp14>MAY</bcp14>", and "<bcp14>OPTIONAL</bcp14>" in this document are to be interpreted as described in BCP 14 <xref target="RFC2119" section="" relative=""></xref> <xref target="RFC8174" section="" relative=""></xref> when, and only when, they appear in all capitals, as shown here.</t>
 
-<t anchor="_d171d341-0c9a-b6d3-685c-6a74f5590dbd">This document also refers to the following terms and
-definitions:</t>
+<t anchor="_0914ef23-5851-344f-548d-80bb9245d005">This document also refers to the following terms and definitions:</t>
 
-<dl anchor="_3579ea99-9f3e-e8d0-0d32-6f72ad001f53"><dt>Public Key Infrastructure</dt><dd><t anchor="_b9293d78-05e5-1891-c05a-ca413443adc4">As defined in <xref target="RFC5280" section="" relative=""></xref></t>
+<dl anchor="_202e8966-6ffd-4ca2-7a56-246818838323"><dt>Public Key Infrastructure</dt><dd><t anchor="_b9293d78-05e5-1891-c05a-ca413443adc4">As defined in <xref target="RFC5280" section="" relative=""></xref></t>
 </dd><dt>Trusted Third Party</dt><dd><t anchor="_0b580d51-ca4c-e8d1-544e-db9b27fe8502">As defined in <xref target="RFC3161" section="" relative=""></xref></t>
 </dd><dt>Time-Stamping Authority</dt><dd><t anchor="_28a645d4-f230-cd65-4084-3f1c971da2d5">As defined in <xref target="RFC3161" section="" relative=""></xref></t>
 </dd><dt>Time-Stamp Token</dt><dd><t anchor="_eb6ceb23-5afb-a374-20e0-138aeae67274">As defined in <xref target="RFC3161" section="" relative=""></xref></t>
 </dd><dt>Time-Stamping Unit</dt><dd><t anchor="_9be312e8-3c27-8c64-48cd-e530d28c0b52">As defined in <xref target="RFC3628" section="" relative=""></xref></t>
-</dd><dt>Distributed Ledger</dt><dd><t anchor="_da52c582-7005-eaf9-93a1-cc120ef20806">Various definitions of blockchain and distributed ledger technology exist,
-and some of these stress different technical features.
-Given the nature and scope of this document and the lack of definitional
-consensus we chose to use the term
-as defined by UK Government Chief Scientific Adviser <xref target="UK-GCSA" section="" relative=""></xref>
-"A distributed ledger is essentially an asset database that can be shared across
-a network of multiple sites, geographies or institutions. All participants within
-a network can have their own identical copy of the ledger. Any changes to the
-ledger are reflected in all copies in minutes, or in some cases, seconds. The
-assets can be financial, legal, physical or electronic. The security and accuracy
-of the assets stored in the ledger are maintained cryptographically through the
-use of 'keys' and signatures to control who can do what within the shared ledger.
-Entries can also be updated by one, some or all of the participants, according to
-rules agreed by the network".</t>
+</dd><dt>Distributed Ledger</dt><dd><t anchor="_15790166-5d1c-f975-f735-cc47ca1fa2d7">Various definitions of blockchain and distributed ledger technology exist, and some of these stress different technical features. Given the nature and scope of this document and the lack of definitional consensus we chose to use the term as defined by UK Government Chief Scientific Adviser  <xref target="UK-GCSA" section="" relative=""></xref> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of 'keys' and signatures to control who can do what within the shared ledger. Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".</t>
 </dd><dt>Merkle Tree</dt><dd><t anchor="_0af15724-7803-c110-3230-9f92535eaed1">As defined in <xref target="Merkle" section="" relative=""></xref>, <xref target="CrosbyWallach" section="" relative=""></xref> and <xref target="RFC6962" section="2.1" relative=""></xref></t>
-</dd><dt>Aggregation Server</dt><dd><t anchor="_411a92cf-e55b-e9a4-f548-b78672ab4932">A server providing the aggregation of digests to be timestamped in a Merkle Tree.
-Digests submitted for aggregation are added to a list periodically combined
-into a single Merkle Tree. Then the digest at the root of that tree is timestamped
-on a Distributed Ledger.</t>
-</dd><dt>Distributed Ledger Attestation</dt><dd><t anchor="_58aa6cf9-75cb-1c46-7a06-a71b0b1b1905">A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping
-in a precise Distributed Ledger.</t>
+</dd><dt>Aggregation Server</dt><dd><t anchor="_fc68215a-f5c3-b181-5bfb-18bae8789665">A server providing the aggregation of digests to be timestamped in a Merkle Tree. Digests submitted for aggregation are added to a list periodically combined into a single Merkle Tree. Then the digest at the root of that tree is timestamped on a Distributed Ledger.</t>
+</dd><dt>Distributed Ledger Attestation</dt><dd><t anchor="_ca897268-1e80-ee52-b4d9-13457f4bd731">A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping in a precise Distributed Ledger.</t>
 </dd><dt>Calendar</dt><dd><t anchor="_51f7c5ec-837a-dcc8-a7f0-b849789518f2">A calendar is simply a collection of Distributed Ledger Attestations.</t>
 </dd><dt>Calendar Server</dt><dd><t anchor="_4b4710cd-b517-0b59-4667-89456a643b85">A server providing remote access to a collection of Distributed Ledger Attestations.</t>
 </dd></dl>
 </section>
-    <section anchor="_symbols_and_abbreviations"><name>Symbols And Abbreviations</name>
+    <section anchor="_symbols_and_abbreviations"><name>Symbols and abbreviated terms</name>
 
-<dl anchor="_ef5349b4-7652-b041-53f1-fc0c0ada5096"><dt>PKI</dt><dd><t anchor="_851ec461-959f-346d-2207-e125b81ee500">Public Key Infrastructure</t>
-</dd><dt>TTP</dt><dd><t anchor="_6e97dcaa-2a9b-cf72-12e0-d0694aa007cb">Trusted Third Party</t>
-</dd><dt>TSA</dt><dd><t anchor="_072d88cd-6a80-c52c-68e7-57ef66530e46">Time-Stamping Authority</t>
-</dd><dt>TST</dt><dd><t anchor="_4282f4bf-a5e7-17d5-215a-63f2a17fd435">Time-Stamp Token</t>
-</dd><dt>TSU</dt><dd><t anchor="_a5873e86-95ce-5abd-9be0-7a53eee4224b">Time-Stamping Unit</t>
-</dd><dt>DL</dt><dd><t anchor="_74f7ac6d-048d-580f-25a8-bfb0ec185afc">Distributed Ledger</t>
-</dd><dt>DLA</dt><dd><t anchor="_f7f1fb8b-61f7-e713-de48-79a529f51af3">Distributed Ledger Attestation</t>
+<dl anchor="_26e880b6-f5dc-59b8-d1df-2649aced29ab"><dt anchor="symbol-DL">DL</dt><dd><t anchor="_798332a6-d8d7-774e-70d0-5c3ba52e7be1">Distributed Ledger</t>
+</dd><dt anchor="symbol-DLA">DLA</dt><dd><t anchor="_82c25f58-4519-47bf-57d5-ab6f0cfdf100">Distributed Ledger Attestation</t>
+</dd><dt anchor="symbol-PKI">PKI</dt><dd><t anchor="_addf65b5-ce16-fa00-891d-0ad28ab3d97f">Public Key Infrastructure</t>
+</dd><dt anchor="symbol-TSA">TSA</dt><dd><t anchor="_960d7a72-cd0c-cb1b-65af-428e89fc3fa2">Time-Stamping Authority</t>
+</dd><dt anchor="symbol-TST">TST</dt><dd><t anchor="_0eb21f04-0768-dee5-ebed-743306b57d6e">Time-Stamp Token</t>
+</dd><dt anchor="symbol-TSU">TSU</dt><dd><t anchor="_a2d02bad-78d4-c5f3-f688-d84197e59b73">Time-Stamping Unit</t>
+</dd><dt anchor="symbol-TTP">TTP</dt><dd><t anchor="_4398328e-3118-36fa-9fd6-e02a66336bbd">Trusted Third Party</t>
 </dd></dl>
 </section>
     <section anchor="_dl_attestation"><name>DL Attestation</name>
 
-<t anchor="_b82fd6f2-32ab-f5ce-5089-198e1f2230e3">A Digital Ledger can be seen as an untrusted logger - serving a number of
-clients who wish to store their events in the log -
-kept honest by a number of auditors who will challenge
-the logger to prove its correct behaviour <xref target="CrosbyWallach" section="" relative=""></xref>.</t>
+<t anchor="_c7f36d55-8a1b-5d90-b799-1204d7121c8e">A Digital Ledger can be seen as an untrusted logger - serving a number of clients who wish to store their events in the log - kept honest by a number of auditors who will challenge the logger to prove its correct behaviour  <xref target="CrosbyWallach" section="" relative=""></xref>.</t>
 
-<t anchor="_1470f16f-2e60-0724-3b35-1925966465f4">A Merkle Tree data structure accomplishes this in a very efficient way by aggregating
-many requests and submitting periodically to the log only the root digest of the tree.
-This log is built as a hash chain (aka blockchain) of small blocks of data.
-Consequently, the entire chain can be shared and maintained
-by a large number of nodes, becoming a distributed system.</t>
+<t anchor="_2dbbc671-e5fe-f38a-87ff-3d3b14451db1">A Merkle Tree data structure accomplishes this in a very efficient way by aggregating many requests and submitting periodically to the log only the root digest of the tree. This log is built as a hash chain (aka blockchain) of small blocks of data. Consequently, the entire chain can be shared and maintained by a large number of nodes, becoming a distributed system.</t>
 
-<t anchor="_ffa80b48-3aa5-f4d1-db0d-a2eec34cdced">In a permissioned DL the number of nodes can be small enough to permit a quick
-synchronization and reach consensus concerning the state of the chain.
-In a permissionless DL the large number of nodes introduces a relevant delay
-in order to reach consensus.</t>
+<t anchor="_f83adbc9-dfc4-75d7-2f36-e2caa114d880">In a permissioned DL the number of nodes can be small enough to permit a quick synchronization and reach consensus concerning the state of the chain. In a permissionless DL the large number of nodes introduces a relevant delay in order to reach consensus.</t>
 
-<t anchor="_25e6c5ad-7c4e-150e-0a67-c09944299197">In the case of Bitcoin, for example, consensus is reached statistically.
-Usually in an average elapsed time of one hour six new blocks are added to the chain.
-A block of data that was added before the last six blocks, is considered to be practically immutable.
-This is due to the high computational power that would be required to rewrite the chain.</t>
+<t anchor="_5e91be39-c53d-983a-d5cc-14a844839502">In the case of Bitcoin, for example, consensus is reached statistically. Usually in an average elapsed time of one hour six new blocks are added to the chain. A block of data that was added before the last six blocks, is considered to be practically immutable. This is due to the high computational power that would be required to rewrite the chain.</t>
 
-<t anchor="_e1518046-9215-58eb-b1fe-52f2a0a142bd">As a result of this scenario the elapsed time - from the request of aggregation of a digest
-to the proof consolidated inside the DL, may amount to one hour or more.</t>
+<t anchor="_46ebf58a-7206-afbc-2970-a7dccb9f96ee">As a result of this scenario the elapsed time - from the request of aggregation of a digest to the proof consolidated inside the DL, may amount to one hour or more.</t>
 
-<t anchor="_4712504b-dcb8-eed2-dd6a-3650163ed3fa">This is why we distinguish between a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.
-Generally, an Aggregation Server provides only a promise to timestamp the client's digest
-in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.</t>
+<t anchor="_7d6ff375-39f1-204b-b057-12abc0832ed8">This is why we distinguish between a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation. Generally, an Aggregation Server provides only a promise to timestamp the client's digest in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.</t>
 
-<t anchor="_4d5ed57e-e54a-fae5-2ee2-dfa46930ce32">Only after reaching consensus on that block can attestation be considered as proof,
-and made available by the Calendar Server.</t>
+<t anchor="_52462845-4af8-b34b-b0b6-24648c9ce0b1">Only after reaching consensus on that block can attestation be considered as proof, and made available by the Calendar Server.</t>
 
-<t anchor="_b96080ad-7ba9-107b-77e4-c943983a66b5">For the sake of simplicity, the Aggregation Server and the Calendar Server
-can be implemented as a unique instance.
-In this document we will generically refer to a Calendar Server indicating both services.</t>
+<t anchor="_af1d4722-7abf-e27f-bcff-3d4e46446924">For the sake of simplicity, the Aggregation Server and the Calendar Server can be implemented as a unique instance. In this document we will generically refer to a Calendar Server indicating both services.</t>
 
-<t anchor="_6e881b96-fffe-9c19-0d3e-fa04825aa3fa">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t>
+<t anchor="_7b468946-70d4-a53b-5bea-b5780e988760">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t>
 </section>
     <section anchor="_dl_time_stamp_objects"><name>DL Time-Stamp Objects</name>
 
-<t anchor="_d7101fd5-3819-7219-7225-cc55581cdb87">The ASN.1 structure of Promise type is as follows:</t>
+<t anchor="_1782af60-45fa-a0c1-e201-8b82582ca367">The ASN.1 structure of Promise type is as follows:</t>
 
-<sourcecode anchor="_e68b1c60-c364-665a-c290-20630eb5be39"><![CDATA[    Promise ::= SEQUENCE {
+<sourcecode anchor="_0bb15046-3662-d312-9c80-03a51898ffd6"><![CDATA[    Promise ::= SEQUENCE {
         version          INTEGER,
         calendarFormat   UTF8String,
         dlPromise        DLPromise,
@@ -222,9 +156,9 @@ In this document we will generically refer to a Calendar Server indicating both 
     DLPromise ::= OCTET STRING]]></sourcecode>
 
 
-<t anchor="_d23c7c5b-a15b-3f02-f4c8-5bb8eeed0c82">The ASN.1 structure of Proof type is as follows:</t>
+<t anchor="_3bd54e80-cfc2-d1e5-8539-a6ed210679e9">The ASN.1 structure of Proof type is as follows:</t>
 
-<sourcecode anchor="_49344e99-a5bf-860c-3746-249a3751ae1c"><![CDATA[    Proof ::= SEQUENCE {
+<sourcecode anchor="_19fc887f-063b-74a1-673f-1169ad53c45b"><![CDATA[    Proof ::= SEQUENCE {
         version          INTEGER,
         calendarFormat   UTF8String,
         dlProof          DLProof,
@@ -234,150 +168,102 @@ In this document we will generically refer to a Calendar Server indicating both 
     DLProof ::= OCTET STRING]]></sourcecode>
 
 
-<t anchor="_8fb64814-4d6c-8fd6-1cf4-a0676f498d1d">The fields of Promise and Proof type have the following meanings:</t>
+<t anchor="_4049d7d1-5c16-cb31-20c1-430428f0e136">The fields of Promise and Proof type have the following meanings:</t>
 
-<ul anchor="_f18cfeb1-eed5-f04b-dfcf-dd4d6e2b7dee"><li>version is the syntax version number. It MUST always be 0.
-The usage is as described in <xref target="RFC5652" section="1.3" relative=""></xref></li>
-<li>calendarFormat is the media type format of the DL attestation.
-It MUST be a registered application media type, in accordance with
-procedures laid out in <xref target="RFC6838" section="" relative=""></xref> - for example, if you wanted
-to use the <xref target="OpenTimestamps" section="" relative=""></xref> format, the calendarFormat value would be
-the string "application/vnd.opentimestamps.ots" (without quotes)
-that is the IANA registered Media Type <xref target="OTS" section="" relative=""></xref></li>
-<li>dlProof and dlPromise are the proof and promise obtained from a Calendar Server
-using as input value the value of the signature field of the SignerInfo structure
-inside the digital signature of the TimeStampToken, as described in
-<xref target="RFC5652" section="5.3" relative=""></xref></li>
-<li>signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU
-signing certificate as described in <xref target="RFC5652" section="10.2.4" relative=""></xref></li>
-<li>serialNumber is an integer assigned by the TSA to each TimeStampToken
-as described in <xref target="RFC3161" section="2.4.2" relative=""></xref></li>
+<ul anchor="_1f26ed8f-fc91-5ee9-25af-efe2b0413cff"><li>version is the syntax version number. It MUST always be 0. The usage is as described in  <xref target="RFC5652" section="1.3" relative=""></xref></li>
+<li>calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <xref target="RFC6838" section="" relative=""></xref> - for example, if you wanted to use the  <xref target="OpenTimestamps" section="" relative=""></xref> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type <xref target="OTS" section="" relative=""></xref></li>
+<li>dlProof and dlPromise are the proof and promise obtained from a Calendar Server using as input value the value of the signature field of the SignerInfo structure inside the digital signature of the TimeStampToken, as described in <xref target="RFC5652" section="5.3" relative=""></xref></li>
+<li>signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU signing certificate as described in  <xref target="RFC5652" section="10.2.4" relative=""></xref></li>
+<li>serialNumber is an integer assigned by the TSA to each TimeStampToken as described in  <xref target="RFC3161" section="2.4.2" relative=""></xref></li>
 </ul>
 
 <section anchor="_dl_time_stamp_attributes"><name>DL Time-Stamp Attributes</name>
 
-<t anchor="_830e697f-2d59-255f-20cc-30883a7bb74c">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included
-in a TST, using an unsigned attribute of the per-signer information.</t>
+<t anchor="_58bf7726-5e7d-32a8-b97d-ec44112bcf74">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included in a TST, using an unsigned attribute of the per-signer information.</t>
 
-<t anchor="_0da36701-6388-8629-00ec-e0502a118a21">To grant backward compatibility with any currently available software
-the unsigned attribute MUST be compliant with the specifications defined
-in <xref target="RFC5652" section="5.3" relative=""></xref> for Attribute type.</t>
+<t anchor="_5d311ec1-5188-ffe9-e7ca-a0ea5df030b4">To grant backward compatibility with any currently available software the unsigned attribute MUST be compliant with the specifications defined in  <xref target="RFC5652" section="5.3" relative=""></xref> for Attribute type.</t>
 
-<t anchor="_149b1d44-f96c-561f-d582-e9d0bfc087cf">Attributes including a set of promises and a set of proofs MUST be unsigned attributes;
-they MUST NOT be signed attributes, authenticated attributes,
-unauthenticated attributes, or unprotected attributes.</t>
+<t anchor="_f0c94dfb-0513-aa25-a7cc-c4e7ee5dac23">Attributes including a set of promises and a set of proofs MUST be unsigned attributes; they MUST NOT be signed attributes, authenticated attributes, unauthenticated attributes, or unprotected attributes.</t>
 
-<t anchor="_a81d82d7-c032-fdcc-93b3-e1025b2eb107">The new objects MUST have the following OIDs where id-ce identifies
-the root of standard extensions as described in <xref target="RFC5280" section="" relative=""></xref>.</t>
+<t anchor="_9efdd8bb-fed7-822d-0627-b1d5d96b995b">The new objects MUST have the following OIDs where id-ce identifies the root of standard extensions as described in  <xref target="RFC5280" section="" relative=""></xref>.</t>
 
-<t anchor="_2b0eada6-2047-cff6-fe45-180122119d05">The ASN.1 structure of attributes including a set of promises is as follows:</t>
+<t anchor="_f4486869-7f35-eb53-23a7-4ffa85a94bd7">The ASN.1 structure of attributes including a set of promises is as follows:</t>
 
-<sourcecode anchor="_0df8dad0-bea8-9248-bb9f-f0679d627085"><![CDATA[    id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
+<sourcecode anchor="_6ac6a6ca-d7b6-1389-41e9-124cba855364"><![CDATA[    id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 
     Promises            SET OF Promise]]></sourcecode>
 
 
-<t anchor="_9ca84eee-65f5-31d6-2e3e-234ab9970ce0">The ASN.1 structure of attributes including a set of proofs is as follows:</t>
+<t anchor="_520265ab-2687-9e1e-b573-f53059dd4016">The ASN.1 structure of attributes including a set of proofs is as follows:</t>
 
-<sourcecode anchor="_28d05ddd-bd93-e535-c036-13a0751801d5"><![CDATA[    id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
+<sourcecode anchor="_fba2dc9b-e4a8-767c-f57f-c018559273a7"><![CDATA[    id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 
     Proofs              SET OF Proof]]></sourcecode>
 
 
-<t anchor="_77c5bc70-f73a-ab3c-6d89-168aa5ae0704">All the proofs and promises that have been returned MUST refer to the same parent
-TimeStampToken issued at the time of the request.</t>
+<t anchor="_dd9f7694-d3c5-040b-36e2-60346f6a2e50">All the proofs and promises that have been returned MUST refer to the same parent TimeStampToken issued at the time of the request.</t>
 
-<t anchor="_19b5453e-5d1c-1a2d-db9c-78767a7de205">Note that a TSA can return a set of proofs and promises for the same input value
-as it can use calendar servers operating on different Distributed Ledgers.</t>
+<t anchor="_c32084e8-1dc9-3cdc-3db7-503fc2569d01">Note that a TSA can return a set of proofs and promises for the same input value as it can use calendar servers operating on different Distributed Ledgers.</t>
 
 <section anchor="_response_status"><name>Response Status</name>
 
-<t anchor="_a3c8c91d-c2e3-3434-3dcd-f8d0626e5345">The response status code in the TimeStampResp MUST be compliant with
-the specifications described in <xref target="RFC3161" section="2.4.2" relative=""></xref>
-and <xref target="RFC4210" section="5.2.3" relative=""></xref>.</t>
+<t anchor="_fb6d6c29-8e27-6556-d464-d144ee10770d">The response status code in the TimeStampResp MUST be compliant with the specifications described in  <xref target="RFC3161" section="2.4.2" relative=""></xref> and  <xref target="RFC4210" section="5.2.3" relative=""></xref>.</t>
 
-<t anchor="_61b01cab-b773-6c1e-7fdf-01b45e11e741">According to the TimeStamp policy, when the response contains only a subset
-of the expected proofs and promises, the status field SHOULD contain either
-the value one (grantedWithMods) or the value two (rejection).</t>
+<t anchor="_4a325a13-6283-a7aa-b090-00fa0211d743">According to the TimeStamp policy, when the response contains only a subset of the expected proofs and promises, the status field SHOULD contain either the value one (grantedWithMods) or the value two (rejection).</t>
 </section>
 </section>
 
 <section anchor="_dl_time_stamp_extensions"><name>DL Time-Stamp Extensions</name>
 
-<t anchor="_d01baab8-165a-7556-c834-2581712d9bca">Upgrade from a set of promises to a set of proofs MAY be done
-requesting a new TST including inside a non critical extension
-the set of promises previously obtained in an unsigned attribute.</t>
+<t anchor="_e7cd38d6-a674-f482-8033-db4e0bd6fbad">Upgrade from a set of promises to a set of proofs MAY be done requesting a new TST including inside a non critical extension the set of promises previously obtained in an unsigned attribute.</t>
 
-<t anchor="_51c85e95-f7b4-83e5-f2b4-4e6aea8dd7f8">When the TSA receives a request which has a non critical extension
-containing a set of promises,
-it MAY request the Calendar Server to get the corresponding proof
-for each of them, and MAY include the set of proofs in the TST response,
-using a non critical extension of the TSTInfo sequence.</t>
+<t anchor="_18a25cb8-e51b-5843-999a-5c63647705f8">When the TSA receives a request which has a non critical extension containing a set of promises, it MAY request the Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response, using a non critical extension of the TSTInfo sequence.</t>
 
-<t anchor="_70139b38-9a58-ccb3-176f-202e48dec5d1">To grant backward compatibility with any currently available software,
-request and response non critical extensions MUST be compliant
-with the specifications described in <xref target="RFC3161" section="2.4" relative=""></xref>
-and <xref target="RFC5280" section="4.2" relative=""></xref>.</t>
+<t anchor="_d8a139f1-92e0-2814-a0a1-760d52789bad">To grant backward compatibility with any currently available software, request and response non critical extensions MUST be compliant with the specifications described in  <xref target="RFC3161" section="2.4" relative=""></xref> and  <xref target="RFC5280" section="4.2" relative=""></xref>.</t>
 
-<t anchor="_b49980cf-9b6d-5dfa-b9b0-eef8672e529d">Conforming TSAs MUST mark these extensions as non-critical.</t>
+<t anchor="_d6863c50-8be9-8132-54e4-54ccb9eb7a06">Conforming TSAs MUST mark these extensions as non-critical.</t>
 
-<t anchor="_9ae6bad5-4b5f-fe36-26a1-32f0d6c743dc">The ASN.1 structure of the proof request extension is as follows:</t>
+<t anchor="_92738d40-f59f-809a-fc09-eafe77388c42">The ASN.1 structure of the proof request extension is as follows:</t>
 
-<sourcecode anchor="_0d0acac4-3222-103b-6351-56e840e67cac"><![CDATA[    id-ce-dltsPromises OBJECT IDENTIFIER
+<sourcecode anchor="_502673d7-0af8-cce3-b55e-b48ce49ab72b"><![CDATA[    id-ce-dltsPromises OBJECT IDENTIFIER
 
     Promises            SET OF Promise]]></sourcecode>
 
 
-<t anchor="_d0f27673-71e5-b499-3d32-364ffae4b8c4">The ASN.1 structure of the proof response extension is as follows:</t>
+<t anchor="_a44059c8-2e85-146d-bb56-534395b3c1b1">The ASN.1 structure of the proof response extension is as follows:</t>
 
-<sourcecode anchor="_06d9a72e-ccd5-4358-ccb8-34d7df32adfc"><![CDATA[    id-ce-dltsProofs OBJECT IDENTIFIER
+<sourcecode anchor="_5b0a6dbd-9faf-49aa-a2a7-be0135a0f799"><![CDATA[    id-ce-dltsProofs OBJECT IDENTIFIER
 
     Proofs               SET OF Proof]]></sourcecode>
 
 
-<t anchor="_2db50ffd-2601-5310-24dc-a308eb26432b">The proofs returned in the extensions by the TSA MUST NOT refer to
-the TimeStampToken issued at the time of the request.
-Each Proof MUST contain the explicit reference to the pointing
-TimeStampToken with signerIdentifier (referring to the TSU certificate)
-and serialNumber (referring to the time stamp serial number),
-which have been received in the Promise structure of the proof request extension.</t>
+<t anchor="_31de7e0a-6b42-73f7-7569-376368055537">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request. Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerIdentifier (referring to the TSU certificate) and serialNumber (referring to the time stamp serial number), which have been received in the Promise structure of the proof request extension.</t>
 
 <section anchor="_response_status_2"><name>Response Status</name>
 
-<t anchor="_8057a10d-fec5-b9fd-9b6f-c5fe9cd3b9eb">The response status code in the TimeStampResp MUST be compliant
-with the specifications described in <xref target="RFC3161" section="2.4.2" relative=""></xref>
-and <xref target="RFC4210" section="5.2.3" relative=""></xref>.</t>
+<t anchor="_af4b7551-5877-eac7-1195-545f26e1eb28">The response status code in the TimeStampResp MUST be compliant with the specifications described in  <xref target="RFC3161" section="2.4.2" relative=""></xref> and  <xref target="RFC4210" section="5.2.3" relative=""></xref>.</t>
 
-<t anchor="_f44d9d76-56eb-2e11-8d3b-fbc7916c1ae2">Compliant servers SHOULD also use the status field as follows:</t>
+<t anchor="_0cd90f39-34c4-dbcc-4457-1a3277670300">Compliant servers SHOULD also use the status field as follows:</t>
 
-<ul anchor="_a4c13634-6cbb-f08d-5927-d0ab2b1d4dea"><li>according to TimeStamp policy, when the response contains only a subset
-of the expected proofs, the status field SHOULD contain either the value one
-(grantedWithMods) or two (rejection)</li>
-<li>when in the response no proof can be returned,
-the status field SHOULD contain the value two (rejection)</li>
-<li>when all the received promises recognized by the Calendar Server are pending,
-the status field SHOULD contain the value three (waiting).</li>
+<ul anchor="_3693d1de-e9fa-cc0e-f431-68c23cbc5d7f"><li>according to TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contain either the value one (grantedWithMods) or two (rejection)</li>
+<li>when in the response no proof can be returned, the status field SHOULD contain the value two (rejection)</li>
+<li>when all the received promises recognized by the Calendar Server are pending, the status field SHOULD contain the value three (waiting).</li>
 </ul>
 </section>
 </section>
 
 <section anchor="_use_case"><name>Use case</name>
 
-<t anchor="_2db17d56-5704-23f2-d249-f534c8719098">In order to clarify the use of the objects thus defined, the case of
-a subscription made by two actors at different times, using distinct
-time stamps, is illustrated below.</t>
+<t anchor="_e9e8d006-6d30-70ae-7afe-b8ce4adf9d34">In order to clarify the use of the objects thus defined, the case of a subscription made by two actors at different times, using distinct time stamps, is illustrated below.</t>
 
 <section anchor="_promises"><name>Promises</name>
 
-<t anchor="_2de4c4d4-30c1-b005-b9ab-99181695dfdd">Since each signer applies a time stamp to his signature, the structure
-will be presented according to the following simplified scheme, in which
-each promise is inserted as an unsigned attribute of the time stamp
-to which it refers.</t>
+<t anchor="_b936f6d6-b935-5e61-c9c1-0bb273d37eec">Since each signer applies a time stamp to his signature, the structure will be presented according to the following simplified scheme, in which each promise is inserted as an unsigned attribute of the time stamp to which it refers.</t>
 
 <figure anchor="use-case-promises">
 
 
-<name>Figure 1</name><artwork anchor="_a75d3b76-47d2-f354-b814-a966d9f9232c" align="center" alt="alt_text" type="ascii-art"><![CDATA[signature-1
+<name>Figure 1</name><artwork anchor="_ea9d65d3-99f7-065e-102a-0231c6add3f6" align="center" alt="alt_text" type="ascii-art"><![CDATA[signature-1
     +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-1
@@ -400,19 +286,14 @@ signature-2
                                 |--- signerIdentifier
                                 +--- serialNumber-2]]></artwork></figure>
 
-<t anchor="_349e7add-32e1-faa6-6484-80ab02abec7c">Although replicating the signerIdentifier and serialNumber information
-may seem redundant in the case of a single timestamp, it can never be
-ruled out that a second signature with a new timestamp will be added later.</t>
+<t anchor="_9e1b1dde-ef66-8566-0edd-b15c277ec7e8">Although replicating the signerIdentifier and serialNumber information may seem redundant in the case of a single timestamp, it can never be ruled out that a second signature with a new timestamp will be added later.</t>
 
-<t anchor="_79f08a5c-8305-f8b6-7f93-5ffa6d1a375f">When you also want to obtain the proof of attestation on the DL, the
-application will be able to collect the two promises and include them
-as extensions in a new timestamp request. The result would have the
-following structure:</t>
+<t anchor="_55f44e6d-7d52-21c6-1a02-eb5971f31231">When you also want to obtain the proof of attestation on the DL, the application will be able to collect the two promises and include them as extensions in a new timestamp request. The result would have the following structure:</t>
 
 <figure anchor="use-case-proofs">
 
 
-<name>Figure 2</name><artwork anchor="_de8d3f3d-015d-8f6f-d01c-57d854e96d32" align="center" alt="alt_text" type="ascii-art"><![CDATA[    +--- timestampToken
+<name>Figure 2</name><artwork anchor="_1c17bbde-322f-c837-f1f7-a7c18725b806" align="center" alt="alt_text" type="ascii-art"><![CDATA[    +--- timestampToken
                 |--- signerIdentifier
                 |--- serialNumber-3
                 +--- id-ce-dltsPromises
@@ -429,60 +310,52 @@ following structure:</t>
                                 |--- signerIdentifier
                                 +--- serialNumber-2]]></artwork></figure>
 
-<t anchor="_504c5692-07cd-7d9a-772d-1cb23902ab98">From this example it is evident that the signerIdentifier and serialNumber pair
-is necessary to uniquely identify the TimestampToken to which each Proof
-obtained refers.</t>
+<t anchor="_45c40f38-26a3-4ada-c708-6fec3b6566f6">From this example it is evident that the signerIdentifier and serialNumber pair is necessary to uniquely identify the TimestampToken to which each Proof obtained refers.</t>
 
-<t anchor="_38e112f1-4852-2fe9-12df-5a5b8e94d33c">It is up to the application to choose whether the new timestamp, containing
-the evidence, will be saved within the same document, containing the promises,
-or stored separately.</t>
+<t anchor="_d309ced1-d878-23f8-5faa-4f731acac4e1">It is up to the application to choose whether the new timestamp, containing the evidence, will be saved within the same document, containing the promises, or stored separately.</t>
 </section>
 </section>
 </section>
     <section anchor="_security_considerations"><name>Security Considerations</name>
 
-<t anchor="_bd3e3025-6e4c-e55f-3592-51515bd9dd38">Each security consideration described in <xref target="RFC3161" section="4" relative=""></xref> SHALL be evaluated designing
-TSA services that include DL Time-Stamp extensions.</t>
+<t anchor="_64a8f199-f53f-535b-8685-152e9e560b22">Each security consideration described in <xref target="RFC3161" section="4" relative=""></xref> SHALL be evaluated designing TSA services that include DL Time-Stamp extensions.</t>
 
-<t anchor="_81372a18-1523-5001-398f-7b140f548f97">When a TSA executes a request to a Calendar Server the use of a nonce is
-RECOMMENDED because using a nonce always allows the client to detect replays.</t>
+<t anchor="_b5a2a4a0-6c7e-456f-df65-e455efaa6bdc">When a TSA executes a request to a Calendar Server the use of a nonce is RECOMMENDED because using a nonce always allows the client to detect replays.</t>
 
-<t anchor="_082450a5-7aee-6141-55cf-54b8bc4e9063">Safety and reliability of the DL proofs depends on the robustness
-of the hash algorithms and on the stability of the DL,
-i.e. how expensive or difficult it would be for an attacker to alter the DL.</t>
+<t anchor="_528c3e93-145a-9b70-157b-246924b90611">Safety and reliability of the DL proofs depends on the robustness of the hash algorithms and on the stability of the DL, i.e. how expensive or difficult it would be for an attacker to alter the DL.</t>
 </section>
     <section anchor="_iana_considerations"><name>IANA Considerations</name>
 
-<t anchor="_4f8e5305-4dde-12d1-e5d8-62f818fbd19e">This document does not require any action by IANA.</t>
+<t anchor="_37bec581-8bf0-882c-a119-9e0d3495aca7">This document does not require any action by IANA.</t>
 </section>
   </middle>
   <back>
     <references anchor="_normative_references">
       <name>Normative References</name>
-      <reference target="https://www.rfc-editor.org/info/rfc2119" anchor="RFC2119"><stream>IETF</stream> <front> <title>Key words for use in RFCs to Indicate Requirement Levels</title> <author fullname="S. Bradner" asciiFullname="S. Bradner"></author> <date month="March" year="1997"></date> <keyword>Standards</keyword><keyword>Track</keyword><keyword>Documents</keyword> <abstract>  <t anchor="_d880f395-e6d7-8f4a-03cf-d16fe47fb9c2">In many standards track documents several words are used to signify the requirements in the specification. These words are often capitalized. This document defines these words as they should be interpreted in IETF documents. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc2119" type="src"></format> <seriesInfo value=" 10.17487/RFC2119" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="2119" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc3161" anchor="RFC3161"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Time-Stamp Protocol (TSP)</title> <author fullname="C. Adams" asciiFullname="C. Adams"></author> <author fullname="P. Cain" asciiFullname="P. Cain"></author> <author fullname="D. Pinkas" asciiFullname="D. Pinkas"></author> <author fullname="R. Zuccherato" asciiFullname="R. Zuccherato"></author> <date month="August" year="2001"></date> <keyword>TSA</keyword><keyword>Time Stamping Authority</keyword><keyword>TSP</keyword><keyword>Time-Stamp Protocol</keyword><keyword>security</keyword><keyword>request</keyword><keyword>response</keyword> <abstract>  <t anchor="_791f5bd0-8ba4-4736-0ad7-195e5fac7f43">This document describes the format of a request sent to a Time Stamping Authority (TSA) and of the response that is returned. It also establishes several security-relevant requirements for TSA operation, with regards to processing requests to generate responses. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc3161" type="src"></format> <seriesInfo value=" 10.17487/RFC3161" name="DOI"></seriesInfo> <seriesInfo value="3161" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc3628" anchor="RFC3628"><stream>IETF</stream> <front> <title>Policy Requirements for Time-Stamping Authorities (TSAs)</title> <author fullname="D. Pinkas" asciiFullname="D. Pinkas"></author> <author fullname="N. Pope" asciiFullname="N. Pope"></author> <author fullname="J. Ross" asciiFullname="J. Ross"></author> <date month="November" year="2003"></date> <keyword>tokens</keyword><keyword>public key certificates</keyword> <abstract>  <t anchor="_5a5259b0-eaf7-ab2d-23eb-dc39239ed14a">This document defines requirements for a baseline time-stamp policy for Time-Stamping Authorities (TSAs) issuing time-stamp tokens, supported by public key certificates, with an accuracy of one second or better. A TSA may define its own policy which enhances the policy defined in this document. Such a policy shall incorporate or further constrain the requirements identified in this document.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc3628" type="src"></format> <seriesInfo value=" 10.17487/RFC3628" name="DOI"></seriesInfo> <seriesInfo value="3628" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc4210" anchor="RFC4210"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Certificate Management Protocol (CMP)</title> <author fullname="C. Adams" asciiFullname="C. Adams"></author> <author fullname="S. Farrell" asciiFullname="S. Farrell"></author> <author fullname="T. Kause" asciiFullname="T. Kause"></author> <author fullname="T. Mononen" asciiFullname="T. Mononen"></author> <date month="September" year="2005"></date> <keyword>PKICMP security</keyword><keyword>cryptographic authentication</keyword><keyword>pkix</keyword><keyword>pki</keyword><keyword>X.509v3</keyword><keyword>certificate creation</keyword><keyword>certificate management</keyword><keyword>ca</keyword><keyword>certification authority</keyword> <abstract>  <t anchor="_0cc72dd5-a05e-158c-47fb-56456d969e3d">This document describes the Internet X.509 Public Key Infrastructure (PKI) Certificate Management Protocol (CMP). Protocol messages are defined for X.509v3 certificate creation and management. CMP provides on-line interactions between PKI components, including an exchange between a Certification Authority (CA) and a client system. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc4210" type="src"></format> <seriesInfo value=" 10.17487/RFC4210" name="DOI"></seriesInfo> <seriesInfo value="4210" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc5280" anchor="RFC5280"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</title> <author fullname="D. Cooper" asciiFullname="D. Cooper"></author> <author fullname="S. Santesson" asciiFullname="S. Santesson"></author> <author fullname="S. Farrell" asciiFullname="S. Farrell"></author> <author fullname="S. Boeyen" asciiFullname="S. Boeyen"></author> <author fullname="R. Housley" asciiFullname="R. Housley"></author> <author fullname="W. Polk" asciiFullname="W. Polk"></author> <date month="May" year="2008"></date> <keyword>X.509 v3</keyword><keyword>X.509 v2</keyword><keyword>certificate extensions</keyword> <abstract>  <t anchor="_c2d212b5-0b0e-8722-03f7-80b63efa0d8d">This memo profiles the X.509 v3 certificate and X.509 v2 certificate revocation list (CRL) for use in the Internet. An overview of this approach and model is provided as an introduction. The X.509 v3 certificate format is described in detail, with additional information regarding the format and semantics of Internet name forms. Standard certificate extensions are described and two Internet-specific extensions are defined. A set of required certificate extensions is specified. The X.509 v2 CRL format is described in detail along with standard and Internet-specific extensions. An algorithm for X.509 certification path validation is described. An ASN.1 module and examples are provided in the appendices. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc5280" type="src"></format> <seriesInfo value=" 10.17487/RFC5280" name="DOI"></seriesInfo> <seriesInfo value="5280" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc5652" anchor="RFC5652"><stream>IETF</stream> <front> <title>Cryptographic Message Syntax (CMS)</title> <author fullname="R. Housley" asciiFullname="R. Housley"></author> <date month="September" year="2009"></date> <keyword>digital signature</keyword><keyword>message content</keyword> <abstract>  <t anchor="_b3e222b3-8225-4ace-9371-3239d5cbf461">This document describes the Cryptographic Message Syntax (CMS). This syntax is used to digitally sign, digest, authenticate, or encrypt arbitrary message content. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc5652" type="src"></format> <seriesInfo name="STD" value="70"></seriesInfo> <seriesInfo value=" 10.17487/RFC5652" name="DOI"></seriesInfo> <seriesInfo value="70" name="BCP"></seriesInfo> <seriesInfo value="5652" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc6838" anchor="RFC6838"><stream>IETF</stream> <front> <title>Media Type Specifications and Registration Procedures</title> <author fullname="N. Freed" asciiFullname="N. Freed"></author> <author fullname="J. Klensin" asciiFullname="J. Klensin"></author> <author fullname="T. Hansen" asciiFullname="T. Hansen"></author> <date month="January" year="2013"></date> <abstract>  <t anchor="_f23a4990-9b88-d2cc-4496-da21c9482d7f">This document defines procedures for the specification and registration of media types for use in HTTP, MIME, and other Internet protocols. This memo documents an Internet Best Current Practice.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc6838" type="src"></format> <seriesInfo value=" 10.17487/RFC6838" name="DOI"></seriesInfo> <seriesInfo value="13" name="BCP"></seriesInfo> <seriesInfo value="6838" name="RFC"></seriesInfo></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc8174" anchor="RFC8174"><stream>IETF</stream> <front> <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title> <author fullname="B. Leiba" asciiFullname="B. Leiba"></author> <date month="May" year="2017"></date> <abstract>  <t anchor="_dab0f4a4-7de3-1f0e-3f2c-70958211b452">RFC 2119 specifies common key words that may be used in protocol specifications. This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the defined special meanings.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc8174" type="src"></format> <seriesInfo value=" 10.17487/RFC8174" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="8174" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc2119" anchor="RFC2119"><stream>IETF</stream> <front> <title>Key words for use in RFCs to Indicate Requirement Levels</title> <author fullname="S. Bradner" asciiFullname="S. Bradner"></author> <date month="March" year="1997"></date> <keyword>Standards</keyword><keyword>Track</keyword><keyword>Documents</keyword> <abstract>  <t anchor="_d880f395-e6d7-8f4a-03cf-d16fe47fb9c2">In many standards track documents several words are used to signify the requirements in the specification. These words are often capitalized. This document defines these words as they should be interpreted in IETF documents. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc2119" type="src"></format> <seriesInfo value="10.17487/RFC2119" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="2119" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc3161" anchor="RFC3161"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Time-Stamp Protocol (TSP)</title> <author fullname="C. Adams" asciiFullname="C. Adams"></author> <author fullname="P. Cain" asciiFullname="P. Cain"></author> <author fullname="D. Pinkas" asciiFullname="D. Pinkas"></author> <author fullname="R. Zuccherato" asciiFullname="R. Zuccherato"></author> <date month="August" year="2001"></date> <keyword>TSA</keyword><keyword>Time Stamping Authority</keyword><keyword>TSP</keyword><keyword>Time-Stamp Protocol</keyword><keyword>security</keyword><keyword>request</keyword><keyword>response</keyword> <abstract>  <t anchor="_791f5bd0-8ba4-4736-0ad7-195e5fac7f43">This document describes the format of a request sent to a Time Stamping Authority (TSA) and of the response that is returned. It also establishes several security-relevant requirements for TSA operation, with regards to processing requests to generate responses. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc3161" type="src"></format> <seriesInfo value="10.17487/RFC3161" name="DOI"></seriesInfo> <seriesInfo value="3161" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc3628" anchor="RFC3628"><stream>IETF</stream> <front> <title>Policy Requirements for Time-Stamping Authorities (TSAs)</title> <author fullname="D. Pinkas" asciiFullname="D. Pinkas"></author> <author fullname="N. Pope" asciiFullname="N. Pope"></author> <author fullname="J. Ross" asciiFullname="J. Ross"></author> <date month="November" year="2003"></date> <keyword>tokens</keyword><keyword>public key certificates</keyword> <abstract>  <t anchor="_5a5259b0-eaf7-ab2d-23eb-dc39239ed14a">This document defines requirements for a baseline time-stamp policy for Time-Stamping Authorities (TSAs) issuing time-stamp tokens, supported by public key certificates, with an accuracy of one second or better. A TSA may define its own policy which enhances the policy defined in this document. Such a policy shall incorporate or further constrain the requirements identified in this document.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc3628" type="src"></format> <seriesInfo value="10.17487/RFC3628" name="DOI"></seriesInfo> <seriesInfo value="3628" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc4210" anchor="RFC4210"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Certificate Management Protocol (CMP)</title> <author fullname="C. Adams" asciiFullname="C. Adams"></author> <author fullname="S. Farrell" asciiFullname="S. Farrell"></author> <author fullname="T. Kause" asciiFullname="T. Kause"></author> <author fullname="T. Mononen" asciiFullname="T. Mononen"></author> <date month="September" year="2005"></date> <keyword>PKICMP security</keyword><keyword>cryptographic authentication</keyword><keyword>pkix</keyword><keyword>pki</keyword><keyword>X.509v3</keyword><keyword>certificate creation</keyword><keyword>certificate management</keyword><keyword>ca</keyword><keyword>certification authority</keyword> <abstract>  <t anchor="_0cc72dd5-a05e-158c-47fb-56456d969e3d">This document describes the Internet X.509 Public Key Infrastructure (PKI) Certificate Management Protocol (CMP). Protocol messages are defined for X.509v3 certificate creation and management. CMP provides on-line interactions between PKI components, including an exchange between a Certification Authority (CA) and a client system. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc4210" type="src"></format> <seriesInfo value="10.17487/RFC4210" name="DOI"></seriesInfo> <seriesInfo value="4210" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc5280" anchor="RFC5280"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile</title> <author fullname="D. Cooper" asciiFullname="D. Cooper"></author> <author fullname="S. Santesson" asciiFullname="S. Santesson"></author> <author fullname="S. Farrell" asciiFullname="S. Farrell"></author> <author fullname="S. Boeyen" asciiFullname="S. Boeyen"></author> <author fullname="R. Housley" asciiFullname="R. Housley"></author> <author fullname="W. Polk" asciiFullname="W. Polk"></author> <date month="May" year="2008"></date> <keyword>X.509 v3</keyword><keyword>X.509 v2</keyword><keyword>certificate extensions</keyword> <abstract>  <t anchor="_c2d212b5-0b0e-8722-03f7-80b63efa0d8d">This memo profiles the X.509 v3 certificate and X.509 v2 certificate revocation list (CRL) for use in the Internet. An overview of this approach and model is provided as an introduction. The X.509 v3 certificate format is described in detail, with additional information regarding the format and semantics of Internet name forms. Standard certificate extensions are described and two Internet-specific extensions are defined. A set of required certificate extensions is specified. The X.509 v2 CRL format is described in detail along with standard and Internet-specific extensions. An algorithm for X.509 certification path validation is described. An ASN.1 module and examples are provided in the appendices. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc5280" type="src"></format> <seriesInfo value="10.17487/RFC5280" name="DOI"></seriesInfo> <seriesInfo value="5280" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc5652" anchor="RFC5652"><stream>IETF</stream> <front> <title>Cryptographic Message Syntax (CMS)</title> <author fullname="R. Housley" asciiFullname="R. Housley"></author> <date month="September" year="2009"></date> <keyword>digital signature</keyword><keyword>message content</keyword> <abstract>  <t anchor="_b3e222b3-8225-4ace-9371-3239d5cbf461">This document describes the Cryptographic Message Syntax (CMS). This syntax is used to digitally sign, digest, authenticate, or encrypt arbitrary message content. [STANDARDS-TRACK]</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc5652" type="src"></format> <seriesInfo name="STD" value="70"></seriesInfo> <seriesInfo value="10.17487/RFC5652" name="DOI"></seriesInfo> <seriesInfo value="70" name="BCP"></seriesInfo> <seriesInfo value="5652" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc6838" anchor="RFC6838"><stream>IETF</stream> <front> <title>Media Type Specifications and Registration Procedures</title> <author fullname="N. Freed" asciiFullname="N. Freed"></author> <author fullname="J. Klensin" asciiFullname="J. Klensin"></author> <author fullname="T. Hansen" asciiFullname="T. Hansen"></author> <date month="January" year="2013"></date> <abstract>  <t anchor="_f23a4990-9b88-d2cc-4496-da21c9482d7f">This document defines procedures for the specification and registration of media types for use in HTTP, MIME, and other Internet protocols. This memo documents an Internet Best Current Practice.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc6838" type="src"></format> <seriesInfo value="10.17487/RFC6838" name="DOI"></seriesInfo> <seriesInfo value="13" name="BCP"></seriesInfo> <seriesInfo value="6838" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc8174" anchor="RFC8174"><stream>IETF</stream> <front> <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title> <author fullname="B. Leiba" asciiFullname="B. Leiba"></author> <date month="May" year="2017"></date> <abstract>  <t anchor="_dab0f4a4-7de3-1f0e-3f2c-70958211b452">RFC 2119 specifies common key words that may be used in protocol specifications. This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the defined special meanings.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc8174" type="src"></format> <seriesInfo value="10.17487/RFC8174" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="8174" name="RFC"></seriesInfo></reference>
     </references>
     <references anchor="_informative_references">
       <name>Informative References</name>
       <reference target="https://www.iso.org/standard/59934.html" anchor="ISO.IEC.18014-4"><front> <title>Information technology - Security techniques - Time-stamping services - Part 4: Traceability of time sources</title> <author><organization ascii="International Organization for Standardization" abbrev="ISO">International Organization for Standardization</organization></author> <author><organization ascii="International Electrotechnical Commission" abbrev="IEC">International Electrotechnical Commission</organization></author> </front> <format target="https://www.iso.org/standard/59934.html" type="src"></format><format target="https://www.iso.org/obp/ui/en/#!iso:std:59934:en" type="obp"></format><format target="https://www.iso.org/contents/data/standard/05/99/59934.detail.rss" type="rss"></format> <refcontent>ISO/IEC 18014-4</refcontent></reference>
-      <reference target="https://www.rfc-editor.org/info/rfc6962" anchor="RFC6962"><stream>IETF</stream> <front> <title>Certificate Transparency</title> <author fullname="B. Laurie" asciiFullname="B. Laurie"></author> <author fullname="A. Langley" asciiFullname="A. Langley"></author> <author fullname="E. Kasper" asciiFullname="E. Kasper"></author> <date month="June" year="2013"></date> <keyword>TLS certificates</keyword> <abstract>  <t anchor="_f391b424-b0e4-805c-c347-9887615bac4a">This document describes an experimental protocol for publicly logging the existence of Transport Layer Security (TLS) certificates as they are issued or observed, in a manner that allows anyone to audit certificate authority (CA) activity and notice the issuance of suspect certificates as well as to audit the certificate logs themselves. The intent is that eventually clients would refuse to honor certificates that do not appear in a log, effectively forcing CAs to add all issued certificates to the logs.</t>  <t anchor="_49b1af36-500e-5425-ffbc-8ce2bef69600">Logs are network services that implement the protocol operations for submissions and queries that are defined in this document.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc6962" type="src"></format> <seriesInfo value=" 10.17487/RFC6962" name="DOI"></seriesInfo> <seriesInfo value="6962" name="RFC"></seriesInfo></reference>
+      <reference target="https://www.rfc-editor.org/info/rfc6962" anchor="RFC6962"><stream>IETF</stream> <front> <title>Certificate Transparency</title> <author fullname="B. Laurie" asciiFullname="B. Laurie"></author> <author fullname="A. Langley" asciiFullname="A. Langley"></author> <author fullname="E. Kasper" asciiFullname="E. Kasper"></author> <date month="June" year="2013"></date> <keyword>TLS certificates</keyword> <abstract>  <t anchor="_f391b424-b0e4-805c-c347-9887615bac4a">This document describes an experimental protocol for publicly logging the existence of Transport Layer Security (TLS) certificates as they are issued or observed, in a manner that allows anyone to audit certificate authority (CA) activity and notice the issuance of suspect certificates as well as to audit the certificate logs themselves. The intent is that eventually clients would refuse to honor certificates that do not appear in a log, effectively forcing CAs to add all issued certificates to the logs.</t>  <t anchor="_49b1af36-500e-5425-ffbc-8ce2bef69600">Logs are network services that implement the protocol operations for submissions and queries that are defined in this document.</t></abstract> </front> <format target="https://www.rfc-editor.org/info/rfc6962" type="src"></format> <seriesInfo value="10.17487/RFC6962" name="DOI"></seriesInfo> <seriesInfo value="6962" name="RFC"></seriesInfo></reference>
       <reference anchor="NIST.IR.8202"><front> <title>Blockchain technology overview</title> <author fullname="Yaga, Dylan." asciiFullname="Yaga, Dylan."></author> <author fullname="Mell, Peter." asciiFullname="Mell, Peter."></author> <author fullname="Roby, Nik." asciiFullname="Roby, Nik."></author> <author fullname="Scarfone, Karen." asciiFullname="Scarfone, Karen."></author> <date month="January" year="2018"></date> <abstract><t>Blockchains are tamper evident and tamper resistant digital ledgers implemented in a distributed fashion (i.e., without a central repository) and usually without a central authority (i.e., a bank, company, or government). At their basic level, they enable a community of users to record transactions in a shared ledger within that community, such that under normal operation of the blockchain network no transaction can be changed once published. This document provides a high-level technical overview of blockchain technology. The purpose is to help readers understand how blockchain technology works.</t></abstract> </front> <format target="https://doi.org/10.6028/NIST.IR.8202" type="doi"></format> <seriesInfo name="NISTIR; NIST IR; NIST interagency report; NIST internal report" value="8202"></seriesInfo> <seriesInfo value="NIST.IR.8202" name="DOI"></seriesInfo> <refcontent>NIST IR 8202</refcontent></reference>
       <reference target="https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005" anchor="ANSI.X9.95"><front> <title>Trusted Time Stamp Management And Security</title> <author><organization ascii="American National Standards Institute (ANSI)">American National Standards Institute (ANSI)</organization></author> <date year="2005"></date> </front> <format target="https://webstore.ansi.org/Standards/ASCX9/ANSIX9952005" type="src"></format> <refcontent>ANSI X9.95:2005</refcontent></reference>
       <reference target="http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" anchor="CrosbyWallach"><front> <title>Efficient Data Structures for Tamper-Evident Logging</title> <author fullname="Scott A. Crosby" asciiFullname="Scott A. Crosby"></author> <author fullname="Dan S. Wallach" asciiFullname="Dan S. Wallach"></author> <date month="August" year="2009"></date> </front> <format target="http://static.usenix.org/event/sec09/tech/full_papers/crosby.pdf" type="src"></format> <refcontent>Proceedings of the 18th USENIX Security Symposium, Montreal</refcontent></reference>
-      <reference target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN" anchor="eIDAS"><front> <title>Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC</title> <author><organization ascii="The European Parliament and the Council of the European Union">The European Parliament and the Council of the European Union</organization></author> <date day="23" year="2014" month="July"></date> </front> <format target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN" type="src"></format> <refcontent>Regulation (EU) No 910/2014</refcontent></reference>
+      <reference target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN" anchor="eIDAS"><front> <title>Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC</title> <author><organization ascii="The European Parliament and the Council of the European Union">The European Parliament and the Council of the European Union</organization></author> <date day="23" year="2014" month="July"></date> </front> <format target="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN" type="src"></format> <refcontent>Regulation (EU) No 910/2014</refcontent></reference>
       <reference target="https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf" anchor="ETSI.EN.319.422"><front> <title>Electronic Signatures and Infrastructures (ESI); Time-stamping protocol and time-stamp token profiles</title> <author><organization ascii="European Telecommunications Standards Institute">European Telecommunications Standards Institute</organization></author> <date month="March" year="2016"></date> </front> <format target="https://www.etsi.org/deliver/etsi_en/319400_319499/319422/01.01.01_60/en_319422v010101p.pdf" type="src"></format> <refcontent>ETSI EN 319.422</refcontent></reference>
       <reference target="https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.01_60/ts_101861v010401p.pdf" anchor="ETSI.TS.101.861"><front> <title>Time stamping profile</title> <author><organization ascii="European Telecommunications Standards Institute">European Telecommunications Standards Institute</organization></author> <date month="July" year="2011"></date> </front> <format target="https://www.etsi.org/deliver/etsi_ts/101800_101899/101861/01.04.01_60/ts_101861v010401p.pdf" type="src"></format> <refcontent>ETSI TS 101.861</refcontent></reference>
       <reference target="https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.02_60/ts_10277804v010102p.pdf" anchor="ETSI.TS.102.778_4"><front> <title>Electronic Signatures and Infrastructures (ESI); PDF Advanced Electronic Signature Profiles; Part 4: PAdES Long Term - PAdES-LTV Profile</title> <author><organization ascii="European Telecommunications Standards Institute">European Telecommunications Standards Institute</organization></author> <date month="December" year="2009"></date> </front> <format target="https://www.etsi.org/deliver/etsi_ts/102700_102799/10277804/01.01.02_60/ts_10277804v010102p.pdf" type="src"></format> <refcontent>ETSI TS 102.778-4</refcontent></reference>
       <reference target="https://www.anf.es/pdf/Haber_Stornetta.pdf" anchor="HaberStornetta"><front> <title>How to Time-Stamp a Digital Document</title> <author fullname="Stuart Haber" asciiFullname="Stuart Haber"></author> <author fullname="W. Scott Stornetta" asciiFullname="W. Scott Stornetta"></author> <date year="1991"></date> </front> <format target="https://www.anf.es/pdf/Haber_Stornetta.pdf" type="src"></format></reference>
       <reference target="https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf" anchor="Hyperledger"><front> <title>Hyperledger Architecture, Volume 1: Introduction to Hyperledger Business Blockchain Design Philosophy and Consensus</title> <author><organization ascii="The Linux Foundation">The Linux Foundation</organization></author> <date month="August" year="2017"></date> </front> <format target="https://www.hyperledger.org/wp-content/uploads/2017/08/Hyperledger_Arch_WG_Paper_1_Consensus.pdf" type="src"></format></reference>
       <reference target="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486" anchor="IMES"><front> <title>The Security Evaluation of Time Stamping Schemes: The Present Situation and Studies (2001)</title> <author fullname="Masashi Une" asciiFullname="Masashi Une"></author> <date year="2001"></date> </front> <format target="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.23.7486" type="src"></format></reference>
-      <reference target="http://www.merkle.com/papers/Thesis1979.pdf" anchor="Merkle"><front> <title>Secrecy, authentication, and public-key systems</title> <author fullname="Ralph Charles Merkle" asciiFullname="Ralph Charles Merkle"></author> <date month="June" year="1979"></date> </front> <format target="http://www.merkle.com/papers/Thesis1979.pdf" type="src"></format> <refcontent>Standard Electronic Labs Technical Report No. 1979-1</refcontent></reference>
+      <reference target="http://www.merkle.com/papers/Thesis1979.pdf" anchor="Merkle"><front> <title>Secrecy, authentication, and public-key systems</title> <author fullname="Ralph Charles Merkle" asciiFullname="Ralph Charles Merkle"></author> <date month="June" year="1979"></date> </front> <format target="http://www.merkle.com/papers/Thesis1979.pdf" type="src"></format> <refcontent>Standard Electronic Labs Technical Report No. 1979-1</refcontent></reference>
       <reference target="https://bitcoin.org/bitcoin.pdf" anchor="Nakamoto"><front> <title>Bitcoin: A Peer-to-Peer Electronic Cash System</title> <author fullname="Satoshi Nakamoto" asciiFullname="Satoshi Nakamoto"></author> <date day="31" year="2008" month="October"></date> </front> <format target="https://bitcoin.org/bitcoin.pdf" type="src"></format></reference>
       <reference target="https://petertodd.org/2016/opentimestamps-announcement" anchor="OpenTimestamps"><front> <title>OpenTimestamps: Scalable, Trust-Minimized, Distributed Timestamping with Bitcoin</title> <author fullname="Peter Todd" asciiFullname="Peter Todd"></author> <date day="15" year="2016" month="September"></date> </front> <format target="https://petertodd.org/2016/opentimestamps-announcement" type="src"></format></reference>
       <reference target="https://www.iana.org/assignments/media-types/application/vnd.opentimestamps.ots" anchor="OTS"><front> <title>IANA registered OpenTimestamps Media Type</title> <author fullname="Emanuele Cisbani" asciiFullname="Emanuele Cisbani"></author> <date day="24" year="2021" month="June"></date> </front> <format target="https://www.iana.org/assignments/media-types/application/vnd.opentimestamps.ots" type="src"></format></reference>

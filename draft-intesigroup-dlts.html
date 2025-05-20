@@ -9,27 +9,24 @@
 <meta content="Daniele Ribaudo" name="author">
 <meta content="Giuseppe Damiano" name="author">
 <meta content="
-       This document defines a standard to extend Time Stamp Tokens
-with Time Attestations recorded on Distributed Ledgers. 
-       The aim is to provide long-term validity to Time Stamp Tokens,
-backward compatible with currently available software. 
+       This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers. 
+       The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software. 
     " name="description">
-<meta content="xml2rfc 3.21.0" name="generator">
-<meta content="draft-intesigroup-dlts-10" name="ietf.draft">
+<meta content="xml2rfc 3.25.0" name="generator">
+<meta content="draft-intesigroup-dlts-11" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.21.0
+  xml2rfc 3.25.0
     Python 3.8.10
     ConfigArgParse 1.7
-    google-i18n-address 3.1.0
+    google-i18n-address 3.1.1
     intervaltree 3.1.0
-    Jinja2 3.1.4
-    lxml 5.2.2
-    platformdirs 4.2.2
+    Jinja2 3.1.5
+    lxml 5.3.0
+    platformdirs 4.3.6
     pycountry 24.6.1
-    PyYAML 6.0.1
+    PyYAML 6.0.2
     requests 2.32.3
     setuptools 44.0.0
-    six 1.16.0
     wcwidth 0.2.13
 -->
 <link href="/home/user/devel/i-d_dlts/draft-intesigroup-dlts.rfc.xml" rel="alternate" type="application/rfc+xml">
@@ -1083,7 +1080,7 @@ table {
 ol.type-a { list-style-type: lower-alpha; }
 ol.type-A { list-style-type: upper-alpha; }
 ol.type-i { list-style-type: lower-roman; }
-ol.type-I { list-style-type: lower-roman; }
+ol.type-I { list-style-type: upper-roman; }
 /* Apply the print table and row borders in general, on request from the RPC,
 and increase the contrast between border and odd row background slightly */
 table {
@@ -1163,7 +1160,7 @@ section .olCompact {
 tt, code {
   background-color: transparent;
 }
-p tt, p code, li tt, li code {
+p tt, p code, li tt, li code, dt tt, dt code {
   background-color: #f8f8f8;
 }
 /* Tweak the pre margin -- 0px doesn't come out well */
@@ -1215,11 +1212,11 @@ li > p:last-of-type:only-child {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">dlts</td>
-<td class="right">November 2024</td>
+<td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Cisbani, et al.</td>
-<td class="center">Expires 29 May 2025</td>
+<td class="center">Expires 26 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1229,17 +1226,17 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-intesigroup-dlts-10</dd>
+<dd class="internet-draft">draft-intesigroup-dlts-11</dd>
 <dt class="label-">:</dt>
 <dd></dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2024-11-25" class="published">25 November 2024</time>
+<time datetime="2025-05-25" class="published">25 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-05-29">29 May 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-26">26 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1261,13 +1258,11 @@ li > p:last-of-type:only-child {
 <div id="_abstract">
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<div id="_469ae2e4-966f-7430-6c19-582668b61421">
-<p id="section-abstract-1">This document defines a standard to extend Time Stamp Tokens
-with Time Attestations recorded on Distributed Ledgers.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<div id="_abdb9d34-5ed2-2f50-e63a-2aba212cbe8c">
+<p id="section-abstract-1">This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_9b56c736-1543-2b17-9a7d-21c112ae52ed">
-<p id="section-abstract-2">The aim is to provide long-term validity to Time Stamp Tokens,
-backward compatible with currently available software.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<div id="_5291a88d-ccd6-6e18-38f1-67dc9be9bfdc">
+<p id="section-abstract-2">The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -1290,7 +1285,7 @@ backward compatible with currently available software.<a href="#section-abstract
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 29 May 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 26 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1299,7 +1294,7 @@ backward compatible with currently available software.<a href="#section-abstract
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2024 IETF Trust and the persons identified as the
+            Copyright (c) 2025 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1326,7 +1321,7 @@ backward compatible with currently available software.<a href="#section-abstract
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-terms-and-definitions" class="internal xref">Terms and definitions</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-symbols-and-abbreviations" class="internal xref">Symbols And Abbreviations</a></p>
+            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-symbols-and-abbreviated-ter" class="internal xref">Symbols and abbreviated terms</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-dl-attestation" class="internal xref">DL Attestation</a></p>
@@ -1397,60 +1392,38 @@ backward compatible with currently available software.<a href="#section-abstract
         <li class="normal" id="section-1-2.4">grant record integrity<a href="#section-1-2.4" class="pilcrow">¶</a>
 </li>
       </ul>
-<div id="_417bdb26-732f-f35b-7220-93b62abdb701">
-<p id="section-1-3">A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <span>[<a href="#RFC3161" class="cite xref">RFC3161</a>]</span>
-can be based on an accurate time source linked to Coordinated Universal Time,
-and can be very precise - it can prove the existence also at the second or less.
-It is such a consolidated standard that - for example - the European Union legally
-enforced its usage by <span><a href="#eIDAS" class="internal xref">eIDAS Regulation</a> [<a href="#eIDAS" class="cite xref">eIDAS</a>]</span>,
-European Standards and Technical Specifications
-<span>[<a href="#ETSI.EN.319.422" class="cite xref">ETSI.EN.319.422</a>]</span> <span>[<a href="#ETSI.TS.101.861" class="cite xref">ETSI.TS.101.861</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
+<div id="_d73b21a7-d949-edbc-f7f1-9b53b3f86d84">
+<p id="section-1-3">A Time-Stamp Token (TST) provided by a Time-Stamp Authority (TSA) compliant with <span>[<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> can be based on an accurate time source linked to Coordinated Universal Time, and can be very precise - it can prove the existence also at the second or less. It is such a consolidated standard that - for example - the European Union legally enforced its usage by  <span><a href="#eIDAS" class="internal xref">eIDAS Regulation</a> [<a href="#eIDAS" class="cite xref">eIDAS</a>]</span>, European Standards and Technical Specifications <span>[<a href="#ETSI.EN.319.422" class="cite xref">ETSI.EN.319.422</a>]</span> <span>[<a href="#ETSI.TS.101.861" class="cite xref">ETSI.TS.101.861</a>]</span>.<a href="#section-1-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_da1e0ef4-cd62-8b73-0aba-67d502e11ac0">
-<p id="section-1-4">In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <span>[<a href="#IMES" class="cite xref">IMES</a>]</span>,
-PKI TSA was evaluated as one of the most desirables in term of security against
-alteration of a time stamp.<a href="#section-1-4" class="pilcrow">¶</a></p>
+<div id="_461350a3-c906-8c08-f23e-00afb70ecb8b">
+<p id="section-1-4">In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by Masashi Une <span>[<a href="#IMES" class="cite xref">IMES</a>]</span>, PKI TSA was evaluated as one of the most desirables in term of security against alteration of a time stamp.<a href="#section-1-4" class="pilcrow">¶</a></p>
 </div>
-<div id="_f8fc02f6-52d4-e258-5c8e-43c8f42e5bcf">
-<p id="section-1-5">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA
-gave rise to other proposals like <span>[<a href="#ANSI.X9.95" class="cite xref">ANSI.X9.95</a>]</span> and <span>[<a href="#ISO.IEC.18014-4" class="cite xref">ISO.IEC.18014-4</a>]</span>.<a href="#section-1-5" class="pilcrow">¶</a></p>
+<div id="_da4b6927-7ebc-f433-6c9a-5672f0d655ae">
+<p id="section-1-5">The integrity of the timestamping process that is inevitably bound to the integrity of the TSA gave rise to other proposals like  <span>[<a href="#ANSI.X9.95" class="cite xref">ANSI.X9.95</a>]</span> and <span>[<a href="#ISO.IEC.18014-4" class="cite xref">ISO.IEC.18014-4</a>]</span>.<a href="#section-1-5" class="pilcrow">¶</a></p>
 </div>
-<div id="_6f06c962-7fdf-7b31-c8a9-171a0cf17df5">
-<p id="section-1-6">Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years
-for technical reasons such as the TSA certificates expiration, or
-for economic reasons such as the cost of providing the validation service by TSA.<a href="#section-1-6" class="pilcrow">¶</a></p>
+<div id="_12670bf6-0e14-eb3d-51b1-b812ffdb3284">
+<p id="section-1-6">Furthermore a TSA TST can be validated for a limited time - usually no longer than 20 years for technical reasons such as the TSA certificates expiration, or for economic reasons such as the cost of providing the validation service by TSA.<a href="#section-1-6" class="pilcrow">¶</a></p>
 </div>
-<div id="_dd115680-986c-58e4-d051-eeda84ea04a0">
-<p id="section-1-7">This situation brought about some solutions <span>[<a href="#ETSI.TS.102.778_4" class="cite xref">ETSI.TS.102.778_4</a>]</span> aimed at mitigating
-the inconvenience by extending the validity of TSA timestamps.<a href="#section-1-7" class="pilcrow">¶</a></p>
+<div id="_9fb60c0e-1433-0bc3-aaa9-a9ec29d61434">
+<p id="section-1-7">This situation brought about some solutions <span>[<a href="#ETSI.TS.102.778_4" class="cite xref">ETSI.TS.102.778_4</a>]</span> aimed at mitigating the inconvenience by extending the validity of TSA timestamps.<a href="#section-1-7" class="pilcrow">¶</a></p>
 </div>
-<div id="_2a66390f-9924-5748-0f18-d3aae6b3a6fa">
-<p id="section-1-8">Security of a Distributed Ledger (def. in <a href="#conventions" class="auto internal xref">Section 2</a>) is based on hashes of data
-timestamped and widely published.
-Each timestamp includes the previous timestamp in its hash, forming a chain,
-with each additional timestamp reinforcing the ones before it.<a href="#section-1-8" class="pilcrow">¶</a></p>
+<div id="_74029d78-1b9d-5459-217b-86430f81c554">
+<p id="section-1-8">Security of a Distributed Ledger (def. in <a href="#conventions" class="auto internal xref">Section 2</a>) is based on hashes of data timestamped and widely published. Each timestamp includes the previous timestamp in its hash, forming a chain, with each additional timestamp reinforcing the ones before it.<a href="#section-1-8" class="pilcrow">¶</a></p>
 </div>
-<div id="_c48fffaa-3bf2-dc5f-b3af-d9d3386cee5e">
-<p id="section-1-9">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience
-of the distributed system and the overall design whose aim is the DL perpetual survival.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<div id="_389fce91-7e67-027d-aef6-10717c8247a3">
+<p id="section-1-9">The advantage of a Distributed Ledger Attestation (DLA) relies on the resilience of the distributed system and the overall design whose aim is the DL perpetual survival.<a href="#section-1-9" class="pilcrow">¶</a></p>
 </div>
-<div id="_41ef532f-627a-1108-2fa8-df96194216d8">
-<p id="section-1-10">Based on a distributed trust scheme, a Distributed Ledger significantly increases
-security as already noted by Haber and Stornetta in 1991 <span>[<a href="#HaberStornetta" class="cite xref">HaberStornetta</a>]</span>.<a href="#section-1-10" class="pilcrow">¶</a></p>
+<div id="_0afc9511-7432-f606-3740-663074a64f6c">
+<p id="section-1-10">Based on a distributed trust scheme, a Distributed Ledger significantly increases security as already noted by Haber and Stornetta in 1991  <span>[<a href="#HaberStornetta" class="cite xref">HaberStornetta</a>]</span>.<a href="#section-1-10" class="pilcrow">¶</a></p>
 </div>
-<div id="_0681323e-5289-6f54-1be4-f4a448337767">
-<p id="section-1-11">In the case of a permissioned DL, security is provided by an authoritative network of trust <span>[<a href="#Hyperledger" class="cite xref">Hyperledger</a>]</span>, <span>[<a href="#NIST.IR.8202" class="cite xref">NIST.IR.8202</a>]</span>,
-while in the case of a permissionless DL security is provided by the economic incentive for running full nodes <span>[<a href="#Nakamoto" class="cite xref">Nakamoto</a>]</span>.<a href="#section-1-11" class="pilcrow">¶</a></p>
+<div id="_192e8605-ca52-a1e6-c5ee-b4c5e37d9527">
+<p id="section-1-11">In the case of a permissioned DL, security is provided by an authoritative network of trust <span>[<a href="#Hyperledger" class="cite xref">Hyperledger</a>]</span>, <span>[<a href="#NIST.IR.8202" class="cite xref">NIST.IR.8202</a>]</span>, while in the case of a permissionless DL security is provided by the economic incentive for running full nodes  <span>[<a href="#Nakamoto" class="cite xref">Nakamoto</a>]</span>.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </div>
-<div id="_83ca33fd-28f6-aa63-01de-b419df888157">
-<p id="section-1-12">On the other hand, a DLA is not yet a standard solution.
-Furthermore, the bigger the network the less precise the DLA,
-because distributed nodes need time to reach consensus.<a href="#section-1-12" class="pilcrow">¶</a></p>
+<div id="_703c7edd-c46e-3127-abb2-26d58bd36d80">
+<p id="section-1-12">On the other hand, a DLA is not yet a standard solution. Furthermore, the bigger the network the less precise the DLA, because distributed nodes need time to reach consensus.<a href="#section-1-12" class="pilcrow">¶</a></p>
 </div>
-<div id="_c57dd877-a8d7-700d-69f2-d570a020b73a">
-<p id="section-1-13">Since a DLA turns out to be a complementary element providing long-term
-validity to TST - the aim of this specification is to allow an extension
-of the Time-Stamp Token for Distributed Ledger Attestations (DLA).<a href="#section-1-13" class="pilcrow">¶</a></p>
+<div id="_bacff062-c920-cdb7-c74c-29ac8f8d81e8">
+<p id="section-1-13">Since a DLA turns out to be a complementary element providing long-term validity to TST - the aim of this specification is to allow an extension of the Time-Stamp Token for Distributed Ledger Attestations (DLA).<a href="#section-1-13" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -1459,19 +1432,13 @@ of the Time-Stamp Token for Distributed Ledger Attestations (DLA).<a href="#sect
       <h2 id="name-terms-and-definitions">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-terms-and-definitions" class="section-name selfRef">Terms and definitions</a>
       </h2>
-<div id="_af289f2c-8083-125b-8b74-43dfa9619555">
-<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>",
-"<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>",
-"<span class="bcp14">NOT RECOMMENDED</span>", "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this
-document are to be interpreted as described in BCP 14
-<span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they appear in
-all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<div id="_07cdb279-2c1d-61fd-3302-c882841d8e5a">
+<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", " <span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", " <span class="bcp14">NOT RECOMMENDED</span>", "<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_d171d341-0c9a-b6d3-685c-6a74f5590dbd">
-<p id="section-2-2">This document also refers to the following terms and
-definitions:<a href="#section-2-2" class="pilcrow">¶</a></p>
+<div id="_0914ef23-5851-344f-548d-80bb9245d005">
+<p id="section-2-2">This document also refers to the following terms and definitions:<a href="#section-2-2" class="pilcrow">¶</a></p>
 </div>
-<span class="break"></span><div id="_3579ea99-9f3e-e8d0-0d32-6f72ad001f53">
+<span class="break"></span><div id="_202e8966-6ffd-4ca2-7a56-246818838323">
 <dl class="dlParallel" id="section-2-3">
         <dt id="section-2-3.1">Public Key Infrastructure</dt>
         <dd style="margin-left: 1.5em" id="section-2-3.2">
@@ -1510,21 +1477,8 @@ definitions:<a href="#section-2-2" class="pilcrow">¶</a></p>
         <dd class="break"></dd>
 <dt id="section-2-3.11">Distributed Ledger</dt>
         <dd style="margin-left: 1.5em" id="section-2-3.12">
-          <div id="_da52c582-7005-eaf9-93a1-cc120ef20806">
-<p id="section-2-3.12.1">Various definitions of blockchain and distributed ledger technology exist,
-and some of these stress different technical features.
-Given the nature and scope of this document and the lack of definitional
-consensus we chose to use the term
-as defined by UK Government Chief Scientific Adviser <span>[<a href="#UK-GCSA" class="cite xref">UK-GCSA</a>]</span>
-"A distributed ledger is essentially an asset database that can be shared across
-a network of multiple sites, geographies or institutions. All participants within
-a network can have their own identical copy of the ledger. Any changes to the
-ledger are reflected in all copies in minutes, or in some cases, seconds. The
-assets can be financial, legal, physical or electronic. The security and accuracy
-of the assets stored in the ledger are maintained cryptographically through the
-use of 'keys' and signatures to control who can do what within the shared ledger.
-Entries can also be updated by one, some or all of the participants, according to
-rules agreed by the network".<a href="#section-2-3.12.1" class="pilcrow">¶</a></p>
+          <div id="_15790166-5d1c-f975-f735-cc47ca1fa2d7">
+<p id="section-2-3.12.1">Various definitions of blockchain and distributed ledger technology exist, and some of these stress different technical features. Given the nature and scope of this document and the lack of definitional consensus we chose to use the term as defined by UK Government Chief Scientific Adviser  <span>[<a href="#UK-GCSA" class="cite xref">UK-GCSA</a>]</span> "A distributed ledger is essentially an asset database that can be shared across a network of multiple sites, geographies or institutions. All participants within a network can have their own identical copy of the ledger. Any changes to the ledger are reflected in all copies in minutes, or in some cases, seconds. The assets can be financial, legal, physical or electronic. The security and accuracy of the assets stored in the ledger are maintained cryptographically through the use of 'keys' and signatures to control who can do what within the shared ledger. Entries can also be updated by one, some or all of the participants, according to rules agreed by the network".<a href="#section-2-3.12.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
@@ -1537,19 +1491,15 @@ rules agreed by the network".<a href="#section-2-3.12.1" class="pilcrow">¶</a><
         <dd class="break"></dd>
 <dt id="section-2-3.15">Aggregation Server</dt>
         <dd style="margin-left: 1.5em" id="section-2-3.16">
-          <div id="_411a92cf-e55b-e9a4-f548-b78672ab4932">
-<p id="section-2-3.16.1">A server providing the aggregation of digests to be timestamped in a Merkle Tree.
-Digests submitted for aggregation are added to a list periodically combined
-into a single Merkle Tree. Then the digest at the root of that tree is timestamped
-on a Distributed Ledger.<a href="#section-2-3.16.1" class="pilcrow">¶</a></p>
+          <div id="_fc68215a-f5c3-b181-5bfb-18bae8789665">
+<p id="section-2-3.16.1">A server providing the aggregation of digests to be timestamped in a Merkle Tree. Digests submitted for aggregation are added to a list periodically combined into a single Merkle Tree. Then the digest at the root of that tree is timestamped on a Distributed Ledger.<a href="#section-2-3.16.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
 <dt id="section-2-3.17">Distributed Ledger Attestation</dt>
         <dd style="margin-left: 1.5em" id="section-2-3.18">
-          <div id="_58aa6cf9-75cb-1c46-7a06-a71b0b1b1905">
-<p id="section-2-3.18.1">A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping
-in a precise Distributed Ledger.<a href="#section-2-3.18.1" class="pilcrow">¶</a></p>
+          <div id="_ca897268-1e80-ee52-b4d9-13457f4bd731">
+<p id="section-2-3.18.1">A Distributed Ledger (Timestamping) Attestation is a proof or a promise of timestamping in a precise Distributed Ledger.<a href="#section-2-3.18.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
@@ -1573,57 +1523,71 @@ in a precise Distributed Ledger.<a href="#section-2-3.18.1" class="pilcrow">¶</
 </div>
 <div id="_symbols_and_abbreviations">
 <section id="section-3">
-      <h2 id="name-symbols-and-abbreviations">
-<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-symbols-and-abbreviations" class="section-name selfRef">Symbols And Abbreviations</a>
+      <h2 id="name-symbols-and-abbreviated-ter">
+<a href="#section-3" class="section-number selfRef">3. </a><a href="#name-symbols-and-abbreviated-ter" class="section-name selfRef">Symbols and abbreviated terms</a>
       </h2>
-<span class="break"></span><div id="_ef5349b4-7652-b041-53f1-fc0c0ada5096">
+<span class="break"></span><div id="_26e880b6-f5dc-59b8-d1df-2649aced29ab">
 <dl class="dlParallel" id="section-3-1">
-        <dt id="section-3-1.1">PKI</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.2">
-          <div id="_851ec461-959f-346d-2207-e125b81ee500">
-<p id="section-3-1.2.1">Public Key Infrastructure<a href="#section-3-1.2.1" class="pilcrow">¶</a></p>
+        <dt id="section-3-1.1">
+<div id="symbol-DL">DL</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.2">
+          <div id="_798332a6-d8d7-774e-70d0-5c3ba52e7be1">
+<p id="section-3-1.2.1">Distributed Ledger<a href="#section-3-1.2.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.3">TTP</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.4">
-          <div id="_6e97dcaa-2a9b-cf72-12e0-d0694aa007cb">
-<p id="section-3-1.4.1">Trusted Third Party<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.3">
+<div id="symbol-DLA">DLA</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.4">
+          <div id="_82c25f58-4519-47bf-57d5-ab6f0cfdf100">
+<p id="section-3-1.4.1">Distributed Ledger Attestation<a href="#section-3-1.4.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.5">TSA</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.6">
-          <div id="_072d88cd-6a80-c52c-68e7-57ef66530e46">
-<p id="section-3-1.6.1">Time-Stamping Authority<a href="#section-3-1.6.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.5">
+<div id="symbol-PKI">PKI</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.6">
+          <div id="_addf65b5-ce16-fa00-891d-0ad28ab3d97f">
+<p id="section-3-1.6.1">Public Key Infrastructure<a href="#section-3-1.6.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.7">TST</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.8">
-          <div id="_4282f4bf-a5e7-17d5-215a-63f2a17fd435">
-<p id="section-3-1.8.1">Time-Stamp Token<a href="#section-3-1.8.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.7">
+<div id="symbol-TSA">TSA</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.8">
+          <div id="_960d7a72-cd0c-cb1b-65af-428e89fc3fa2">
+<p id="section-3-1.8.1">Time-Stamping Authority<a href="#section-3-1.8.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.9">TSU</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.10">
-          <div id="_a5873e86-95ce-5abd-9be0-7a53eee4224b">
-<p id="section-3-1.10.1">Time-Stamping Unit<a href="#section-3-1.10.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.9">
+<div id="symbol-TST">TST</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.10">
+          <div id="_0eb21f04-0768-dee5-ebed-743306b57d6e">
+<p id="section-3-1.10.1">Time-Stamp Token<a href="#section-3-1.10.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.11">DL</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.12">
-          <div id="_74f7ac6d-048d-580f-25a8-bfb0ec185afc">
-<p id="section-3-1.12.1">Distributed Ledger<a href="#section-3-1.12.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.11">
+<div id="symbol-TSU">TSU</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.12">
+          <div id="_a2d02bad-78d4-c5f3-f688-d84197e59b73">
+<p id="section-3-1.12.1">Time-Stamping Unit<a href="#section-3-1.12.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
         <dd class="break"></dd>
-<dt id="section-3-1.13">DLA</dt>
-        <dd style="margin-left: 1.5em" id="section-3-1.14">
-          <div id="_f7f1fb8b-61f7-e713-de48-79a529f51af3">
-<p id="section-3-1.14.1">Distributed Ledger Attestation<a href="#section-3-1.14.1" class="pilcrow">¶</a></p>
+<dt id="section-3-1.13">
+<div id="symbol-TTP">TTP</div>
+        </dt>
+<dd style="margin-left: 1.5em" id="section-3-1.14">
+          <div id="_4398328e-3118-36fa-9fd6-e02a66336bbd">
+<p id="section-3-1.14.1">Trusted Third Party<a href="#section-3-1.14.1" class="pilcrow">¶</a></p>
 </div>
 </dd>
       <dd class="break"></dd>
@@ -1636,50 +1600,31 @@ in a precise Distributed Ledger.<a href="#section-2-3.18.1" class="pilcrow">¶</
       <h2 id="name-dl-attestation">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-dl-attestation" class="section-name selfRef">DL Attestation</a>
       </h2>
-<div id="_b82fd6f2-32ab-f5ce-5089-198e1f2230e3">
-<p id="section-4-1">A Digital Ledger can be seen as an untrusted logger - serving a number of
-clients who wish to store their events in the log -
-kept honest by a number of auditors who will challenge
-the logger to prove its correct behaviour <span>[<a href="#CrosbyWallach" class="cite xref">CrosbyWallach</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="_c7f36d55-8a1b-5d90-b799-1204d7121c8e">
+<p id="section-4-1">A Digital Ledger can be seen as an untrusted logger - serving a number of clients who wish to store their events in the log - kept honest by a number of auditors who will challenge the logger to prove its correct behaviour  <span>[<a href="#CrosbyWallach" class="cite xref">CrosbyWallach</a>]</span>.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_1470f16f-2e60-0724-3b35-1925966465f4">
-<p id="section-4-2">A Merkle Tree data structure accomplishes this in a very efficient way by aggregating
-many requests and submitting periodically to the log only the root digest of the tree.
-This log is built as a hash chain (aka blockchain) of small blocks of data.
-Consequently, the entire chain can be shared and maintained
-by a large number of nodes, becoming a distributed system.<a href="#section-4-2" class="pilcrow">¶</a></p>
+<div id="_2dbbc671-e5fe-f38a-87ff-3d3b14451db1">
+<p id="section-4-2">A Merkle Tree data structure accomplishes this in a very efficient way by aggregating many requests and submitting periodically to the log only the root digest of the tree. This log is built as a hash chain (aka blockchain) of small blocks of data. Consequently, the entire chain can be shared and maintained by a large number of nodes, becoming a distributed system.<a href="#section-4-2" class="pilcrow">¶</a></p>
 </div>
-<div id="_ffa80b48-3aa5-f4d1-db0d-a2eec34cdced">
-<p id="section-4-3">In a permissioned DL the number of nodes can be small enough to permit a quick
-synchronization and reach consensus concerning the state of the chain.
-In a permissionless DL the large number of nodes introduces a relevant delay
-in order to reach consensus.<a href="#section-4-3" class="pilcrow">¶</a></p>
+<div id="_f83adbc9-dfc4-75d7-2f36-e2caa114d880">
+<p id="section-4-3">In a permissioned DL the number of nodes can be small enough to permit a quick synchronization and reach consensus concerning the state of the chain. In a permissionless DL the large number of nodes introduces a relevant delay in order to reach consensus.<a href="#section-4-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_25e6c5ad-7c4e-150e-0a67-c09944299197">
-<p id="section-4-4">In the case of Bitcoin, for example, consensus is reached statistically.
-Usually in an average elapsed time of one hour six new blocks are added to the chain.
-A block of data that was added before the last six blocks, is considered to be practically immutable.
-This is due to the high computational power that would be required to rewrite the chain.<a href="#section-4-4" class="pilcrow">¶</a></p>
+<div id="_5e91be39-c53d-983a-d5cc-14a844839502">
+<p id="section-4-4">In the case of Bitcoin, for example, consensus is reached statistically. Usually in an average elapsed time of one hour six new blocks are added to the chain. A block of data that was added before the last six blocks, is considered to be practically immutable. This is due to the high computational power that would be required to rewrite the chain.<a href="#section-4-4" class="pilcrow">¶</a></p>
 </div>
-<div id="_e1518046-9215-58eb-b1fe-52f2a0a142bd">
-<p id="section-4-5">As a result of this scenario the elapsed time - from the request of aggregation of a digest
-to the proof consolidated inside the DL, may amount to one hour or more.<a href="#section-4-5" class="pilcrow">¶</a></p>
+<div id="_46ebf58a-7206-afbc-2970-a7dccb9f96ee">
+<p id="section-4-5">As a result of this scenario the elapsed time - from the request of aggregation of a digest to the proof consolidated inside the DL, may amount to one hour or more.<a href="#section-4-5" class="pilcrow">¶</a></p>
 </div>
-<div id="_4712504b-dcb8-eed2-dd6a-3650163ed3fa">
-<p id="section-4-6">This is why we distinguish between a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation.
-Generally, an Aggregation Server provides only a promise to timestamp the client's digest
-in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.<a href="#section-4-6" class="pilcrow">¶</a></p>
+<div id="_7d6ff375-39f1-204b-b057-12abc0832ed8">
+<p id="section-4-6">This is why we distinguish between a <strong>promise</strong> of attestation and a <strong>proof</strong> of attestation. Generally, an Aggregation Server provides only a promise to timestamp the client's digest in the DL. However, when the aggregation is completed and the Merkle Tree root hash recorded in a block within the chain, the promise has not yet been confirmed.<a href="#section-4-6" class="pilcrow">¶</a></p>
 </div>
-<div id="_4d5ed57e-e54a-fae5-2ee2-dfa46930ce32">
-<p id="section-4-7">Only after reaching consensus on that block can attestation be considered as proof,
-and made available by the Calendar Server.<a href="#section-4-7" class="pilcrow">¶</a></p>
+<div id="_52462845-4af8-b34b-b0b6-24648c9ce0b1">
+<p id="section-4-7">Only after reaching consensus on that block can attestation be considered as proof, and made available by the Calendar Server.<a href="#section-4-7" class="pilcrow">¶</a></p>
 </div>
-<div id="_b96080ad-7ba9-107b-77e4-c943983a66b5">
-<p id="section-4-8">For the sake of simplicity, the Aggregation Server and the Calendar Server
-can be implemented as a unique instance.
-In this document we will generically refer to a Calendar Server indicating both services.<a href="#section-4-8" class="pilcrow">¶</a></p>
+<div id="_af1d4722-7abf-e27f-bcff-3d4e46446924">
+<p id="section-4-8">For the sake of simplicity, the Aggregation Server and the Calendar Server can be implemented as a unique instance. In this document we will generically refer to a Calendar Server indicating both services.<a href="#section-4-8" class="pilcrow">¶</a></p>
 </div>
-<div id="_6e881b96-fffe-9c19-0d3e-fa04825aa3fa">
+<div id="_7b468946-70d4-a53b-5bea-b5780e988760">
 <p id="section-4-9">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.<a href="#section-4-9" class="pilcrow">¶</a></p>
 </div>
 </section>
@@ -1689,10 +1634,10 @@ In this document we will generically refer to a Calendar Server indicating both 
       <h2 id="name-dl-time-stamp-objects">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-dl-time-stamp-objects" class="section-name selfRef">DL Time-Stamp Objects</a>
       </h2>
-<div id="_d7101fd5-3819-7219-7225-cc55581cdb87">
+<div id="_1782af60-45fa-a0c1-e201-8b82582ca367">
 <p id="section-5-1">The ASN.1 structure of Promise type is as follows:<a href="#section-5-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_e68b1c60-c364-665a-c290-20630eb5be39">
+<div id="_0bb15046-3662-d312-9c80-03a51898ffd6">
 <div class="sourcecode" id="section-5-2">
 <pre>    Promise ::= SEQUENCE {
         version          INTEGER,
@@ -1704,10 +1649,10 @@ In this document we will generically refer to a Calendar Server indicating both 
     DLPromise ::= OCTET STRING</pre><a href="#section-5-2" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_d23c7c5b-a15b-3f02-f4c8-5bb8eeed0c82">
+<div id="_3bd54e80-cfc2-d1e5-8539-a6ed210679e9">
 <p id="section-5-3">The ASN.1 structure of Proof type is as follows:<a href="#section-5-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_49344e99-a5bf-860c-3746-249a3751ae1c">
+<div id="_19fc887f-063b-74a1-673f-1169ad53c45b">
 <div class="sourcecode" id="section-5-4">
 <pre>    Proof ::= SEQUENCE {
         version          INTEGER,
@@ -1719,30 +1664,19 @@ In this document we will generically refer to a Calendar Server indicating both 
     DLProof ::= OCTET STRING</pre><a href="#section-5-4" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_8fb64814-4d6c-8fd6-1cf4-a0676f498d1d">
+<div id="_4049d7d1-5c16-cb31-20c1-430428f0e136">
 <p id="section-5-5">The fields of Promise and Proof type have the following meanings:<a href="#section-5-5" class="pilcrow">¶</a></p>
 </div>
 <ul class="normal">
-<li class="normal" id="section-5-6.1">version is the syntax version number. It MUST always be 0.
-The usage is as described in <span><a class="relref">Section 1.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5-6.1">version is the syntax version number. It MUST always be 0. The usage is as described in  <span><a class="relref">Section 1.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-6.2">calendarFormat is the media type format of the DL attestation.
-It MUST be a registered application media type, in accordance with
-procedures laid out in <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> - for example, if you wanted
-to use the <span>[<a href="#OpenTimestamps" class="cite xref">OpenTimestamps</a>]</span> format, the calendarFormat value would be
-the string "application/vnd.opentimestamps.ots" (without quotes)
-that is the IANA registered Media Type <span>[<a href="#OTS" class="cite xref">OTS</a>]</span><a href="#section-5-6.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-6.2">calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> - for example, if you wanted to use the  <span>[<a href="#OpenTimestamps" class="cite xref">OpenTimestamps</a>]</span> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type <span>[<a href="#OTS" class="cite xref">OTS</a>]</span><a href="#section-5-6.2" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-6.3">dlProof and dlPromise are the proof and promise obtained from a Calendar Server
-using as input value the value of the signature field of the SignerInfo structure
-inside the digital signature of the TimeStampToken, as described in
-<span><a class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.3" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-6.3">dlProof and dlPromise are the proof and promise obtained from a Calendar Server using as input value the value of the signature field of the SignerInfo structure inside the digital signature of the TimeStampToken, as described in <span><a class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.3" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-6.4">signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU
-signing certificate as described in <span><a class="relref">Section 10.2.4</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.4" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-6.4">signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU signing certificate as described in  <span><a class="relref">Section 10.2.4</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.4" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-6.5">serialNumber is an integer assigned by the TSA to each TimeStampToken
-as described in <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span><a href="#section-5-6.5" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-6.5">serialNumber is an integer assigned by the TSA to each TimeStampToken as described in  <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span><a href="#section-5-6.5" class="pilcrow">¶</a>
 </li>
       </ul>
 <div id="_dl_time_stamp_attributes">
@@ -1750,66 +1684,54 @@ as described in <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161"
         <h3 id="name-dl-time-stamp-attributes">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-dl-time-stamp-attributes" class="section-name selfRef">DL Time-Stamp Attributes</a>
         </h3>
-<div id="_830e697f-2d59-255f-20cc-30883a7bb74c">
-<p id="section-5.1-1">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included
-in a TST, using an unsigned attribute of the per-signer information.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
+<div id="_58bf7726-5e7d-32a8-b97d-ec44112bcf74">
+<p id="section-5.1-1">A set of proofs or a set of promises, generated by a Calendar Server, MAY be included in a TST, using an unsigned attribute of the per-signer information.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_0da36701-6388-8629-00ec-e0502a118a21">
-<p id="section-5.1-2">To grant backward compatibility with any currently available software
-the unsigned attribute MUST be compliant with the specifications defined
-in <span><a class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span> for Attribute type.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
+<div id="_5d311ec1-5188-ffe9-e7ca-a0ea5df030b4">
+<p id="section-5.1-2">To grant backward compatibility with any currently available software the unsigned attribute MUST be compliant with the specifications defined in  <span><a class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span> for Attribute type.<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 </div>
-<div id="_149b1d44-f96c-561f-d582-e9d0bfc087cf">
-<p id="section-5.1-3">Attributes including a set of promises and a set of proofs MUST be unsigned attributes;
-they MUST NOT be signed attributes, authenticated attributes,
-unauthenticated attributes, or unprotected attributes.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
+<div id="_f0c94dfb-0513-aa25-a7cc-c4e7ee5dac23">
+<p id="section-5.1-3">Attributes including a set of promises and a set of proofs MUST be unsigned attributes; they MUST NOT be signed attributes, authenticated attributes, unauthenticated attributes, or unprotected attributes.<a href="#section-5.1-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_a81d82d7-c032-fdcc-93b3-e1025b2eb107">
-<p id="section-5.1-4">The new objects MUST have the following OIDs where id-ce identifies
-the root of standard extensions as described in <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
+<div id="_9efdd8bb-fed7-822d-0627-b1d5d96b995b">
+<p id="section-5.1-4">The new objects MUST have the following OIDs where id-ce identifies the root of standard extensions as described in  <span>[<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 </div>
-<div id="_2b0eada6-2047-cff6-fe45-180122119d05">
+<div id="_f4486869-7f35-eb53-23a7-4ffa85a94bd7">
 <p id="section-5.1-5">The ASN.1 structure of attributes including a set of promises is as follows:<a href="#section-5.1-5" class="pilcrow">¶</a></p>
 </div>
-<div id="_0df8dad0-bea8-9248-bb9f-f0679d627085">
+<div id="_6ac6a6ca-d7b6-1389-41e9-124cba855364">
 <div class="sourcecode" id="section-5.1-6">
 <pre>    id-ce-dltsPromises OBJECT IDENTIFIER ::= { id-ce TBD1 }
 
     Promises            SET OF Promise</pre><a href="#section-5.1-6" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_9ca84eee-65f5-31d6-2e3e-234ab9970ce0">
+<div id="_520265ab-2687-9e1e-b573-f53059dd4016">
 <p id="section-5.1-7">The ASN.1 structure of attributes including a set of proofs is as follows:<a href="#section-5.1-7" class="pilcrow">¶</a></p>
 </div>
-<div id="_28d05ddd-bd93-e535-c036-13a0751801d5">
+<div id="_fba2dc9b-e4a8-767c-f57f-c018559273a7">
 <div class="sourcecode" id="section-5.1-8">
 <pre>    id-ce-dltsProofs OBJECT IDENTIFIER ::= { id-ce TBD2 }
 
     Proofs              SET OF Proof</pre><a href="#section-5.1-8" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_77c5bc70-f73a-ab3c-6d89-168aa5ae0704">
-<p id="section-5.1-9">All the proofs and promises that have been returned MUST refer to the same parent
-TimeStampToken issued at the time of the request.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
+<div id="_dd9f7694-d3c5-040b-36e2-60346f6a2e50">
+<p id="section-5.1-9">All the proofs and promises that have been returned MUST refer to the same parent TimeStampToken issued at the time of the request.<a href="#section-5.1-9" class="pilcrow">¶</a></p>
 </div>
-<div id="_19b5453e-5d1c-1a2d-db9c-78767a7de205">
-<p id="section-5.1-10">Note that a TSA can return a set of proofs and promises for the same input value
-as it can use calendar servers operating on different Distributed Ledgers.<a href="#section-5.1-10" class="pilcrow">¶</a></p>
+<div id="_c32084e8-1dc9-3cdc-3db7-503fc2569d01">
+<p id="section-5.1-10">Note that a TSA can return a set of proofs and promises for the same input value as it can use calendar servers operating on different Distributed Ledgers.<a href="#section-5.1-10" class="pilcrow">¶</a></p>
 </div>
 <div id="_response_status">
 <section id="section-5.1.1">
           <h4 id="name-response-status">
 <a href="#section-5.1.1" class="section-number selfRef">5.1.1. </a><a href="#name-response-status" class="section-name selfRef">Response Status</a>
           </h4>
-<div id="_a3c8c91d-c2e3-3434-3dcd-f8d0626e5345">
-<p id="section-5.1.1-1">The response status code in the TimeStampResp MUST be compliant with
-the specifications described in <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span>
-and <span><a class="relref">Section 5.2.3</a> of [<a href="#RFC4210" class="cite xref">RFC4210</a>]</span>.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
+<div id="_fb6d6c29-8e27-6556-d464-d144ee10770d">
+<p id="section-5.1.1-1">The response status code in the TimeStampResp MUST be compliant with the specifications described in  <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> and  <span><a class="relref">Section 5.2.3</a> of [<a href="#RFC4210" class="cite xref">RFC4210</a>]</span>.<a href="#section-5.1.1-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_61b01cab-b773-6c1e-7fdf-01b45e11e741">
-<p id="section-5.1.1-2">According to the TimeStamp policy, when the response contains only a subset
-of the expected proofs and promises, the status field SHOULD contain either
-the value one (grantedWithMods) or the value two (rejection).<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
+<div id="_4a325a13-6283-a7aa-b090-00fa0211d743">
+<p id="section-5.1.1-2">According to the TimeStamp policy, when the response contains only a subset of the expected proofs and promises, the status field SHOULD contain either the value one (grantedWithMods) or the value two (rejection).<a href="#section-5.1.1-2" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -1820,78 +1742,58 @@ the value one (grantedWithMods) or the value two (rejection).<a href="#section-5
         <h3 id="name-dl-time-stamp-extensions">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-dl-time-stamp-extensions" class="section-name selfRef">DL Time-Stamp Extensions</a>
         </h3>
-<div id="_d01baab8-165a-7556-c834-2581712d9bca">
-<p id="section-5.2-1">Upgrade from a set of promises to a set of proofs MAY be done
-requesting a new TST including inside a non critical extension
-the set of promises previously obtained in an unsigned attribute.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<div id="_e7cd38d6-a674-f482-8033-db4e0bd6fbad">
+<p id="section-5.2-1">Upgrade from a set of promises to a set of proofs MAY be done requesting a new TST including inside a non critical extension the set of promises previously obtained in an unsigned attribute.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_51c85e95-f7b4-83e5-f2b4-4e6aea8dd7f8">
-<p id="section-5.2-2">When the TSA receives a request which has a non critical extension
-containing a set of promises,
-it MAY request the Calendar Server to get the corresponding proof
-for each of them, and MAY include the set of proofs in the TST response,
-using a non critical extension of the TSTInfo sequence.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<div id="_18a25cb8-e51b-5843-999a-5c63647705f8">
+<p id="section-5.2-2">When the TSA receives a request which has a non critical extension containing a set of promises, it MAY request the Calendar Server to get the corresponding proof for each of them, and MAY include the set of proofs in the TST response, using a non critical extension of the TSTInfo sequence.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 </div>
-<div id="_70139b38-9a58-ccb3-176f-202e48dec5d1">
-<p id="section-5.2-3">To grant backward compatibility with any currently available software,
-request and response non critical extensions MUST be compliant
-with the specifications described in <span><a class="relref">Section 2.4</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span>
-and <span><a class="relref">Section 4.2</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+<div id="_d8a139f1-92e0-2814-a0a1-760d52789bad">
+<p id="section-5.2-3">To grant backward compatibility with any currently available software, request and response non critical extensions MUST be compliant with the specifications described in  <span><a class="relref">Section 2.4</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> and  <span><a class="relref">Section 4.2</a> of [<a href="#RFC5280" class="cite xref">RFC5280</a>]</span>.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_b49980cf-9b6d-5dfa-b9b0-eef8672e529d">
+<div id="_d6863c50-8be9-8132-54e4-54ccb9eb7a06">
 <p id="section-5.2-4">Conforming TSAs MUST mark these extensions as non-critical.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
 </div>
-<div id="_9ae6bad5-4b5f-fe36-26a1-32f0d6c743dc">
+<div id="_92738d40-f59f-809a-fc09-eafe77388c42">
 <p id="section-5.2-5">The ASN.1 structure of the proof request extension is as follows:<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 </div>
-<div id="_0d0acac4-3222-103b-6351-56e840e67cac">
+<div id="_502673d7-0af8-cce3-b55e-b48ce49ab72b">
 <div class="sourcecode" id="section-5.2-6">
 <pre>    id-ce-dltsPromises OBJECT IDENTIFIER
 
     Promises            SET OF Promise</pre><a href="#section-5.2-6" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_d0f27673-71e5-b499-3d32-364ffae4b8c4">
+<div id="_a44059c8-2e85-146d-bb56-534395b3c1b1">
 <p id="section-5.2-7">The ASN.1 structure of the proof response extension is as follows:<a href="#section-5.2-7" class="pilcrow">¶</a></p>
 </div>
-<div id="_06d9a72e-ccd5-4358-ccb8-34d7df32adfc">
+<div id="_5b0a6dbd-9faf-49aa-a2a7-be0135a0f799">
 <div class="sourcecode" id="section-5.2-8">
 <pre>    id-ce-dltsProofs OBJECT IDENTIFIER
 
     Proofs               SET OF Proof</pre><a href="#section-5.2-8" class="pilcrow">¶</a>
 </div>
 </div>
-<div id="_2db50ffd-2601-5310-24dc-a308eb26432b">
-<p id="section-5.2-9">The proofs returned in the extensions by the TSA MUST NOT refer to
-the TimeStampToken issued at the time of the request.
-Each Proof MUST contain the explicit reference to the pointing
-TimeStampToken with signerIdentifier (referring to the TSU certificate)
-and serialNumber (referring to the time stamp serial number),
-which have been received in the Promise structure of the proof request extension.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
+<div id="_31de7e0a-6b42-73f7-7569-376368055537">
+<p id="section-5.2-9">The proofs returned in the extensions by the TSA MUST NOT refer to the TimeStampToken issued at the time of the request. Each Proof MUST contain the explicit reference to the pointing TimeStampToken with signerIdentifier (referring to the TSU certificate) and serialNumber (referring to the time stamp serial number), which have been received in the Promise structure of the proof request extension.<a href="#section-5.2-9" class="pilcrow">¶</a></p>
 </div>
 <div id="_response_status_2">
 <section id="section-5.2.1">
           <h4 id="name-response-status-2">
 <a href="#section-5.2.1" class="section-number selfRef">5.2.1. </a><a href="#name-response-status-2" class="section-name selfRef">Response Status</a>
           </h4>
-<div id="_8057a10d-fec5-b9fd-9b6f-c5fe9cd3b9eb">
-<p id="section-5.2.1-1">The response status code in the TimeStampResp MUST be compliant
-with the specifications described in <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span>
-and <span><a class="relref">Section 5.2.3</a> of [<a href="#RFC4210" class="cite xref">RFC4210</a>]</span>.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
+<div id="_af4b7551-5877-eac7-1195-545f26e1eb28">
+<p id="section-5.2.1-1">The response status code in the TimeStampResp MUST be compliant with the specifications described in  <span><a class="relref">Section 2.4.2</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> and  <span><a class="relref">Section 5.2.3</a> of [<a href="#RFC4210" class="cite xref">RFC4210</a>]</span>.<a href="#section-5.2.1-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_f44d9d76-56eb-2e11-8d3b-fbc7916c1ae2">
+<div id="_0cd90f39-34c4-dbcc-4457-1a3277670300">
 <p id="section-5.2.1-2">Compliant servers SHOULD also use the status field as follows:<a href="#section-5.2.1-2" class="pilcrow">¶</a></p>
 </div>
 <ul class="normal">
-<li class="normal" id="section-5.2.1-3.1">according to TimeStamp policy, when the response contains only a subset
-of the expected proofs, the status field SHOULD contain either the value one
-(grantedWithMods) or two (rejection)<a href="#section-5.2.1-3.1" class="pilcrow">¶</a>
+<li class="normal" id="section-5.2.1-3.1">according to TimeStamp policy, when the response contains only a subset of the expected proofs, the status field SHOULD contain either the value one (grantedWithMods) or two (rejection)<a href="#section-5.2.1-3.1" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-5.2.1-3.2">when in the response no proof can be returned,
-the status field SHOULD contain the value two (rejection)<a href="#section-5.2.1-3.2" class="pilcrow">¶</a>
+            <li class="normal" id="section-5.2.1-3.2">when in the response no proof can be returned, the status field SHOULD contain the value two (rejection)<a href="#section-5.2.1-3.2" class="pilcrow">¶</a>
 </li>
-            <li class="normal" id="section-5.2.1-3.3">when all the received promises recognized by the Calendar Server are pending,
-the status field SHOULD contain the value three (waiting).<a href="#section-5.2.1-3.3" class="pilcrow">¶</a>
+            <li class="normal" id="section-5.2.1-3.3">when all the received promises recognized by the Calendar Server are pending, the status field SHOULD contain the value three (waiting).<a href="#section-5.2.1-3.3" class="pilcrow">¶</a>
 </li>
           </ul>
 </section>
@@ -1903,25 +1805,20 @@ the status field SHOULD contain the value three (waiting).<a href="#section-5.2.
         <h3 id="name-use-case">
 <a href="#section-5.3" class="section-number selfRef">5.3. </a><a href="#name-use-case" class="section-name selfRef">Use case</a>
         </h3>
-<div id="_2db17d56-5704-23f2-d249-f534c8719098">
-<p id="section-5.3-1">In order to clarify the use of the objects thus defined, the case of
-a subscription made by two actors at different times, using distinct
-time stamps, is illustrated below.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
+<div id="_e9e8d006-6d30-70ae-7afe-b8ce4adf9d34">
+<p id="section-5.3-1">In order to clarify the use of the objects thus defined, the case of a subscription made by two actors at different times, using distinct time stamps, is illustrated below.<a href="#section-5.3-1" class="pilcrow">¶</a></p>
 </div>
 <div id="_promises">
 <section id="section-5.3.1">
           <h4 id="name-promises">
 <a href="#section-5.3.1" class="section-number selfRef">5.3.1. </a><a href="#name-promises" class="section-name selfRef">Promises</a>
           </h4>
-<div id="_2de4c4d4-30c1-b005-b9ab-99181695dfdd">
-<p id="section-5.3.1-1">Since each signer applies a time stamp to his signature, the structure
-will be presented according to the following simplified scheme, in which
-each promise is inserted as an unsigned attribute of the time stamp
-to which it refers.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
+<div id="_b936f6d6-b935-5e61-c9c1-0bb273d37eec">
+<p id="section-5.3.1-1">Since each signer applies a time stamp to his signature, the structure will be presented according to the following simplified scheme, in which each promise is inserted as an unsigned attribute of the time stamp to which it refers.<a href="#section-5.3.1-1" class="pilcrow">¶</a></p>
 </div>
 <span id="name-figure-1"></span><div id="use-case-promises">
 <figure id="figure-1">
-            <div id="_a75d3b76-47d2-f354-b814-a966d9f9232c">
+            <div id="_ea9d65d3-99f7-065e-102a-0231c6add3f6">
 <div class="alignCenter art-ascii-art art-text artwork" id="section-5.3.1-2.1">
 <pre>signature-1
     +--- timestampToken
@@ -1951,20 +1848,15 @@ signature-2
 <a href="#name-figure-1" class="selfRef">Figure 1</a>
             </figcaption></figure>
 </div>
-<div id="_349e7add-32e1-faa6-6484-80ab02abec7c">
-<p id="section-5.3.1-3">Although replicating the signerIdentifier and serialNumber information
-may seem redundant in the case of a single timestamp, it can never be
-ruled out that a second signature with a new timestamp will be added later.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
+<div id="_9e1b1dde-ef66-8566-0edd-b15c277ec7e8">
+<p id="section-5.3.1-3">Although replicating the signerIdentifier and serialNumber information may seem redundant in the case of a single timestamp, it can never be ruled out that a second signature with a new timestamp will be added later.<a href="#section-5.3.1-3" class="pilcrow">¶</a></p>
 </div>
-<div id="_79f08a5c-8305-f8b6-7f93-5ffa6d1a375f">
-<p id="section-5.3.1-4">When you also want to obtain the proof of attestation on the DL, the
-application will be able to collect the two promises and include them
-as extensions in a new timestamp request. The result would have the
-following structure:<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
+<div id="_55f44e6d-7d52-21c6-1a02-eb5971f31231">
+<p id="section-5.3.1-4">When you also want to obtain the proof of attestation on the DL, the application will be able to collect the two promises and include them as extensions in a new timestamp request. The result would have the following structure:<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
 </div>
 <span id="name-figure-2"></span><div id="use-case-proofs">
 <figure id="figure-2">
-            <div id="_de8d3f3d-015d-8f6f-d01c-57d854e96d32">
+            <div id="_1c17bbde-322f-c837-f1f7-a7c18725b806">
 <div class="alignCenter art-ascii-art art-text artwork" id="section-5.3.1-5.1">
 <pre>    +--- timestampToken
                 |--- signerIdentifier
@@ -1988,15 +1880,11 @@ following structure:<a href="#section-5.3.1-4" class="pilcrow">¶</a></p>
 <a href="#name-figure-2" class="selfRef">Figure 2</a>
             </figcaption></figure>
 </div>
-<div id="_504c5692-07cd-7d9a-772d-1cb23902ab98">
-<p id="section-5.3.1-6">From this example it is evident that the signerIdentifier and serialNumber pair
-is necessary to uniquely identify the TimestampToken to which each Proof
-obtained refers.<a href="#section-5.3.1-6" class="pilcrow">¶</a></p>
+<div id="_45c40f38-26a3-4ada-c708-6fec3b6566f6">
+<p id="section-5.3.1-6">From this example it is evident that the signerIdentifier and serialNumber pair is necessary to uniquely identify the TimestampToken to which each Proof obtained refers.<a href="#section-5.3.1-6" class="pilcrow">¶</a></p>
 </div>
-<div id="_38e112f1-4852-2fe9-12df-5a5b8e94d33c">
-<p id="section-5.3.1-7">It is up to the application to choose whether the new timestamp, containing
-the evidence, will be saved within the same document, containing the promises,
-or stored separately.<a href="#section-5.3.1-7" class="pilcrow">¶</a></p>
+<div id="_d309ced1-d878-23f8-5faa-4f731acac4e1">
+<p id="section-5.3.1-7">It is up to the application to choose whether the new timestamp, containing the evidence, will be saved within the same document, containing the promises, or stored separately.<a href="#section-5.3.1-7" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -2009,18 +1897,14 @@ or stored separately.<a href="#section-5.3.1-7" class="pilcrow">¶</a></p>
       <h2 id="name-security-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<div id="_bd3e3025-6e4c-e55f-3592-51515bd9dd38">
-<p id="section-6-1">Each security consideration described in <span><a class="relref">Section 4</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> SHALL be evaluated designing
-TSA services that include DL Time-Stamp extensions.<a href="#section-6-1" class="pilcrow">¶</a></p>
+<div id="_64a8f199-f53f-535b-8685-152e9e560b22">
+<p id="section-6-1">Each security consideration described in <span><a class="relref">Section 4</a> of [<a href="#RFC3161" class="cite xref">RFC3161</a>]</span> SHALL be evaluated designing TSA services that include DL Time-Stamp extensions.<a href="#section-6-1" class="pilcrow">¶</a></p>
 </div>
-<div id="_81372a18-1523-5001-398f-7b140f548f97">
-<p id="section-6-2">When a TSA executes a request to a Calendar Server the use of a nonce is
-RECOMMENDED because using a nonce always allows the client to detect replays.<a href="#section-6-2" class="pilcrow">¶</a></p>
+<div id="_b5a2a4a0-6c7e-456f-df65-e455efaa6bdc">
+<p id="section-6-2">When a TSA executes a request to a Calendar Server the use of a nonce is RECOMMENDED because using a nonce always allows the client to detect replays.<a href="#section-6-2" class="pilcrow">¶</a></p>
 </div>
-<div id="_082450a5-7aee-6141-55cf-54b8bc4e9063">
-<p id="section-6-3">Safety and reliability of the DL proofs depends on the robustness
-of the hash algorithms and on the stability of the DL,
-i.e. how expensive or difficult it would be for an attacker to alter the DL.<a href="#section-6-3" class="pilcrow">¶</a></p>
+<div id="_528c3e93-145a-9b70-157b-246924b90611">
+<p id="section-6-3">Safety and reliability of the DL proofs depends on the robustness of the hash algorithms and on the stability of the DL, i.e. how expensive or difficult it would be for an attacker to alter the DL.<a href="#section-6-3" class="pilcrow">¶</a></p>
 </div>
 </section>
 </div>
@@ -2029,7 +1913,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.<a h
       <h2 id="name-iana-considerations">
 <a href="#section-7" class="section-number selfRef">7. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<div id="_4f8e5305-4dde-12d1-e5d8-62f818fbd19e">
+<div id="_37bec581-8bf0-882c-a119-9e0d3495aca7">
 <p id="section-7-1">This document does not require any action by IANA.<a href="#section-7-1" class="pilcrow">¶</a></p>
 </div>
 </section>
@@ -2091,7 +1975,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.<a h
 <dd class="break"></dd>
 <dt id="eIDAS">[eIDAS]</dt>
       <dd>
-<span class="refAuthor">The European Parliament and the Council of the European Union</span>, <span class="refTitle">"Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC"</span>, <span class="refContent">Regulation (EU) No 910/2014</span>, <time datetime="2014-07-23" class="refDate">23 July 2014</time>, <span>&lt;<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN</a>&gt;</span>. </dd>
+<span class="refAuthor">The European Parliament and the Council of the European Union</span>, <span class="refTitle">"Regulation (EU) No 910/2014 of the European Parliament and of the Council of 23 July 2014 on electronic identification and trust services for electronic transactions in the internal market and repealing Directive 1999/93/EC"</span>, <span class="refContent">Regulation (EU) No 910/2014</span>, <time datetime="2014-07-23" class="refDate">23 July 2014</time>, <span>&lt;<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN">https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32014R0910=EN</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="ETSI.EN.319.422">[ETSI.EN.319.422]</dt>
       <dd>
@@ -2123,7 +2007,7 @@ i.e. how expensive or difficult it would be for an attacker to alter the DL.<a h
 <dd class="break"></dd>
 <dt id="Merkle">[Merkle]</dt>
       <dd>
-<span class="refAuthor">Merkle, R. C.</span>, <span class="refTitle">"Secrecy, authentication, and public-key systems"</span>, <span class="refContent">Standard Electronic Labs Technical Report No. 1979-1</span>, <time datetime="1979-06" class="refDate">June 1979</time>, <span>&lt;<a href="http://www.merkle.com/papers/Thesis1979.pdf">http://www.merkle.com/papers/Thesis1979.pdf</a>&gt;</span>. </dd>
+<span class="refAuthor">Merkle, R. C.</span>, <span class="refTitle">"Secrecy, authentication, and public-key systems"</span>, <span class="refContent">Standard Electronic Labs Technical Report No. 1979-1</span>, <time datetime="1979-06" class="refDate">June 1979</time>, <span>&lt;<a href="http://www.merkle.com/papers/Thesis1979.pdf">http://www.merkle.com/papers/Thesis1979.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Nakamoto">[Nakamoto]</dt>
       <dd>

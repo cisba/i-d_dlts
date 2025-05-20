@@ -17,10 +17,10 @@ commands:
   - metanorma.plantuml
 snap-id:      QkvhpBkFKaDwHMR2LTS3S9Bm0Ek6io11
 tracking:     latest/stable
-refresh-date: today at 16:30 CET
+refresh-date: today at 17:36 CEST
 channels:
-  latest/stable:    1.11.1    2024-11-16 (226) 395MB -
-  latest/candidate: 1.8.7.pre 2023-10-24 (183) 380MB -
-  latest/beta:      1.2.11    2020-05-13   (8) 311MB devmode
-  latest/edge:      1.11.1    2024-11-16 (227) 395MB -
-installed:          1.10.1               (204) 380MB -
+  latest/stable:    1.11.3 2024-12-24 (231) 384MB -
+  latest/candidate: 1.12.7 2025-05-17 (235) 392MB -
+  latest/beta:      1.2.11 2020-05-13   (8) 311MB devmode
+  latest/edge:      1.12.7 2025-05-17 (236) 392MB -
+installed:          1.11.3            (231) 384MB -
