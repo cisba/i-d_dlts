@@ -5,9 +5,22 @@
 
 = Usage
 
-	sudo snap save/refresh metanorma
-	metanorma  draft-intesigroup-dlts.adoc 	
-	diff -W 152 -y draft-intesigroup-dlts-07.txt draft-intesigroup-dlts.txt |less -S
+	# update metanorma and save a snapshot
+	sudo snap refresh metanorma
 	sudo snap save metanorma
+	snap info metanorma > snap-info-metanorma.txt
 
+	# update draft 
+	metanorma  draft-intesigroup-dlts.adoc	
+	git diff draft-intesigroup-dlts.txt
+	diff -W 152 -y draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
 
+	# commit and push
+	cp draft-intesigroup-dlts.txt history/draft-intesigroup-dlts-<this-ver>.txt 
+	git add history/draft-intesigroup-dlts-<this-ver>.txt 
+	git commit -a
+	git push
+
+	# remove old snapshots
+	snap saved metanorma
+	snap forget <id> metanorma
