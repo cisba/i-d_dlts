@@ -24,3 +24,8 @@
 	# remove old snapshots
 	snap saved metanorma
 	snap forget <id> metanorma
+
+= Upload and track
+
+	https://datatracker.ietf.org/submit/
+	https://datatracker.ietf.org/doc/draft-intesigroup-dlts/
