@@ -6,10 +6,10 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-11" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-12" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
   <front>
     <title abbrev="dlts">Distributed Ledger Time-Stamp</title>
-    <seriesInfo value="draft-intesigroup-dlts-11" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
+    <seriesInfo value="draft-intesigroup-dlts-12" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
     <seriesInfo name="" value="" status="full-standard"></seriesInfo>
     <author fullname="Emanuele Cisbani">
       <organization>Intesi Group</organization>
@@ -52,7 +52,7 @@
         <uri>https://www.entrust.com</uri>
       </address>
     </author>
-    <date day="25" year="2025" month="May"></date>
+    <date day="25" year="2025" month="November"></date>
     <area>Internet</area>
     <abstract anchor="_abstract"><t anchor="_abdb9d34-5ed2-2f50-e63a-2aba212cbe8c">This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.</t>
 

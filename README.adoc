@@ -13,7 +13,10 @@
 	# update draft 
 	metanorma  draft-intesigroup-dlts.adoc	
 	git diff draft-intesigroup-dlts.txt
-	diff -W 152 -y draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+	diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+
+	# revert to previous version if necessary
+	sudo snap revert metanorma
 
 	# commit and push
 	cp draft-intesigroup-dlts.txt history/draft-intesigroup-dlts-<this-ver>.txt 
