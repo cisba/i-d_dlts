@@ -1,34 +1,48 @@
+
 = Setup
 
-	https://www.metanorma.org/install/
-	sudo snap install metanorma
+// see https://www.metanorma.org/install/
+$ sudo snap install metanorma
 
 = Usage
 
-	# update metanorma and save a snapshot
-	sudo snap refresh metanorma
-	sudo snap save metanorma
-	snap info metanorma > snap-info-metanorma.txt
+// update metanorma release and test if iw works or fails
+$ sudo snap refresh metanorma
+$ metanorma draft-intesigroup-dlts.adoc	
 
-	# update draft 
-	metanorma  draft-intesigroup-dlts.adoc	
-	git diff draft-intesigroup-dlts.txt
-	diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+// if new version fails revert to previous version 
+// and skip next section
+$ sudo snap revert metanorma
 
-	# revert to previous version if necessary
-	sudo snap revert metanorma
+// if it works fine save it and remove old snapshot
+$ sudo snap save metanorma
+$ snap saved metanorma
+$ snap forget <id> metanorma
+$ snap info metanorma > snap-info-metanorma.txt
 
-	# commit and push
-	cp draft-intesigroup-dlts.txt history/draft-intesigroup-dlts-<this-ver>.txt 
-	git add history/draft-intesigroup-dlts-<this-ver>.txt 
-	git commit -a
-	git push
+// edit source files if necessary
+// then update fields: docnumber published-date revdate
+$ vim draft-intesigroup-dlts.adoc	
 
-	# remove old snapshots
-	snap saved metanorma
-	snap forget <id> metanorma
+// generate new draft version
+$ metanorma  draft-intesigroup-dlts.adoc	
+
+// check result
+$ git diff draft-intesigroup-dlts.txt
+$ diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+
+// save, commit and push
+$ cp draft-intesigroup-dlts.txt history/draft-intesigroup-dlts-<this-ver>.txt 
+$ git add history/draft-intesigroup-dlts-<this-ver>.txt 
+$ git commit -a
+$ git push
+
 
 = Upload and track
 
-	https://datatracker.ietf.org/submit/
-	https://datatracker.ietf.org/doc/draft-intesigroup-dlts/
+// submit draft-intesigroup-dlts.rfc.xml here
+[submit](https://datatracker.ietf.org/submit/)
+
+// track progress here
+[track](https://datatracker.ietf.org/doc/draft-intesigroup-dlts/)
+
