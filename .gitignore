@@ -3,3 +3,5 @@
 deploy_key
 temp/
 .venv
+*.log.txt
+
