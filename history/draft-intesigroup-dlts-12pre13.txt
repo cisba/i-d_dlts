@@ -5,13 +5,13 @@
 Network Working Group                                         E. Cisbani
 Internet-Draft                                                D. Ribaudo
 Intended status: Standards Track                            Intesi Group
-Expires: 26 November 2026                                     G. Damiano
+Expires: 29 May 2026                                          G. Damiano
                                                                  Entrust
-                                                             25 May 2026
+                                                        25 November 2025
 
 
                      Distributed Ledger Time-Stamp
-                       draft-intesigroup-dlts-13
+                       draft-intesigroup-dlts-12
 
 Abstract
 
@@ -36,11 +36,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 26 November 2026.
+   This Internet-Draft will expire on 29 May 2026.
 
 Copyright Notice
 
-   Copyright (c) 2026 IETF Trust and the persons identified as the
+   Copyright (c) 2025 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 1]
+Cisbani, et al.            Expires 29 May 2026                  [Page 1]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 2]
+Cisbani, et al.            Expires 29 May 2026                  [Page 2]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    In an in-deep appraisal of Time Stamping Schemes conducted in 2001 by
@@ -165,9 +165,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 3]
+Cisbani, et al.            Expires 29 May 2026                  [Page 3]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
 2.  Terms and definitions
@@ -221,9 +221,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 4]
+Cisbani, et al.            Expires 29 May 2026                  [Page 4]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
       Attestation is a proof or a promise of timestamping in a precise
@@ -277,9 +277,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 5]
+Cisbani, et al.            Expires 29 May 2026                  [Page 5]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    In the case of Bitcoin, for example, consensus is reached
@@ -333,9 +333,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 6]
+Cisbani, et al.            Expires 29 May 2026                  [Page 6]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
        Proof ::= SEQUENCE {
@@ -389,9 +389,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 7]
+Cisbani, et al.            Expires 29 May 2026                  [Page 7]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    The new objects MUST have the following OIDs where id-ce identifies
@@ -445,9 +445,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 8]
+Cisbani, et al.            Expires 29 May 2026                  [Page 8]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    To grant backward compatibility with any currently available
@@ -501,9 +501,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026                [Page 9]
+Cisbani, et al.            Expires 29 May 2026                  [Page 9]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
 5.3.  Use case
@@ -557,9 +557,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 10]
+Cisbani, et al.            Expires 29 May 2026                 [Page 10]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
                +--- timestampToken
@@ -613,9 +613,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 11]
+Cisbani, et al.            Expires 29 May 2026                 [Page 11]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -669,9 +669,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 12]
+Cisbani, et al.            Expires 29 May 2026                 [Page 12]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    [CrosbyWallach]
@@ -725,9 +725,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 13]
+Cisbani, et al.            Expires 29 May 2026                 [Page 13]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    [Hyperledger]
@@ -781,9 +781,9 @@ Internet-Draft                    dlts                          May 2026
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 14]
+Cisbani, et al.            Expires 29 May 2026                 [Page 14]
 
-Internet-Draft                    dlts                          May 2026
+Internet-Draft                    dlts                     November 2025
 
 
    [UK-GCSA]  UK Government Chief Scientific Adviser, "Distributed
@@ -837,4 +837,4 @@ Authors' Addresses
 
 
 
-Cisbani, et al.         Expires 26 November 2026               [Page 15]
+Cisbani, et al.            Expires 29 May 2026                 [Page 15]
