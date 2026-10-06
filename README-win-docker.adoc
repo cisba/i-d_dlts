@@ -1,0 +1,16 @@
+// Windows setup
+- Install docker 
+- Pull the metanorma/metanorma image (ver. 1.15.3)
+
+// edit source files if necessary
+// then update fields: docnumber published-date revdate
+$ vim draft-intesigroup-dlts.adoc
+
+// to generate a new draft version open a PowerShell 
+// in the project folder and run the command:
+PS> docker run --rm -v "${PWD}:/metanorma" -w /metanorma metanorma/metanorma:1.15.3 metanorma draft-intesigroup-dlts.adoc
+
+// check result
+$ git diff draft-intesigroup-dlts.txt
+$ diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+

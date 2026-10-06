@@ -4,7 +4,13 @@
 // see https://www.metanorma.org/install/
 $ sudo snap install metanorma
 
-= Usage
+= Find the last metanorma working version
+
+// https://github.com/metanorma/metanorma-ietf/issues
+from the docker GUI pull the metanorma/metanorma image
+compile the previous draft with the latest metanorma
+if it fails to compile try previous versions
+and open an issue to the metanorma team
 
 // update metanorma release and test if iw works or fails
 $ sudo snap refresh metanorma
@@ -19,6 +25,11 @@ $ sudo snap save metanorma
 $ snap saved metanorma
 $ snap forget <id> metanorma
 $ snap info metanorma > snap-info-metanorma.txt
+
+// update the file with the last good version
+$ echo <x.y.z> > last_metanorma_good_version.txt
+
+= Usage
 
 // edit source files if necessary
 // then update fields: docnumber published-date revdate
