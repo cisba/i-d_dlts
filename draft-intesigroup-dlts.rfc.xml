@@ -6,10 +6,10 @@
 <?rfc tocdepth="4"?>
 <?rfc symrefs="yes"?>
 <?rfc sortrefs="yes"?>
-<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-13" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
+<rfc xmlns:xi="http://www.w3.org/2001/XInclude" docName="draft-intesigroup-dlts-14" category="std" ipr="trust200902" sortRefs="true" submissionType="IETF" xml:lang="en" version="3" >
   <front>
     <title abbrev="dlts">Distributed Ledger Time-Stamp</title>
-    <seriesInfo value="draft-intesigroup-dlts-13" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
+    <seriesInfo value="draft-intesigroup-dlts-14" status="Standard" stream="IETF" name="Internet-Draft" asciiName="Internet-Draft"></seriesInfo>
     <seriesInfo name="" value="" status="full-standard"></seriesInfo>
     <author fullname="Emanuele Cisbani">
       <organization>Intesi Group</organization>
@@ -52,7 +52,7 @@
         <uri>https://www.entrust.com</uri>
       </address>
     </author>
-    <date day="25" year="2026" month="May"></date>
+    <date day="25" year="2026" month="November"></date>
     <area>Internet</area>
     <abstract><t anchor="_c9565da6-a223-0092-450e-67200375caf1">This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers.</t>
 
@@ -142,7 +142,7 @@
 
 <t anchor="_de1f445f-f092-a32b-4c13-d566abf2217c">The DLA data structure is out of scope in this specification document. Any Calendar Server can define his application protocol and data structure. For this specification the DLA is considered as pure data.</t>
 </section>
-    <section anchor="_f2398bee-483d-5bc9-886d-c054b4789b3e"><name>DL Time-Stamp Objects</name>
+    <section anchor="_5d5a1f6f-1585-1481-52db-b049ba51aa70"><name>DL Time-Stamp Objects</name>
 
 <t anchor="_7facbd1c-4a31-5724-cffb-a0979902c4cd">The ASN.1 structure of Promise type is as follows:</t>
 
@@ -170,8 +170,8 @@
 
 <t anchor="_49ca3d14-f9ff-081a-05cb-71023a41924e">The fields of Promise and Proof type have the following meanings:</t>
 
-<ul anchor="_77889adb-eb44-dc56-c8a7-c03a1ff54bb2"><li>version is the syntax version number. It MUST always be 0. The usage is as described in  <xref target="RFC5652" section="1.3" relative=""></xref></li>
-<li>calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <xref target="RFC6838" section="" relative=""></xref> - for example, if you wanted to use the  <xref target="OpenTimestamps" section="" relative=""></xref> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type <xref target="OTS" section="" relative=""></xref></li>
+<ul anchor="_cd74359a-ec28-7c3f-b395-7d12626575b4"><li>version is the syntax version number. It MUST always be 0. The usage is as described in  <xref target="RFC5652" section="1.3" relative=""></xref></li>
+<li>calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <xref target="RFC6838" section="" relative=""></xref> - for example, if you wanted to use the  <xref target="OpenTimestamps" section="" relative=""></xref> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type  <xref target="OTS" section="" relative=""></xref></li>
 <li>dlProof and dlPromise are the proof and promise obtained from a Calendar Server using as input value the value of the signature field of the SignerInfo structure inside the digital signature of the TimeStampToken, as described in <xref target="RFC5652" section="5.3" relative=""></xref></li>
 <li>signerIdentifier is an IssuerAndSerialNumber type that identifies the TSU signing certificate as described in  <xref target="RFC5652" section="10.2.4" relative=""></xref></li>
 <li>serialNumber is an integer assigned by the TSA to each TimeStampToken as described in  <xref target="RFC3161" section="2.4.2" relative=""></xref></li>
@@ -330,7 +330,7 @@ signature-2
 </section>
   </middle>
   <back>
-    <references anchor="_8bd1cace-78af-3ca8-6b07-cca73d4b5589">
+    <references anchor="_d5f36551-6ebb-7fed-03fe-a40c1de4b82a">
       <name>Normative References</name>
       <reference target="https://www.rfc-editor.org/info/rfc2119" anchor="RFC2119"><stream>IETF</stream> <front> <title>Key words for use in RFCs to Indicate Requirement Levels</title> <author fullname="S. Bradner" asciiFullname="S. Bradner"></author> <date month="March" year="1997"></date> <keyword>Standards</keyword><keyword>Track</keyword><keyword>Documents</keyword> <abstract>  <t anchor="_e4c88030-0f6c-9971-317e-3304ce197ccb">In many standards track documents several words are used to signify the requirements in the specification. These words are often capitalized. This document defines these words as they should be interpreted in IETF documents. This document specifies an Internet Best Current Practices for the Internet Community, and requests discussion and suggestions for improvements.</t></abstract> </front> <seriesInfo value="10.17487/RFC2119" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="2119" name="RFC"></seriesInfo></reference>
       <reference target="https://www.rfc-editor.org/info/rfc3161" anchor="RFC3161"><stream>IETF</stream> <front> <title>Internet X.509 Public Key Infrastructure Time-Stamp Protocol (TSP)</title> <author fullname="C. Adams" asciiFullname="C. Adams"></author> <author fullname="P. Cain" asciiFullname="P. Cain"></author> <author fullname="D. Pinkas" asciiFullname="D. Pinkas"></author> <author fullname="R. Zuccherato" asciiFullname="R. Zuccherato"></author> <date month="August" year="2001"></date> <keyword>TSA</keyword><keyword>Time Stamping Authority</keyword><keyword>TSP</keyword><keyword>Time-Stamp Protocol</keyword><keyword>security</keyword><keyword>request</keyword><keyword>response</keyword> <abstract>  <t anchor="_18e65a1a-553b-5a7b-f6c7-33dee6e55423">This document describes the format of a request sent to a Time Stamping Authority (TSA) and of the response that is returned. It also establishes several security-relevant requirements for TSA operation, with regards to processing requests to generate responses. [STANDARDS-TRACK]</t></abstract> </front> <seriesInfo value="10.17487/RFC3161" name="DOI"></seriesInfo> <seriesInfo value="3161" name="RFC"></seriesInfo></reference>
@@ -341,7 +341,7 @@ signature-2
       <reference target="https://www.rfc-editor.org/info/rfc6838" anchor="RFC6838"><stream>IETF</stream> <front> <title>Media Type Specifications and Registration Procedures</title> <author fullname="N. Freed" asciiFullname="N. Freed"></author> <author fullname="J. Klensin" asciiFullname="J. Klensin"></author> <author fullname="T. Hansen" asciiFullname="T. Hansen"></author> <date month="January" year="2013"></date> <abstract>  <t anchor="_8896c18a-9dbd-134e-8873-98031e1ed609">This document defines procedures for the specification and registration of media types for use in HTTP, MIME, and other Internet protocols. This memo documents an Internet Best Current Practice.</t></abstract> </front> <seriesInfo value="10.17487/RFC6838" name="DOI"></seriesInfo> <seriesInfo value="13" name="BCP"></seriesInfo> <seriesInfo value="6838" name="RFC"></seriesInfo></reference>
       <reference target="https://www.rfc-editor.org/info/rfc8174" anchor="RFC8174"><stream>IETF</stream> <front> <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title> <author fullname="B. Leiba" asciiFullname="B. Leiba"></author> <date month="May" year="2017"></date> <abstract>  <t anchor="_033204a2-bedf-29b5-e0a1-be2f303b10bb">RFC 2119 specifies common key words that may be used in protocol specifications. This document aims to reduce the ambiguity by clarifying that only UPPERCASE usage of the key words have the defined special meanings.</t></abstract> </front> <seriesInfo value="10.17487/RFC8174" name="DOI"></seriesInfo> <seriesInfo value="14" name="BCP"></seriesInfo> <seriesInfo value="8174" name="RFC"></seriesInfo></reference>
     </references>
-    <references anchor="_16321f76-cf27-ef9f-592a-ffa055663ef9">
+    <references anchor="_1dd2f41c-39f1-0ff6-9252-40d4b9c60ab8">
       <name>Informative References</name>
       <reference target="https://www.iso.org/standard/59934.html" anchor="ISO.IEC.18014-4"><front> <title>Information technology - Security techniques - Time-stamping services - Part 4: Traceability of time sources</title> <author><organization ascii="International Organization for Standardization" abbrev="ISO">International Organization for Standardization</organization></author> <author><organization ascii="International Electrotechnical Commission" abbrev="IEC">International Electrotechnical Commission</organization></author> </front> <refcontent>ISO/IEC 18014-4</refcontent></reference>
       <reference target="https://www.rfc-editor.org/info/rfc6962" anchor="RFC6962"><stream>IETF</stream> <front> <title>Certificate Transparency</title> <author fullname="B. Laurie" asciiFullname="B. Laurie"></author> <author fullname="A. Langley" asciiFullname="A. Langley"></author> <author fullname="E. Kasper" asciiFullname="E. Kasper"></author> <date month="June" year="2013"></date> <keyword>TLS certificates</keyword> <abstract>  <t anchor="_70fbe788-d789-7126-2bce-bc0f0e82246a">This document describes an experimental protocol for publicly logging the existence of Transport Layer Security (TLS) certificates as they are issued or observed, in a manner that allows anyone to audit certificate authority (CA) activity and notice the issuance of suspect certificates as well as to audit the certificate logs themselves. The intent is that eventually clients would refuse to honor certificates that do not appear in a log, effectively forcing CAs to add all issued certificates to the logs.</t>  <t anchor="_49f4bc36-9122-27b4-a3c1-1f98d65aa674">Logs are network services that implement the protocol operations for submissions and queries that are defined in this document.</t></abstract> </front> <seriesInfo value="10.17487/RFC6962" name="DOI"></seriesInfo> <seriesInfo value="6962" name="RFC"></seriesInfo></reference>

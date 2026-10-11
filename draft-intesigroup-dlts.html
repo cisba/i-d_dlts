@@ -12,21 +12,21 @@
        This document defines a standard to extend Time Stamp Tokens with Time Attestations recorded on Distributed Ledgers. 
        The aim is to provide long-term validity to Time Stamp Tokens, backward compatible with currently available software. 
     " name="description">
-<meta content="xml2rfc 3.31.0" name="generator">
-<meta content="draft-intesigroup-dlts-13" name="ietf.draft">
+<meta content="xml2rfc 3.32.0" name="generator">
+<meta content="draft-intesigroup-dlts-14" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.31.0
-    Python 3.12.3
-    ConfigArgParse 1.7.1
+  xml2rfc 3.32.0
+    Python 3.11.2
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
+    intervaltree 3.2.1
     Jinja2 3.1.6
     lxml 6.0.2
-    platformdirs 4.5.0
-    pycountry 24.6.1
+    platformdirs 4.9.4
+    pycountry 26.2.16
     PyYAML 6.0.3
     requests 2.32.5
-    wcwidth 0.2.14
+    wcwidth 0.6.0
 -->
 <link href="draft-intesigroup-dlts.rfc.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -1217,11 +1217,11 @@ li > p:last-of-type:only-child {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">dlts</td>
-<td class="right">May 2026</td>
+<td class="right">November 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Cisbani, et al.</td>
-<td class="center">Expires 26 November 2026</td>
+<td class="center">Expires 29 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1231,17 +1231,17 @@ li > p:last-of-type:only-child {
 <dt class="label-workgroup">Workgroup:</dt>
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-intesigroup-dlts-13</dd>
+<dd class="internet-draft">draft-intesigroup-dlts-14</dd>
 <dt class="label-">:</dt>
 <dd></dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-05-25" class="published">25 May 2026</time>
+<time datetime="2026-11-25" class="published">25 November 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-11-26">26 November 2026</time></dd>
+<dd class="expires"><time datetime="2027-05-29">29 May 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1288,7 +1288,7 @@ li > p:last-of-type:only-child {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 26 November 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 May 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1668,7 +1668,7 @@ li > p:last-of-type:only-child {
 </div>
 </section>
 </div>
-<div id="_f2398bee-483d-5bc9-886d-c054b4789b3e">
+<div id="_5d5a1f6f-1585-1481-52db-b049ba51aa70">
 <section id="section-5">
       <h2 id="name-dl-time-stamp-objects">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-dl-time-stamp-objects" class="section-name selfRef">DL Time-Stamp Objects</a>
@@ -1709,7 +1709,7 @@ li > p:last-of-type:only-child {
 <ul class="normal">
 <li class="normal" id="section-5-6.1">version is the syntax version number. It MUST always be 0. The usage is as described in  <span><a class="relref">Section 1.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.1" class="pilcrow">¶</a>
 </li>
-        <li class="normal" id="section-5-6.2">calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> - for example, if you wanted to use the  <span>[<a href="#OpenTimestamps" class="cite xref">OpenTimestamps</a>]</span> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type <span>[<a href="#OTS" class="cite xref">OTS</a>]</span><a href="#section-5-6.2" class="pilcrow">¶</a>
+        <li class="normal" id="section-5-6.2">calendarFormat is the media type format of the DL attestation. It MUST be a registered application media type, in accordance with procedures laid out in  <span>[<a href="#RFC6838" class="cite xref">RFC6838</a>]</span> - for example, if you wanted to use the  <span>[<a href="#OpenTimestamps" class="cite xref">OpenTimestamps</a>]</span> format, the calendarFormat value would be the string "application/vnd.opentimestamps.ots" (without quotes) that is the IANA registered Media Type  <span>[<a href="#OTS" class="cite xref">OTS</a>]</span><a href="#section-5-6.2" class="pilcrow">¶</a>
 </li>
         <li class="normal" id="section-5-6.3">dlProof and dlPromise are the proof and promise obtained from a Calendar Server using as input value the value of the signature field of the SignerInfo structure inside the digital signature of the TimeStampToken, as described in <span><a class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span><a href="#section-5-6.3" class="pilcrow">¶</a>
 </li>
@@ -1953,7 +1953,7 @@ signature-2
 </div>
 </section>
 </div>
-<div id="_8bd1cace-78af-3ca8-6b07-cca73d4b5589">
+<div id="_d5f36551-6ebb-7fed-03fe-a40c1de4b82a">
 <section id="section-8">
       <h2 id="name-normative-references">
 <a href="#section-8" class="section-number selfRef">8. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
@@ -1994,7 +1994,7 @@ signature-2
 </dl>
 </section>
 </div>
-<div id="_16321f76-cf27-ef9f-592a-ffa055663ef9">
+<div id="_1dd2f41c-39f1-0ff6-9252-40d4b9c60ab8">
 <section id="section-9">
       <h2 id="name-informative-references">
 <a href="#section-9" class="section-number selfRef">9. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
