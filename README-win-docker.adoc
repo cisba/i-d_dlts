@@ -1,8 +1,24 @@
-// Windows setup
-- Install docker 
-- Pull the metanorma/metanorma image (ver. 1.15.3)
+= Windows setup
 
-// edit source files if necessary
+// https://docs.docker.com/get-started/
+// https://git-scm.com/install/windows
+// bash and vim are in boundle with git setup
+install docker and git
+
+= Find the last metanorma working version
+
+// https://github.com/metanorma/metanorma-ietf/issues
+from the docker GUI pull the metanorma/metanorma image
+compile the previous draft with the latest metanorma
+if it fails to compile try previous versions
+and open an issue to the metanorma team
+
+// update the file with the last good version
+$ echo <x.y.z> > last_metanorma_good_version.txt
+
+= Usage
+
+// edit source files if necessary 
 // then update fields: docnumber published-date revdate
 $ vim draft-intesigroup-dlts.adoc
 
