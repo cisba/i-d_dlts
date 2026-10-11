@@ -5,13 +5,30 @@ Install https://www.metanorma.org/install/[metanorma] using snap on Linux
 
 `$ sudo snap install metanorma`
 
+== Windows setup
+
+Install https://docs.docker.com/get-started/[docker]
+
+Install https://git-scm.com/install/windows[git]
+
+Note: bash and vim are in boundle with git setup
+
 == Find the last metanorma working version
 
 Compile the previous draft with the latest metanorma (following instructions below).
 If it fails to compile try previous versions and https://github.com/metanorma/metanorma-ietf/issues[open an issue]
 to the metanorma team
 
+=== Windows Docker Metanorma Version Management
+
+From the docker GUI pull the metanorma/metanorma image,
+then compile the previous draft with the latest metanorma
+following the instructions in the next "Usage" section
+
+=== Linux Snap  Metanorma Version Management
+
 Update metanorma release and test if iw works or fails
+following the instructions in the next "Usage" section
 
 ```
 $ sudo snap refresh metanorma
@@ -30,6 +47,9 @@ $ snap saved metanorma
 $ snap forget <id> metanorma
 $ snap info metanorma > snap-info-metanorma.txt
 ```
+
+=== Save Last Metanorma Good Version
+
 Update the file with the last good version
 
 `$ echo <x.y.z> > last_metanorma_good_version.txt`
@@ -40,9 +60,13 @@ Edit source files as necessary, usually updating at least fields: docnumber publ
 
 `$ vim draft-intesigroup-dlts.adoc`
 
-Generate new draft version
+To generate new draft version on Linux, open a bash shell in the project folder and run the command:
 
 `$ metanorma  draft-intesigroup-dlts.adoc`
+
+To generate a new draft version on Windows, open a PowerShell in the project folder and run the command:
+
+`PS> docker run --rm -v "${PWD}:/metanorma" -w /metanorma metanorma/metanorma:1.15.3 metanorma draft-intesigroup-dlts.adoc`
 
 Check the result
 
@@ -60,9 +84,12 @@ $ git commit -a
 $ git push
 ```
 
-== Upload and track
+== Upload the draft and track it
 
 Submit draft-intesigroup-dlts.rfc.xml https://datatracker.ietf.org/submit/[here]
 
 Track progress https://datatracker.ietf.org/doc/draft-intesigroup-dlts/[here]
+
+
+
 
