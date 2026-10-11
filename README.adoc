@@ -20,6 +20,7 @@ If it fails to compile try previous versions and https://github.com/metanorma/me
 to the metanorma team
 
 Previous issues:
+
 - https://github.com/metanorma/metanorma-ietf/issues/215[Metanorma update from 1.10.1 to 1.11.1 fails compiling I-D]
 - https://github.com/metanorma/metanorma-ietf/issues/247[Metanorma fails to compile after upgrade from 1.11.3 to 1.14.3]
 - https://github.com/metanorma/metanorma-ietf/issues/318[Bibliography issue after upgrade from 1.14.4 to latest (1.17.0)]
@@ -72,6 +73,8 @@ To generate new draft version on Linux, open a bash shell in the project folder 
 To generate a new draft version on Windows, open a PowerShell in the project folder and run the command:
 
 `PS> docker run --rm -v "${PWD}:/metanorma" -w /metanorma metanorma/metanorma:1.15.3 metanorma draft-intesigroup-dlts.adoc`
+
+Note: replace 1.15.3 with the metanorma version you installed and decided to use
 
 Check the result
 
