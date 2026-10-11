@@ -1,32 +1,41 @@
-= Windows setup
 
-// https://docs.docker.com/get-started/
-// https://git-scm.com/install/windows
-// bash and vim are in boundle with git setup
-install docker and git
+== Windows setup
 
-= Find the last metanorma working version
+- Install https://docs.docker.com/get-started/[docker]
+- Install https://git-scm.com/install/windows[git]
+
+Note: bash and vim are in boundle with git setup
+
+== Find the last metanorma working version
 
 // https://github.com/metanorma/metanorma-ietf/issues
-from the docker GUI pull the metanorma/metanorma image
+From the docker GUI pull the metanorma/metanorma image
 compile the previous draft with the latest metanorma
-if it fails to compile try previous versions
-and open an issue to the metanorma team
+following the instructions in the next "Usage" section
 
-// update the file with the last good version
-$ echo <x.y.z> > last_metanorma_good_version.txt
+If it fails to compile try previous metanorma versions
+and https://github.com/metanorma/metanorma-ietf/issues[open an issue]
+to the metanorma team
 
-= Usage
+Finally, update the file with the last metanorma good version
 
-// edit source files if necessary 
-// then update fields: docnumber published-date revdate
-$ vim draft-intesigroup-dlts.adoc
+`$ echo <x.y.z> > last_metanorma_good_version.txt`
 
-// to generate a new draft version open a PowerShell 
-// in the project folder and run the command:
-PS> docker run --rm -v "${PWD}:/metanorma" -w /metanorma metanorma/metanorma:1.15.3 metanorma draft-intesigroup-dlts.adoc
 
-// check result
+== Usage
+
+Edit the source files as necessary, usually updating at least fields: docnumber published-date revdate
+
+`$ vim draft-intesigroup-dlts.adoc`
+
+To generate a new draft version open a PowerShell in the project folder and run the command
+
+`PS> docker run --rm -v "${PWD}:/metanorma" -w /metanorma metanorma/metanorma:1.15.3 metanorma draft-intesigroup-dlts.adoc`
+
+Check the result
+
+```
 $ git diff draft-intesigroup-dlts.txt
-$ diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+$ diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt|less -S
+```
 

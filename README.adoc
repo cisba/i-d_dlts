@@ -1,59 +1,68 @@
 
-= Setup
+== Linux Setup
 
-// see https://www.metanorma.org/install/
-$ sudo snap install metanorma
+Install https://www.metanorma.org/install/[metanorma] using snap on Linux
 
-= Find the last metanorma working version
+`$ sudo snap install metanorma`
 
-// https://github.com/metanorma/metanorma-ietf/issues
-from the docker GUI pull the metanorma/metanorma image
-compile the previous draft with the latest metanorma
-if it fails to compile try previous versions
-and open an issue to the metanorma team
+== Find the last metanorma working version
 
-// update metanorma release and test if iw works or fails
+Compile the previous draft with the latest metanorma (following instructions below).
+If it fails to compile try previous versions and https://github.com/metanorma/metanorma-ietf/issues[open an issue]
+to the metanorma team
+
+Update metanorma release and test if iw works or fails
+
+```
 $ sudo snap refresh metanorma
 $ metanorma draft-intesigroup-dlts.adoc	
+```
 
-// if new version fails revert to previous version 
-// and skip next section
-$ sudo snap revert metanorma
+If new version fails revert to previous version and skip next section
 
-// if it works fine save it and remove old snapshot
+`$ sudo snap revert metanorma`
+
+If it works fine save it and remove old snapshot
+
+```
 $ sudo snap save metanorma
 $ snap saved metanorma
 $ snap forget <id> metanorma
 $ snap info metanorma > snap-info-metanorma.txt
+```
+Update the file with the last good version
 
-// update the file with the last good version
-$ echo <x.y.z> > last_metanorma_good_version.txt
+`$ echo <x.y.z> > last_metanorma_good_version.txt`
 
-= Usage
+== Usage
 
-// edit source files if necessary
-// then update fields: docnumber published-date revdate
-$ vim draft-intesigroup-dlts.adoc	
+Edit source files as necessary, usually updating at least fields: docnumber published-date revdate
 
-// generate new draft version
-$ metanorma  draft-intesigroup-dlts.adoc	
+`$ vim draft-intesigroup-dlts.adoc`
 
-// check result
+Generate new draft version
+
+`$ metanorma  draft-intesigroup-dlts.adoc`
+
+Check the result
+
+```
 $ git diff draft-intesigroup-dlts.txt
 $ diff -W 152 -y history/draft-intesigroup-dlts-<last-ver>.txt draft-intesigroup-dlts.txt |less -S
+```
 
-// save, commit and push
+Save, commit and push
+
+```
 $ cp draft-intesigroup-dlts.txt history/draft-intesigroup-dlts-<this-ver>.txt 
 $ git add history/draft-intesigroup-dlts-<this-ver>.txt 
 $ git commit -a
 $ git push
+```
 
+== Upload and track
 
-= Upload and track
+Submit draft-intesigroup-dlts.rfc.xml https://datatracker.ietf.org/submit/[here]
 
-// submit draft-intesigroup-dlts.rfc.xml here
-[submit](https://datatracker.ietf.org/submit/)
-
-// track progress here
-[track](https://datatracker.ietf.org/doc/draft-intesigroup-dlts/)
+Track progress https://datatracker.ietf.org/doc/draft-intesigroup-dlts/[here]
 
