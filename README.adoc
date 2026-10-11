@@ -19,6 +19,11 @@ Compile the previous draft with the latest metanorma (following instructions bel
 If it fails to compile try previous versions and https://github.com/metanorma/metanorma-ietf/issues[open an issue]
 to the metanorma team
 
+Previous issues:
+- https://github.com/metanorma/metanorma-ietf/issues/215[Metanorma update from 1.10.1 to 1.11.1 fails compiling I-D]
+- https://github.com/metanorma/metanorma-ietf/issues/247[Metanorma fails to compile after upgrade from 1.11.3 to 1.14.3]
+- https://github.com/metanorma/metanorma-ietf/issues/318[Bibliography issue after upgrade from 1.14.4 to latest (1.17.0)]
+
 === Windows Docker Metanorma Version Management
 
 From the docker GUI pull the metanorma/metanorma image,
